@@ -1,8 +1,6 @@
 ---
 title: About me
 ---
-# About Me
-
 Hello! I'm a passionate learner and creator who enjoys sharing knowledge and ideas through this digital garden.
 
 ## Background

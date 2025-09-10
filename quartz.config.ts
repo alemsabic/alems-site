@@ -8,7 +8,7 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "My Digital Garden",
+    pageTitle: "ale.ms",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
