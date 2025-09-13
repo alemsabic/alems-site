@@ -23,8 +23,8 @@ const config: QuartzConfig = {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Geist",
-        body: "Geist Mono",
+        header: "PT Sans Narrow",
+        body: "PT Sans",
         code: "Geist Mono",
       },
       colors: {
