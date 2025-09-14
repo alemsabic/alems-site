@@ -13,10 +13,6 @@
   padding-left: 0px !important;
 }
 
-// Page title font size
-.page-title {
-  font-size: 1rem !important;
-}
 
 // Backlinks component bottom margin
 .backlinks {
@@ -25,6 +21,48 @@
 
 // Page max width
 .page {
-  max-width: 980px !important;
+  max-width: 1180px !important;
+}
+
+// Headers uppercase and font-weight
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase !important;
+  font-weight: 500 !important;
+}
+
+// Footer links uppercase
+footer a {
+  text-transform: uppercase !important;
+}
+
+// Normalize all links to font-weight 400
+a {
+  font-weight: 400 !important;
+}
+
+// Font smoothing for dark theme
+[saved-theme="dark"] {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Noise texture overlay - light theme
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/static/noise.png");
+  background-repeat: repeat;
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+// Noise texture overlay - dark theme
+[saved-theme="dark"] body::before {
+  opacity: 0.5;
 }
 
