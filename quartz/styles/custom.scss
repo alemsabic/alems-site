@@ -50,6 +50,13 @@
 h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase !important;
   font-weight: 500 !important;
+  color: var(--bodyText) !important;
+}
+
+// Page title and breadcrumb links same color as body text
+.page-title a,
+.breadcrumb-container a {
+  color: var(--bodyText) !important;
 }
 
 // Additional margin for h2 and h3 within content
