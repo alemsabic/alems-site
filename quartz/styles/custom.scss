@@ -24,10 +24,41 @@
   max-width: 1180px !important;
 }
 
+// Breadcrumb container margin
+.breadcrumb-container {
+  margin-top: 1.5rem !important;
+}
+
+// Article title additional margin
+.article-title {
+  margin-top: 4rem !important;
+}
+
+// Content meta font size
+.content-meta {
+  font-size: 0.9rem !important;
+}
+
+// Page title mobile font size
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 1.25rem !important;
+  }
+}
+
 // Headers uppercase and font-weight
 h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase !important;
   font-weight: 500 !important;
+}
+
+// Additional margin for h2 and h3 within content
+.popover-hint h2, .article h2, article h2 {
+  margin-top: 3.9rem !important;
+}
+
+.popover-hint h3, .article h3, article h3 {
+  margin-top: 3.9rem !important;
 }
 
 // Footer links uppercase
@@ -56,13 +87,12 @@ body::before {
   height: 100vh;
   background-image: url("/static/noise.png");
   background-repeat: repeat;
-  opacity: 0.9;
   pointer-events: none;
   z-index: 9999;
 }
 
 // Noise texture overlay - dark theme
 [saved-theme="dark"] body::before {
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
