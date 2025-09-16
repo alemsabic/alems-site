@@ -34,9 +34,10 @@
   margin-top: 4rem !important;
 }
 
-// Content meta font size
+// Content meta font size and color
 .content-meta {
   font-size: 0.9rem !important;
+  color: var(--gray) !important;
 }
 
 // Page title mobile font size
@@ -68,9 +69,10 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 3.9rem !important;
 }
 
-// Footer links uppercase
+// Footer links uppercase and font size
 footer a {
   text-transform: uppercase !important;
+  font-size: 0.9rem !important;
 }
 
 // Normalize all links to font-weight 400
@@ -101,5 +103,69 @@ body::before {
 // Noise texture overlay - dark theme
 [saved-theme="dark"] body::before {
   opacity: 0.7;
+}
+
+// Light theme body background - lined paper effect
+[saved-theme="light"] body {
+  background-image: linear-gradient(90deg, transparent 79px, #abced4 79px, #a8a8a8 79px, transparent 81px), linear-gradient(#ddd .05em, transparent .05em);
+  background-size: 100% 1.2em;
+}
+
+// Graph outer container dashed border and background
+.graph > .graph-outer {
+  border: 1px dashed var(--gray) !important;
+  background-color: var(--light) !important;
+}
+
+// Small graph container noise overlay
+.graph > .graph-outer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/static/noise.png");
+  background-repeat: repeat;
+  pointer-events: none;
+  z-index: 1;
+}
+
+// Dark theme opacity for small graph noise
+[saved-theme="dark"] .graph > .graph-outer::before {
+  opacity: 0.7;
+}
+
+// Global graph container noise overlay
+.global-graph-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/static/noise.png");
+  background-repeat: repeat;
+  pointer-events: none;
+  z-index: 1;
+}
+
+// Dark theme opacity for global graph noise
+[saved-theme="dark"] .global-graph-container::before {
+  opacity: 0.7;
+}
+
+// List markers color
+ul ::marker,
+ol ::marker {
+  color: var(--gray) !important;
+}
+
+// HR element dashed line styling
+hr {
+  border: none !important;
+  border-top: 1px dashed var(--gray) !important;
+  margin: 2rem 0 !important;
+  background: none !important;
 }
 
