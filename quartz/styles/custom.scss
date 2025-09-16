@@ -169,3 +169,19 @@ hr {
   background: none !important;
 }
 
+// Mobile sticky header with transparent background
+@media (max-width: 800px) {
+  .page #quartz-body .sidebar.left:has(.explorer) {
+    background-color: rgba(250, 248, 248, 0.5) !important;
+  }
+
+  [saved-theme="dark"] .page #quartz-body .sidebar.left:has(.explorer) {
+    background-color: rgba(22, 22, 24, 0.5) !important;
+  }
+}
+
+// Add margin to flex-component in popover previews for better spacing
+.popover .popover-inner .flex-component {
+  margin-top: 1rem !important;
+}
+
