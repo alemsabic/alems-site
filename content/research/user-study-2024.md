@@ -1,4 +1,6 @@
-# User Research Study 2024
+---
+title: User Research Study 2024
+---
 
 Comprehensive analysis of user behavior and preferences for the upcoming redesign.
 

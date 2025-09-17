@@ -1,4 +1,6 @@
-# Travel Adventures & Memories
+---
+title: Travel Adventures & Memories
+---
 
 Collection of travel experiences, tips, and photo memories.
 
@@ -13,9 +15,9 @@ Collection of travel experiences, tips, and photo memories.
 - **Food goals**: Authentic paella, tapas tour
 
 #### Packing List
-- [ ] Comfortable walking shoes
-- [ ] Portable charger
-- [ ] Spanish phrasebook
+- [x] Comfortable walking shoes
+- [x] Portable charger
+- [x] Spanish phrasebook
 - [ ] Camera with extra batteries
 
 ---

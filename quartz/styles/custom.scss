@@ -61,11 +61,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 // Additional margin for h2 and h3 within content
-.popover-hint h2, .article h2, article h2 {
+article h2 {
   margin-top: 3.9rem !important;
 }
 
-.popover-hint h3, .article h3, article h3 {
+article h3 {
   margin-top: 3.9rem !important;
 }
 
@@ -102,7 +102,7 @@ body::before {
 
 // Noise texture overlay - dark theme
 [saved-theme="dark"] body::before {
-  opacity: 0.7;
+  opacity: 0.9;
 }
 
 // Light theme body background - lined paper effect
@@ -183,5 +183,15 @@ hr {
 // Add margin to flex-component in popover previews for better spacing
 .popover .popover-inner .flex-component {
   margin-top: 1rem !important;
+}
+
+// Tag link font size
+a.internal.tag-link {
+  font-size: 0.9rem !important;
+}
+
+// Explorer folder list darker styling
+.explorer-content .folder-outer > ul {
+  background-color: var(--gray) !important;
 }
 

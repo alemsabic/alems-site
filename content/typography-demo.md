@@ -1,4 +1,6 @@
-# Typography & Text Formatting
+---
+title: Typography & Text Formatting
+---
 
 #design #typography #demo
 

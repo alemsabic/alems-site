@@ -1,4 +1,6 @@
-# Website Redesign Project
+---
+title: Website Redesign Project
+---
 
 Project timeline and documentation for the upcoming website overhaul.
 

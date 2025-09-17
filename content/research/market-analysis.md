@@ -1,4 +1,6 @@
-# Market Analysis Q1 2024
+---
+title: Market Analysis Q1 2024
+---
 
 Current market trends and competitive landscape analysis.
 

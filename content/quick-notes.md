@@ -1,4 +1,6 @@
-# Quick Notes & Ideas
+---
+title: Quick Notes & Ideas
+---
 
 Random thoughts and quick captures for later development.
 

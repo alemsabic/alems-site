@@ -1,4 +1,6 @@
-# Design System Guidelines
+---
+title: Design System Guidelines
+---
 
 Comprehensive guide for maintaining visual consistency across all platforms.
 

@@ -1,4 +1,6 @@
-# Book Reviews & Reading Notes
+---
+title: Book Reviews & Reading Notes
+---
 
 Personal thoughts and key takeaways from recent reads.
 
