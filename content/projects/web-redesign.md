@@ -63,8 +63,8 @@ Project timeline and documentation for the upcoming website overhaul.
 
 ## Resources
 
-- [Design System Documentation](./design-system.md)
+- [Design System Documentation](design-system.md)
 - [Technical Specifications](./tech-specs.md)
-- [User Research Findings](../research/user-study-2024.md)
+- [User Research Findings](user-study-2024.md)
 
 #ui-ux #development
