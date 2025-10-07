@@ -50,6 +50,12 @@
   gap: 0 !important;
 }
 
+// Profile image sizing
+.profile-image {
+  width: 220px !important;
+  height: 220px !important;
+}
+
 // Profile image dark mode styling
 [saved-theme="dark"] .profile-image {
   background: #a9a9a9 !important;
@@ -209,9 +215,10 @@ hr {
   margin-top: 1rem !important;
 }
 
-// Tag link font size
+// Tag link font size and padding
 a.internal.tag-link {
-  font-size: 0.9rem !important;
+  font-size: 0.85rem !important;
+  padding: 0.2rem 0.3rem !important;
 }
 
 // Explorer folder left border with darker styling
