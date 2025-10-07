@@ -47,6 +47,16 @@
   }
 }
 
+// Tagline styling
+.tagline {
+  margin-top: 0.5rem !important;
+  color: #158119 !important;
+}
+
+[saved-theme="dark"] .tagline {
+  color: #2c9acb !important;
+}
+
 // Headers uppercase and font-weight
 h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase !important;
@@ -193,5 +203,32 @@ a.internal.tag-link {
 // Explorer folder left border with darker styling
 .explorer-content .folder-outer > ul {
   border-left: 1px solid var(--gray) !important;
+}
+
+// Folder container font size
+.folder-container div > a {
+  font-size: 0.85rem !important;
+}
+
+// Explorer content links font size and hover effect
+.explorer-content ul li > a {
+  font-size: 0.85rem !important;
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
+}
+
+.explorer-content ul li > a:hover {
+  opacity: 1 !important;
+}
+
+// Explorer spacing between lists and items
+.explorer-content ul {
+  margin-top: 0.15rem !important;
+  margin-bottom: 0.15rem !important;
+}
+
+.explorer-content ul li {
+  margin-top: 0.15rem !important;
+  margin-bottom: 0.15rem !important;
 }
 
