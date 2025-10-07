@@ -33,7 +33,7 @@ export const defaultContentPageLayout: PageLayout = {
   ],
   left: [
     Component.PageTitle(),
-    Component.MobileOnly(Component.Spacer()),
+    Component.Tagline(),
     Component.Explorer(),
   ],
   right: [
@@ -63,7 +63,7 @@ export const defaultListPageLayout: PageLayout = {
   ],
   left: [
     Component.PageTitle(),
-    Component.MobileOnly(Component.Spacer()),
+    Component.Tagline(),
     Component.Explorer(),
   ],
   right: [],
