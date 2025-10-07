@@ -10,6 +10,7 @@ import PageTitle from "./PageTitle"
 import ContentMeta from "./ContentMeta"
 import Spacer from "./Spacer"
 import Tagline from "./Tagline"
+import ProfileImage from "./ProfileImage"
 import TableOfContents from "./TableOfContents"
 import Explorer from "./Explorer"
 import TagList from "./TagList"
@@ -37,6 +38,7 @@ export {
   ContentMeta,
   Spacer,
   Tagline,
+  ProfileImage,
   TableOfContents,
   Explorer,
   TagList,

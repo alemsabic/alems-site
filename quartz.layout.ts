@@ -32,6 +32,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.TagList(),
   ],
   left: [
+    Component.ProfileImage(),
     Component.PageTitle(),
     Component.Tagline(),
     Component.Explorer(),
@@ -62,6 +63,7 @@ export const defaultListPageLayout: PageLayout = {
     Component.ContentMeta(),
   ],
   left: [
+    Component.ProfileImage(),
     Component.PageTitle(),
     Component.Tagline(),
     Component.Explorer(),

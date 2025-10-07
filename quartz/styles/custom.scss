@@ -40,21 +40,25 @@
   color: var(--gray) !important;
 }
 
-// Page title mobile font size
-@media (max-width: 768px) {
-  .page-title {
-    font-size: 1.25rem !important;
-  }
+// Page title font size
+.page-title {
+  font-size: 1.25rem !important;
+}
+
+// Remove gap from sidebar, manage spacing per component
+.page > #quartz-body .sidebar {
+  gap: 0 !important;
+}
+
+// Profile image dark mode styling
+[saved-theme="dark"] .profile-image {
+  background: #b60c0c !important;
 }
 
 // Tagline styling
 .tagline {
-  margin-top: 0.5rem !important;
-  color: #158119 !important;
-}
-
-[saved-theme="dark"] .tagline {
-  color: #2c9acb !important;
+  margin-top: 0.25rem !important;
+  margin-bottom: 2.5rem !important;
 }
 
 // Headers uppercase and font-weight
@@ -205,9 +209,27 @@ a.internal.tag-link {
   border-left: 1px solid var(--gray) !important;
 }
 
-// Folder container font size
+// Folder container font size and styling
 .folder-container div > a {
   font-size: 0.85rem !important;
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
+  color: var(--dark) !important;
+}
+
+.folder-container div > a:hover {
+  opacity: 1 !important;
+}
+
+// Folder icon styling
+.folder-icon {
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
+  color: var(--dark) !important;
+}
+
+.folder-container div > a:hover .folder-icon {
+  opacity: 1 !important;
 }
 
 // Explorer content links font size and hover effect
@@ -215,6 +237,7 @@ a.internal.tag-link {
   font-size: 0.85rem !important;
   opacity: 0.75;
   transition: opacity 0.2s ease;
+  color: var(--dark) !important;
 }
 
 .explorer-content ul li > a:hover {
