@@ -52,7 +52,7 @@
 
 // Profile image dark mode styling
 [saved-theme="dark"] .profile-image {
-  background: #b60c0c !important;
+  background: #a9a9a9 !important;
 }
 
 // Tagline styling
@@ -98,6 +98,16 @@ a {
 [saved-theme="dark"] {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+// Top shadow effect - creates illusion of content continuing under browser bar
+body {
+  box-shadow: inset 0 20px 40px -10px rgba(0, 0, 0, 0.6);
+}
+
+// Dark theme - lighter shadow for contrast
+[saved-theme="dark"] body {
+  box-shadow: inset 0 20px 40px -10px rgba(255, 255, 255, 0.15);
 }
 
 // Noise texture overlay - light theme
@@ -253,5 +263,29 @@ a.internal.tag-link {
 .explorer-content ul li {
   margin-top: 0.15rem !important;
   margin-bottom: 0.15rem !important;
+}
+
+// ScrollBar
+::-webkit-scrollbar {
+  width: 9px;
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: #d65d0e;
 }
 
