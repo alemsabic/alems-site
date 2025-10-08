@@ -263,6 +263,21 @@ a.internal.tag-link {
   margin-bottom: 0.15rem !important;
 }
 
+// Table of Contents links font size
+.toc ul li a {
+  font-size: 0.85rem !important;
+}
+
+// Increase gap between center and sidebars
+
+@media (min-width: 1200px) {
+  .page>#quartz-body {
+    grid-template: "grid-sidebar-left grid-header grid-sidebar-right""grid-sidebar-left grid-center grid-sidebar-right""grid-sidebar-left grid-footer grid-sidebar-right"/320px auto 320px;
+    gap: 50px;
+    display: grid
+  }
+}
+
 // ScrollBar
 ::-webkit-scrollbar {
   width: 9px;
