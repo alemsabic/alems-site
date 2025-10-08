@@ -50,26 +50,26 @@
   gap: 0 !important;
 }
 
-// Profile image sizing
-.profile-image {
-  width: 220px !important;
-  height: 220px !important;
-}
+// Profile image sizing - REMOVED (uncomment to restore)
+// .profile-image {
+//   width: 180px !important;
+//   height: 180px !important;
+// }
 
-// Profile image dark mode styling
-[saved-theme="dark"] .profile-image {
-  background: #a9a9a9 !important;
-}
+// Profile image dark mode styling - REMOVED (uncomment to restore)
+// [saved-theme="dark"] .profile-image {
+//   background: #a9a9a9 !important;
+// }
 
 // Tagline styling
 .tagline {
   margin-top: 0.25rem !important;
   margin-bottom: 2.5rem !important;
+  color: #8877a5 !important;
 }
 
-// Headers uppercase and font-weight
+// Headers font-weight and color
 h1, h2, h3, h4, h5, h6 {
-  text-transform: uppercase !important;
   font-weight: 500 !important;
   color: var(--bodyText) !important;
 }
@@ -106,15 +106,6 @@ a {
   -moz-osx-font-smoothing: grayscale;
 }
 
-// Top shadow effect - creates illusion of content continuing under browser bar
-body {
-  box-shadow: inset 0 20px 40px -10px rgba(0, 0, 0, 0.6);
-}
-
-// Dark theme - lighter shadow for contrast
-[saved-theme="dark"] body {
-  box-shadow: inset 0 20px 40px -10px rgba(255, 255, 255, 0.15);
-}
 
 // Noise texture overlay - light theme
 body::before {
@@ -132,7 +123,7 @@ body::before {
 
 // Noise texture overlay - dark theme
 [saved-theme="dark"] body::before {
-  opacity: 0.9;
+  opacity: 0.5;
 }
 
 // Light theme body background - lined paper effect
