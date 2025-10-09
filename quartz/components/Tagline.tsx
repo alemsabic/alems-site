@@ -4,7 +4,7 @@ import { classNames } from "../util/lang"
 const Tagline: QuartzComponent = ({ displayClass }: QuartzComponentProps) => {
   return (
     <div class={classNames(displayClass, "tagline", "desktop-only")}>
-      Kursnotizen: Künstliche Intelligenz.
+      Füge Deiner Intelligenz eine Intelligenz hinzu.
     </div>
   )
 }

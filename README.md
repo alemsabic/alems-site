@@ -1,152 +1,150 @@
-# ale.ms - Quartz Digital Garden
+# alems-site
 
-> **Presentation layer for [ale.ms](https://ale.ms)** - Static site generator using Quartz v4.5.1
+> **Präsentationsschicht für [ale.ms](https://ale.ms)** - Static Site Generator mit Quartz v4.5.1
 
 🌐 **Live Site**: [ale.ms](https://ale.ms)
 
-## 🎯 About This Repository
+## 🎯 Über dieses Repository
 
-This repository contains the **presentation layer** (Quartz static site generator) for the ale.ms digital garden.
+Dieses Repository enthält die **Präsentationsschicht** (Quartz Static Site Generator) für den ale.ms Zettelkasten.
 
-### Two-Repository Architecture:
+### Zwei-Repository-Architektur:
 
-1. **Quartz Repository** (this repo): Design, layout, configuration
-   - https://github.com/alemsabic/notizen
-2. **Content Repository**: Markdown content, managed separately
-   - https://github.com/alemsabic/Dein-Kopf.-Dein-Projekt.-Deine-KI.
+1. **alems-site** (dieses Repo): Design, Layout, Konfiguration
+   - https://github.com/alemsabic/alems-site
+2. **alems-zk**: Zettelkasten-Inhalte (Markdown), separat verwaltet
+   - https://github.com/alemsabic/alems-zk
 
-**Content auto-syncs** from the content repository via GitHub Actions.
+**Inhalte synchronisieren automatisch** vom Zettelkasten-Repository via GitHub Actions.
 
 ## 🚀 Quick Start
 
-### For Operators
+### Für Betreiber
 
-**Complete operator manual**: See [`OPERATOR.md`](./OPERATOR.md) for all essential commands and workflows.
+**Vollständiges Handbuch**: Siehe [`OPERATOR.md`](./OPERATOR.md) für alle Kommandos und Workflows.
 
-**Quick commands**:
+**Schnellbefehle**:
 
 ```bash
-# Start local development server
+# Lokalen Dev-Server starten
 npx quartz build --serve
 # → http://localhost:8080
 
-# Build for production
+# Production Build
 npx quartz build
 
-# Type check
+# Type-Check
 npm run check
 ```
 
-### For Content Editors
+### Für Content-Editoren
 
-⚠️ **Content is NOT edited in this repository!**
+⚠️ **Inhalte werden NICHT in diesem Repository bearbeitet!**
 
-Edit content in the separate content repository:
-- Repository: https://github.com/alemsabic/Dein-Kopf.-Dein-Projekt.-Deine-KI.
-- See content repo README for instructions
+Inhalte werden im separaten Zettelkasten-Repository bearbeitet:
+- Repository: https://github.com/alemsabic/alems-zk
+- Siehe README im Zettelkasten-Repo für Anleitungen
 
-## 📁 Project Structure
+## 📁 Projektstruktur
 
 ```
-quartz/
-├── content/              # ⚠️ AUTO-SYNCED - DO NOT EDIT
-│   └── README.md        # Explains auto-sync
+alems-site/
+├── content/              # ⚠️ AUTO-SYNC - NICHT EDITIEREN
+│   └── README.md        # Erklärt Auto-Sync
 ├── quartz/
-│   ├── components/       # UI components (incl. custom Tagline)
-│   ├── styles/          # SCSS styling
-│   │   └── custom.scss  # Custom overrides
+│   ├── components/       # UI-Komponenten (inkl. custom Tagline)
+│   ├── styles/          # SCSS-Styling
+│   │   └── custom.scss  # Custom Overrides
 │   └── ...
-├── quartz.config.ts     # Site configuration
-├── quartz.layout.ts     # Component layout
-├── OPERATOR.md          # Complete operator manual
-├── CLAUDE.md            # AI assistant context
-└── README.md            # This file
+├── quartz.config.ts     # Site-Konfiguration
+├── quartz.layout.ts     # Komponenten-Layout
+├── OPERATOR.md          # Vollständiges Betreiber-Handbuch
+├── CLAUDE.md            # KI-Assistent-Kontext
+└── README.md            # Diese Datei
 ```
 
-## ⚙️ Configuration
+## ⚙️ Konfiguration
 
-- **Site Title**: "ale.ms"
-- **Tagline**: "Kursnotizen: Künstliche Intelligenz"
-- **Typography**: JetBrains Mono (all text)
-- **Theme**: Custom with noise texture + lined paper effect
-- **Layout**: Custom grid (320px sidebars, 50px gap)
+- **Site Title**: "ale.ms KI"
+- **Tagline**: "Füge Deiner Intelligenz eine Intelligenz hinzu."
+- **Typographie**: JetBrains Mono (gesamter Text)
+- **Theme**: Custom mit Noise-Textur + liniertem Papier-Effekt
+- **Layout**: Custom Grid (320px Sidebars, 50px Gap)
 
-## 🔄 Deployment Pipeline
+## 🔄 Deployment-Pipeline
 
 ```
-Content Repo (push)
+Zettelkasten-Repo (push)
   → GitHub Action
-    → Syncs to this repo's /content folder
-      → Cloudflare Pages builds
-        → Deploys to ale.ms (1-2 min)
+    → Sync zu diesem Repo's /content Ordner
+      → Cloudflare Pages Build
+        → Deploy zu ale.ms (1-2 Min)
 ```
 
-OR
+ODER
 
 ```
-Quartz Repo (push design changes)
-  → Cloudflare Pages builds
-    → Deploys to ale.ms (1-2 min)
+alems-site (push Design-Änderungen)
+  → Cloudflare Pages Build
+    → Deploy zu ale.ms (1-2 Min)
 ```
 
-## 🛠️ Technology Stack
+## 🛠️ Tech Stack
 
 - **Static Site Generator**: [Quartz v4.5.1](https://quartz.jzhao.xyz/)
-- **Styling**: SCSS with custom overrides
-- **Typography**: JetBrains Mono (Google Fonts)
+- **Styling**: SCSS mit Custom Overrides
+- **Typographie**: JetBrains Mono (Google Fonts)
 - **Deployment**: Cloudflare Pages
 - **Auto-Sync**: GitHub Actions
-- **Content Format**: Markdown with YAML frontmatter
+- **Content-Format**: Markdown mit YAML Frontmatter
 
-## 📚 Documentation
+## 📚 Dokumentation
 
-- **[OPERATOR.md](./OPERATOR.md)** - Complete operator manual (start here!)
-- **[CLAUDE.md](./CLAUDE.md)** - Context for AI assistants (Claude Code)
-- **[content/README.md](./content/README.md)** - Auto-sync explanation
-- **[Quartz Docs](https://quartz.jzhao.xyz/)** - Official Quartz documentation
+- **[OPERATOR.md](./OPERATOR.md)** - Vollständiges Betreiber-Handbuch (hier starten!)
+- **[CLAUDE.md](./CLAUDE.md)** - Kontext für KI-Assistenten (Claude Code)
+- **[content/README.md](./content/README.md)** - Auto-Sync-Erklärung
+- **[Quartz Docs](https://quartz.jzhao.xyz/)** - Offizielle Quartz-Dokumentation
 
-## 🎨 Customizations
+## 🎨 Anpassungen
 
-This project includes custom modifications to vanilla Quartz:
+Dieses Projekt enthält custom Modifikationen zum Vanilla Quartz:
 
-### Custom Components
-- **Tagline.tsx**: Custom tagline component
+### Custom Komponenten
+- **Tagline.tsx**: Custom Tagline-Komponente
 
 ### Styling Overrides
-- Noise texture overlay
-- Lined paper background (light theme)
-- Custom grid layout with 50px gap
-- Profile image removed
-- Custom scrollbar styling
-- Explorer and TOC font sizes reduced
-- Dark theme font smoothing
+- Noise-Textur-Overlay
+- Linierter Papier-Hintergrund (Light Theme)
+- Custom Grid-Layout mit 50px Gap
+- Profilbild entfernt
+- Custom Scrollbar-Styling
+- Explorer- und TOC-Schriftgrößen reduziert
+- Dark Theme Font Smoothing
 
-### Layout Changes
-- Search bar repositioned
-- Graph and Backlinks in footer
-- Right sidebar for TOC only
-- Custom spacing and margins
+### Layout-Änderungen
+- Suchleiste repositioniert
+- Graph und Backlinks im Footer
+- Rechte Sidebar nur für TOC
+- Custom Spacing und Margins
 
-See `CLAUDE.md` Session 7 for complete changelog.
+Siehe `CLAUDE.md` Session 7 für vollständigen Changelog.
 
-## 🔮 Future Plans
+## 🔮 Zukünftige Pläne
 
-- **Color Scheme**: Implement coding color scheme (Gruvbox/Nord/Tokyo Night)
-- **Content-Driven Features**: Add features as content needs emerge
-- See `CLAUDE.md` for detailed next steps
+- **Farbschema**: Implementierung eines Coding-Farbschemas (Gruvbox/Nord/Tokyo Night)
+- **Content-basierte Features**: Features hinzufügen, wenn Content-Bedarf entsteht
+- Siehe `CLAUDE.md` für detaillierte nächste Schritte
 
 ## 🙏 Credits
 
-Built with [Quartz](https://quartz.jzhao.xyz/) by [Jacky Zhao](https://jzhao.xyz/)
+Gebaut mit [Quartz](https://quartz.jzhao.xyz/) von [Jacky Zhao](https://jzhao.xyz/)
 
-> "[One] who works with the door open gets all kinds of interruptions, but [they] also occasionally gets clues as to what the world is and what might be important." — Richard Hamming
+## 📄 Lizenz
 
-## 📄 License
+Quartz ist unter der MIT-Lizenz lizenziert.
 
-Quartz is licensed under the MIT License.
-
-Custom modifications and content are personal.
+Custom Modifikationen und Inhalte sind persönlich.
 
 ---
 
-**Questions?** See [OPERATOR.md](./OPERATOR.md) or [CLAUDE.md](./CLAUDE.md)
+**Fragen?** Siehe [OPERATOR.md](./OPERATOR.md) oder [CLAUDE.md](./CLAUDE.md)

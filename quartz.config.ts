@@ -8,15 +8,15 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "ale.ms",
-    pageTitleSuffix: "",
+    pageTitle: "ale.ms KI",
+    pageTitleSuffix: "Jede Idee ein Projekt; jedes Projekt eine KI.",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
       provider: "plausible",
     },
-    locale: "en-US",
-    baseUrl: "localhost:8080",
+    locale: "de-DE",
+    baseUrl: "https://ale.ms",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "modified",
     theme: {

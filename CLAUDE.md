@@ -5,7 +5,7 @@
 This repository handles **PRESENTATION ONLY** (Quartz static site generator).
 
 **Content is managed separately**:
-- Content Repository: https://github.com/alemsabic/Dein-Kopf.-Dein-Projekt.-Deine-KI.
+- Content Repository (Zettelkasten): https://github.com/alemsabic/alems-zk
 - Auto-syncs to `content/` folder via GitHub Actions
 - **DO NOT edit files in `content/` directly** - changes will be overwritten!
 
@@ -16,8 +16,9 @@ This repository handles **PRESENTATION ONLY** (Quartz static site generator).
 - ❌ Content (managed in separate repo)
 
 ## Project Overview
+- **Name**: "alems-site"
 - **Type**: Static site generator using Quartz v4.5.1
-- **Purpose**: Presentation layer for digital garden/knowledge base
+- **Purpose**: Presentation layer for Zettelkasten (alems-zk)
 - **Local dev**: `npx quartz build --serve` (runs on http://localhost:8080)
 - **Live Site**: https://ale.ms
 
@@ -56,8 +57,9 @@ git add . && git commit -m "content: ..." && git push
 - `CLAUDE.md` - This file (Quartz-specific context)
 
 ## Current Configuration
-- **Page title**: "ale.ms"
-- **Tagline**: "Kursnotizen: Künstliche Intelligenz" (purple #8877a5)
+- **Page title**: "ale.ms KI"
+- **Page title suffix**: "Jede Idee ein Projekt; jedes Projekt eine KI."
+- **Tagline**: "Füge Deiner Intelligenz eine Intelligenz hinzu."
 - **Typography**: JetBrains Mono (all text)
 - **Base URL**: https://ale.ms
 - **Footer**: Custom with Alem Šabić link + X/Twitter
@@ -65,7 +67,7 @@ git add . && git commit -m "content: ..." && git push
 
 ## Deployment
 - **Platform**: Cloudflare Pages
-- **Repository**: https://github.com/alemsabic/notizen
+- **Repository**: https://github.com/alemsabic/alems-site
 - **Branch**: `v4`
 - **Build Command**: `npx quartz build`
 - **Output Directory**: `public`
@@ -83,14 +85,14 @@ git add . && git commit -m "content: ..." && git push
 ✅ **GitHub Repository Setup** (Session 2)
 - Installed GitHub CLI (`brew install gh`)
 - Authenticated with GitHub CLI (with workflow permissions)
-- Created repository: `alemsabic/notizen` - "static site generator for my markdown notes"
+- Created repository: `alemsabic/alems-site` - "Präsentationsschicht für ale.ms Zettelkasten"
 - Updated `.gitignore` to exclude `CLAUDE.md`, `.obsidian/`, `.claude/` (for Obsidian integration)
 - Changed git remote from original Quartz repo to personal repo
 - Set up SSH authentication for seamless git operations
 - Successfully pushed code to GitHub on `v4` branch
 
 ✅ **Cloudflare Pages Deployment**
-- Repository `alemsabic/notizen` connected to Cloudflare Pages
+- Repository `alemsabic/alems-site` connected to Cloudflare Pages
 - Build settings: `npx quartz build`, output: `public`, branch: `v4`
 - Auto-deployment on git push configured
 - Custom domain configured: `ale.ms`
@@ -109,14 +111,14 @@ git add . && git commit -m "content: ..." && git push
 
 ## Session 2 Summary (Sept 7, 2025)
 ✅ All technical infrastructure completed successfully
-- GitHub repository: `alemsabic/notizen` 
+- GitHub repository: `alemsabic/alems-site`
 - Live deployment: https://ale.ms (auto-deploys from `v4` branch)
 - SSH authentication configured (no more manual auth needed)
 - Content publishing workflow documented
 - Updated git remote URL to match renamed repository
 
 ## Current Deployment
-- **GitHub**: https://github.com/alemsabic/notizen
+- **GitHub**: https://github.com/alemsabic/alems-site
 - **Live Site**: https://ale.ms
 - **Cloudflare Pages**: Auto-deploys from `v4` branch
 
@@ -250,7 +252,7 @@ typography: {
 
 **Changes Made**:
 - **New Component**: Created custom `Tagline.tsx` component to display site description
-- **Text**: "Schulungsunterlagen" (currently)
+- **Text**: "Füge Deiner Intelligenz eine Intelligenz hinzu." (current)
 - **Responsive Behavior**:
   - Desktop/tablet (>768px): Block element below PageTitle with 0.5rem top margin
   - Mobile (≤768px): Inline element next to PageTitle with 0.5rem left margin
@@ -316,8 +318,8 @@ When merging upstream Quartz updates:
 - **Body shadow removed**: Eliminated inset box-shadow from body element (light & dark theme)
 - **Profile image removed**: Commented out ProfileImage component and CSS (easy restore)
 - **Tagline updated**:
-  - Text: "Kursnotizen: Künstliche Intelligenz"
-  - Color: `#8877a5` (purple accent)
+  - Text: "Füge Deiner Intelligenz eine Intelligenz hinzu." (current)
+  - Color: `var(--gray)` (responsive to theme)
 - **Typography**: Removed `text-transform: uppercase` from all headers (h1-h6)
 - **Noise effect**: Reduced dark theme opacity from 0.9 to 0.5 for subtler texture
 - **Table of Contents**: Font-size set to 0.85rem (matching Explorer links)
