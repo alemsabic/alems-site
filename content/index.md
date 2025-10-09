@@ -1,31 +1,81 @@
 ---
-title: Weit hinten, hinter den Wortbergen
+title: "Willkommen"
 ---
 
-Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans. Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien. 
+# Willkommen im Zettelkasten
 
-## Es ist ein paradiesmatisches Land
+> **Füge Deiner Intelligenz eine Intelligenz hinzu.**
 
-Es ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht – ein geradezu unorthographisches Leben. Eines Tages aber beschloß eine kleine Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik. 
+Dies ist ein öffentlicher Zettelkasten zum Lernen und Lehren von **Künstlicher Intelligenz** – erstellt *mit* KI, strukturiert nach der **Zettelkasten-Methode**.
 
-### Der große Oxmox riet ihr davon ab
+## Was ist das hier?
 
-Da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren. Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg. Als es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzten Blick zurück auf die Skyline seiner Heimatstadt Buchstabhausen, die Headline von Alphabetdorf und die Subline seiner eigenen Straße, der Zeilengasse. Wehmütig lief ihm eine rhetorische Frage über die Wange, dann setzte es seinen Weg fort. 
+Ein **Zettelkasten** ist ein System vernetzter Notizen. Entwickelt von Denkern wie Niklas Luhmann, ermöglicht es systematische Wissensentwicklung durch:
 
-Unterwegs traf es eine Copy. Die Copy warnte das Blindtextchen, da, wo sie herkäme wäre sie zigmal umgeschrieben worden und alles, was von ihrem Ursprung noch übrig wäre, sei das Wort "und" und das Blindtextchen solle umkehren und wieder in sein eigenes, sicheres Land zurückkehren. 
+- **Atomare Notizen** – eine Idee pro Zettel
+- **Verknüpfungen** – Zettel leben durch ihre Beziehungen
+- **Emergenz** – neue Einsichten entstehen aus dem Netzwerk
 
-## Doch alles Gutzureden
+Dieser Zettelkasten ist ein Experiment: **KI lernen mit KI.**
 
-Doch alles Gutzureden konnte es nicht überzeugen und so dauerte es nicht lange, bis ihm ein paar heimtückische Werbetexter auflauerten, es mit Longe und Parole betrunken machten und es dann in ihre Agentur schleppten, wo sie es für ihre Projekte wieder und wieder mißbrauchten. Und wenn es nicht umgeschrieben wurde, dann benutzen Sie es immernoch.Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans. 
+## Wo anfangen?
 
+### Neu hier? Start mit der Theorie
 
-Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien. Es ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht – ein geradezu unorthographisches Leben. Eines Tages aber beschloß eine kleine Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik. Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich
+→ [[_meta/index|Zettelkasten-Theorie & Methode]]
 
-## Test Update
+Verstehe die Prinzipien des Systems:
+- [[_meta/prinzipien|Grundprinzipien]]
+- [[_meta/workflow|Praktischer Workflow]]
+- [[_meta/mit-ki-arbeiten|Mit KI arbeiten]]
 
-This is a test to verify the auto-sync pipeline works correctly.
+### Die Pioniere
 
+Die Denker, die den Zettelkasten entwickelt haben:
+- [[_meta/pioniere/luhmann|Niklas Luhmann]] – Soziologe, 90.000 Zettel
+- [[_meta/pioniere/blumenberg|Hans Blumenberg]] – Philosoph, 30.000 Zettel
+- [[_meta/pioniere/schmidt|Arno Schmidt]] – Schriftsteller, 100.000+ Zettel
 
-## Final Test
+### KI-Themen (in Entwicklung)
 
-This should work now with the fixed workflow!
+→ `ki-grundlagen/` – Hier entstehen Notizen zu Künstlicher Intelligenz
+
+*Dieser Bereich wächst organisch mit der Zeit.*
+
+## Wie nutzen?
+
+**Für Lesende:**
+- Stöbere über die linke Seitenleiste (Explorer)
+- Folge Wikilinks `[[wie-diesem]]`
+- Nutze die Suche oben
+- Graph-Ansicht zeigt Zusammenhänge
+
+**Für Lernende:**
+- Diese Notizen sind öffentlich und frei nutzbar
+- Inspiration für eigene Zettelkasten
+- Siehe [[_meta/workflow|Workflow]] für Methodik
+
+## Philosophie
+
+> "Ohne zu schreiben, kann man nicht denken." – Niklas Luhmann
+
+Dieser Zettelkasten folgt Luhmanns Einsicht: Denken geschieht im Schreiben, im Verknüpfen, im Dialog mit dem eigenen Wissenssystem.
+
+Die Besonderheit hier: Der Denkpartner ist nicht nur der Zettelkasten, sondern auch **Claude** – eine KI. Lernen über KI, *mit* KI.
+
+---
+
+## Über ale.ms
+
+**Technologie:**
+- Geschrieben in [Obsidian](https://obsidian.md/)
+- Veröffentlicht mit [Quartz](https://quartz.jzhao.xyz/)
+- Quellcode: [github.com/alemsabic/alems-zk](https://github.com/alemsabic/alems-zk)
+
+**Kontakt:**
+- Website: [alemsabic.com](https://alemsabic.com)
+- X/Twitter: [@alemsabic](https://x.com/alemsabic)
+
+---
+
+**Jetzt starten:** [[_meta/index|Zettelkasten-Theorie entdecken →]]
