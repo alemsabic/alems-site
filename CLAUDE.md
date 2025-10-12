@@ -376,5 +376,83 @@ When merging upstream Quartz updates:
 
 ---
 
+## Session 8 Updates (Oct 12, 2025) - Typography & Color Planning
+
+### Typography Changes
+**Files Modified**: `quartz.config.ts`, `custom.scss`
+
+**Changes Made**:
+- **Font update**: Changed from JetBrains Mono to serif fonts
+  - **Headers**: Playfair Display (700 Bold)
+  - **Body**: Spectral
+  - **Code**: JetBrains Mono (maintained for code blocks)
+- **Font weights**: Adjusted heading weight from 500 to 700 for better prominence
+- **Page title link**: Added explicit `font-weight: 700` to `.page-title a` to match other headings
+- **Tagline color**: Changed from purple (`#8877a5`) to `var(--gray)` for better theme integration
+- **Lined paper effect**: Commented out light theme lined paper background (lines 129-133 in custom.scss) - easily restorable
+
+**Rationale**:
+- Serif fonts provide better readability for long-form content
+- Playfair Display adds elegant, distinctive character to headings
+- Spectral optimized for digital reading with modern proportions
+- Combination creates visual hierarchy while maintaining cohesion
+
+### Planned Color Scheme (NOT YET IMPLEMENTED)
+**Objective**: Bold, distinctive color palette
+
+**Background Colors (First Step)**:
+- **Dark Theme**: `#0e0126` (very dark purple/violet)
+- **Light Theme**: `#FFEB3B` (bright yellow)
+
+**⚠️ IMPORTANT - Full Implementation Required**:
+When implementing this color scheme, ALL color values in `quartz.config.ts` must be updated for consistency:
+
+```typescript
+// In quartz.config.ts - colors section
+lightMode: {
+  light: "#FFEB3B",      // Background - BRIGHT YELLOW
+  lightgray: "...",      // TBD - adjust for yellow background
+  gray: "...",           // TBD - adjust for yellow background
+  darkgray: "...",       // TBD - adjust for yellow background
+  dark: "...",           // TBD - adjust for yellow background
+  secondary: "...",      // Links - TBD
+  tertiary: "...",       // Tags - TBD
+  highlight: "...",      // TBD
+  textHighlight: "...",  // TBD
+}
+darkMode: {
+  light: "#0e0126",      // Background - DARK PURPLE
+  lightgray: "...",      // TBD - adjust for purple background
+  gray: "...",           // TBD - adjust for purple background
+  darkgray: "...",       // TBD - adjust for purple background
+  dark: "...",           // TBD - adjust for purple background
+  secondary: "...",      // Links - TBD
+  tertiary: "...",       // Tags - TBD
+  highlight: "...",      // TBD
+  textHighlight: "...",  // TBD
+}
+```
+
+**Elements Requiring Color Adjustment**:
+- Text colors (body text, headings)
+- Links (secondary)
+- Tags (tertiary)
+- Borders (lightgray, gray)
+- Highlights and accents
+- Graph and UI component colors
+- Search bar and sidebar elements
+- All interactive elements (hover states, active states)
+
+**Implementation Notes**:
+- This is a bold, distinctive palette - yellow/purple combination
+- Requires careful contrast testing for accessibility
+- All colors must harmonize with new backgrounds
+- Consider color blindness and readability
+- Test in both light and dark modes thoroughly
+
+**Current Status**: Planning phase - colors noted for future implementation
+
+---
+
 ## Future Sessions
 *Continue logging changes in this section*

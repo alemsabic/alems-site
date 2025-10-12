@@ -8,7 +8,7 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "ale.ms KI",
+    pageTitle: "ale.ms",
     pageTitleSuffix: "Jede Idee ein Projekt; jedes Projekt eine KI.",
     enableSPA: true,
     enablePopovers: true,
@@ -23,8 +23,8 @@ const config: QuartzConfig = {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "JetBrains Mono",
-        body: "JetBrains Mono",
+        header: "Playfair Display",
+        body: "Spectral",
         code: "JetBrains Mono",
       },
       colors: {

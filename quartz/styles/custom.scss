@@ -65,12 +65,12 @@
 .tagline {
   margin-top: 0.25rem !important;
   margin-bottom: 2.5rem !important;
-  color: #8877a5 !important;
+  color: var(--gray) !important;
 }
 
 // Headers font-weight and color
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 500 !important;
+  font-weight: 700 !important;
   color: var(--bodyText) !important;
 }
 
@@ -78,6 +78,11 @@ h1, h2, h3, h4, h5, h6 {
 .page-title a,
 .breadcrumb-container a {
   color: var(--bodyText) !important;
+}
+
+// Page title link font weight to match headings
+.page-title a {
+  font-weight: 700 !important;
 }
 
 // Additional margin for h2 and h3 within content
@@ -126,11 +131,11 @@ body::before {
   opacity: 0.5;
 }
 
-// Light theme body background - lined paper effect
-[saved-theme="light"] body {
-  background-image: linear-gradient(90deg, transparent 79px, #abced4 79px, #a8a8a8 79px, transparent 81px), linear-gradient(#ddd .05em, transparent .05em);
-  background-size: 100% 1.2em;
-}
+// Light theme body background - lined paper effect (COMMENTED OUT - uncomment to restore)
+// [saved-theme="light"] body {
+//   background-image: linear-gradient(90deg, transparent 79px, #abced4 79px, #a8a8a8 79px, transparent 81px), linear-gradient(#ddd .05em, transparent .05em);
+//   background-size: 100% 1.2em;
+// }
 
 // Graph outer container dashed border and background
 .graph > .graph-outer {
