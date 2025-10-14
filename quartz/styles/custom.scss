@@ -21,7 +21,7 @@
 
 // Page max width
 .page {
-  max-width: 1180px !important;
+  max-width: 1280px !important;
 }
 
 // Breadcrumb container margin
@@ -70,7 +70,7 @@
 
 // Headers font-weight and color
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 700 !important;
+  font-weight: 600 !important;
   color: var(--bodyText) !important;
 }
 
@@ -82,7 +82,7 @@ h1, h2, h3, h4, h5, h6 {
 
 // Page title link font weight to match headings
 .page-title a {
-  font-weight: 700 !important;
+  font-weight: 600 !important;
 }
 
 // Additional margin for h2 and h3 within content
@@ -278,7 +278,7 @@ a.internal.tag-link {
 @media (min-width: 1200px) {
   .page>#quartz-body {
     grid-template: "grid-sidebar-left grid-header grid-sidebar-right""grid-sidebar-left grid-center grid-sidebar-right""grid-sidebar-left grid-footer grid-sidebar-right"/320px auto 320px;
-    gap: 50px;
+    gap: 20px;
     display: grid
   }
 }
@@ -305,5 +305,23 @@ a.internal.tag-link {
 
 ::-webkit-scrollbar-thumb:active {
   background-color: #d65d0e;
+}
+
+// Override strong color - bold weight is sufficient emphasis (no color change needed)
+.page article p > strong {
+  color: inherit !important;
+}
+
+// Override explorer font - folder names and buttons should use body font, not header font
+.folder-container div > a,
+.folder-container div > button {
+  font-family: var(--bodyFont) !important;
+}
+
+// Remove background color and fixed line-height from internal links
+a.internal {
+  background-color: transparent;
+  padding: 0;
+  line-height: inherit;
 }
 
