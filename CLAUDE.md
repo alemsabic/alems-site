@@ -1,11 +1,11 @@
-# Claude Code Instructions - Quartz Repository
+# Claude Code Instructions - Quartz Repository (NE KONTAM)
 
 ## ⚠️ Important: Two-Repository Architecture
 
 This repository handles **PRESENTATION ONLY** (Quartz static site generator).
 
 **Content is managed separately**:
-- Content Repository (Zettelkasten): https://github.com/alemsabic/alems-zk
+- Content Repository: https://github.com/alemsabic/nekontam-zk
 - Auto-syncs to `content/` folder via GitHub Actions
 - **DO NOT edit files in `content/` directly** - changes will be overwritten!
 
@@ -16,11 +16,11 @@ This repository handles **PRESENTATION ONLY** (Quartz static site generator).
 - ❌ Content (managed in separate repo)
 
 ## Project Overview
-- **Name**: "alems-site"
+- **Name**: "nekontam-site"
 - **Type**: Static site generator using Quartz v4.5.1
-- **Purpose**: Presentation layer for Zettelkasten (alems-zk)
+- **Purpose**: Presentation layer for NE KONTAM - Rječnik sarajevskog žargona
 - **Local dev**: `npx quartz build --serve` (runs on http://localhost:8080)
-- **Live Site**: https://ale.ms
+- **Live Site**: https://nekontam.alemsabic.com
 
 ## Quick Start (Read This First!)
 
@@ -37,13 +37,13 @@ For complete operator manual, see: **`OPERATOR.md`**
 
 ```bash
 # Go to content repo (not this one!)
-cd /Users/alemsabic/Desktop/ale.ms/content-repo
+cd /Users/alemsabic/Desktop/Kognitives\ Exoskelett/NE\ KONTAM/content-repo
 
 # Edit markdown files
 # Commit & push
 git add . && git commit -m "content: ..." && git push
 
-# Auto-syncs to this repo → Deploys to ale.ms
+# Auto-syncs to this repo → Deploys to nekontam.alemsabic.com
 ```
 
 ## File Structure
@@ -57,21 +57,21 @@ git add . && git commit -m "content: ..." && git push
 - `CLAUDE.md` - This file (Quartz-specific context)
 
 ## Current Configuration
-- **Page title**: "ale.ms KI"
-- **Page title suffix**: "Jede Idee ein Projekt; jedes Projekt eine KI."
-- **Tagline**: "Füge Deiner Intelligenz eine Intelligenz hinzu."
-- **Typography**: JetBrains Mono (all text)
-- **Base URL**: https://ale.ms
+- **Page title**: "NE KONTAM"
+- **Page title suffix**: "Rječnik sarajevskog žargona"
+- **Tagline**: "Rječnik sarajevskog žargona"
+- **Typography**: Quicksand (headers), JetBrains Mono (body/code)
+- **Base URL**: https://nekontam.alemsabic.com
 - **Footer**: Custom with Alem Šabić link + X/Twitter
-- **Theme**: Custom Quartz with noise texture + lined paper effect
+- **Theme**: Custom Quartz with noise texture
 
 ## Deployment
 - **Platform**: Cloudflare Pages
-- **Repository**: https://github.com/alemsabic/alems-site
+- **Repository**: https://github.com/alemsabic/nekontam-site
 - **Branch**: `v4`
 - **Build Command**: `npx quartz build`
 - **Output Directory**: `public`
-- **Live URL**: https://ale.ms
+- **Live URL**: https://nekontam.alemsabic.com
 - **Deploy Time**: 1-2 minutes after push
 
 ## Completed Tasks
@@ -85,17 +85,17 @@ git add . && git commit -m "content: ..." && git push
 ✅ **GitHub Repository Setup** (Session 2)
 - Installed GitHub CLI (`brew install gh`)
 - Authenticated with GitHub CLI (with workflow permissions)
-- Created repository: `alemsabic/alems-site` - "Präsentationsschicht für ale.ms Zettelkasten"
+- Created repository: `alemsabic/nekontam-site` - "Präsentationsschicht für NE KONTAM"
 - Updated `.gitignore` to exclude `CLAUDE.md`, `.obsidian/`, `.claude/` (for Obsidian integration)
 - Changed git remote from original Quartz repo to personal repo
 - Set up SSH authentication for seamless git operations
 - Successfully pushed code to GitHub on `v4` branch
 
 ✅ **Cloudflare Pages Deployment**
-- Repository `alemsabic/alems-site` connected to Cloudflare Pages
+- Repository `alemsabic/nekontam-site` connected to Cloudflare Pages
 - Build settings: `npx quartz build`, output: `public`, branch: `v4`
 - Auto-deployment on git push configured
-- Custom domain configured: `ale.ms`
+- Custom domain configured: `nekontam.alemsabic.com`
 - Site successfully deployed and live
 
 ⏳ **Next Session Tasks** (Resume Here)
@@ -111,20 +111,20 @@ git add . && git commit -m "content: ..." && git push
 
 ## Session 2 Summary (Sept 7, 2025)
 ✅ All technical infrastructure completed successfully
-- GitHub repository: `alemsabic/alems-site`
-- Live deployment: https://ale.ms (auto-deploys from `v4` branch)
+- GitHub repository: `alemsabic/nekontam-site`
+- Live deployment: https://nekontam.alemsabic.com (auto-deploys from `v4` branch)
 - SSH authentication configured (no more manual auth needed)
 - Content publishing workflow documented
 - Updated git remote URL to match renamed repository
 
 ## Current Deployment
-- **GitHub**: https://github.com/alemsabic/alems-site
-- **Live Site**: https://ale.ms
+- **GitHub**: https://github.com/alemsabic/nekontam-site
+- **Live Site**: https://nekontam.alemsabic.com
 - **Cloudflare Pages**: Auto-deploys from `v4` branch
 
 ## Workflow: Publishing Content Changes
 
-**To update your live site at https://ale.ms:**
+**To update your live site at https://nekontam.alemsabic.com:**
 
 1. **Edit content** in `content/` folder (with Obsidian or any editor)
 2. **Commit and push changes**:
@@ -135,7 +135,7 @@ git add . && git commit -m "content: ..." && git push
    ```
 3. **Wait 1-2 minutes** - Cloudflare Pages automatically builds and deploys
 
-**Important**: 
+**Important**:
 - NO need to run `npx quartz build` locally - Cloudflare does this automatically
 - Changes appear live within 1-2 minutes of pushing to GitHub
 - All commits to `v4` branch trigger automatic deployment
@@ -451,6 +451,57 @@ darkMode: {
 - Test in both light and dark modes thoroughly
 
 **Current Status**: Planning phase - colors noted for future implementation
+
+---
+
+## Session 9 Updates (Nov 2, 2025) - **Migration to NE KONTAM** ✅
+
+### Complete Project Rebrand
+**Migration**: ale.ms → NE KONTAM
+
+**Changes Made**:
+
+**Phase 1: Local Structure**
+- Folder renamed: `ale.ms/` → `NE KONTAM/`
+- Content cleaned: Removed all ale.ms content (kept README.md, index.md only)
+- Config updated: `quartz.config.ts` - pageTitle, pageTitleSuffix
+- Tagline updated: `Tagline.tsx` - "Rječnik sarajevskog žargona"
+
+**Phase 2: GitHub Repositories**
+- Repos renamed: `alems-site` → `nekontam-site`
+- Repos renamed: `alems-zk` → `nekontam-zk`
+- Local git remotes updated
+- Repo descriptions updated via `gh` CLI
+
+**Phase 3: GitHub Actions**
+- Updated workflow file: `.github/workflows/sync-to-quartz.yml`
+- Changed repo reference: `alems-site` → `nekontam-site`
+- Commit message updated: "alems-zk" → "nekontam-zk"
+
+**Phase 4: Cloudflare Pages**
+- New Cloudflare Pages project created
+- Connected to: `alemsabic/nekontam-site`
+- Custom domain: `nekontam.alemsabic.com`
+- Branch: `v4`
+- Build: `npx quartz build` → `public/`
+
+**Phase 5: Documentation**
+- GitHub repo descriptions updated
+- `README.md` completely rewritten for NE KONTAM
+- This file (`CLAUDE.md`) updated with new URLs, paths, project name
+- All references changed: ale.ms → nekontam.alemsabic.com
+
+**New Project Identity**:
+- **Name**: NE KONTAM
+- **Purpose**: Rječnik sarajevskog žargona (Sarajevo slang dictionary)
+- **Live**: https://nekontam.alemsabic.com
+- **GitHub**: nekontam-site (presentation) + nekontam-zk (content)
+
+**Status**: Complete migration ✅ - System fully operational
+
+**Next Steps**:
+- Content creation for NE KONTAM (dictionary entries)
+- `ale.ms` will be repurposed for new Obsidian Publish vault (IA project)
 
 ---
 

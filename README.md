@@ -1,21 +1,21 @@
-# alems-site
+# nekontam-site
 
-> **Präsentationsschicht für [ale.ms](https://ale.ms)** - Static Site Generator mit Quartz v4.5.1
+> **Präsentationsschicht für [nekontam.alemsabic.com](https://nekontam.alemsabic.com)** - Static Site Generator mit Quartz v4.5.1
 
-🌐 **Live Site**: [ale.ms](https://ale.ms)
+🌐 **Live Site**: [nekontam.alemsabic.com](https://nekontam.alemsabic.com)
 
 ## 🎯 Über dieses Repository
 
-Dieses Repository enthält die **Präsentationsschicht** (Quartz Static Site Generator) für den ale.ms Zettelkasten.
+Dieses Repository enthält die **Präsentationsschicht** (Quartz Static Site Generator) für NE KONTAM - Rječnik sarajevskog žargona.
 
 ### Zwei-Repository-Architektur:
 
-1. **alems-site** (dieses Repo): Design, Layout, Konfiguration
-   - https://github.com/alemsabic/alems-site
-2. **alems-zk**: Zettelkasten-Inhalte (Markdown), separat verwaltet
-   - https://github.com/alemsabic/alems-zk
+1. **nekontam-site** (dieses Repo): Design, Layout, Konfiguration
+   - https://github.com/alemsabic/nekontam-site
+2. **nekontam-zk**: Rječnik-Inhalte (Markdown), separat verwaltet
+   - https://github.com/alemsabic/nekontam-zk
 
-**Inhalte synchronisieren automatisch** vom Zettelkasten-Repository via GitHub Actions.
+**Inhalte synchronisieren automatisch** vom Content-Repository via GitHub Actions.
 
 ## 🚀 Quick Start
 
@@ -41,14 +41,14 @@ npm run check
 
 ⚠️ **Inhalte werden NICHT in diesem Repository bearbeitet!**
 
-Inhalte werden im separaten Zettelkasten-Repository bearbeitet:
-- Repository: https://github.com/alemsabic/alems-zk
-- Siehe README im Zettelkasten-Repo für Anleitungen
+Inhalte werden im separaten Content-Repository bearbeitet:
+- Repository: https://github.com/alemsabic/nekontam-zk
+- Siehe README im Content-Repo für Anleitungen
 
 ## 📁 Projektstruktur
 
 ```
-alems-site/
+nekontam-site/
 ├── content/              # ⚠️ AUTO-SYNC - NICHT EDITIEREN
 │   └── README.md        # Erklärt Auto-Sync
 ├── quartz/
@@ -65,35 +65,35 @@ alems-site/
 
 ## ⚙️ Konfiguration
 
-- **Site Title**: "ale.ms KI"
-- **Tagline**: "Füge Deiner Intelligenz eine Intelligenz hinzu."
-- **Typographie**: JetBrains Mono (gesamter Text)
-- **Theme**: Custom mit Noise-Textur + liniertem Papier-Effekt
+- **Site Title**: "NE KONTAM"
+- **Tagline**: "Rječnik sarajevskog žargona"
+- **Typographie**: Quicksand (Headers), JetBrains Mono (Body/Code)
+- **Theme**: Custom mit Noise-Textur
 - **Layout**: Custom Grid (320px Sidebars, 50px Gap)
 
 ## 🔄 Deployment-Pipeline
 
 ```
-Zettelkasten-Repo (push)
+Content-Repo (push)
   → GitHub Action
     → Sync zu diesem Repo's /content Ordner
       → Cloudflare Pages Build
-        → Deploy zu ale.ms (1-2 Min)
+        → Deploy zu nekontam.alemsabic.com (1-2 Min)
 ```
 
 ODER
 
 ```
-alems-site (push Design-Änderungen)
+nekontam-site (push Design-Änderungen)
   → Cloudflare Pages Build
-    → Deploy zu ale.ms (1-2 Min)
+    → Deploy zu nekontam.alemsabic.com (1-2 Min)
 ```
 
 ## 🛠️ Tech Stack
 
 - **Static Site Generator**: [Quartz v4.5.1](https://quartz.jzhao.xyz/)
 - **Styling**: SCSS mit Custom Overrides
-- **Typographie**: JetBrains Mono (Google Fonts)
+- **Typographie**: Google Fonts
 - **Deployment**: Cloudflare Pages
 - **Auto-Sync**: GitHub Actions
 - **Content-Format**: Markdown mit YAML Frontmatter
@@ -107,16 +107,14 @@ alems-site (push Design-Änderungen)
 
 ## 🎨 Anpassungen
 
-Dieses Projekt enthält custom Modifikationen zum Vanilla Quartz:
+Dieses Projekt basiert auf dem ale.ms Setup und enthält custom Modifikationen:
 
 ### Custom Komponenten
 - **Tagline.tsx**: Custom Tagline-Komponente
 
 ### Styling Overrides
 - Noise-Textur-Overlay
-- Linierter Papier-Hintergrund (Light Theme)
 - Custom Grid-Layout mit 50px Gap
-- Profilbild entfernt
 - Custom Scrollbar-Styling
 - Explorer- und TOC-Schriftgrößen reduziert
 - Dark Theme Font Smoothing
@@ -127,13 +125,7 @@ Dieses Projekt enthält custom Modifikationen zum Vanilla Quartz:
 - Rechte Sidebar nur für TOC
 - Custom Spacing und Margins
 
-Siehe `CLAUDE.md` Session 7 für vollständigen Changelog.
-
-## 🔮 Zukünftige Pläne
-
-- **Farbschema**: Implementierung eines Coding-Farbschemas (Gruvbox/Nord/Tokyo Night)
-- **Content-basierte Features**: Features hinzufügen, wenn Content-Bedarf entsteht
-- Siehe `CLAUDE.md` für detaillierte nächste Schritte
+Siehe `CLAUDE.md` für vollständigen Changelog.
 
 ## 🙏 Credits
 
