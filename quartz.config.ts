@@ -8,8 +8,8 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "ale.ms",
-    pageTitleSuffix: "Jede Idee ein Projekt; jedes Projekt eine KI.",
+    pageTitle: "NE KONTAM",
+    pageTitleSuffix: "Rječnik sarajevskog žargona",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
