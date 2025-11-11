@@ -43,7 +43,7 @@ cd /Users/alemsabic/Desktop/Kognitives\ Exoskelett/NE\ KONTAM/content-repo
 # Commit & push
 git add . && git commit -m "content: ..." && git push
 
-# Auto-syncs to this repo → Deploys to nekontam.alemsabic.com
+# Auto-syncs to this repo → Deploys to nekontam.com
 ```
 
 ## File Structure
@@ -61,7 +61,7 @@ git add . && git commit -m "content: ..." && git push
 - **Page title suffix**: "Rječnik sarajevskog žargona"
 - **Tagline**: "Rječnik sarajevskog žargona"
 - **Typography**: Quicksand (headers), JetBrains Mono (body/code)
-- **Base URL**: https://nekontam.alemsabic.com
+- **Base URL**: https://nekontam.com
 - **Footer**: Custom with Alem Šabić link + X/Twitter
 - **Theme**: Custom Quartz with noise texture
 
@@ -71,7 +71,7 @@ git add . && git commit -m "content: ..." && git push
 - **Branch**: `v4`
 - **Build Command**: `npx quartz build`
 - **Output Directory**: `public`
-- **Live URL**: https://nekontam.alemsabic.com
+- **Live URL**: https://nekontam.com
 - **Deploy Time**: 1-2 minutes after push
 
 ## Completed Tasks
@@ -119,12 +119,12 @@ git add . && git commit -m "content: ..." && git push
 
 ## Current Deployment
 - **GitHub**: https://github.com/alemsabic/nekontam-site
-- **Live Site**: https://nekontam.alemsabic.com
+- **Live Site**: https://nekontam.com (primary) / https://nekontam.alemsabic.com (legacy)
 - **Cloudflare Pages**: Auto-deploys from `v4` branch
 
 ## Workflow: Publishing Content Changes
 
-**To update your live site at https://nekontam.alemsabic.com:**
+**To update your live site at https://nekontam.com:**
 
 1. **Edit content** in `content/` folder (with Obsidian or any editor)
 2. **Commit and push changes**:
@@ -494,7 +494,7 @@ darkMode: {
 **New Project Identity**:
 - **Name**: NE KONTAM
 - **Purpose**: Rječnik sarajevskog žargona (Sarajevo slang dictionary)
-- **Live**: https://nekontam.alemsabic.com
+- **Live**: https://nekontam.com (primary) / https://nekontam.alemsabic.com (legacy)
 - **GitHub**: nekontam-site (presentation) + nekontam-zk (content)
 
 **Status**: Complete migration ✅ - System fully operational
@@ -502,6 +502,35 @@ darkMode: {
 **Next Steps**:
 - Content creation for NE KONTAM (dictionary entries)
 - `ale.ms` will be repurposed for new Obsidian Publish vault (IA project)
+
+---
+
+## Session 10 Updates (Nov 11, 2025) - **Domain Migration to nekontam.com** ✅
+
+### Primary Domain Migration
+**Migration**: nekontam.alemsabic.com → nekontam.com
+
+**Changes Made**:
+
+**Phase 1: Quartz Configuration**
+- Updated `quartz.config.ts`: baseUrl from `https://ale.ms` → `https://nekontam.com`
+- Committed and pushed to GitHub (commit bd989b2)
+
+**Phase 2: Cloudflare Pages**
+- Custom domain `nekontam.com` to be added in Cloudflare Pages dashboard
+- Legacy domain `nekontam.alemsabic.com` remains functional (can be kept or redirected)
+
+**Phase 3: DNS Configuration**
+- CNAME or A Record to be configured at domain registrar
+- Target: `nekontam-site.pages.dev`
+
+**Phase 4: Documentation**
+- Updated all domain references in `CLAUDE.md`
+- Changed from `nekontam.alemsabic.com` → `nekontam.com` (primary)
+- Legacy domain noted for backward compatibility
+
+**New Primary Domain**: https://nekontam.com
+**Status**: Configuration complete ✅ - Awaiting DNS/Cloudflare setup
 
 ---
 
