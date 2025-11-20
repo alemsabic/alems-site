@@ -37,7 +37,7 @@ For complete operator manual, see: **`OPERATOR.md`**
 
 ```bash
 # Go to content repo (not this one!)
-cd /Users/alemsabic/Desktop/Kognitives\ Exoskelett/NE\ KONTAM/content-repo
+cd /Users/alemsabic/Desktop/MEMEX/_projects/nekontam-content
 
 # Edit markdown files
 # Commit & push
@@ -534,5 +534,108 @@ darkMode: {
 
 ---
 
+## Session 11 Updates (Nov 14, 2025) - **Content Repository Migration** ✅
+
+### Content Repository Relocation
+**Files Modified**: `CLAUDE.md` (quartz), created `CLAUDE.md` (content repo)
+
+**Changes Made**:
+- **Content repo relocated**: `/Users/alemsabic/Desktop/NE-KONTAM/content-repo/` → `/Users/alemsabic/Desktop/MEMEX/_projects/nekontam-content/`
+- **Renamed**: `content-repo` → `nekontam-content` for clarity
+- **MEMEX integration**: Content repo now inside MEMEX Obsidian vault at `_projects/` subfolder
+- **Documentation created**: New `CLAUDE.md` file in content repository with complete workflow documentation
+- **Path updates**: Updated quartz `CLAUDE.md` with new content repository path
+
+**Benefits**:
+- Single Obsidian vault for all projects (unified plugins, configuration)
+- Full Obsidian functionality available for NE KONTAM content
+- Clean separation: `_projects/nekontam-content/` (content) vs `NE-KONTAM/quartz/` (presentation)
+- Git repository integrity preserved during move
+
+**New Content Workflow**:
+1. Edit content in `/Users/alemsabic/Desktop/MEMEX/_projects/nekontam-content/`
+2. Use all Obsidian features (plugins, templates, links, etc.)
+3. Commit and push to GitHub
+4. GitHub Actions auto-syncs to nekontam-site → Cloudflare deploys → Live at nekontam.com
+
+**Status**: Migration complete ✅ - Ready for content creation
+
+---
+
+## Session 12 Updates (Nov 20, 2025) - **Giscus Comments + Edit on GitHub Button** ✅
+
+### Interactive Features Implementation
+**Files Modified**: `quartz.layout.ts`, created `quartz/components/EditOnGitHub.tsx`, `quartz/components/index.ts`
+
+**Collaboration**: Implementation started by Claude Code Web, completed by Claude Code CLI
+
+**Changes Made**:
+
+**Phase 1: Edit on GitHub Button**
+- **New Component**: Created `EditOnGitHub.tsx` custom component
+- **Functionality**: Displays "Edit this page on GitHub" link below tags on content pages
+- **Target**: Links to content repository `https://github.com/alemsabic/nekontam-zk`
+- **Styling**: Right-aligned, subtle opacity effect on hover
+- **Integration**: Registered in `index.ts` and added to `quartz.layout.ts` beforeBody section
+
+**Phase 2: Giscus Comments Integration**
+- **Prerequisites Setup**:
+  - Enabled GitHub Discussions on nekontam-zk repository
+  - Installed Giscus app on nekontam-zk
+  - Retrieved configuration IDs via GitHub GraphQL API
+- **Configuration**:
+  - Repository: `alemsabic/nekontam-zk`
+  - `repoId`: `R_kgDOP_ghmA`
+  - Category: "General"
+  - `categoryId`: `DIC_kwDOP_ghmM4CyARP`
+  - Mapping: `pathname`
+  - Language: German (`"de"`)
+  - **Theme**: `"preferred_color_scheme"` - **Auto-switches between light/dark mode!** 🎨
+- **Placement**: Added to `afterBody` section (below content, before Backlinks and Graph)
+
+**Phase 3: Branch Workflow**
+- Claude Code Web created branch: `claude/add-giscus-edit-button-01JKcU8cUsAxkgZU6bdMrHmt`
+- Claude Code CLI fetched branch, completed Giscus configuration
+- Merged to `v4` branch and deployed
+
+**Benefits**:
+- **Community Engagement**: Visitors can comment using GitHub accounts
+- **Easy Contributions**: Direct edit links for content improvements
+- **Theme Consistency**: Comments section respects site theme (light/dark)
+- **Accessibility**: GitHub-based authentication, no separate account needed
+
+**Technical Details**:
+- Giscus uses GitHub Discussions API
+- Comments stored in nekontam-zk repository Discussions
+- Theme detection via `preferred_color_scheme` (system preference)
+- Edit button uses `fileData.filePath` for correct GitHub URLs
+
+**Deployment**:
+- Committed: `feat: add Giscus configuration values and theme support` (869d9f4)
+- Merged to v4 and pushed to GitHub
+- Live on https://nekontam.com via Cloudflare Pages auto-deploy
+
+**Status**: Both features live and functional ✅
+
+**Testing**:
+- Visit any content page (e.g., `/ablendovati`)
+- Verify "Edit this page on GitHub" button appears below tags
+- Verify Giscus comments section loads at page bottom
+- Test theme switching (Dark Mode toggle) - comments should follow
+
+---
+
 ## Future Sessions
 *Continue logging changes in this section*
+
+### Potential Improvements (Not Urgent)
+
+**Giscus Theme Fine-Tuning**:
+- Custom Giscus themes already created (`static/giscus/dark.css` and `light.css`)
+- Themes already match Quartz colors (backgrounds, borders, buttons)
+- Possible refinements:
+  - Typography alignment (ensure JetBrains Mono consistency)
+  - Spacing & padding harmonization
+  - Interactive state details (hover/focus effects)
+  - Color variable precision check against `quartz/styles/variables.scss`
+- Status: Working well, but could be perfected if desired
