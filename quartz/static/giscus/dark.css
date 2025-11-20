@@ -11,7 +11,7 @@ main {
   --color-prettylights-syntax-comment: #646464; /* --gray */
   --color-prettylights-syntax-constant: #7b97aa; /* --secondary */
   --color-prettylights-syntax-entity: #84a59d; /* --tertiary */
-  --color-prettylights-syntax-storage-modifier-import: #ebebec; /* --dark */
+  --color-prettylights-syntax-storage-modifier-import: #d4d4d4; /* --darkgray (softer text) */
   --color-prettylights-syntax-entity-tag: #7b97aa; /* --secondary */
   --color-prettylights-syntax-keyword: #7b97aa; /* --secondary */
   --color-prettylights-syntax-string: #7b97aa; /* --secondary */
@@ -24,8 +24,8 @@ main {
   --color-prettylights-syntax-string-regexp: #7b97aa; /* --secondary */
   --color-prettylights-syntax-markup-list: #d4d4d4; /* --darkgray */
   --color-prettylights-syntax-markup-heading: #7b97aa; /* --secondary */
-  --color-prettylights-syntax-markup-italic: #ebebec; /* --dark */
-  --color-prettylights-syntax-markup-bold: #ebebec; /* --dark */
+  --color-prettylights-syntax-markup-italic: #d4d4d4; /* --darkgray (softer text) */
+  --color-prettylights-syntax-markup-bold: #d4d4d4; /* --darkgray (softer text) */
   --color-prettylights-syntax-markup-deleted-text: #7b97aa; /* --secondary */
   --color-prettylights-syntax-markup-deleted-bg: #393639; /* --lightgray */
   --color-prettylights-syntax-markup-inserted-text: #7b97aa; /* --secondary */
@@ -40,7 +40,7 @@ main {
   --color-prettylights-syntax-constant-other-reference-link: #7b97aa; /* --secondary */
 
   /* Button styles - matching Quartz exactly */
-  --color-btn-text: #ebebec; /* --dark */
+  --color-btn-text: #d4d4d4; /* --darkgray (softer text) */
   --color-btn-bg: #161618; /* --light */
   --color-btn-border: #393639; /* --lightgray */
   --color-btn-shadow: 0 0 transparent;
@@ -52,7 +52,7 @@ main {
   --color-btn-selected-bg: #393639; /* --lightgray */
 
   /* Primary button - using tertiary color */
-  --color-btn-primary-text: #ebebec; /* --dark */
+  --color-btn-primary-text: #d4d4d4; /* --darkgray (softer text) */
   --color-btn-primary-bg: #84a59d; /* --tertiary */
   --color-btn-primary-border: #84a59d; /* --tertiary */
   --color-btn-primary-shadow: 0 0 transparent;
@@ -74,7 +74,7 @@ main {
   --color-segmented-control-button-selected-border: #646464; /* --gray */
 
   /* Foreground colors */
-  --color-fg-default: #ebebec; /* --dark */
+  --color-fg-default: #d4d4d4; /* --darkgray (softer text) */
   --color-fg-muted: #d4d4d4; /* --darkgray */
   --color-fg-subtle: #646464; /* --gray */
 
@@ -129,24 +129,24 @@ main code, main pre {
 
 /* Fix text color and font-weight for comments and reactions */
 main .color-text-primary {
-  color: #ebebec !important; /* --dark from Quartz dark mode */
+  color: #d4d4d4 !important; /* --darkgray (softer text) */
   font-weight: normal !important;
 }
 
 main .color-text-primary.underline {
-  color: #ebebec !important; /* --dark from Quartz dark mode */
+  color: #d4d4d4 !important; /* --darkgray (softer text) */
   font-weight: normal !important;
 }
 
 /* Fix reactions count styling */
 main .gsc-reactions-count {
-  color: #ebebec !important; /* --dark */
+  color: #d4d4d4 !important; /* --darkgray (softer text) */
   font-weight: normal !important;
 }
 
 /* Fix comments count styling */
 main .gsc-comments-count,
 main .gsc-comments-count-separator {
-  color: #ebebec !important; /* --dark */
+  color: #d4d4d4 !important; /* --darkgray (softer text) */
   font-weight: normal !important;
 }
