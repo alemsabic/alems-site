@@ -57,6 +57,7 @@ export const defaultContentPageLayout: PageLayout = {
         reactionsEnabled: true,
         inputPosition: "bottom",
         lang: "hbs",
+        theme: "preferred_color_scheme",
       },
     }),
     Component.Backlinks(),
