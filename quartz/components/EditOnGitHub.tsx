@@ -22,8 +22,13 @@ export default ((opts?: Partial<EditOnGitHubOptions>) => {
   const options: EditOnGitHubOptions = { ...defaultOptions, ...opts }
 
   const EditOnGitHub: QuartzComponent = ({ fileData, displayClass }: QuartzComponentProps) => {
-    // Get the file path (e.g., "folder/page.md")
-    const filePath = fileData.filePath ?? ""
+    // Get the file path (e.g., "content/folder/page.md")
+    let filePath = fileData.filePath ?? ""
+
+    // Remove "content/" prefix if present (content repo has files in root)
+    if (filePath.startsWith("content/")) {
+      filePath = filePath.substring("content/".length)
+    }
 
     // Construct the full GitHub edit URL
     const githubUrl = `${options.baseUrl}/${filePath}`
