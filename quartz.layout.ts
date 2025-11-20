@@ -30,6 +30,10 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ArticleTitle(),
     Component.ContentMeta(),
     Component.TagList(),
+    Component.EditOnGitHub({
+      baseUrl: "https://github.com/alemsabic/nekontam-zk/blob/main",
+      buttonText: "Edit this page on GitHub",
+    }),
   ],
   left: [
     // Component.ProfileImage(), // Removed - uncomment to restore
@@ -41,6 +45,20 @@ export const defaultContentPageLayout: PageLayout = {
     Component.DesktopOnly(Component.TableOfContents()),
   ],
   afterBody: [
+    Component.Comments({
+      provider: "giscus",
+      options: {
+        repo: "alemsabic/nekontam-zk",
+        repoId: "TODO_GET_FROM_GISCUS_APP", // Visit https://giscus.app/ to get this value
+        category: "Announcements", // Or your chosen category name
+        categoryId: "TODO_GET_FROM_GISCUS_APP", // Visit https://giscus.app/ to get this value
+        mapping: "pathname",
+        strict: true,
+        reactionsEnabled: true,
+        inputPosition: "bottom",
+        lang: "de",
+      },
+    }),
     Component.Backlinks(),
     Component.Graph(),
   ],

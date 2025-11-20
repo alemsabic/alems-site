@@ -11,6 +11,7 @@ import ContentMeta from "./ContentMeta"
 import Spacer from "./Spacer"
 import Tagline from "./Tagline"
 import ProfileImage from "./ProfileImage"
+import EditOnGitHub from "./EditOnGitHub"
 import TableOfContents from "./TableOfContents"
 import Explorer from "./Explorer"
 import TagList from "./TagList"
@@ -39,6 +40,7 @@ export {
   Spacer,
   Tagline,
   ProfileImage,
+  EditOnGitHub,
   TableOfContents,
   Explorer,
   TagList,
