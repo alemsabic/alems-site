@@ -44,7 +44,7 @@ export default ((opts?: Partial<EditOnGitHubOptions>) => {
 
   EditOnGitHub.css = `
   .edit-on-github {
-    margin: 2rem 0 1rem 0;
+    margin: 1rem 0 1rem 0;
     text-align: right;
   }
 

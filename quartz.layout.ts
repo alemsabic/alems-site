@@ -36,7 +36,7 @@ export const defaultContentPageLayout: PageLayout = {
     }),
   ],
   left: [
-    // Component.ProfileImage(), // Removed - uncomment to restore
+    Component.ProfileImage(),
     Component.PageTitle(),
     Component.Tagline(),
     Component.Explorer(),
@@ -84,7 +84,7 @@ export const defaultListPageLayout: PageLayout = {
     Component.ContentMeta(),
   ],
   left: [
-    // Component.ProfileImage(), // Removed - uncomment to restore
+    Component.ProfileImage(),
     Component.PageTitle(),
     Component.Tagline(),
     Component.Explorer(),

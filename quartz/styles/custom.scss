@@ -55,16 +55,15 @@
   gap: 0 !important;
 }
 
-// Profile image sizing - REMOVED (uncomment to restore)
-// .profile-image {
-//   width: 180px !important;
-//   height: 180px !important;
-// }
+// Profile image styling
+.profile-image {
+  background: transparent !important;
+}
 
-// Profile image dark mode styling - REMOVED (uncomment to restore)
-// [saved-theme="dark"] .profile-image {
-//   background: #a9a9a9 !important;
-// }
+// Profile image dark mode - brightness + contrast for visibility
+[saved-theme="dark"] .profile-image img {
+  filter: brightness(1.2) contrast(1.1) drop-shadow(0 0 4px rgba(255, 255, 255, 0.15));
+}
 
 // Tagline styling
 .tagline {
