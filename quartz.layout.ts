@@ -49,14 +49,14 @@ export const defaultContentPageLayout: PageLayout = {
       provider: "giscus",
       options: {
         repo: "alemsabic/nekontam-zk",
-        repoId: "TODO_GET_FROM_GISCUS_APP", // Visit https://giscus.app/ to get this value
-        category: "Announcements", // Or your chosen category name
-        categoryId: "TODO_GET_FROM_GISCUS_APP", // Visit https://giscus.app/ to get this value
+        repoId: "R_kgDOP_ghmA",
+        category: "Announcements",
+        categoryId: "DIC_kwDOP_ghmM4CyARO",
         mapping: "pathname",
-        strict: true,
+        strict: false,
         reactionsEnabled: true,
         inputPosition: "bottom",
-        lang: "de",
+        lang: "hbs",
       },
     }),
     Component.Backlinks(),
