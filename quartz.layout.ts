@@ -59,7 +59,7 @@ export const defaultContentPageLayout: PageLayout = {
         lang: "hbs",
         lightTheme: "light",
         darkTheme: "dark",
-        themeUrl: "https://giscus.app/themes",
+        themeUrl: "https://nekontam.com/static/giscus",
       },
     }),
     Component.Backlinks(),
