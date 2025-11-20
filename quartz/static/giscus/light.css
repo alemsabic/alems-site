@@ -141,8 +141,3 @@ main .color-text-primary.underline {
   color: #2b2b2b !important; /* --dark from Quartz light mode */
   font-weight: normal !important;
 }
-
-/* Add spacing below Giscus */
-.giscus {
-  margin-bottom: 2rem;
-}
