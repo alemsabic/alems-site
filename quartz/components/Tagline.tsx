@@ -4,7 +4,7 @@ import { classNames } from "../util/lang"
 const Tagline: QuartzComponent = ({ displayClass }: QuartzComponentProps) => {
   return (
     <div class={classNames(displayClass, "tagline", "desktop-only")}>
-      Rječnik sarajevskog žargona
+      Kako Bosna priča & Wie Deutschland <em>wirklich</em> spricht
     </div>
   )
 }
