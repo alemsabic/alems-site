@@ -108,3 +108,14 @@ main h1, main h2, main h3, main h4, main h5, main h6 {
 main code, main pre {
   font-family: "JetBrains Mono", monospace;
 }
+
+/* Fix text color and font-weight for comments and reactions */
+main .color-text-primary {
+  color: #ebebec !important; /* --dark from Quartz dark mode */
+  font-weight: normal !important;
+}
+
+main .color-text-primary.underline {
+  color: #ebebec !important; /* --dark from Quartz dark mode */
+  font-weight: normal !important;
+}
