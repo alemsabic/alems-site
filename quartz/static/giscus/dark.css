@@ -4,6 +4,8 @@
  */
 
 main {
+  /* Custom NE KONTAM typography */
+  font-family: "JetBrains Mono", monospace;
   --color-prettylights-syntax-comment: #8b949e;
   --color-prettylights-syntax-constant: #79c0ff;
   --color-prettylights-syntax-entity: #d2a8ff;
@@ -96,4 +98,13 @@ main .pagination-loader-container {
 
 main .gsc-loading-image {
   background-image: url("https://github.githubassets.com/images/mona-loading-dark.gif");
+}
+
+/* Custom NE KONTAM Typography Overrides */
+main h1, main h2, main h3, main h4, main h5, main h6 {
+  font-family: "Quicksand", sans-serif;
+}
+
+main code, main pre {
+  font-family: "JetBrains Mono", monospace;
 }
