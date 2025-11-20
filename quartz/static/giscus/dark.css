@@ -81,8 +81,8 @@ main {
   /* Canvas colors */
   --color-canvas-default: #161618; /* --light */
   --color-canvas-overlay: #161618; /* --light */
-  --color-canvas-inset: #393639; /* --lightgray */
-  --color-canvas-subtle: #393639; /* --lightgray */
+  --color-canvas-inset: #161618; /* --light (matching searchbar) */
+  --color-canvas-subtle: #161618; /* --light (matching searchbar) */
 
   /* Border colors */
   --color-border-default: #393639; /* --lightgray */
@@ -123,10 +123,6 @@ main .gsc-loading-image {
 }
 
 /* Custom NE KONTAM Typography Overrides */
-main h1, main h2, main h3, main h4, main h5, main h6 {
-  font-family: "Quicksand", sans-serif;
-}
-
 main code, main pre {
   font-family: "JetBrains Mono", monospace;
 }
@@ -139,5 +135,18 @@ main .color-text-primary {
 
 main .color-text-primary.underline {
   color: #ebebec !important; /* --dark from Quartz dark mode */
+  font-weight: normal !important;
+}
+
+/* Fix reactions count styling */
+main .gsc-reactions-count {
+  color: #ebebec !important; /* --dark */
+  font-weight: normal !important;
+}
+
+/* Fix comments count styling */
+main .gsc-comments-count,
+main .gsc-comments-count-separator {
+  color: #ebebec !important; /* --dark */
   font-weight: normal !important;
 }

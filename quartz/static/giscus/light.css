@@ -123,10 +123,6 @@ main .gsc-loading-image {
 }
 
 /* Custom NE KONTAM Typography Overrides */
-main h1, main h2, main h3, main h4, main h5, main h6 {
-  font-family: "Quicksand", sans-serif;
-}
-
 main code, main pre {
   font-family: "JetBrains Mono", monospace;
 }
@@ -139,5 +135,18 @@ main .color-text-primary {
 
 main .color-text-primary.underline {
   color: #2b2b2b !important; /* --dark from Quartz light mode */
+  font-weight: normal !important;
+}
+
+/* Fix reactions count styling */
+main .gsc-reactions-count {
+  color: #2b2b2b !important; /* --dark */
+  font-weight: normal !important;
+}
+
+/* Fix comments count styling */
+main .gsc-comments-count,
+main .gsc-comments-count-separator {
+  color: #2b2b2b !important; /* --dark */
   font-weight: normal !important;
 }
