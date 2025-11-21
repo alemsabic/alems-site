@@ -335,3 +335,125 @@ a.internal {
   line-height: inherit;
 }
 
+// ============================================
+// BILINGUAL DICTIONARY STYLING
+// ============================================
+
+// Dictionary entry metadata (word type, origin, region)
+.popover-hint strong {
+  color: var(--secondary) !important;
+  font-weight: 600 !important;
+}
+
+// Section headings for bilingual content
+article h2:has(+ p:lang(bs)),
+article h2:has(+ p:lang(de)) {
+  margin-top: 2.5rem !important;
+  padding-top: 1rem !important;
+  border-top: 1px dashed var(--gray) !important;
+}
+
+// First section heading (no top border)
+article h2:first-of-type {
+  border-top: none !important;
+  margin-top: 1.5rem !important;
+}
+
+// Language section markers - visual distinction
+article h2::before {
+  font-size: 1.1rem;
+  margin-right: 0.5rem;
+}
+
+// Bosnian sections
+article:lang(bs) h2::before {
+  content: "🇧🇦 ";
+}
+
+// German sections
+article:lang(de) h2::before {
+  content: "🇩🇪 ";
+}
+
+// Example sentences styling
+article em {
+  color: var(--darkgray) !important;
+  font-style: italic;
+}
+
+// Translation arrows and markers
+article p:has(+ p > em)::after {
+  content: " →";
+  color: var(--gray);
+  font-weight: 300;
+}
+
+// Cross-reference links styling (Povezani pojmovi / Verwandte Begriffe)
+article p:has(a.internal) {
+  padding: 0.75rem 1rem;
+  background-color: rgba(var(--lightgray), 0.3);
+  border-left: 3px solid var(--secondary);
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+// Related terms section
+article h2:contains("Povezani pojmovi") + p,
+article h2:contains("Verwandte Begriffe") + p,
+article h2:contains("Verwandte Ausdrücke") + p {
+  font-size: 0.95rem;
+}
+
+// Separator dots between links
+article a.internal + span {
+  margin: 0 0.3rem;
+  color: var(--gray);
+}
+
+// Synonym lists
+article h2:contains("Sinonimi") + ul,
+article h2:contains("Synonyme") + ul {
+  list-style-type: circle;
+  padding-left: 1.5rem;
+}
+
+// Cultural context / notes section
+article h2:contains("Napomene") + p,
+article h2:contains("Kultureller Kontext") + p,
+article h2:contains("Anmerkungen") + p {
+  font-style: italic;
+  color: var(--darkgray);
+  padding: 1rem;
+  background-color: rgba(var(--highlight), 0.1);
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+// Word metadata formatting (Wortart, Herkunft, etc.)
+article p:has(strong:contains("Wortart")) strong,
+article p:has(strong:contains("Herkunft")) strong,
+article p:has(strong:contains("Region")) strong,
+article p:has(strong:contains("Kontext")) strong,
+article p:has(strong:contains("Stilebene")) strong {
+  color: var(--secondary) !important;
+  font-size: 0.9rem;
+}
+
+// Horizontal rule between major sections
+article hr {
+  margin: 2.5rem 0 !important;
+  border-top: 2px dashed var(--gray) !important;
+}
+
+// Mobile responsive adjustments
+@media (max-width: 800px) {
+  article h2 {
+    font-size: 1.3rem !important;
+  }
+
+  article p:has(a.internal) {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+}
+

@@ -15,7 +15,7 @@ const config: QuartzConfig = {
     analytics: {
       provider: "plausible",
     },
-    locale: "de-DE",
+    locale: "bs-BA",
     baseUrl: "https://nekontam.com",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "modified",
