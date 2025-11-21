@@ -1,5 +1,6 @@
 ---
 title: bananko
+lang: bs
 ---
 
 - **penis** | <mark class="hltr-blue">Penis</mark> — wörtlich: (Das) Bananchen.

@@ -1,5 +1,6 @@
 ---
 title: paštetice
+lang: bs
 ---
 
 - **male ženske grudi** | <mark class="hltr-blue">kleine Brüste</mark> — wörtlich: Pastetchen.

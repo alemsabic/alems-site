@@ -1,5 +1,6 @@
 ---
 title: ablendovati
+lang: bs
 ---
 
 : **namigivati, dizati obrve** — u daljem smislu: flertovati, koketirati — perifraza: davati signale s očima.

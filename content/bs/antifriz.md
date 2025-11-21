@@ -1,5 +1,6 @@
 ---
 title: antifriz
+lang: bs
 ---
 
 - (1) **loša frizurica** | <mark class="hltr-blue">Dreckshaarschnitt</mark> — wörtlich: Anti-Frizur.

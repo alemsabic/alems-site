@@ -2,20 +2,54 @@
 title: NE KONTAM – Rječnik sarajevskog žargona
 ---
 
-Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+## Dobrodošli | Willkommen
 
-Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+**NE KONTAM** je rječnik sarajevskog žargona sa njemačkim prevodima – i obrnuto: rječnik njemačke ulične umgangssprache sa bosanskim prevodima.
 
-Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+**NE KONTAM** ist ein Wörterbuch des Sarajevo-Slangs mit deutschen Übersetzungen – und umgekehrt: ein Wörterbuch der deutschen Umgangssprache mit bosnischen Übersetzungen.
 
-Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. 
+---
 
-At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.
+## Struktura | Struktur
 
-Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus.
+### 🇧🇦 [[bs/|Bosanski pojmovi]]
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+Sarajevski sleng, žargon i umgangssprache sa njemačkim prevodima.
 
-Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+- [[bs/ablendovati|ablendovati]] - namigivati, flertovati
+- [[bs/anatomke|anatomke]] - tajice, leggings
+- [[bs/baklava|baklava]] - vagina (slang)
+- [[bs/bananko|bananko]] - penis (slang)
+- ... i više
 
-Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+### 🇩🇪 [[de/|Deutsche Begriffe]]
+
+Deutsche Umgangssprache und Slang mit bosnischen Übersetzungen.
+
+- [[de/Schnauze|Schnauze]] - usta, gubica
+- [[de/Kohle|Kohle]] - lova, pare (Geld)
+- [[de/geil|geil]] - super / napaljen
+- ... und mehr
+
+---
+
+## O projektu | Über das Projekt
+
+Ovaj rječnik je pokušaj da se sačuva i dokumentuje sarajevski urban žargon – pun germanizama, turcizama i domaćih kreacija. Istovremeno, pruža most između dvije kulture kroz humor i svakodnevni jezik.
+
+Dieses Wörterbuch ist ein Versuch, den urbanen Sarajevo-Slang zu bewahren und zu dokumentieren – voller Germanismen, Turkismen und lokaler Kreationen. Gleichzeitig bietet es eine Brücke zwischen zwei Kulturen durch Humor und Alltagssprache.
+
+---
+
+## Kako koristiti | Wie benutzen
+
+1. **Pretraži** - Koristi pretragu gore desno
+2. **Istraži** - Navigiraj kroz foldere (bs/ ili de/)
+3. **Poveži** - Klikni na linkove između pojmova
+4. **Uživaj** - u nekom dobrom sarajevskom humoru
+
+---
+
+_Napomena: Ovaj rječnik sadrži eksplicitni jezik i humor koji možda nije za sve._
+
+_Hinweis: Dieses Wörterbuch enthält explizite Sprache und Humor, der möglicherweise nicht für jeden geeignet ist._
