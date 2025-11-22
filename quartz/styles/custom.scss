@@ -359,21 +359,6 @@ article h2:first-of-type {
   margin-top: 1.5rem !important;
 }
 
-// Language section markers - visual distinction
-article h2::before {
-  font-size: 1.1rem;
-  margin-right: 0.5rem;
-}
-
-// Bosnian sections
-article:lang(bs) h2::before {
-  content: "🇧🇦 ";
-}
-
-// German sections
-article:lang(de) h2::before {
-  content: "🇩🇪 ";
-}
 
 // Example sentences styling
 article em {
