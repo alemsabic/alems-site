@@ -57,7 +57,7 @@ export default {
       title: "Table of Contents",
     },
     contentMeta: {
-      readingTime: ({ minutes }) => `${minutes} min read`,
+      readingTime: ({ minutes }) => minutes === 1 ? `1 minute read` : `${minutes} minutes read`,
     },
   },
   pages: {
