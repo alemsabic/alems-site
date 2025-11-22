@@ -32,7 +32,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.TagList(),
     Component.EditOnGitHub({
       baseUrl: "https://github.com/alemsabic/nekontam-zk/blob/main",
-      buttonText: "Edit this page on GitHub",
+      buttonText: "Edituj stranicu na GitHub-u.",
     }),
   ],
   left: [
