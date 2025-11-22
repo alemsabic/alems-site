@@ -57,7 +57,7 @@ export default {
       title: "Sadržaj",
     },
     contentMeta: {
-      readingTime: ({ minutes }) => minutes === 1 ? `1 minut čitanja` : `${minutes} minuta čitanja`,
+      readingTime: ({ minutes }) => minutes === 1 ? `1 minut čitanja.` : `${minutes} minuta čitanja.`,
     },
   },
   pages: {
