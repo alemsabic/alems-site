@@ -1,8 +1,8 @@
 # nekontam-site
 
-> **Präsentationsschicht für [nekontam.alemsabic.com](https://nekontam.alemsabic.com)** - Static Site Generator mit Quartz v4.5.1
+> **Präsentationsschicht für [nekontam.com](https://nekontam.com)** - Static Site Generator mit Quartz v4.5.1
 
-🌐 **Live Site**: [nekontam.alemsabic.com](https://nekontam.alemsabic.com)
+🌐 **Live Site**: [nekontam.com](https://nekontam.com)
 
 ## 🎯 Über dieses Repository
 
@@ -67,9 +67,30 @@ nekontam-site/
 
 - **Site Title**: "NE KONTAM"
 - **Tagline**: "Rječnik sarajevskog žargona"
-- **Typographie**: Quicksand (Headers), JetBrains Mono (Body/Code)
+- **Typographie**: Playfair Display (Headers), Spectral (Body), JetBrains Mono (Code)
 - **Theme**: Custom mit Noise-Textur
 - **Layout**: Custom Grid (320px Sidebars, 50px Gap)
+
+### Content Header (Metadata-Anzeige)
+
+Jede Seite zeigt standardmäßig oben rechts eine kompakte Metadaten-Liste:
+
+```
+              Naslov: [Titel]
+               Datum: [Datum]
+    Vrijeme čitanja: [X minut/minute/minuta.]
+  Uredi stranicu na GitHub-u.
+```
+
+**Ausblenden des Headers** (optional):
+```yaml
+---
+title: "Deine Seite"
+showContentHeader: false
+---
+```
+
+Mit `showContentHeader: false` im Frontmatter wird die komplette Metadaten-Liste auf der Seite nicht angezeigt.
 
 ## 🔄 Deployment-Pipeline
 
@@ -78,7 +99,7 @@ Content-Repo (push)
   → GitHub Action
     → Sync zu diesem Repo's /content Ordner
       → Cloudflare Pages Build
-        → Deploy zu nekontam.alemsabic.com (1-2 Min)
+        → Deploy zu nekontam.com (1-2 Min)
 ```
 
 ODER
@@ -86,7 +107,7 @@ ODER
 ```
 nekontam-site (push Design-Änderungen)
   → Cloudflare Pages Build
-    → Deploy zu nekontam.alemsabic.com (1-2 Min)
+    → Deploy zu nekontam.com (1-2 Min)
 ```
 
 ## 🛠️ Tech Stack
@@ -105,27 +126,62 @@ nekontam-site (push Design-Änderungen)
 - **[content/README.md](./content/README.md)** - Auto-Sync-Erklärung
 - **[Quartz Docs](https://quartz.jzhao.xyz/)** - Offizielle Quartz-Dokumentation
 
-## 🎨 Anpassungen
-
-Dieses Projekt basiert auf dem ale.ms Setup und enthält custom Modifikationen:
+## 🎨 Custom Modifikationen
 
 ### Custom Komponenten
-- **Tagline.tsx**: Custom Tagline-Komponente
+- **ContentHeader.tsx**: Unified Metadata-Anzeige (ersetzt ArticleTitle, ContentMeta, TagList, EditOnGitHub)
+  - Bosnische Labels (Naslov, Datum, Vrijeme čitanja)
+  - Grammatisch korrekte Plural-Formen für Lesezeit
+  - Frontmatter-Option: `showContentHeader: false`
+  - Rechtsbündige "Briefadresse"-Darstellung
+- **Tagline.tsx**: Custom Site-Tagline
+- **EditOnGitHub.tsx**: GitHub Edit-Link (integriert in ContentHeader)
 
 ### Styling Overrides
-- Noise-Textur-Overlay
+- Noise-Textur-Overlay (Dark: 0.5 opacity)
 - Custom Grid-Layout mit 50px Gap
-- Custom Scrollbar-Styling
-- Explorer- und TOC-Schriftgrößen reduziert
+- Custom Scrollbar-Styling (orange #d65d0e Akzent)
+- Explorer- und TOC-Schriftgrößen reduziert (0.85rem)
 - Dark Theme Font Smoothing
+- Lined Paper Effect (deaktiviert, leicht reaktivierbar)
 
 ### Layout-Änderungen
-- Suchleiste repositioniert
+- Suchleiste repositioniert (zentral über Page Title)
 - Graph und Backlinks im Footer
 - Rechte Sidebar nur für TOC
+- Giscus Comments (GitHub Discussions)
 - Custom Spacing und Margins
 
-Siehe `CLAUDE.md` für vollständigen Changelog.
+### Quartz Update-Sicherheit
+
+Die Modifikationen sind **update-sicher** gestaltet:
+
+✅ **Keine Konflikte** (neue Dateien):
+- `quartz/components/ContentHeader.tsx`
+- `quartz/components/Tagline.tsx`
+- `quartz/components/EditOnGitHub.tsx`
+- `quartz/styles/custom.scss`
+
+⚠️ **Manuelle Merge-Schritte** bei Quartz-Updates:
+1. **`quartz/components/index.ts`**: Import/Export für custom Komponenten erneut hinzufügen
+2. **`quartz.layout.ts`**: Layout-Konfiguration erneut anpassen
+
+**Empfohlene Update-Strategie**:
+```bash
+# 1. Upstream Quartz als Remote hinzufügen (einmalig)
+git remote add upstream https://github.com/jackyzha0/quartz.git
+
+# 2. Upstream-Änderungen holen
+git fetch upstream
+
+# 3. Merge mit v4 Branch
+git merge upstream/v4
+
+# 4. Konflikte in index.ts und quartz.layout.ts manuell lösen
+# 5. Custom Komponenten bleiben unberührt
+```
+
+Siehe `CLAUDE.md` → "CUSTOMIZATION LOG" für detaillierte Änderungshistorie und Merge-Anweisungen.
 
 ## 🙏 Credits
 

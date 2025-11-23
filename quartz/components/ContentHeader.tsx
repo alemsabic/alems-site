@@ -34,6 +34,9 @@ export default ((opts?: Partial<ContentHeaderOptions>) => {
     const text = fileData.text
     const tags = fileData.frontmatter?.tags
 
+    // Check if ContentHeader should be hidden via frontmatter
+    const showContentHeader = fileData.frontmatter?.showContentHeader !== false
+
     // Get file path for edit link
     let filePath = fileData.filePath ?? ""
     if (filePath.startsWith("content/")) {
@@ -41,14 +44,20 @@ export default ((opts?: Partial<ContentHeaderOptions>) => {
     }
     const githubUrl = `${options.baseUrl}/${filePath}`
 
-    // Only render if there's content
-    if (!text) return null
+    // Only render if there's content and showContentHeader is not false
+    if (!text || !showContentHeader) return null
 
-    // Calculate reading time
+    // Calculate reading time with Bosnian plural rules
     const { minutes } = readingTime(text)
-    const readingTimeText = i18n(cfg.locale).components.contentMeta.readingTime({
-      minutes: Math.ceil(minutes),
-    })
+    const minutesCount = Math.ceil(minutes)
+    let readingTimeText
+    if (minutesCount === 1) {
+      readingTimeText = "1 minut."
+    } else if (minutesCount >= 2 && minutesCount <= 4) {
+      readingTimeText = `${minutesCount} minute.`
+    } else {
+      readingTimeText = `${minutesCount} minuta.`
+    }
 
     // Get date
     const date = getDate(cfg, fileData)
@@ -59,7 +68,7 @@ export default ((opts?: Partial<ContentHeaderOptions>) => {
         <dl>
           {title && (
             <>
-              <dt>Titel:</dt>
+              <dt>Naslov:</dt>
               <dd>{title}</dd>
             </>
           )}
@@ -73,7 +82,7 @@ export default ((opts?: Partial<ContentHeaderOptions>) => {
             </>
           )}
 
-          <dt>Lesezeit:</dt>
+          <dt>Vrijeme čitanja:</dt>
           <dd>{readingTimeText}</dd>
 
           {options.showTags && tags && tags.length > 0 && (
@@ -95,7 +104,6 @@ export default ((opts?: Partial<ContentHeaderOptions>) => {
             </>
           )}
 
-          <dt>Bearbeiten:</dt>
           <dd>
             <a href={githubUrl} target="_blank" rel="noopener noreferrer">
               {options.editButtonText}
