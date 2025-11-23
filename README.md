@@ -82,15 +82,17 @@ Jede Seite zeigt standardmäßig oben rechts eine kompakte Metadaten-Liste:
   Uredi stranicu na GitHub-u.
 ```
 
-**Ausblenden des Headers** (optional):
+**Frontmatter-Optionen:**
 ```yaml
 ---
 title: "Deine Seite"
-showContentHeader: false
+showContentHeader: false  # Metadaten-Liste ausblenden
+comments: false           # Giscus Comments ausblenden
 ---
 ```
 
-Mit `showContentHeader: false` im Frontmatter wird die komplette Metadaten-Liste auf der Seite nicht angezeigt.
+- `showContentHeader: false` - Blendet die komplette Metadaten-Liste aus
+- `comments: false` - Blendet die Giscus-Kommentarsektion am Seitenende aus
 
 ## 🔄 Deployment-Pipeline
 
