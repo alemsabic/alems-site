@@ -1,5 +1,4 @@
 ---
-title: Körperklaus
 lang: de
 ---
 

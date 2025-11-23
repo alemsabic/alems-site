@@ -1,5 +1,4 @@
 ---
-title: anatomke
 ---
 
 # anatomke
