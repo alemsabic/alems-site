@@ -289,6 +289,19 @@ a.internal.tag-link {
   font-size: 0.85rem !important;
 }
 
+// Explorer and Table of Contents heading styling
+button.mobile-explorer,
+button.desktop-explorer,
+button.toc-header {
+  color: var(--darkgray) !important;
+}
+
+button.mobile-explorer h2,
+button.desktop-explorer h2,
+button.toc-header h3 {
+  font-weight: 400 !important;
+}
+
 // Increase gap between center and sidebars
 
 @media (min-width: 1200px) {
