@@ -27,12 +27,10 @@ export const defaultContentPageLayout: PageLayout = {
       component: Component.Breadcrumbs(),
       condition: (page) => page.fileData.slug !== "index",
     }),
-    Component.ArticleTitle(),
-    Component.ContentMeta(),
-    Component.TagList(),
-    Component.EditOnGitHub({
+    Component.ContentHeader({
       baseUrl: "https://github.com/alemsabic/nekontam-zk/blob/main",
-      buttonText: "Edituj stranicu na GitHub-u.",
+      editButtonText: "Edituj stranicu na GitHub-u.",
+      showTags: false,
     }),
   ],
   left: [
