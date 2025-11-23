@@ -43,6 +43,14 @@ export const defaultContentPageLayout: PageLayout = {
     Component.DesktopOnly(Component.TableOfContents()),
   ],
   afterBody: [
+    Component.ConditionalRender({
+      component: Component.RecentNotes({
+        limit: 5,
+        showTags: false,
+        linkToMore: false,
+      }),
+      condition: (page) => page.fileData.slug === "index",
+    }),
     Component.Comments({
       provider: "giscus",
       options: {
