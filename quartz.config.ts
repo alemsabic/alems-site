@@ -9,7 +9,7 @@ import * as Plugin from "./quartz/plugins"
 const config: QuartzConfig = {
   configuration: {
     pageTitle: "NE KONTAM",
-    pageTitleSuffix: "Rječnik sarajevskog žargona",
+    pageTitleSuffix: "Sarajevski urbanski magazin za domaću budalu",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
