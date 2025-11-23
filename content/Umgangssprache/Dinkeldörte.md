@@ -1,5 +1,4 @@
 ---
-title: Dinkeldörte
 lang: de
 ---
 
