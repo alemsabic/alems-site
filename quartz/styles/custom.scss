@@ -358,3 +358,54 @@ a.internal {
 // BILINGUAL DICTIONARY STYLING
 // ============================================
 
+// ============================================
+// RECENT NOTES COMPONENT (Index Page)
+// ============================================
+
+.recent-notes {
+  margin-top: 3rem !important;
+  margin-bottom: 3rem !important;
+  padding-top: 2rem !important;
+  border-top: 1px dashed var(--gray) !important;
+}
+
+.recent-notes > h3 {
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  color: var(--darkgray) !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.recent-notes .recent-ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin: 0 !important;
+}
+
+.recent-notes .recent-li {
+  margin-bottom: 1.5rem !important;
+}
+
+.recent-notes .recent-li .section > .desc > h3 {
+  margin: 0 !important;
+  font-size: 0.95rem !important;
+  font-weight: 400 !important;
+}
+
+.recent-notes .recent-li .section > .desc > h3 > a {
+  opacity: 0.85 !important;
+  transition: opacity 0.2s ease !important;
+  font-weight: 400 !important;
+}
+
+.recent-notes .recent-li .section > .desc > h3 > a:hover {
+  opacity: 1 !important;
+}
+
+.recent-notes .recent-li .section > .meta {
+  font-size: 0.8rem !important;
+  color: var(--gray) !important;
+  opacity: 0.7 !important;
+  margin-top: 0.25rem !important;
+}
+
