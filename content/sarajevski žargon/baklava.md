@@ -1,16 +1,11 @@
----
----
-
-# baklava
-
-## Definicija
-
-vagina
-
-## Primjer
-
-»Cura ti, sine, želi topli krevet da se ljulja – grli, mazi, guzi –, a ti je vozaš po aščinicama i ćevabdžinicama. U po zime!« »Daj ba, stari, ne seri!« »Šta ba _daj ba!_ Otkad fura sa tobom, cura se nagutala tufahije i hurmašice, kljukuše i furdenjače, pačeta i škembića preko glave. Najmanje desetak kila nabila uz tebe.« »Daj ba više, Allaha ti tvoga!« »I ti stvarno misliš da taj kilavko uživa u šetnji kraj obale _smrdljive_ Miljacke? U po zime?« »Ponavljaš se.« »_Mater ti se ponavlja!_ U po zime kad crni led puca pod štiklicama? Ta jadna koka zbog te tvoje _papanske_ romantike svakoj pahuljici u cijelom jebenom Sarajevu ime zna. Nismo u Parizu. Nije to doberman. Nego žena. Žena! Sjećaš se? Sifoni, bedemi, guzovi … Ima čak i **baklavu** pod suknjicom. Čuo za to?« »A mozak?« »Eto ti je jebi u mozak! Bolje nego mene.«
-
-### Auf Deutsch
-
-Muschi, Möse (you get the picture) – wörtlich: Baklava. Das in Zuckersirup eingelegte (meist in rautenform geschnittene) Gebäck.
+<div style="font-family: 'Baskerville', 'Baskerville Old Face', 'Garamond', 'Hoefler Text', 'Palatino Linotype', 'Book Antiqua', 'Times New Roman', serif; color: #111; line-height: 1.15; text-align: justify; font-size: 1.1rem; padding: 25px; letter-spacing: 0.01em;">
+    <strong style="font-size: 1.35em; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; margin-right: 4px;">baklava</strong> 
+    <span style="font-size: 1.35em; font-weight: 900; letter-spacing: 0.05em; margin-right: 4px;">[БАКЛАВА]</span>
+    <span style="font-size: 0.95em;">[bǎklaʋa]</span>, <i>ž.</i> <i>(tur.)</i> 
+    <b>1.</b> <i>kulin.</i> Orijentalna slastica od tankih kora s orasima, zalivena šećernim sirupom (agdom). 
+    <b>2.</b> <i>vulg. anat.</i> Ženski spolni organ; metafora aludira na slojevitost, ekstremnu vlažnost (sirup) i karakteristični oblik romba pri serviranju 
+    <span style="font-size: 0.95em;">(<i>dt.</i> <b>Möse</b>, <b>Muschi</b>; <i>fig.</i> das »Honigkästchen« od. der »Honigtopf«, konnotiert klebrige Süße; <i>fr.</i> <b>la chatte</b>, <i>slang.</i> <b>le berlingot</b> [wegen der Form], <i>vulg.</i> la foufoune; <i>engl.</i> <b>pussy</b>, <b>cunt</b>; <i>slang.</i> honey-pot, beaver).</span> 
+    <span style="margin: 0 6px; font-weight: bold;">♦</span> 
+    <b>primjer:</b> »Cura ti, sine, želi topli krevet da se ljulja – grli, mazi, guzi –, a ti je vozaš po aščinicama i ćevabdžinicama. U po zime!« — »Daj ba, stari, ne seri!« — »Šta ba <i>daj ba!</i> Otkad fura sa tobom, cura se nagutala tufahije i hurmašice, kljukuše i furdenjače, pačeta i škembića preko glave. Najmanje desetak kila nabila uz tebe.« — »Daj ba više, Allaha ti tvoga!« — »I ti stvarno misliš da taj kilavko uživa u šetnji kraj obale <i>smrdljive</i> Miljacke? U po zime?« — »Ponavljaš se.« — »<i>Mater ti se ponavlja!</i> U po zime kad crni led puca pod štiklicama? Ta jadna koka zbog te tvoje <i>papanske</i> romantike svakoj pahuljici u cijelom jebenom Sarajevu ime zna. Nismo u Parizu. Nije to doberman. Nego žena. Žena! Sjećaš se? Sifoni, bedemi, guzovi … Ima čak i <b>baklavu</b> pod suknjicom. Čuo za to?« — »A mozak?« — »Eto ti je jebi u mozak! Bolje nego mene.« 
+    <span style="margin-left: 8px; font-size: 0.9em;">→ <i>vidi još:</i> <b>papan</b>, <b>tufahija</b>, <b>fukara</b>.</span>
+</div>
