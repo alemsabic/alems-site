@@ -22,7 +22,7 @@ export function formatDate(d: Date, locale: ValidLocale = "en-US"): string {
   const day = String(d.getDate()).padStart(2, '0')
   const month = String(d.getMonth() + 1).padStart(2, '0')
   const year = d.getFullYear()
-  return `${day}.${month}.${year}`
+  return `${day}.${month}.${year}.`
 }
 
 export function Date({ date, locale }: Props) {

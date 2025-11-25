@@ -22,7 +22,7 @@ interface ContentHeaderOptions {
 
 const defaultOptions: ContentHeaderOptions = {
   baseUrl: "",
-  editButtonText: "Edituj stranicu na GitHub-u.",
+  editButtonText: "Dotjeraj stranicu na GitHub-u.",
   showTags: false,
 }
 
@@ -69,7 +69,7 @@ export default ((opts?: Partial<ContentHeaderOptions>) => {
           {title && (
             <>
               <dt>Naslov:</dt>
-              <dd>{title}</dd>
+              <dd>{title}.</dd>
             </>
           )}
 
@@ -120,21 +120,20 @@ export default ((opts?: Partial<ContentHeaderOptions>) => {
     margin: 1rem 0 2.5rem 0;
     padding: 0.75rem 0;
     border-right: 1px dashed var(--gray);
+    border-bottom: 1px dashed var(--gray);
     padding-right: 1rem;
   }
 
   .content-header dl {
     margin: 0;
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     line-height: 1.5;
-    color: var(--gray);
-    opacity: 0.85;
+    color: var(--darkgray);
   }
 
   .content-header dt {
     display: inline;
-    font-weight: 500;
-    margin-right: 0.25rem;
+    margin-right: 0.5rem;
     color: var(--darkgray);
   }
 
