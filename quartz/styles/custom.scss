@@ -236,7 +236,7 @@ a.internal.tag-link {
 
 // Explorer folder left border with darker styling
 .explorer-content .folder-outer > ul {
-  border-left: 1px solid var(--gray) !important;
+  border-left: 1px dashed var(--gray) !important;
 }
 
 // Folder container font size and styling
@@ -394,12 +394,6 @@ article.dictionary-entry {
   .cyrillic {
     font-size: 1.35em;
     letter-spacing: 0.05em;
-  }
-
-  // Cross-references (→ vidi još:)
-  .xref {
-    margin-left: 8px;
-    font-size: 0.9em;
   }
 }
 
