@@ -1,4 +1,4 @@
-<div style="font-family: 'Baskerville', 'Baskerville Old Face', 'Garamond', 'Hoefler Text', 'Palatino Linotype', 'Book Antiqua', 'Times New Roman', serif; color: #111; line-height: 1.15; text-align: justify; font-size: 1.1rem; padding: 25px; letter-spacing: 0.01em;">
+<div style="font-family: 'Baskerville', 'Baskerville Old Face', 'Garamond', 'Hoefler Text', 'Palatino Linotype', 'Book Antiqua', 'Times New Roman', serif; line-height: 1.15; text-align: justify; font-size: 1.1rem; letter-spacing: 0.01em;">
     <strong style="font-size: 1.35em; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; margin-right: 4px;">baklava</strong> 
     <span style="font-size: 1.35em; font-weight: 900; letter-spacing: 0.05em; margin-right: 4px;">[БАКЛАВА]</span>
     <span style="font-size: 0.95em;">[bǎklaʋa]</span>, <i>ž.</i> <i>(tur.)</i> 
