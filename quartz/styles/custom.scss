@@ -366,7 +366,7 @@ article.dictionary-entry {
                'Palatino Linotype', 'Book Antiqua', 'Times New Roman', serif !important;
   line-height: 1.15 !important;
   text-align: justify !important;
-  font-size: 1.25rem !important;
+  font-size: 1.1rem !important; // Mobile
   letter-spacing: 0.01em !important;
 
   // Remove ALL paragraph spacing - everything flows inline
@@ -388,26 +388,12 @@ article.dictionary-entry {
     font-weight: 900;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    margin-right: 4px;
   }
 
   // Cyrillic variant in brackets [БАКЛАВА]
   .cyrillic {
     font-size: 1.35em;
-    font-weight: 900;
     letter-spacing: 0.05em;
-    margin-right: 4px;
-  }
-
-  // Pronunciation guide [bǎklaʋa]
-  .pronunciation {
-    font-size: 0.95em;
-  }
-
-  // Diamond separator ♦
-  .separator {
-    margin: 0 6px;
-    font-weight: bold;
   }
 
   // Cross-references (→ vidi još:)
@@ -415,10 +401,12 @@ article.dictionary-entry {
     margin-left: 8px;
     font-size: 0.9em;
   }
+}
 
-  // Foreign language equivalents (dt., fr., engl.)
-  .foreign-equiv {
-    font-size: 0.95em;
+// Dictionary Entry responsive font size for desktop
+@media (min-width: 800px) {
+  article.dictionary-entry {
+    font-size: 1.25rem !important; // Desktop
   }
 }
 
