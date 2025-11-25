@@ -356,7 +356,74 @@ a.internal {
 }
 
 // ============================================
-// BILINGUAL DICTIONARY STYLING
+// CONTENT TYPE STYLING - DICTIONARY ENTRIES
+// ============================================
+
+// Dictionary Entry: Old dictionary aesthetic (Baskerville/Garamond serif style)
+// Everything inline, dense block layout like printed dictionaries - no paragraph breaks
+article.dictionary-entry {
+  font-family: 'Baskerville', 'Baskerville Old Face', 'Garamond', 'Hoefler Text',
+               'Palatino Linotype', 'Book Antiqua', 'Times New Roman', serif !important;
+  line-height: 1.15 !important;
+  text-align: justify !important;
+  font-size: 1.25rem !important;
+  letter-spacing: 0.01em !important;
+
+  // Remove ALL paragraph spacing - everything flows inline
+  p {
+    display: inline !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  // Override any default article styling
+  * {
+    font-family: inherit !important;
+    line-height: inherit !important;
+  }
+
+  // Headword (main entry word) - bold uppercase with increased letter spacing
+  .headword {
+    font-size: 1.35em;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-right: 4px;
+  }
+
+  // Cyrillic variant in brackets [БАКЛАВА]
+  .cyrillic {
+    font-size: 1.35em;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    margin-right: 4px;
+  }
+
+  // Pronunciation guide [bǎklaʋa]
+  .pronunciation {
+    font-size: 0.95em;
+  }
+
+  // Diamond separator ♦
+  .separator {
+    margin: 0 6px;
+    font-weight: bold;
+  }
+
+  // Cross-references (→ vidi još:)
+  .xref {
+    margin-left: 8px;
+    font-size: 0.9em;
+  }
+
+  // Foreign language equivalents (dt., fr., engl.)
+  .foreign-equiv {
+    font-size: 0.95em;
+  }
+}
+
+// ============================================
+// BILINGUAL DICTIONARY STYLING (RESERVED)
 // ============================================
 
 // ============================================

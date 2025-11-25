@@ -147,6 +147,40 @@ nekontam-site (push Design-Änderungen)
 - Dark Theme Font Smoothing
 - Lined Paper Effect (deaktiviert, leicht reaktivierbar)
 
+### Content-Type Styling: Wörterbuch-Einträge
+
+**Ziel**: Altes Wörterbuch-Design (dicht, Blocksatz, Serif-Schrift) für Kontrast zwischen formaler Darstellung und anarchischem Inhalt.
+
+**Implementierung**:
+```yaml
+---
+title: baklava
+cssclasses: dictionary-entry
+---
+```
+
+**CSS-Features** (`article.dictionary-entry`):
+- **Font**: Baskerville/Garamond Serif-Stack
+- **Layout**: Inline-Block (kein Platz verschwendet wie im alten Druck)
+- **Typography**: `font-size: 1.25rem`, `line-height: 1.15`, `letter-spacing: 0.01em`
+- **Text-Align**: Justify (Blocksatz)
+- **Paragraphen**: `display: inline` - alles fließt als dichter Block
+
+**Verfügbare Klassen**:
+- `.headword` - Haupteintrag (bold uppercase, 1.35em)
+- `.cyrillic` - Kyrillische Variante (bold, 1.35em)
+- `.pronunciation` - Aussprache (0.95em)
+- `.separator` - Diamant ♦ (bold)
+- `.foreign-equiv` - Fremdsprachen-Äquivalente (0.95em)
+- `.xref` - Querverweise (0.9em, margin-left: 8px)
+
+**Beispiel-Markup**:
+```markdown
+<span class="headword">baklava</span> <span class="cyrillic">[БАКЛАВА]</span> <span class="pronunciation">[bǎklaʋa]</span>, *ž.* *(tur.)* **1.** *kulin.* Definition... **2.** *vulg.* Definition... <span class="separator">♦</span> **primjer:** Beispieltext... <span class="xref">→ *vidi još:* **link1**, **link2**.</span>
+```
+
+**Zukunft**: Weitere Content-Types möglich via `cssclasses: recipe`, `cssclasses: letter`, etc.
+
 ### Layout-Änderungen
 - Suchleiste repositioniert (zentral über Page Title)
 - Graph und Backlinks im Footer
