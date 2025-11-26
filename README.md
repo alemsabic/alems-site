@@ -21,8 +21,6 @@ Dieses Repository enthält die **Präsentationsschicht** (Quartz Static Site Gen
 
 ### Für Betreiber
 
-**Vollständiges Handbuch**: Siehe [`OPERATOR.md`](./OPERATOR.md) für alle Kommandos und Workflows.
-
 **Schnellbefehle**:
 
 ```bash
@@ -58,9 +56,8 @@ nekontam-site/
 │   └── ...
 ├── quartz.config.ts     # Site-Konfiguration
 ├── quartz.layout.ts     # Komponenten-Layout
-├── OPERATOR.md          # Vollständiges Betreiber-Handbuch
 ├── CLAUDE.md            # KI-Assistent-Kontext
-└── README.md            # Diese Datei
+└── README.md            # Diese Datei (Vollständiges Handbuch)
 ```
 
 ## ⚙️ Konfiguration
@@ -123,7 +120,7 @@ nekontam-site (push Design-Änderungen)
 
 ## 📚 Dokumentation
 
-- **[OPERATOR.md](./OPERATOR.md)** - Vollständiges Betreiber-Handbuch (hier starten!)
+- **[README.md](./README.md)** - Dieses Dokument (vollständiges Handbuch)
 - **[CLAUDE.md](./CLAUDE.md)** - Kontext für KI-Assistenten (Claude Code)
 - **[content/README.md](./content/README.md)** - Auto-Sync-Erklärung
 - **[Quartz Docs](https://quartz.jzhao.xyz/)** - Offizielle Quartz-Dokumentation
@@ -151,7 +148,9 @@ nekontam-site (push Design-Änderungen)
 
 **Ziel**: Altes Wörterbuch-Design (dicht, Blocksatz, Serif-Schrift) für Kontrast zwischen formaler Darstellung und anarchischem Inhalt.
 
-**Implementierung**:
+**Verfügbare Layouts**:
+
+#### 1. Einzelspaltig (Standard)
 ```yaml
 ---
 title: baklava
@@ -162,9 +161,31 @@ cssclasses: dictionary-entry
 **CSS-Features** (`article.dictionary-entry`):
 - **Font**: Baskerville/Garamond Serif-Stack
 - **Layout**: Inline-Block (kein Platz verschwendet wie im alten Druck)
-- **Typography**: `font-size: 1.25rem`, `line-height: 1.15`, `letter-spacing: 0.01em`
+- **Typography Mobile**: `font-size: 1.1rem`, `line-height: 1.15`, `letter-spacing: 0.01em`
+- **Typography Desktop**: `font-size: 1.25rem` (größer für bessere Lesbarkeit)
 - **Text-Align**: Justify (Blocksatz)
 - **Paragraphen**: `display: inline` - alles fließt als dichter Block
+
+#### 2. Zweispaltig (Desktop-Layout)
+```yaml
+---
+title: baklava
+cssclasses: dictionary-entry-columns
+---
+```
+
+**CSS-Features** (`article.dictionary-entry-columns`):
+- Identisch zu `dictionary-entry`, **aber**:
+- **Typography**: `font-size: 1.1rem` auf **allen** Geräten (keine Desktop-Vergrößerung)
+- **Desktop (min-width: 800px)**: 2-Spalten-Layout
+  - `column-count: 2`
+  - `column-gap: 2rem`
+  - `column-fill: balance` (beide Spalten gleich lang)
+- **Mobile**: Einzelne Spalte wie `dictionary-entry`
+
+**Wann welches Layout?**
+- **`dictionary-entry`**: Kürzere Einträge, bessere Lesbarkeit durch größere Schrift auf Desktop
+- **`dictionary-entry-columns`**: Längere Einträge, platzsparend wie gedruckte Wörterbücher
 
 **Verfügbare Klassen**:
 - `.headword` - Haupteintrag (bold uppercase, 1.35em)
@@ -231,4 +252,4 @@ Custom Modifikationen und Inhalte sind persönlich.
 
 ---
 
-**Fragen?** Siehe [OPERATOR.md](./OPERATOR.md) oder [CLAUDE.md](./CLAUDE.md)
+**Fragen?** Siehe [CLAUDE.md](./CLAUDE.md) für detaillierte Entwicklungshistorie

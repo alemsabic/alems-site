@@ -371,7 +371,6 @@ article.dictionary-entry {
 
   // Remove ALL paragraph spacing - everything flows inline
   p {
-    display: inline !important;
     margin: 0 !important;
     padding: 0 !important;
   }
@@ -401,6 +400,53 @@ article.dictionary-entry {
 @media (min-width: 800px) {
   article.dictionary-entry {
     font-size: 1.25rem !important; // Desktop
+  }
+}
+
+// ============================================
+// DICTIONARY ENTRY - TWO COLUMNS (Desktop)
+// ============================================
+
+// Two-column dictionary layout (desktop only, same font-size as mobile)
+article.dictionary-entry-columns {
+  font-family: 'Baskerville', 'Baskerville Old Face', 'Garamond', 'Hoefler Text',
+               'Palatino Linotype', 'Book Antiqua', 'Times New Roman', serif !important;
+  line-height: 1.15 !important;
+  text-align: justify !important;
+  font-size: 1.1rem !important; // Same size on mobile AND desktop
+  letter-spacing: 0.01em !important;
+
+  // Remove ALL paragraph spacing - everything flows inline
+  p {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  // Override any default article styling
+  * {
+    font-family: inherit !important;
+    line-height: inherit !important;
+  }
+
+  // Headword (main entry word) - bold uppercase with increased letter spacing
+  .headword {
+    font-size: 1.35em;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  // Cyrillic variant in brackets [БАКЛАВА]
+  .cyrillic {
+    font-size: 1.35em;
+    letter-spacing: 0.05em;
+  }
+
+  // Desktop: 2 columns
+  @media (min-width: 800px) {
+    column-count: 2;
+    column-gap: 2rem;
+    column-fill: balance;
   }
 }
 
