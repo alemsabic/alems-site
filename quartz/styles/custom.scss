@@ -394,6 +394,93 @@ article.dictionary-entry {
     font-size: 1.35em;
     letter-spacing: 0.05em;
   }
+
+  // ============================================
+  // FINE-GRAINED ELEMENT STYLING
+  // ============================================
+
+  // Phonetic transcription - italic, slightly smaller, gray
+  .phonetic {
+    font-style: italic;
+    font-size: 0.95em;
+    color: var(--gray);
+  }
+
+  // Grammar info - italic, smaller, gray
+  .grammar {
+    font-style: italic;
+    font-size: 0.9em;
+    color: var(--gray);
+  }
+
+  // Etymology - italic, smaller, gray
+  .etymology {
+    font-style: italic;
+    font-size: 0.9em;
+    color: var(--gray);
+  }
+
+  // Field labels (kulin., vulg., anat., etc.) - italic
+  .field {
+    font-style: italic;
+    font-size: 0.9em;
+  }
+
+  // Sense numbers (1., 2., 3.) - bold
+  .sense-number {
+    font-weight: 700;
+  }
+
+  // Definition text - regular weight
+  .definition {
+    font-weight: 400;
+  }
+
+  // Foreign language labels (njem., franc., engl.) - italic
+  .foreign-label {
+    font-style: italic;
+    font-size: 0.9em;
+  }
+
+  // Foreign equivalents - bold (inherited from markdown **)
+  .foreign-equiv {
+    font-weight: 700;
+  }
+
+  // Slang/figurative/literal labels - italic
+  .slang-label,
+  .fig-label,
+  .literal-label {
+    font-style: italic;
+    font-size: 0.9em;
+  }
+
+  // Slang terms - regular weight
+  .slang-term {
+    font-weight: 400;
+  }
+
+  // Connotation notes [in brackets] - slightly gray
+  .connotation {
+    color: var(--gray);
+  }
+
+  // Example marker (♦) - larger, bold, secondary color
+  .example-marker {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--secondary);
+  }
+
+  // Example label ("primjer:") - bold
+  .example-label {
+    font-weight: 700;
+  }
+
+  // Example text - regular weight
+  .example-text {
+    font-weight: 400;
+  }
 }
 
 // Dictionary Entry responsive font size for desktop
@@ -442,10 +529,97 @@ article.dictionary-entry-columns {
     letter-spacing: 0.05em;
   }
 
+  // ============================================
+  // FINE-GRAINED ELEMENT STYLING (same as dictionary-entry)
+  // ============================================
+
+  // Phonetic transcription - italic, slightly smaller, gray
+  .phonetic {
+    font-style: italic;
+    font-size: 0.95em;
+    color: var(--gray);
+  }
+
+  // Grammar info - italic, smaller, gray
+  .grammar {
+    font-style: italic;
+    font-size: 0.9em;
+    color: var(--gray);
+  }
+
+  // Etymology - italic, smaller, gray
+  .etymology {
+    font-style: italic;
+    font-size: 0.9em;
+    color: var(--gray);
+  }
+
+  // Field labels (kulin., vulg., anat., etc.) - italic
+  .field {
+    font-style: italic;
+    font-size: 0.9em;
+  }
+
+  // Sense numbers (1., 2., 3.) - bold
+  .sense-number {
+    font-weight: 700;
+  }
+
+  // Definition text - regular weight
+  .definition {
+    font-weight: 400;
+  }
+
+  // Foreign language labels (njem., franc., engl.) - italic
+  .foreign-label {
+    font-style: italic;
+    font-size: 0.9em;
+  }
+
+  // Foreign equivalents - bold (inherited from markdown **)
+  .foreign-equiv {
+    font-weight: 700;
+  }
+
+  // Slang/figurative/literal labels - italic
+  .slang-label,
+  .fig-label,
+  .literal-label {
+    font-style: italic;
+    font-size: 0.9em;
+  }
+
+  // Slang terms - regular weight
+  .slang-term {
+    font-weight: 400;
+  }
+
+  // Connotation notes [in brackets] - slightly gray
+  .connotation {
+    color: var(--gray);
+  }
+
+  // Example marker (♦) - larger, bold, secondary color
+  .example-marker {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--secondary);
+  }
+
+  // Example label ("primjer:") - bold
+  .example-label {
+    font-weight: 700;
+  }
+
+  // Example text - regular weight
+  .example-text {
+    font-weight: 400;
+  }
+
   // Desktop: 2 columns
   @media (min-width: 800px) {
     column-count: 2;
-    column-gap: 2rem;
+    column-gap: 1.25rem;
     column-fill: balance;
   }
 }
