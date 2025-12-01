@@ -451,6 +451,40 @@ article.dictionary-entry-columns {
 }
 
 // ============================================
+// DICTIONARY ENTRY - FOOTNOTES STYLING
+// ============================================
+
+// Hide "Footnotes" heading for dictionary entries
+article.dictionary-entry .footnotes h2,
+article.dictionary-entry-columns .footnotes h2 {
+  display: none !important;
+}
+
+// Footnotes styling for dictionary entries - compact, book-like layout
+article.dictionary-entry .footnotes,
+article.dictionary-entry-columns .footnotes {
+  margin-top: 0.75rem !important; // Halved from 1.5rem
+  padding-top: 0.75rem !important; // Add padding for border spacing
+  border-top-color: var(--darkgray) !important; // Match text color
+  font-size: 0.85rem !important; // Smaller than main text
+  text-align: left !important; // Left-aligned, not justified
+
+  ol {
+    padding-left: 1rem !important; // Reduced padding for compact layout
+    margin: 0 !important;
+  }
+
+  li {
+    margin-bottom: 0.5rem !important;
+
+    p {
+      margin: 0 !important;
+      text-align: left !important; // Override justify for footnotes
+    }
+  }
+}
+
+// ============================================
 // BILINGUAL DICTIONARY STYLING (RESERVED)
 // ============================================
 
