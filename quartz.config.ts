@@ -8,15 +8,15 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "NE KONTAM",
-    pageTitleSuffix: "Sarajevski urbanski magazin za domaću budalu",
+    pageTitle: "PATHOLOGIE",
+    pageTitleSuffix: "Quellenangaben für Gpunkt.org Satiremagazin",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
       provider: "plausible",
     },
-    locale: "bs-BA",
-    baseUrl: "https://nekontam.com",
+    locale: "de-DE",
+    baseUrl: "https://pathologie.gpunkt.org",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "modified",
     theme: {
