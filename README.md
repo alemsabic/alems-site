@@ -1,18 +1,18 @@
-# nekontam-site
+# pathologie-site
 
-> **Präsentationsschicht für [nekontam.com](https://nekontam.com)** - Static Site Generator mit Quartz v4.5.1
+> **Präsentationsschicht für [pathologie.gpunkt.org](https://pathologie.gpunkt.org)** - Static Site Generator mit Quartz v4.5.1
 
-🌐 **Live Site**: [nekontam.com](https://nekontam.com)
+🌐 **Live Site**: [pathologie.gpunkt.org](https://pathologie.gpunkt.org)
 
 ## 🎯 Über dieses Repository
 
-Dieses Repository enthält die **Präsentationsschicht** (Quartz Static Site Generator) für NE KONTAM - Rječnik sarajevskog žargona.
+Dieses Repository enthält die **Präsentationsschicht** (Quartz Static Site Generator) für PATHOLOGIE - Quellenangaben für Gpunkt.org Satiremagazin.
 
 ### Zwei-Repository-Architektur:
 
-1. **nekontam-site** (dieses Repo): Design, Layout, Konfiguration
-   - https://github.com/alemsabic/nekontam-site
-2. **nekontam-zk**: Rječnik-Inhalte (Markdown), separat verwaltet
+1. **pathologie-site** (dieses Repo): Design, Layout, Konfiguration
+   - https://github.com/alemsabic/pathologie-site
+2. **nekontam-zk**: Content (Markdown), separat verwaltet
    - https://github.com/alemsabic/nekontam-zk
 
 **Inhalte synchronisieren automatisch** vom Content-Repository via GitHub Actions.
@@ -46,7 +46,7 @@ Inhalte werden im separaten Content-Repository bearbeitet:
 ## 📁 Projektstruktur
 
 ```
-nekontam-site/
+pathologie-site/
 ├── content/              # ⚠️ AUTO-SYNC - NICHT EDITIEREN
 │   └── README.md        # Erklärt Auto-Sync
 ├── quartz/
@@ -62,9 +62,9 @@ nekontam-site/
 
 ## ⚙️ Konfiguration
 
-- **Site Title**: "NE KONTAM"
-- **Tagline**: "Rječnik sarajevskog žargona"
-- **Typographie**: Playfair Display (Headers), Spectral (Body), JetBrains Mono (Code)
+- **Site Title**: "PATHOLOGIE"
+- **Tagline**: "Quellenangaben für Gpunkt.org Satiremagazin"
+- **Typographie**: Victor Mono (Headers), Geist Mono (Body), Inconsolata (Code)
 - **Theme**: Custom mit Noise-Textur
 - **Layout**: Custom Grid (320px Sidebars, 50px Gap)
 
@@ -98,15 +98,15 @@ Content-Repo (push)
   → GitHub Action
     → Sync zu diesem Repo's /content Ordner
       → Cloudflare Pages Build
-        → Deploy zu nekontam.com (1-2 Min)
+        → Deploy zu pathologie.gpunkt.org (1-2 Min)
 ```
 
 ODER
 
 ```
-nekontam-site (push Design-Änderungen)
+pathologie-site (push Design-Änderungen)
   → Cloudflare Pages Build
-    → Deploy zu nekontam.com (1-2 Min)
+    → Deploy zu pathologie.gpunkt.org (1-2 Min)
 ```
 
 ## 🛠️ Tech Stack

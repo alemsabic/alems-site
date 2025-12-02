@@ -65,7 +65,7 @@ export const defaultContentPageLayout: PageLayout = {
         lang: "hbs",
         lightTheme: "light",
         darkTheme: "dark",
-        themeUrl: "https://nekontam.com/static/giscus",
+        themeUrl: "https://pathologie.gpunkt.org/static/giscus",
       },
     }),
     Component.Backlinks(),

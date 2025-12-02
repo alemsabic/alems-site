@@ -1,4 +1,4 @@
-# Claude Code Instructions - Quartz Repository (NE KONTAM)
+# Claude Code Instructions - Quartz Repository (PATHOLOGIE)
 
 ## ⚠️ Important: Two-Repository Architecture
 
@@ -16,11 +16,11 @@ This repository handles **PRESENTATION ONLY** (Quartz static site generator).
 - ❌ Content (managed in separate repo)
 
 ## Project Overview
-- **Name**: "nekontam-site"
+- **Name**: "pathologie-site"
 - **Type**: Static site generator using Quartz v4.5.1
-- **Purpose**: Presentation layer for NE KONTAM - Rječnik sarajevskog žargona
+- **Purpose**: Presentation layer for PATHOLOGIE - Quellenangaben für Gpunkt.org Satiremagazin
 - **Local dev**: `npx quartz build --serve` (runs on http://localhost:8080)
-- **Live Site**: https://nekontam.alemsabic.com
+- **Live Site**: https://pathologie.gpunkt.org
 
 ## Quick Start (Read This First!)
 
@@ -57,21 +57,21 @@ git add . && git commit -m "content: ..." && git push
 - `CLAUDE.md` - This file (Quartz-specific context)
 
 ## Current Configuration
-- **Page title**: "NE KONTAM"
-- **Page title suffix**: "Rječnik sarajevskog žargona"
-- **Tagline**: "Rječnik sarajevskog žargona"
-- **Typography**: Quicksand (headers), JetBrains Mono (body/code)
-- **Base URL**: https://nekontam.com
+- **Page title**: "PATHOLOGIE"
+- **Page title suffix**: "Quellenangaben für Gpunkt.org Satiremagazin"
+- **Tagline**: "Quellenangaben für Gpunkt.org Satiremagazin"
+- **Typography**: Victor Mono (headers), Geist Mono (body), Inconsolata (code)
+- **Base URL**: https://pathologie.gpunkt.org
 - **Footer**: Custom with Alem Šabić link + X/Twitter
 - **Theme**: Custom Quartz with noise texture
 
 ## Deployment
 - **Platform**: Cloudflare Pages
-- **Repository**: https://github.com/alemsabic/nekontam-site
+- **Repository**: https://github.com/alemsabic/pathologie-site
 - **Branch**: `v4`
 - **Build Command**: `npx quartz build`
 - **Output Directory**: `public`
-- **Live URL**: https://nekontam.com
+- **Live URL**: https://pathologie.gpunkt.org
 - **Deploy Time**: 1-2 minutes after push
 
 ## Completed Tasks
@@ -625,6 +625,52 @@ darkMode: {
 
 ---
 
+## Session 13 Updates (Dec 2, 2025) - **Migration to PATHOLOGIE** ✅
+
+### Complete Project Rebrand: NE KONTAM → PATHOLOGIE
+**Files Modified**: `quartz.config.ts`, `README.md`, `CLAUDE.md`, `quartz/components/Tagline.tsx`
+
+**Migration**: nekontam.com → pathologie.gpunkt.org
+
+**Changes Made**:
+
+**Phase 1: Configuration Updates**
+- **Site Title**: "NE KONTAM" → "PATHOLOGIE"
+- **Page Title Suffix**: "Rječnik sarajevskog žargona" → "Quellenangaben für Gpunkt.org Satiremagazin"
+- **Base URL**: `https://nekontam.com` → `https://pathologie.gpunkt.org`
+- **Typography Updated**:
+  - Headers: Victor Mono
+  - Body: Geist Mono
+  - Code: Inconsolata
+- **Tagline**: Updated to "Quellenangaben für Gpunkt.org Satiremagazin"
+
+**Phase 2: Repository Updates**
+- **GitHub Repository**: nekontam-site → pathologie-site
+- **Git Remote**: Updated to `git@github.com:alemsabic/pathologie-site.git`
+- **Content Repository**: Continues to use `nekontam-zk` (unchanged)
+
+**Phase 3: Documentation Updates**
+- **README.md**: All references updated to pathologie.gpunkt.org
+- **CLAUDE.md**: Session 13 logged for migration tracking
+- All URLs, project names, and descriptions updated throughout
+
+**New Project Identity**:
+- **Name**: PATHOLOGIE
+- **Purpose**: Quellenangaben für Gpunkt.org Satiremagazin (Source references for Gpunkt.org satire magazine)
+- **Live**: https://pathologie.gpunkt.org
+- **GitHub**: pathologie-site (presentation) + nekontam-zk (content)
+
+**Content Repository**:
+- Still located at: `/Users/alemsabic/Desktop/MEMEX/_projects/nekontam-content/`
+- GitHub: https://github.com/alemsabic/nekontam-zk
+- Auto-syncs to pathologie-site via GitHub Actions
+
+**Status**: Complete migration ✅ - System fully operational
+
+**Note**: NE KONTAM project archived, PATHOLOGIE is now the active project on this infrastructure.
+
+---
+
 ## Future Sessions
 *Continue logging changes in this section*
 
@@ -634,7 +680,7 @@ darkMode: {
 - Custom Giscus themes already created (`static/giscus/dark.css` and `light.css`)
 - Themes already match Quartz colors (backgrounds, borders, buttons)
 - Possible refinements:
-  - Typography alignment (ensure JetBrains Mono consistency)
+  - Typography alignment (ensure consistency with Victor Mono/Geist Mono)
   - Spacing & padding harmonization
   - Interactive state details (hover/focus effects)
   - Color variable precision check against `quartz/styles/variables.scss`
