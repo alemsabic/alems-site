@@ -17,9 +17,9 @@ main {
   --color-prettylights-syntax-string: #8b3a2b; /* --secondary */
   --color-prettylights-syntax-variable: #b8b8b8; /* --darkgray */
   --color-prettylights-syntax-brackethighlighter-unmatched: #8b3a2b; /* --secondary */
-  --color-prettylights-syntax-invalid-illegal-text: #0a0a0a; /* --light */
+  --color-prettylights-syntax-invalid-illegal-text: #080500; /* --light */
   --color-prettylights-syntax-invalid-illegal-bg: #8b3a2b; /* --secondary */
-  --color-prettylights-syntax-carriage-return-text: #0a0a0a; /* --light */
+  --color-prettylights-syntax-carriage-return-text: #080500; /* --light */
   --color-prettylights-syntax-carriage-return-bg: #8b3a2b; /* --secondary */
   --color-prettylights-syntax-string-regexp: #8b3a2b; /* --secondary */
   --color-prettylights-syntax-markup-list: #b8b8b8; /* --darkgray */
@@ -41,7 +41,7 @@ main {
 
   /* Button styles - matching Quartz exactly */
   --color-btn-text: #b8b8b8; /* --darkgray (softer text) */
-  --color-btn-bg: #0a0a0a; /* --light */
+  --color-btn-bg: #080500; /* --light */
   --color-btn-border: #1a1a1a; /* --lightgray */
   --color-btn-shadow: 0 0 transparent;
   --color-btn-inset-shadow: 0 0 transparent;
@@ -70,7 +70,7 @@ main {
   /* Action list and controls */
   --color-action-list-item-default-hover-bg: rgba(139, 58, 43, 0.15); /* --highlight */
   --color-segmented-control-bg: #1a1a1a; /* --lightgray */
-  --color-segmented-control-button-bg: #0a0a0a; /* --light */
+  --color-segmented-control-button-bg: #080500; /* --light */
   --color-segmented-control-button-selected-border: #646464; /* --gray */
 
   /* Foreground colors */
@@ -79,10 +79,10 @@ main {
   --color-fg-subtle: #646464; /* --gray */
 
   /* Canvas colors */
-  --color-canvas-default: #0a0a0a; /* --light */
-  --color-canvas-overlay: #0a0a0a; /* --light */
-  --color-canvas-inset: #0a0a0a; /* --light (matching searchbar) */
-  --color-canvas-subtle: #0a0a0a; /* --light (matching searchbar) */
+  --color-canvas-default: #080500; /* --light */
+  --color-canvas-overlay: #080500; /* --light */
+  --color-canvas-inset: #080500; /* --light (matching searchbar) */
+  --color-canvas-subtle: #080500; /* --light (matching searchbar) */
 
   /* Border colors */
   --color-border-default: #1a1a1a; /* --lightgray */

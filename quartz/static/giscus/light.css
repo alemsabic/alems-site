@@ -8,51 +8,51 @@ main {
   font-family: "Geist Mono", monospace;
 
   /* Syntax highlighting - warm tones */
-  --color-prettylights-syntax-comment: #a49484; /* --gray */
+  --color-prettylights-syntax-comment: #b8b8b8; /* --gray */
   --color-prettylights-syntax-constant: #8b3a2b; /* --secondary */
   --color-prettylights-syntax-entity: #84a59d; /* --tertiary */
-  --color-prettylights-syntax-storage-modifier-import: #6b5b4b; /* --darkgray (softer text) */
+  --color-prettylights-syntax-storage-modifier-import: #4e4e4e; /* --darkgray (softer text) */
   --color-prettylights-syntax-entity-tag: #8b3a2b; /* --secondary */
   --color-prettylights-syntax-keyword: #8b3a2b; /* --secondary */
   --color-prettylights-syntax-string: #8b3a2b; /* --secondary */
-  --color-prettylights-syntax-variable: #6b5b4b; /* --darkgray */
+  --color-prettylights-syntax-variable: #4e4e4e; /* --darkgray */
   --color-prettylights-syntax-brackethighlighter-unmatched: #8b3a2b; /* --secondary */
-  --color-prettylights-syntax-invalid-illegal-text: #d4c4a8; /* --light */
+  --color-prettylights-syntax-invalid-illegal-text: #e5c8ab; /* --light */
   --color-prettylights-syntax-invalid-illegal-bg: #8b3a2b; /* --secondary */
-  --color-prettylights-syntax-carriage-return-text: #d4c4a8; /* --light */
+  --color-prettylights-syntax-carriage-return-text: #e5c8ab; /* --light */
   --color-prettylights-syntax-carriage-return-bg: #8b3a2b; /* --secondary */
   --color-prettylights-syntax-string-regexp: #8b3a2b; /* --secondary */
-  --color-prettylights-syntax-markup-list: #6b5b4b; /* --darkgray */
+  --color-prettylights-syntax-markup-list: #4e4e4e; /* --darkgray */
   --color-prettylights-syntax-markup-heading: #8b3a2b; /* --secondary */
-  --color-prettylights-syntax-markup-italic: #6b5b4b; /* --darkgray (softer text) */
-  --color-prettylights-syntax-markup-bold: #6b5b4b; /* --darkgray (softer text) */
+  --color-prettylights-syntax-markup-italic: #4e4e4e; /* --darkgray (softer text) */
+  --color-prettylights-syntax-markup-bold: #4e4e4e; /* --darkgray (softer text) */
   --color-prettylights-syntax-markup-deleted-text: #8b3a2b; /* --secondary */
-  --color-prettylights-syntax-markup-deleted-bg: #c4b498; /* --lightgray */
+  --color-prettylights-syntax-markup-deleted-bg: #e5e5e5; /* --lightgray */
   --color-prettylights-syntax-markup-inserted-text: #8b3a2b; /* --secondary */
-  --color-prettylights-syntax-markup-inserted-bg: #c4b498; /* --lightgray */
-  --color-prettylights-syntax-markup-changed-text: #6b5b4b; /* --darkgray */
-  --color-prettylights-syntax-markup-changed-bg: #c4b498; /* --lightgray */
-  --color-prettylights-syntax-markup-ignored-text: #a49484; /* --gray */
+  --color-prettylights-syntax-markup-inserted-bg: #e5e5e5; /* --lightgray */
+  --color-prettylights-syntax-markup-changed-text: #4e4e4e; /* --darkgray */
+  --color-prettylights-syntax-markup-changed-bg: #e5e5e5; /* --lightgray */
+  --color-prettylights-syntax-markup-ignored-text: #b8b8b8; /* --gray */
   --color-prettylights-syntax-markup-ignored-bg: #8b3a2b; /* --secondary */
   --color-prettylights-syntax-meta-diff-range: #84a59d; /* --tertiary */
-  --color-prettylights-syntax-brackethighlighter-angle: #a49484; /* --gray */
-  --color-prettylights-syntax-sublimelinter-gutter-mark: #a49484; /* --gray */
+  --color-prettylights-syntax-brackethighlighter-angle: #b8b8b8; /* --gray */
+  --color-prettylights-syntax-sublimelinter-gutter-mark: #b8b8b8; /* --gray */
   --color-prettylights-syntax-constant-other-reference-link: #8b3a2b; /* --secondary */
 
   /* Button styles - matching Quartz exactly */
-  --color-btn-text: #6b5b4b; /* --darkgray (softer text) */
-  --color-btn-bg: #d4c4a8; /* --light */
-  --color-btn-border: #c4b498; /* --lightgray */
+  --color-btn-text: #4e4e4e; /* --darkgray (softer text) */
+  --color-btn-bg: #e5c8ab; /* --light */
+  --color-btn-border: #e5e5e5; /* --lightgray */
   --color-btn-shadow: 0 1px 0 rgba(43, 24, 16, 0.04);
   --color-btn-inset-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
-  --color-btn-hover-bg: #c4b498; /* --lightgray */
-  --color-btn-hover-border: #a49484; /* --gray */
-  --color-btn-active-bg: #c4b498; /* --lightgray */
-  --color-btn-active-border: #a49484; /* --gray */
-  --color-btn-selected-bg: #c4b498; /* --lightgray */
+  --color-btn-hover-bg: #e5e5e5; /* --lightgray */
+  --color-btn-hover-border: #b8b8b8; /* --gray */
+  --color-btn-active-bg: #e5e5e5; /* --lightgray */
+  --color-btn-active-border: #b8b8b8; /* --gray */
+  --color-btn-selected-bg: #e5e5e5; /* --lightgray */
 
   /* Primary button - using tertiary color */
-  --color-btn-primary-text: #6b5b4b; /* --darkgray (softer text) */
+  --color-btn-primary-text: #4e4e4e; /* --darkgray (softer text) */
   --color-btn-primary-bg: #84a59d; /* --tertiary */
   --color-btn-primary-border: #84a59d; /* --tertiary */
   --color-btn-primary-shadow: 0 1px 0 rgba(43, 24, 16, 0.1);
@@ -63,30 +63,30 @@ main {
   --color-btn-primary-selected-shadow: inset 0 1px 0 rgba(139, 58, 43, 0.2);
 
   /* Disabled state - subtle, lowkey */
-  --color-btn-primary-disabled-text: #a49484; /* --gray */
-  --color-btn-primary-disabled-bg: #c4b498; /* --lightgray */
-  --color-btn-primary-disabled-border: #c4b498; /* --lightgray */
+  --color-btn-primary-disabled-text: #b8b8b8; /* --gray */
+  --color-btn-primary-disabled-bg: #e5e5e5; /* --lightgray */
+  --color-btn-primary-disabled-border: #e5e5e5; /* --lightgray */
 
   /* Action list and controls */
   --color-action-list-item-default-hover-bg: rgba(139, 58, 43, 0.15); /* --highlight */
-  --color-segmented-control-bg: #c4b498; /* --lightgray */
-  --color-segmented-control-button-bg: #d4c4a8; /* --light */
-  --color-segmented-control-button-selected-border: #a49484; /* --gray */
+  --color-segmented-control-bg: #e5e5e5; /* --lightgray */
+  --color-segmented-control-button-bg: #e5c8ab; /* --light */
+  --color-segmented-control-button-selected-border: #b8b8b8; /* --gray */
 
   /* Foreground colors */
-  --color-fg-default: #6b5b4b; /* --darkgray (softer text) */
-  --color-fg-muted: #6b5b4b; /* --darkgray */
-  --color-fg-subtle: #a49484; /* --gray */
+  --color-fg-default: #4e4e4e; /* --darkgray (softer text) */
+  --color-fg-muted: #4e4e4e; /* --darkgray */
+  --color-fg-subtle: #b8b8b8; /* --gray */
 
   /* Canvas colors */
-  --color-canvas-default: #d4c4a8; /* --light */
-  --color-canvas-overlay: #d4c4a8; /* --light */
-  --color-canvas-inset: #c4b498; /* --lightgray */
-  --color-canvas-subtle: #c4b498; /* --lightgray */
+  --color-canvas-default: #e5c8ab; /* --light */
+  --color-canvas-overlay: #e5c8ab; /* --light */
+  --color-canvas-inset: #e5e5e5; /* --lightgray */
+  --color-canvas-subtle: #e5e5e5; /* --lightgray */
 
   /* Border colors */
-  --color-border-default: #c4b498; /* --lightgray */
-  --color-border-muted: #c4b498; /* --lightgray */
+  --color-border-default: #e5e5e5; /* --lightgray */
+  --color-border-muted: #e5e5e5; /* --lightgray */
   --color-neutral-muted: rgba(139, 58, 43, 0.15); /* --highlight */
 
   /* Accent colors - using secondary */
@@ -106,11 +106,11 @@ main {
 
   /* Shadows */
   --color-primer-shadow-inset: inset 0 1px 0 rgba(196, 180, 152, 0.2);
-  --color-scale-gray-1: #c4b498; /* --lightgray */
+  --color-scale-gray-1: #e5e5e5; /* --lightgray */
   --color-scale-blue-1: rgba(139, 58, 43, 0.2); /* --secondary */
 
   /*! Extensions from @primer/css/alerts/flash.scss */
-  --color-social-reaction-bg-hover: #c4b498; /* --lightgray */
+  --color-social-reaction-bg-hover: #e5e5e5; /* --lightgray */
   --color-social-reaction-bg-reacted-hover: rgba(139, 58, 43, 0.2); /* --secondary */
 }
 
@@ -129,24 +129,24 @@ main code, main pre {
 
 /* Fix text color and font-weight for comments and reactions */
 main .color-text-primary {
-  color: #6b5b4b !important; /* --darkgray (softer text) */
+  color: #4e4e4e !important; /* --darkgray (softer text) */
   font-weight: normal !important;
 }
 
 main .color-text-primary.underline {
-  color: #6b5b4b !important; /* --darkgray (softer text) */
+  color: #4e4e4e !important; /* --darkgray (softer text) */
   font-weight: normal !important;
 }
 
 /* Fix reactions count styling */
 main .gsc-reactions-count {
-  color: #6b5b4b !important; /* --darkgray (softer text) */
+  color: #4e4e4e !important; /* --darkgray (softer text) */
   font-weight: normal !important;
 }
 
 /* Fix comments count styling */
 main .gsc-comments-count,
 main .gsc-comments-count-separator {
-  color: #6b5b4b !important; /* --darkgray (softer text) */
+  color: #4e4e4e !important; /* --darkgray (softer text) */
   font-weight: normal !important;
 }
