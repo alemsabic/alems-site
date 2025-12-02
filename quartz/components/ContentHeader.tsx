@@ -119,9 +119,7 @@ export default ((opts?: Partial<ContentHeaderOptions>) => {
     text-align: right;
     margin: 1rem 0 2.5rem 0;
     padding: 0.75rem 0;
-    border-right: 1px dashed var(--gray);
-    border-bottom: 1px dashed var(--gray);
-    padding-right: 1rem;
+    padding-right: 0;
   }
 
   .content-header dl {

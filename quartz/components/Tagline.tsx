@@ -4,7 +4,7 @@ import { classNames } from "../util/lang"
 const Tagline: QuartzComponent = ({ displayClass }: QuartzComponentProps) => {
   return (
     <div class={classNames(displayClass, "tagline", "desktop-only")}>
-      Sarajevski urbanski magazin za teške intelektualce.
+      <strong>Az.:</strong> 666/REF/X  | Sämtliche Exkremente des Geistes wurden ordnungsgemäß katalogisiert. Wir garantieren akademische Präzision bei absoluter moralischer Verwahrlosung.
     </div>
   )
 }

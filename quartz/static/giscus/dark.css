@@ -4,114 +4,114 @@
  */
 
 main {
-  /* Custom NE KONTAM typography */
-  font-family: "JetBrains Mono", monospace;
+  /* Custom PATHOLOGIE typography */
+  font-family: "Geist Mono", monospace;
 
-  /* Syntax highlighting - keeping subtle and lowkey */
+  /* Syntax highlighting - warm dark tones */
   --color-prettylights-syntax-comment: #646464; /* --gray */
-  --color-prettylights-syntax-constant: #7b97aa; /* --secondary */
+  --color-prettylights-syntax-constant: #8b3a2b; /* --secondary */
   --color-prettylights-syntax-entity: #84a59d; /* --tertiary */
-  --color-prettylights-syntax-storage-modifier-import: #d4d4d4; /* --darkgray (softer text) */
-  --color-prettylights-syntax-entity-tag: #7b97aa; /* --secondary */
-  --color-prettylights-syntax-keyword: #7b97aa; /* --secondary */
-  --color-prettylights-syntax-string: #7b97aa; /* --secondary */
-  --color-prettylights-syntax-variable: #d4d4d4; /* --darkgray */
-  --color-prettylights-syntax-brackethighlighter-unmatched: #7b97aa; /* --secondary */
-  --color-prettylights-syntax-invalid-illegal-text: #161618; /* --light */
-  --color-prettylights-syntax-invalid-illegal-bg: #7b97aa; /* --secondary */
-  --color-prettylights-syntax-carriage-return-text: #161618; /* --light */
-  --color-prettylights-syntax-carriage-return-bg: #7b97aa; /* --secondary */
-  --color-prettylights-syntax-string-regexp: #7b97aa; /* --secondary */
-  --color-prettylights-syntax-markup-list: #d4d4d4; /* --darkgray */
-  --color-prettylights-syntax-markup-heading: #7b97aa; /* --secondary */
-  --color-prettylights-syntax-markup-italic: #d4d4d4; /* --darkgray (softer text) */
-  --color-prettylights-syntax-markup-bold: #d4d4d4; /* --darkgray (softer text) */
-  --color-prettylights-syntax-markup-deleted-text: #7b97aa; /* --secondary */
-  --color-prettylights-syntax-markup-deleted-bg: #393639; /* --lightgray */
-  --color-prettylights-syntax-markup-inserted-text: #7b97aa; /* --secondary */
-  --color-prettylights-syntax-markup-inserted-bg: #393639; /* --lightgray */
-  --color-prettylights-syntax-markup-changed-text: #d4d4d4; /* --darkgray */
-  --color-prettylights-syntax-markup-changed-bg: #393639; /* --lightgray */
+  --color-prettylights-syntax-storage-modifier-import: #b8b8b8; /* --darkgray (softer text) */
+  --color-prettylights-syntax-entity-tag: #8b3a2b; /* --secondary */
+  --color-prettylights-syntax-keyword: #8b3a2b; /* --secondary */
+  --color-prettylights-syntax-string: #8b3a2b; /* --secondary */
+  --color-prettylights-syntax-variable: #b8b8b8; /* --darkgray */
+  --color-prettylights-syntax-brackethighlighter-unmatched: #8b3a2b; /* --secondary */
+  --color-prettylights-syntax-invalid-illegal-text: #0a0a0a; /* --light */
+  --color-prettylights-syntax-invalid-illegal-bg: #8b3a2b; /* --secondary */
+  --color-prettylights-syntax-carriage-return-text: #0a0a0a; /* --light */
+  --color-prettylights-syntax-carriage-return-bg: #8b3a2b; /* --secondary */
+  --color-prettylights-syntax-string-regexp: #8b3a2b; /* --secondary */
+  --color-prettylights-syntax-markup-list: #b8b8b8; /* --darkgray */
+  --color-prettylights-syntax-markup-heading: #8b3a2b; /* --secondary */
+  --color-prettylights-syntax-markup-italic: #b8b8b8; /* --darkgray (softer text) */
+  --color-prettylights-syntax-markup-bold: #b8b8b8; /* --darkgray (softer text) */
+  --color-prettylights-syntax-markup-deleted-text: #8b3a2b; /* --secondary */
+  --color-prettylights-syntax-markup-deleted-bg: #1a1a1a; /* --lightgray */
+  --color-prettylights-syntax-markup-inserted-text: #8b3a2b; /* --secondary */
+  --color-prettylights-syntax-markup-inserted-bg: #1a1a1a; /* --lightgray */
+  --color-prettylights-syntax-markup-changed-text: #b8b8b8; /* --darkgray */
+  --color-prettylights-syntax-markup-changed-bg: #1a1a1a; /* --lightgray */
   --color-prettylights-syntax-markup-ignored-text: #646464; /* --gray */
-  --color-prettylights-syntax-markup-ignored-bg: #7b97aa; /* --secondary */
+  --color-prettylights-syntax-markup-ignored-bg: #8b3a2b; /* --secondary */
   --color-prettylights-syntax-meta-diff-range: #84a59d; /* --tertiary */
   --color-prettylights-syntax-brackethighlighter-angle: #646464; /* --gray */
   --color-prettylights-syntax-sublimelinter-gutter-mark: #646464; /* --gray */
-  --color-prettylights-syntax-constant-other-reference-link: #7b97aa; /* --secondary */
+  --color-prettylights-syntax-constant-other-reference-link: #8b3a2b; /* --secondary */
 
   /* Button styles - matching Quartz exactly */
-  --color-btn-text: #d4d4d4; /* --darkgray (softer text) */
-  --color-btn-bg: #161618; /* --light */
-  --color-btn-border: #393639; /* --lightgray */
+  --color-btn-text: #b8b8b8; /* --darkgray (softer text) */
+  --color-btn-bg: #0a0a0a; /* --light */
+  --color-btn-border: #1a1a1a; /* --lightgray */
   --color-btn-shadow: 0 0 transparent;
   --color-btn-inset-shadow: 0 0 transparent;
-  --color-btn-hover-bg: #393639; /* --lightgray */
+  --color-btn-hover-bg: #1a1a1a; /* --lightgray */
   --color-btn-hover-border: #646464; /* --gray */
-  --color-btn-active-bg: #393639; /* --lightgray */
+  --color-btn-active-bg: #1a1a1a; /* --lightgray */
   --color-btn-active-border: #646464; /* --gray */
-  --color-btn-selected-bg: #393639; /* --lightgray */
+  --color-btn-selected-bg: #1a1a1a; /* --lightgray */
 
   /* Primary button - using tertiary color */
-  --color-btn-primary-text: #d4d4d4; /* --darkgray (softer text) */
+  --color-btn-primary-text: #b8b8b8; /* --darkgray (softer text) */
   --color-btn-primary-bg: #84a59d; /* --tertiary */
   --color-btn-primary-border: #84a59d; /* --tertiary */
   --color-btn-primary-shadow: 0 0 transparent;
   --color-btn-primary-inset-shadow: 0 0 transparent;
-  --color-btn-primary-hover-bg: #7b97aa; /* --secondary */
-  --color-btn-primary-hover-border: #7b97aa; /* --secondary */
-  --color-btn-primary-selected-bg: #7b97aa; /* --secondary */
+  --color-btn-primary-hover-bg: #8b3a2b; /* --secondary */
+  --color-btn-primary-hover-border: #8b3a2b; /* --secondary */
+  --color-btn-primary-selected-bg: #8b3a2b; /* --secondary */
   --color-btn-primary-selected-shadow: 0 0 transparent;
 
   /* Disabled state - subtle, lowkey */
   --color-btn-primary-disabled-text: #646464; /* --gray */
-  --color-btn-primary-disabled-bg: #393639; /* --lightgray */
-  --color-btn-primary-disabled-border: #393639; /* --lightgray */
+  --color-btn-primary-disabled-bg: #1a1a1a; /* --lightgray */
+  --color-btn-primary-disabled-border: #1a1a1a; /* --lightgray */
 
   /* Action list and controls */
-  --color-action-list-item-default-hover-bg: rgba(143, 159, 169, 0.15); /* --highlight */
-  --color-segmented-control-bg: #393639; /* --lightgray */
-  --color-segmented-control-button-bg: #161618; /* --light */
+  --color-action-list-item-default-hover-bg: rgba(139, 58, 43, 0.15); /* --highlight */
+  --color-segmented-control-bg: #1a1a1a; /* --lightgray */
+  --color-segmented-control-button-bg: #0a0a0a; /* --light */
   --color-segmented-control-button-selected-border: #646464; /* --gray */
 
   /* Foreground colors */
-  --color-fg-default: #d4d4d4; /* --darkgray (softer text) */
-  --color-fg-muted: #d4d4d4; /* --darkgray */
+  --color-fg-default: #b8b8b8; /* --darkgray (softer text) */
+  --color-fg-muted: #b8b8b8; /* --darkgray */
   --color-fg-subtle: #646464; /* --gray */
 
   /* Canvas colors */
-  --color-canvas-default: #161618; /* --light */
-  --color-canvas-overlay: #161618; /* --light */
-  --color-canvas-inset: #161618; /* --light (matching searchbar) */
-  --color-canvas-subtle: #161618; /* --light (matching searchbar) */
+  --color-canvas-default: #0a0a0a; /* --light */
+  --color-canvas-overlay: #0a0a0a; /* --light */
+  --color-canvas-inset: #0a0a0a; /* --light (matching searchbar) */
+  --color-canvas-subtle: #0a0a0a; /* --light (matching searchbar) */
 
   /* Border colors */
-  --color-border-default: #393639; /* --lightgray */
-  --color-border-muted: #393639; /* --lightgray */
-  --color-neutral-muted: rgba(143, 159, 169, 0.15); /* --highlight */
+  --color-border-default: #1a1a1a; /* --lightgray */
+  --color-border-muted: #1a1a1a; /* --lightgray */
+  --color-neutral-muted: rgba(139, 58, 43, 0.15); /* --highlight */
 
   /* Accent colors - using secondary */
-  --color-accent-fg: #7b97aa; /* --secondary */
-  --color-accent-emphasis: #7b97aa; /* --secondary */
-  --color-accent-muted: rgba(123, 151, 170, 0.4);
-  --color-accent-subtle: rgba(123, 151, 170, 0.1);
+  --color-accent-fg: #8b3a2b; /* --secondary */
+  --color-accent-emphasis: #8b3a2b; /* --secondary */
+  --color-accent-muted: rgba(139, 58, 43, 0.4);
+  --color-accent-subtle: rgba(139, 58, 43, 0.1);
 
   /* Success, attention, danger - all lowkey with secondary/tertiary */
   --color-success-fg: #84a59d; /* --tertiary */
-  --color-attention-fg: #7b97aa; /* --secondary */
-  --color-attention-muted: rgba(123, 151, 170, 0.4);
-  --color-attention-subtle: rgba(123, 151, 170, 0.1);
-  --color-danger-fg: #7b97aa; /* --secondary */
-  --color-danger-muted: rgba(123, 151, 170, 0.4);
-  --color-danger-subtle: rgba(123, 151, 170, 0.1);
+  --color-attention-fg: #8b3a2b; /* --secondary */
+  --color-attention-muted: rgba(139, 58, 43, 0.4);
+  --color-attention-subtle: rgba(139, 58, 43, 0.1);
+  --color-danger-fg: #8b3a2b; /* --secondary */
+  --color-danger-muted: rgba(139, 58, 43, 0.4);
+  --color-danger-subtle: rgba(139, 58, 43, 0.1);
 
   /* Shadows */
   --color-primer-shadow-inset: 0 0 transparent;
-  --color-scale-gray-7: #393639; /* --lightgray */
-  --color-scale-blue-8: rgba(123, 151, 170, 0.2); /* --secondary */
+  --color-scale-gray-7: #1a1a1a; /* --lightgray */
+  --color-scale-blue-8: rgba(139, 58, 43, 0.2); /* --secondary */
 
   /*! Extensions from @primer/css/alerts/flash.scss */
-  --color-social-reaction-bg-hover: #393639; /* --lightgray */
-  --color-social-reaction-bg-reacted-hover: rgba(123, 151, 170, 0.2); /* --secondary */
+  --color-social-reaction-bg-hover: #1a1a1a; /* --lightgray */
+  --color-social-reaction-bg-reacted-hover: rgba(139, 58, 43, 0.2); /* --secondary */
 }
 
 main .pagination-loader-container {
@@ -122,31 +122,31 @@ main .gsc-loading-image {
   background-image: url("https://github.githubassets.com/images/mona-loading-dark.gif");
 }
 
-/* Custom NE KONTAM Typography Overrides */
+/* Custom PATHOLOGIE Typography Overrides */
 main code, main pre {
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Geist Mono", monospace;
 }
 
 /* Fix text color and font-weight for comments and reactions */
 main .color-text-primary {
-  color: #d4d4d4 !important; /* --darkgray (softer text) */
+  color: #b8b8b8 !important; /* --darkgray (softer text) */
   font-weight: normal !important;
 }
 
 main .color-text-primary.underline {
-  color: #d4d4d4 !important; /* --darkgray (softer text) */
+  color: #b8b8b8 !important; /* --darkgray (softer text) */
   font-weight: normal !important;
 }
 
 /* Fix reactions count styling */
 main .gsc-reactions-count {
-  color: #d4d4d4 !important; /* --darkgray (softer text) */
+  color: #b8b8b8 !important; /* --darkgray (softer text) */
   font-weight: normal !important;
 }
 
 /* Fix comments count styling */
 main .gsc-comments-count,
 main .gsc-comments-count-separator {
-  color: #d4d4d4 !important; /* --darkgray (softer text) */
+  color: #b8b8b8 !important; /* --darkgray (softer text) */
   font-weight: normal !important;
 }
