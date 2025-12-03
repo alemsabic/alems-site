@@ -406,6 +406,76 @@ article.dictionary-entry-columns {
 }
 
 // ============================================
+// DICTIONARY ENTRY - EPIGRAPH/BLOCKQUOTE STYLING
+// ============================================
+
+// Epigraph/quote styling for dictionary entries - elegant old book aesthetic
+article.dictionary-entry blockquote,
+article.dictionary-entry-columns blockquote {
+  margin: 2rem auto 2.5rem !important;
+  padding: 1.5rem 2rem 1rem !important;
+  max-width: 90% !important;
+  border: none !important;
+  background-color: transparent !important;
+  font-family: 'Baskerville', 'Baskerville Old Face', 'Garamond', 'Hoefler Text', serif !important;
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  text-align: left !important;
+  font-style: italic !important;
+  color: var(--darkgray) !important;
+  position: relative !important;
+
+  // Decorative top border (subtle line)
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30%;
+    height: 1px;
+    background: var(--gray);
+    opacity: 0.4;
+  }
+
+  // Quote text
+  p {
+    margin: 0 0 0.75rem 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+    font-style: italic !important;
+  }
+
+  // Author/attribution (em dash format: —Author Name)
+  cite,
+  footer {
+    display: block !important;
+    margin-top: 0.75rem !important;
+    font-size: 0.9em !important;
+    font-style: normal !important;
+    text-align: right !important;
+    color: var(--gray) !important;
+
+    // Em dash before author
+    &::before {
+      content: '—';
+      margin-right: 0.25em;
+    }
+  }
+
+  // Source line (smaller, below author)
+  small {
+    display: block !important;
+    margin-top: 0.5rem !important;
+    font-size: 0.85em !important;
+    font-style: normal !important;
+    text-align: right !important;
+    color: var(--gray) !important;
+    opacity: 0.8 !important;
+  }
+}
+
+// ============================================
 // DICTIONARY ENTRY - FOOTNOTES STYLING
 // ============================================
 
