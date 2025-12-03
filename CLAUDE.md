@@ -671,6 +671,153 @@ darkMode: {
 
 ---
 
+## Session 14 Updates (Dec 3, 2025) - **German i18n + Giscus Styling** ⏳
+
+### Internationalization Migration: Bosnian → German
+**Files Modified**: `quartz/components/ContentHeader.tsx`, `quartz.layout.ts`, `quartz/components/Tagline.tsx`, `quartz/styles/custom.scss`
+
+**Changes Made**:
+
+**Phase 1: ContentHeader Component (i18n)**
+- **Reading Time**: Updated pluralization rules for German
+  - "1 Minute." (singular)
+  - "X Minuten." (plural)
+- **UI Labels**:
+  - "Naslov:" → "Titel:"
+  - "Vrijeme čitanja:" → "Lesezeit:"
+  - "Datum" unchanged (same in German)
+- **Font size**: Increased from 0.85rem → 1rem
+- **GitHub Edit Button**: Default text updated to "Verbesser die Seite auf GitHub."
+
+**Phase 2: Layout Configuration**
+- **Edit Button Text Override**: Updated `quartz.layout.ts` from "Dotjeraj stranicu na GitHub-u." → "Verbesser die Seite auf GitHub." (with period)
+- **Giscus Migration**: Moved from nekontam-zk to pathologie-site repository
+  - Repository: `alemsabic/pathologie-site`
+  - `repoId`: `R_kgDOQg3eGw`
+  - Category: "General"
+  - `categoryId`: `DIC_kwDOQg3eG84CzVVP`
+  - Language: `"de"` (German, was `"hbs"` Bosnian)
+  - Giscus app installed on pathologie-site repository
+- **Graph Configuration**: Added explicit `depth: -1` for global graph (show all nodes)
+
+**Phase 3: Giscus Visual Redesign**
+**Files Created**: `quartz/static/giscus/light.css`, `quartz/static/giscus/dark.css`
+
+- **Custom Giscus Themes**: Created separate CSS files for light/dark modes using PATHOLOGIE design system colors
+- **Color Mapping**:
+  ```css
+  /* Light Mode */
+  --bg: #e0cca6; /* var(--light) */
+  --bg-secondary: rgba(0, 0, 0, 0.05); /* var(--lightgray) */
+  --text: #4e4e4e; /* var(--darkgray) */
+  --text-muted: #4e4e4e; /* var(--gray) */
+  --link: #8b4840; /* var(--secondary) */
+  --link-hover: #9c5e56; /* var(--tertiary) */
+
+  /* Dark Mode */
+  --bg: #0a0200;
+  --bg-secondary: rgba(255, 255, 255, 0.05);
+  --text: #ebebec;
+  --text-muted: #646464;
+  --link: #8b4840;
+  --link-hover: #9c5e56;
+  ```
+- **Improved Placeholder Readability**:
+  - Light mode: `#2b2b2b` with 0.7 opacity
+  - Dark mode: `#d4d4d4` with 0.8 opacity
+- **Theme URL**: Updated `quartz.layout.ts` to use `themeUrl: "https://pathologie.gpunkt.org/static/giscus"`
+
+**Phase 4: Font Size Standardization**
+- **Tagline**: 0.9rem → 1rem (in `Tagline.tsx`)
+- **Explorer links**: 0.85rem → 1rem
+  - `.folder-container div > a`
+  - `.explorer-content ul li > a`
+- **Content header**: 0.85rem → 1rem (`.content-header dl`)
+
+**Benefits**:
+- Complete German localization for PATHOLOGIE project
+- Giscus comments now match site design system
+- Better readability with increased font sizes
+- Improved contrast for form placeholders
+
+**Commits**:
+- `5e1fe40`: feat: update i18n to German + Giscus PATHOLOGIE colors + placeholder readability
+- `41f3b15`: feat: standardize font sizes to 1rem across UI components
+
+**Status**: i18n and Giscus styling complete ✅
+
+---
+
+### 🔴 ACTIVE ISSUE: Graph Visualization Not Working
+
+**Problem Description**:
+- Graph visualization completely non-functional
+- No nodes/points displayed in local graph view
+- Global graph button (top-right) not responding to clicks
+- No zoom/drag interaction working
+- Issue persisted after multiple debugging attempts
+
+**Investigation Performed**:
+1. ✅ Verified Graph component exists in `quartz.layout.ts`
+2. ✅ Checked HTML structure - graph containers present in DOM
+3. ✅ Verified `contentIndex.json` exists with all 7 pages
+4. ⚠️ Found all pages have empty `"links":[]` arrays
+5. ✅ Confirmed graph JavaScript exists in `postscript.js`
+6. ✅ Set explicit `depth: -1` in global graph config (should show all nodes even without links)
+7. ✅ Removed noise texture overlays from graph containers (suspected z-index conflicts)
+8. ❌ None of these fixes resolved the issue
+
+**Attempted Fixes**:
+```typescript
+// quartz.layout.ts - Added explicit configuration
+Component.Graph({
+  localGraph: {
+    depth: 1,
+    // ... other settings
+  },
+  globalGraph: {
+    depth: -1,  // -1 = show ALL nodes regardless of links
+    // ... other settings
+  },
+}),
+```
+
+```scss
+// custom.scss - Removed noise overlays from graph containers
+.graph > .graph-outer {
+  margin: 1.5em 0;
+  border: none !important;
+  background-color: var(--light) !important;
+  position: relative;
+  // Removed: z-index and pointer-events that might interfere
+}
+
+.global-graph-container {
+  background-color: var(--light) !important;
+  position: relative;
+  // Removed: z-index and pointer-events
+}
+```
+
+**Current State**:
+- All other site features working correctly
+- Graph HTML structure exists but no visual rendering
+- JavaScript loaded but no interaction
+- Awaiting user DevTools investigation:
+  1. Check Console for JavaScript errors
+  2. Verify if `<canvas>` element exists inside `.graph-container`
+
+**Next Debugging Steps** (when resumed):
+- Analyze JavaScript console errors (if any)
+- Check if canvas element is created but invisible
+- Investigate D3.js/graph rendering initialization
+- Consider checking browser compatibility
+- Verify graph data structure in contentIndex.json
+
+**Status**: Unresolved ⏳ - Investigation paused, awaiting user DevTools feedback
+
+---
+
 ## Future Sessions
 *Continue logging changes in this section*
 

@@ -439,6 +439,12 @@ article.dictionary-entry-columns .footnotes {
   }
 }
 
+// Hide footnote backlinks in dictionary entries (book-like appearance, no back navigation needed)
+article.dictionary-entry .data-footnote-backref,
+article.dictionary-entry-columns .data-footnote-backref {
+  display: none !important;
+}
+
 // ============================================
 // BILINGUAL DICTIONARY STYLING (RESERVED)
 // ============================================
