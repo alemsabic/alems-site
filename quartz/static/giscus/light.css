@@ -11,7 +11,7 @@ main {
   --bg: #e0cca6; /* light */
   --bg-secondary: rgba(0, 0, 0, 0.05); /* lightgray subtle */
   --text: #4e4e4e; /* darkgray */
-  --text-muted: #b8b8b8; /* gray */
+  --text-muted: #4e4e4e; /* gray */
   --link: #8b4840; /* secondary */
   --link-hover: #9c5e56; /* tertiary */
 
