@@ -29,7 +29,7 @@ export const defaultContentPageLayout: PageLayout = {
     }),
     Component.ContentHeader({
       baseUrl: "https://github.com/alemsabic/nekontam-zk/blob/main",
-      editButtonText: "Dotjeraj stranicu na GitHub-u.",
+      editButtonText: "Verbesser die Seite auf GitHub.",
       showTags: false,
     }),
   ],

@@ -22,7 +22,7 @@ interface ContentHeaderOptions {
 
 const defaultOptions: ContentHeaderOptions = {
   baseUrl: "",
-  editButtonText: "Dotjeraj stranicu na GitHub-u.",
+  editButtonText: "Verbesser die Seite auf GitHub.",
   showTags: false,
 }
 
@@ -47,16 +47,14 @@ export default ((opts?: Partial<ContentHeaderOptions>) => {
     // Only render if there's content and showContentHeader is not false
     if (!text || !showContentHeader) return null
 
-    // Calculate reading time with Bosnian plural rules
+    // Calculate reading time with German plural rules
     const { minutes } = readingTime(text)
     const minutesCount = Math.ceil(minutes)
     let readingTimeText
     if (minutesCount === 1) {
-      readingTimeText = "1 minut."
-    } else if (minutesCount >= 2 && minutesCount <= 4) {
-      readingTimeText = `${minutesCount} minute.`
+      readingTimeText = "1 Minute."
     } else {
-      readingTimeText = `${minutesCount} minuta.`
+      readingTimeText = `${minutesCount} Minuten.`
     }
 
     // Get date
@@ -68,7 +66,7 @@ export default ((opts?: Partial<ContentHeaderOptions>) => {
         <dl>
           {title && (
             <>
-              <dt>Naslov:</dt>
+              <dt>Titel:</dt>
               <dd>{title}.</dd>
             </>
           )}
@@ -82,7 +80,7 @@ export default ((opts?: Partial<ContentHeaderOptions>) => {
             </>
           )}
 
-          <dt>Vrijeme čitanja:</dt>
+          <dt>Lesezeit:</dt>
           <dd>{readingTimeText}</dd>
 
           {options.showTags && tags && tags.length > 0 && (

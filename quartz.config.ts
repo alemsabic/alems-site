@@ -29,24 +29,24 @@ const config: QuartzConfig = {
       },
       colors: {
         lightMode: {
-          light: "#faf8f8",
-          lightgray: "#e5e5e5",
+          light: "#e0cca6", // background-color
+          lightgray: "rgb(0 0 0 / 20%)",
           gray: "#b8b8b8",
           darkgray: "#4e4e4e",
           dark: "#2b2b2b",
-          secondary: "#284b63",
-          tertiary: "#84a59d",
+          secondary: "#8b4840", // link-color
+          tertiary: "#9c5e56", // link-color (hover)
           highlight: "rgba(143, 159, 169, 0.15)",
           textHighlight: "#8fa59933",
         },
         darkMode: {
-          light: "#161618",
-          lightgray: "#393639",
+          light: "#0a0200", //background-color
+          lightgray: "rgb(255 255 255 / 20%)",
           gray: "#646464",
           darkgray: "#d4d4d4",
           dark: "#ebebec",
-          secondary: "#7b97aa",
-          tertiary: "#84a59d",
+          secondary: "#8b4840", // link-color
+          tertiary: "#9c5e56", // link-color (hover)
           highlight: "rgba(143, 159, 169, 0.15)",
           textHighlight: "#8fa59933",
         },
