@@ -153,20 +153,6 @@ body::before {
 //   background-size: 100% 1.2em;
 // }
 
-// Graph outer container dashed border and background
-.graph > .graph-outer {
-  margin: 1.5em 0;
-  border: none !important;
-  background-color: var(--light) !important;
-  position: relative;
-}
-
-// Global graph container background
-.global-graph-container {
-  background-color: var(--light) !important;
-  position: relative;
-}
-
 // List markers color
 ul ::marker,
 ol ::marker {
