@@ -422,8 +422,11 @@ article.dictionary-entry-columns blockquote {
   line-height: 1.6 !important;
   text-align: left !important;
   font-style: italic !important;
-  color: var(--darkgray) !important;
+  color: inherit !important;
   position: relative !important;
+
+  // Break out of column layout (for dictionary-entry-columns)
+  column-span: all !important;
 
   // Decorative top border (subtle line)
   &::before {
@@ -434,7 +437,7 @@ article.dictionary-entry-columns blockquote {
     transform: translateX(-50%);
     width: 30%;
     height: 1px;
-    background: var(--gray);
+    background: currentColor;
     opacity: 0.4;
   }
 
@@ -444,9 +447,10 @@ article.dictionary-entry-columns blockquote {
     padding: 0 !important;
     text-align: left !important;
     font-style: italic !important;
+    color: inherit !important;
   }
 
-  // Author/attribution (em dash format: —Author Name)
+  // Author/attribution (em dash format: —Author Name, "Title")
   cite,
   footer {
     display: block !important;
@@ -454,24 +458,13 @@ article.dictionary-entry-columns blockquote {
     font-size: 0.9em !important;
     font-style: normal !important;
     text-align: right !important;
-    color: var(--gray) !important;
+    color: inherit !important;
 
     // Em dash before author
     &::before {
       content: '—';
       margin-right: 0.25em;
     }
-  }
-
-  // Source line (smaller, below author)
-  small {
-    display: block !important;
-    margin-top: 0.5rem !important;
-    font-size: 0.85em !important;
-    font-style: normal !important;
-    text-align: right !important;
-    color: var(--gray) !important;
-    opacity: 0.8 !important;
   }
 }
 
