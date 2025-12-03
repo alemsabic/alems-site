@@ -11,7 +11,7 @@ const Tagline: QuartzComponent = ({ displayClass }: QuartzComponentProps) => {
 
 Tagline.css = `
 .tagline {
-  font-size: 0.9rem;
+  font-size: 1rem;
   margin: 0;
   color: var(--secondary);
   line-height: 1.5;

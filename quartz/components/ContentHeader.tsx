@@ -122,7 +122,7 @@ export default ((opts?: Partial<ContentHeaderOptions>) => {
 
   .content-header dl {
     margin: 0;
-    font-size: 0.85rem;
+    font-size: 1rem;
     line-height: 1.5;
     color: var(--darkgray);
   }
