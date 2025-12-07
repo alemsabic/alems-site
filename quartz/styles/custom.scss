@@ -62,14 +62,22 @@
   gap: 0 !important;
 }
 
-// Profile image styling
+// Profile image styling - SIMPLE ROUND
 .profile-image {
-  background: transparent !important;
+  text-shadow: none !important;
+  width: 240px !important;
+  height: 240px !important;
+  border-radius: 50% !important; // Make it round
+  overflow: hidden !important;
+  margin: 0 auto 1.5rem auto !important;
 }
 
-// Profile image dark mode - brightness + contrast for visibility
-[saved-theme="dark"] .profile-image img {
-  filter: brightness(1.2) contrast(1.1) drop-shadow(0 0 4px rgba(255, 255, 255, 0.15));
+.profile-image img {
+  text-shadow: none !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important; // Crop to fill circle
+  object-position: center !important;
 }
 
 // Tagline styling
@@ -147,6 +155,16 @@ body::before {
   opacity: 0.5;
 }
 
+// ============================================
+// GLOBAL LIGHT THEME - BOOK AESTHETIC
+// ============================================
+
+// Light Theme: Paper vignette effect + Letterpress text (entire viewport)
+[saved-theme="light"] body {
+  box-shadow: inset 0 0 300px #00000044, inset 0 0 180px #00000030 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5) !important;
+}
+
 // Light theme body background - lined paper effect (COMMENTED OUT - uncomment to restore)
 // [saved-theme="light"] body {
 //   background-image: linear-gradient(90deg, transparent 79px, #abced4 79px, #a8a8a8 79px, transparent 81px), linear-gradient(#ddd .05em, transparent .05em);
@@ -170,11 +188,12 @@ hr {
 // Mobile sticky header with transparent background
 @media (max-width: 800px) {
   .page #quartz-body .sidebar.left:has(.explorer) {
-    background-color: rgba(250, 248, 248, 0.5) !important;
+    opacity: 80%;
   }
 
-  [saved-theme="dark"] .page #quartz-body .sidebar.left:has(.explorer) {
-    background-color: rgba(22, 22, 24, 0.5) !important;
+  // Light mode: remove background completely
+  [saved-theme="light"] .page #quartz-body .sidebar.left:has(.explorer) {
+    background-color: transparent !important;
   }
 }
 
@@ -319,10 +338,11 @@ a.internal {
 article.dictionary-entry {
   font-family: 'Baskerville', 'Baskerville Old Face', 'Garamond', 'Hoefler Text',
                'Palatino Linotype', 'Book Antiqua', 'Times New Roman', serif !important;
-  line-height: 1.15 !important;
+  line-height: 1.12 !important;
   text-align: justify !important;
   font-size: 1.1rem !important; // Mobile
   letter-spacing: 0.01em !important;
+  
 
   // Remove ALL paragraph spacing - everything flows inline
   p {
@@ -342,11 +362,14 @@ article.dictionary-entry {
     font-weight: 900;
     letter-spacing: 0.05em;
     text-transform: uppercase;
+      @media (min-width: 800px) {
+    margin-left: -15px;
+    }
   }
 
   // Cyrillic variant in brackets [БАКЛАВА]
   .cyrillic {
-    font-size: 1.35em;
+    font-size: 1.15em;
     letter-spacing: 0.05em;
   }
 }
@@ -358,6 +381,8 @@ article.dictionary-entry {
   }
 }
 
+// Dictionary Entry styling cleaned up (letterpress now global)
+
 // ============================================
 // DICTIONARY ENTRY - TWO COLUMNS (Desktop)
 // ============================================
@@ -366,7 +391,7 @@ article.dictionary-entry {
 article.dictionary-entry-columns {
   font-family: 'Baskerville', 'Baskerville Old Face', 'Garamond', 'Hoefler Text',
                'Palatino Linotype', 'Book Antiqua', 'Times New Roman', serif !important;
-  line-height: 1.15 !important;
+  line-height: 1.12 !important;
   text-align: justify !important;
   font-size: 1.1rem !important; // Same size on mobile AND desktop
   letter-spacing: 0.01em !important;
@@ -389,11 +414,14 @@ article.dictionary-entry-columns {
     font-weight: 900;
     letter-spacing: 0.05em;
     text-transform: uppercase;
+    @media (min-width: 800px) {
+    margin-left: -15px;
+    }
   }
 
   // Cyrillic variant in brackets [БАКЛАВА]
   .cyrillic {
-    font-size: 1.35em;
+    font-size: 1.15em;
     letter-spacing: 0.05em;
   }
 
@@ -404,6 +432,8 @@ article.dictionary-entry-columns {
     column-fill: balance;
   }
 }
+
+// Dictionary Entry (Two Columns) styling cleaned up (letterpress now global)
 
 // ============================================
 // DICTIONARY ENTRY - EPIGRAPH/BLOCKQUOTE STYLING
