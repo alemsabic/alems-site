@@ -8,15 +8,15 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "PATHOLOGIE",
-    pageTitleSuffix: "Quellenangaben für Gpunkt.org Satiremagazin",
+    pageTitle: "ale.ms",
+    pageTitleSuffix: "Alem Šabić's Notizen und Quellen",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
       provider: "plausible",
     },
     locale: "de-DE",
-    baseUrl: "https://pathologie.gpunkt.org",
+    baseUrl: "https://ale.ms",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "modified",
     theme: {

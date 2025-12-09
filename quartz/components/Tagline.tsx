@@ -4,7 +4,7 @@ import { classNames } from "../util/lang"
 const Tagline: QuartzComponent = ({ displayClass }: QuartzComponentProps) => {
   return (
     <div class={classNames(displayClass, "tagline", "desktop-only")}>
-      Akademische Präzision bei absoluter moralischer Verwahrlosung.
+      <a href="https://alemsabic.com">Alem Šabić</a>'s Notizen und Quellen.
     </div>
   )
 }

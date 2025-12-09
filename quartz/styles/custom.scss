@@ -54,6 +54,7 @@
 @media (min-width: 800px) {
   .page-title {
     font-size: 2.5rem !important; // Desktop
+    line-height: 1 !important; // Same level as other elements
   }
 }
 
@@ -62,23 +63,23 @@
   gap: 0 !important;
 }
 
-// Profile image styling - SIMPLE ROUND
-.profile-image {
-  text-shadow: none !important;
-  width: 240px !important;
-  height: 240px !important;
-  border-radius: 50% !important; // Make it round
-  overflow: hidden !important;
-  margin: 0 auto 1.5rem auto !important;
-}
+// Profile image styling - SIMPLE ROUND (COMMENTED OUT - removed from layout)
+// .profile-image {
+//   text-shadow: none !important;
+//   width: 240px !important;
+//   height: 240px !important;
+//   border-radius: 50% !important; // Make it round
+//   overflow: hidden !important;
+//   margin: 0 auto 1.5rem auto !important;
+// }
 
-.profile-image img {
-  text-shadow: none !important;
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important; // Crop to fill circle
-  object-position: center !important;
-}
+// .profile-image img {
+//   text-shadow: none !important;
+//   width: 100% !important;
+//   height: 100% !important;
+//   object-fit: cover !important; // Crop to fill circle
+//   object-position: center !important;
+// }
 
 // Tagline styling
 .tagline {

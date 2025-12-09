@@ -1,11 +1,11 @@
-# Claude Code Instructions - Quartz Repository (PATHOLOGIE)
+# Claude Code Instructions - Quartz Repository (ale.ms)
 
 ## ⚠️ Important: Two-Repository Architecture
 
 This repository handles **PRESENTATION ONLY** (Quartz static site generator).
 
 **Content is managed separately**:
-- Content Repository: https://github.com/alemsabic/nekontam-zk
+- Content Repository: https://github.com/alemsabic/alems-notizen
 - Auto-syncs to `content/` folder via GitHub Actions
 - **DO NOT edit files in `content/` directly** - changes will be overwritten!
 
@@ -16,11 +16,11 @@ This repository handles **PRESENTATION ONLY** (Quartz static site generator).
 - ❌ Content (managed in separate repo)
 
 ## Project Overview
-- **Name**: "pathologie-site"
+- **Name**: "alems-site"
 - **Type**: Static site generator using Quartz v4.5.1
-- **Purpose**: Presentation layer for PATHOLOGIE - Quellenangaben für Gpunkt.org Satiremagazin
+- **Purpose**: Presentation layer for ale.ms - Quellenangaben und Schulungsunterlagen von Alem Sabic
 - **Local dev**: `npx quartz build --serve` (runs on http://localhost:8080)
-- **Live Site**: https://pathologie.gpunkt.org
+- **Live Site**: https://ale.ms
 
 ## Quick Start (Read This First!)
 
@@ -37,13 +37,13 @@ For complete operator manual, see: **`OPERATOR.md`**
 
 ```bash
 # Go to content repo (not this one!)
-cd /Users/alemsabic/Desktop/MEMEX/_projects/nekontam-content
+cd /Users/alemsabic/Desktop/MEMEX/_projects/alems-notizen
 
 # Edit markdown files
 # Commit & push
 git add . && git commit -m "content: ..." && git push
 
-# Auto-syncs to this repo → Deploys to nekontam.com
+# Auto-syncs to this repo → Deploys to ale.ms
 ```
 
 ## File Structure
@@ -57,21 +57,21 @@ git add . && git commit -m "content: ..." && git push
 - `CLAUDE.md` - This file (Quartz-specific context)
 
 ## Current Configuration
-- **Page title**: "PATHOLOGIE"
-- **Page title suffix**: "Quellenangaben für Gpunkt.org Satiremagazin"
-- **Tagline**: "Quellenangaben für Gpunkt.org Satiremagazin"
+- **Page title**: "ale.ms"
+- **Page title suffix**: "Quellenangaben und Schulungsunterlagen von Alem Sabic"
+- **Tagline**: "Quellenangaben und Schulungsunterlagen von Alem Sabic"
 - **Typography**: Victor Mono (headers), Geist Mono (body), Inconsolata (code)
-- **Base URL**: https://pathologie.gpunkt.org
+- **Base URL**: https://ale.ms
 - **Footer**: Custom with Alem Šabić link + X/Twitter
 - **Theme**: Custom Quartz with noise texture
 
 ## Deployment
 - **Platform**: Cloudflare Pages
-- **Repository**: https://github.com/alemsabic/pathologie-site
+- **Repository**: https://github.com/alemsabic/alems-site
 - **Branch**: `v4`
 - **Build Command**: `npx quartz build`
 - **Output Directory**: `public`
-- **Live URL**: https://pathologie.gpunkt.org
+- **Live URL**: https://ale.ms
 - **Deploy Time**: 1-2 minutes after push
 
 ## Completed Tasks
@@ -815,6 +815,143 @@ Component.Graph({
 - Verify graph data structure in contentIndex.json
 
 **Status**: Unresolved ⏳ - Investigation paused, awaiting user DevTools feedback
+
+---
+
+## Session 15 Updates (Dec 9, 2025) - **Complete Migration: PATHOLOGIE → ale.ms** ⏳
+
+### Project Rebrand: PATHOLOGIE → ale.ms (Alem's Notizen)
+**Migration Goal**: Consolidate fragmented infrastructure into single coherent system
+
+**Current State (Before Migration)**:
+- Presentation folder: `/Users/alemsabic/Desktop/NE-KONTAM/quartz/`
+- Content folder: `/Users/alemsabic/Desktop/MEMEX/_projects/nekontam-content/`
+- Content repo: `nekontam-zk` (GitHub)
+- Presentation repo: `pathologie-site` (GitHub)
+- Live site: `pathologie.gpunkt.org`
+- **Problem**: Naming mismatch, historical baggage from nekontam.com → pathologie.gpunkt.org migrations
+
+**Target State (After Migration)**:
+- Presentation folder: `/Users/alemsabic/Desktop/NE-KONTAM/quartz/` (unchanged)
+- Content folder: `/Users/alemsabic/Desktop/MEMEX/_projects/alems-notizen/`
+- Content repo: `alems-notizen` (GitHub)
+- Presentation repo: `alems-site` (GitHub)
+- Live site: `ale.ms`
+- Description: "Quellenangaben und Schulungsunterlagen von Alem Sabic"
+- **Result**: Clean naming, clear purpose, single active site
+
+**Sites Being Retired**:
+- ❌ nekontam.com (original Sarajevo slang dictionary)
+- ❌ pathologie.gpunkt.org (Gpunkt.org satire sources)
+
+---
+
+### 📋 Migration Plan - Detailed Steps
+
+**Phase 1: Content Repository Migration**
+- [x] 1.1 Rename local folder: `nekontam-content` → `alems-notizen`
+  - Path: `/Users/alemsabic/Desktop/MEMEX/_projects/`
+  - Command: `mv nekontam-content alems-notizen`
+- [x] 1.2 Rename GitHub repo: `nekontam-zk` → `alems-notizen`
+  - Command: `gh repo rename alems-notizen --repo alemsabic/nekontam-zk`
+- [x] 1.3 Update git remote in content folder
+  - cd to `/Users/alemsabic/Desktop/MEMEX/_projects/alems-notizen`
+  - Command: `git remote set-url origin git@github.com:alemsabic/alems-notizen.git`
+- [x] 1.4 Update repo description on GitHub
+  - Command: `gh repo edit alemsabic/alems-notizen --description "Content repository for ale.ms"`
+
+**Phase 2: Presentation Repository Migration**
+- [x] 2.1 Rename GitHub repo: `pathologie-site` → `alems-site`
+  - Command: `gh repo rename alems-site --repo alemsabic/pathologie-site`
+- [x] 2.2 Update git remote in presentation folder
+  - cd to `/Users/alemsabic/Desktop/NE-KONTAM/quartz`
+  - Command: `git remote set-url origin git@github.com:alemsabic/alems-site.git`
+- [x] 2.3 Update repo description on GitHub
+  - Command: `gh repo edit alemsabic/alems-site --description "Präsentationsschicht für ale.ms - Alem's Notizen"`
+
+**Phase 3: Quartz Configuration Updates**
+- [x] 3.1 Update `quartz.config.ts`
+  - pageTitle: "PATHOLOGIE" → "ale.ms"
+  - pageTitleSuffix: "Quellenangaben für Gpunkt.org Satiremagazin" → "Quellenangaben und Schulungsunterlagen von Alem Sabic"
+  - baseUrl: "https://pathologie.gpunkt.org" → "https://ale.ms"
+- [x] 3.2 Update `quartz/components/Tagline.tsx`
+  - Text: "Quellenangaben für Gpunkt.org Satiremagazin" → "Quellenangaben und Schulungsunterlagen von Alem Sabic"
+- [x] 3.3 Update `quartz.layout.ts` ContentHeader
+  - baseUrl: "https://github.com/alemsabic/nekontam-zk/blob/main" → "https://github.com/alemsabic/alems-notizen/blob/main"
+
+**Phase 4: GitHub Actions Workflow**
+- [x] 4.1 Update `.github/workflows/sync-to-quartz.yml`
+  - Source repo: `nekontam-zk` → `alems-notizen`
+  - Target repo: `pathologie-site` → `alems-site`
+  - All commit messages and references updated
+
+**Phase 5: Documentation Updates**
+- [x] 5.1 Update `README.md`
+  - Project name, URLs, descriptions
+  - Repository references
+- [x] 5.2 Update `CLAUDE.md` project overview
+  - Update top-level project information
+
+**Phase 6: Cloudflare Pages Configuration**
+- [ ] 6.1 Create new Cloudflare Pages project (or reconfigure existing)
+  - Connect to: `alemsabic/alems-site`
+  - Branch: `v4`
+  - Build command: `npx quartz build`
+  - Output directory: `public`
+- [ ] 6.2 Configure custom domain
+  - Domain: `ale.ms`
+  - DNS: CNAME or A record setup
+
+**Phase 7: Content Cleanup (Optional)**
+- [ ] 7.1 Review content in `alems-notizen`
+  - Remove old nekontam/pathologie content if irrelevant
+  - Add new content as needed
+
+**Phase 8: UI Cleanup (Current Session)**
+- [x] 8.1 Remove ProfileImage component from layouts
+- [x] 8.2 Set `.page-title` line-height to 1 (desktop)
+- [x] 8.3 Comment out `.profile-image` CSS
+
+---
+
+### ✅ Completed Steps (Session 15)
+**Migration Complete** (Phases 1-5):
+- ✅ Content folder renamed: `nekontam-content` → `alems-notizen`
+- ✅ GitHub repos renamed: `nekontam-zk` → `alems-notizen`, `pathologie-site` → `alems-site`
+- ✅ Git remotes updated in both repositories
+- ✅ Quartz config updated: `quartz.config.ts`, `Tagline.tsx`, `quartz.layout.ts`
+- ✅ GitHub Actions workflow updated: `.github/workflows/sync-to-quartz.yml`
+- ✅ Documentation updated: `README.md`, `CLAUDE.md` (complete overhaul)
+- ✅ UI cleanup: ProfileImage removed, page-title line-height fixed
+
+**Files Changed**:
+- `/Users/alemsabic/Desktop/MEMEX/_projects/alems-notizen/.github/workflows/sync-to-quartz.yml`
+- `quartz.config.ts`
+- `quartz/components/Tagline.tsx`
+- `quartz.layout.ts`
+- `README.md` (complete rewrite)
+- `CLAUDE.md` (updated project overview + Session 15 documentation)
+- `quartz/styles/custom.scss` (ProfileImage CSS commented out)
+
+### 🔄 Current Status
+- **Completed**: Phases 1-5 (All configuration and documentation)
+- **Remaining**: Phase 6 (Cloudflare Pages) - Manual setup required
+- **Optional**: Phase 7 (Content cleanup)
+
+### 📝 Next Steps
+**Phase 6: Cloudflare Pages** (Manual - User Action Required):
+1. Go to Cloudflare Pages Dashboard
+2. Create new project or reconfigure existing
+3. Connect to: `alemsabic/alems-site`
+4. Set branch: `v4`
+5. Build command: `npx quartz build`
+6. Output directory: `public`
+7. Configure custom domain: `ale.ms`
+
+**Phase 7: Content Cleanup** (Optional):
+- Review and cleanup content in `/Users/alemsabic/Desktop/MEMEX/_projects/alems-notizen`
+- Remove old nekontam/pathologie content if irrelevant
+- Add new content as needed for ale.ms
 
 ---
 

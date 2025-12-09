@@ -28,13 +28,12 @@ export const defaultContentPageLayout: PageLayout = {
       condition: (page) => page.fileData.slug !== "index",
     }),
     Component.ContentHeader({
-      baseUrl: "https://github.com/alemsabic/nekontam-zk/blob/main",
+      baseUrl: "https://github.com/alemsabic/alems-notizen/blob/main",
       editButtonText: "Verbesser die Seite auf GitHub.",
       showTags: false,
     }),
   ],
   left: [
-    Component.ProfileImage(),
     Component.PageTitle(),
     Component.Tagline(),
     Component.Explorer(),
@@ -90,7 +89,6 @@ export const defaultListPageLayout: PageLayout = {
     Component.ContentMeta(),
   ],
   left: [
-    Component.ProfileImage(),
     Component.PageTitle(),
     Component.Tagline(),
     Component.Explorer(),

@@ -1,19 +1,19 @@
-# pathologie-site
+# alems-site
 
-> **Präsentationsschicht für [pathologie.gpunkt.org](https://pathologie.gpunkt.org)** - Static Site Generator mit Quartz v4.5.1
+> **Präsentationsschicht für [ale.ms](https://ale.ms)** - Static Site Generator mit Quartz v4.5.1
 
-🌐 **Live Site**: [pathologie.gpunkt.org](https://pathologie.gpunkt.org)
+🌐 **Live Site**: [ale.ms](https://ale.ms)
 
 ## 🎯 Über dieses Repository
 
-Dieses Repository enthält die **Präsentationsschicht** (Quartz Static Site Generator) für PATHOLOGIE - Quellenangaben für Gpunkt.org Satiremagazin.
+Dieses Repository enthält die **Präsentationsschicht** (Quartz Static Site Generator) für ale.ms - Quellenangaben und Schulungsunterlagen von Alem Sabic.
 
 ### Zwei-Repository-Architektur:
 
-1. **pathologie-site** (dieses Repo): Design, Layout, Konfiguration
-   - https://github.com/alemsabic/pathologie-site
-2. **nekontam-zk**: Content (Markdown), separat verwaltet
-   - https://github.com/alemsabic/nekontam-zk
+1. **alems-site** (dieses Repo): Design, Layout, Konfiguration
+   - https://github.com/alemsabic/alems-site
+2. **alems-notizen**: Content (Markdown), separat verwaltet
+   - https://github.com/alemsabic/alems-notizen
 
 **Inhalte synchronisieren automatisch** vom Content-Repository via GitHub Actions.
 
@@ -40,13 +40,13 @@ npm run check
 ⚠️ **Inhalte werden NICHT in diesem Repository bearbeitet!**
 
 Inhalte werden im separaten Content-Repository bearbeitet:
-- Repository: https://github.com/alemsabic/nekontam-zk
+- Repository: https://github.com/alemsabic/alems-notizen
 - Siehe README im Content-Repo für Anleitungen
 
 ## 📁 Projektstruktur
 
 ```
-pathologie-site/
+alems-site/
 ├── content/              # ⚠️ AUTO-SYNC - NICHT EDITIEREN
 │   └── README.md        # Erklärt Auto-Sync
 ├── quartz/
@@ -62,8 +62,8 @@ pathologie-site/
 
 ## ⚙️ Konfiguration
 
-- **Site Title**: "PATHOLOGIE"
-- **Tagline**: "Quellenangaben für Gpunkt.org Satiremagazin"
+- **Site Title**: "ale.ms"
+- **Tagline**: "Quellenangaben und Schulungsunterlagen von Alem Sabic"
 - **Typographie**: Victor Mono (Headers), Geist Mono (Body), Inconsolata (Code)
 - **Theme**: Custom mit Noise-Textur
 - **Layout**: Custom Grid (320px Sidebars, 50px Gap)
@@ -73,10 +73,10 @@ pathologie-site/
 Jede Seite zeigt standardmäßig oben rechts eine kompakte Metadaten-Liste:
 
 ```
-              Naslov: [Titel]
+              Titel: [Titel]
                Datum: [Datum]
-    Vrijeme čitanja: [X minut/minute/minuta.]
-  Uredi stranicu na GitHub-u.
+    Lesezeit: [X Minute/Minuten.]
+  Verbesser die Seite auf GitHub.
 ```
 
 **Frontmatter-Optionen:**
@@ -98,15 +98,15 @@ Content-Repo (push)
   → GitHub Action
     → Sync zu diesem Repo's /content Ordner
       → Cloudflare Pages Build
-        → Deploy zu pathologie.gpunkt.org (1-2 Min)
+        → Deploy zu ale.ms (1-2 Min)
 ```
 
 ODER
 
 ```
-pathologie-site (push Design-Änderungen)
+alems-site (push Design-Änderungen)
   → Cloudflare Pages Build
-    → Deploy zu pathologie.gpunkt.org (1-2 Min)
+    → Deploy zu ale.ms (1-2 Min)
 ```
 
 ## 🛠️ Tech Stack
@@ -129,7 +129,7 @@ pathologie-site (push Design-Änderungen)
 
 ### Custom Komponenten
 - **ContentHeader.tsx**: Unified Metadata-Anzeige (ersetzt ArticleTitle, ContentMeta, TagList, EditOnGitHub)
-  - Bosnische Labels (Naslov, Datum, Vrijeme čitanja)
+  - Deutsche Labels (Titel, Datum, Lesezeit)
   - Grammatisch korrekte Plural-Formen für Lesezeit
   - Frontmatter-Option: `showContentHeader: false`
   - Rechtsbündige "Briefadresse"-Darstellung
@@ -140,7 +140,7 @@ pathologie-site (push Design-Änderungen)
 - Noise-Textur-Overlay (Dark: 0.5 opacity)
 - Custom Grid-Layout mit 50px Gap
 - Custom Scrollbar-Styling (orange #d65d0e Akzent)
-- Explorer- und TOC-Schriftgrößen reduziert (0.85rem)
+- Explorer- und TOC-Schriftgrößen (1rem)
 - Dark Theme Font Smoothing
 - Lined Paper Effect (deaktiviert, leicht reaktivierbar)
 
