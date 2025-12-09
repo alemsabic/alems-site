@@ -53,7 +53,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.Comments({
       provider: "giscus",
       options: {
-        repo: "alemsabic/pathologie-site",
+        repo: "alemsabic/alems-site",
         repoId: "R_kgDOQg3eGw",
         category: "General",
         categoryId: "DIC_kwDOQg3eG84CzVVP",
@@ -64,7 +64,7 @@ export const defaultContentPageLayout: PageLayout = {
         lang: "de",
         lightTheme: "light",
         darkTheme: "dark",
-        themeUrl: "https://pathologie.gpunkt.org/static/giscus",
+        themeUrl: "https://ale.ms/static/giscus",
       },
     }),
     Component.Backlinks(),
