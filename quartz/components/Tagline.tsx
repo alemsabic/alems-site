@@ -4,7 +4,7 @@ import { classNames } from "../util/lang"
 const Tagline: QuartzComponent = ({ displayClass }: QuartzComponentProps) => {
   return (
     <div class={classNames(displayClass, "tagline", "desktop-only")}>
-      <a href="https://alemsabic.com">Alem Šabić</a>'s Notizen und Quellen.
+      <a href="https://alemsabic.com">Alem Šabićs</a> Quellen und Schulungsunterlagen.
     </div>
   )
 }
@@ -12,9 +12,14 @@ const Tagline: QuartzComponent = ({ displayClass }: QuartzComponentProps) => {
 Tagline.css = `
 .tagline {
   font-size: 1rem;
-  margin: 0;
+  margin-top: 0.5rem;
+  margin-bottom: 2.5rem;
   color: var(--secondary);
   line-height: 1.5;
+}
+
+.tagline a {
+  text-decoration: underline;
 }
 `
 

@@ -938,20 +938,31 @@ Component.Graph({
 - **Remaining**: Phase 6 (Cloudflare Pages) - Manual setup required
 - **Optional**: Phase 7 (Content cleanup)
 
-### 📝 Next Steps
-**Phase 6: Cloudflare Pages** (Manual - User Action Required):
-1. Go to Cloudflare Pages Dashboard
-2. Create new project or reconfigure existing
-3. Connect to: `alemsabic/alems-site`
-4. Set branch: `v4`
-5. Build command: `npx quartz build`
-6. Output directory: `public`
-7. Configure custom domain: `ale.ms`
+### 📝 Cleanup Tasks (TODO - Resume Later)
 
-**Phase 7: Content Cleanup** (Optional):
-- Review and cleanup content in `/Users/alemsabic/Desktop/MEMEX/_projects/alems-notizen`
-- Remove old nekontam/pathologie content if irrelevant
-- Add new content as needed for ale.ms
+**1. Dev-Server beenden**
+- Background Bash process (ID: 80fb9c) still running
+- Command: Kill via Claude Code or manually with Ctrl+C
+
+**2. Cloudflare Pages Projekte aufräumen**
+Projects to review/delete:
+- ⚠️ **altes `alems-site`** - Zu viele Deployments, braucht Lösch-Skript:
+  - Download: https://pub-505c82ba1c844ba788b97b1ed9415e75.r2.dev/delete-all-deployments.zip
+  - Commands documented in CLAUDE.md above
+- ⚠️ **`nekontam-site`** - Alt, nicht mehr gebraucht, kann gelöscht werden
+- ✅ **`ale-ms`** - NEU, BEHALTEN! (Live-Projekt für ale.ms)
+- ❓ **`alemsabic-com`** - Entscheidung: behalten oder löschen?
+
+**3. Content Cleanup (Optional)**
+- Path: `/Users/alemsabic/Desktop/MEMEX/_projects/alems-notizen/`
+- Review: Alte nekontam/pathologie Inhalte löschen?
+- Decision: Welcher Content bleibt für ale.ms?
+
+**4. CLAUDE.md finalisieren**
+- Session 15 Status auf "completed" setzen
+- Final summary schreiben
+
+**Status**: Notiert für spätere Session ⏸️
 
 ---
 

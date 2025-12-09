@@ -40,6 +40,8 @@ export const defaultContentPageLayout: PageLayout = {
   ],
   right: [
     Component.DesktopOnly(Component.TableOfContents()),
+    Component.Graph(),
+    Component.Backlinks(),
   ],
   afterBody: [
     Component.ConditionalRender({
@@ -67,8 +69,6 @@ export const defaultContentPageLayout: PageLayout = {
         themeUrl: "https://ale.ms/static/giscus",
       },
     }),
-    Component.Backlinks(),
-    Component.Graph(),
   ],
 }
 

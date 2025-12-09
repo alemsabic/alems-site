@@ -14,6 +14,11 @@
 }
 
 
+// Graph component bottom margin (gap to Backlinks)
+.graph {
+  margin-bottom: 2rem !important;
+}
+
 // Backlinks component bottom margin
 .backlinks {
   margin-bottom: 2rem !important;
@@ -53,14 +58,19 @@
 
 @media (min-width: 800px) {
   .page-title {
-    font-size: 2.5rem !important; // Desktop
+    font-size: 3rem !important; // Desktop
     line-height: 1 !important; // Same level as other elements
   }
 }
 
-// Remove gap from sidebar, manage spacing per component
+// Remove gap from sidebars by default
 .page > #quartz-body .sidebar {
   gap: 0 !important;
+}
+
+// Right sidebar: add gap between Graph, TOC, Backlinks
+.page > #quartz-body .sidebar.right {
+  gap: 1.2rem !important;
 }
 
 // Profile image styling - SIMPLE ROUND (COMMENTED OUT - removed from layout)
@@ -81,12 +91,6 @@
 //   object-position: center !important;
 // }
 
-// Tagline styling
-.tagline {
-  margin-top: 0.25rem !important;
-  margin-bottom: 2.5rem !important;
-  color: var(--secondary) !important;
-}
 
 // Headers font-weight and color
 h1, h2, h3, h4, h5, h6 {
@@ -552,6 +556,6 @@ article.dictionary-entry-columns .data-footnote-backref {
   margin-top: 2rem;
   margin-bottom: 2rem;
   padding-bottom: 2rem;
-  border-bottom: 1px dashed var(--gray);
+  border-bottom: 1px dashed var(--darkgray);
 }
 
