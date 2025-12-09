@@ -49,6 +49,7 @@ export const defaultContentPageLayout: PageLayout = {
         limit: 5,
         showTags: false,
         linkToMore: false,
+        filter: (f) => f.slug !== "index",
       }),
       condition: (page) => page.fileData.slug === "index",
     }),
