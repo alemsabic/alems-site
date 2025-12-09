@@ -6,6 +6,7 @@ This repository handles **PRESENTATION ONLY** (Quartz static site generator).
 
 **Content is managed separately**:
 - Content Repository: https://github.com/alemsabic/alems-notizen
+- Path: `/Users/alemsabic/Desktop/MEMEX/_projects/alems-notizen/`
 - Auto-syncs to `content/` folder via GitHub Actions
 - **DO NOT edit files in `content/` directly** - changes will be overwritten!
 
@@ -15,1010 +16,145 @@ This repository handles **PRESENTATION ONLY** (Quartz static site generator).
 - ✅ UI components
 - ❌ Content (managed in separate repo)
 
+---
+
 ## Project Overview
-- **Name**: "alems-site"
+- **Name**: alems-site
 - **Type**: Static site generator using Quartz v4.5.1
-- **Purpose**: Presentation layer for ale.ms - Quellenangaben und Schulungsunterlagen von Alem Sabic
-- **Local dev**: `npx quartz build --serve` (runs on http://localhost:8080)
+- **Purpose**: ale.ms - Quellenangaben und Schulungsunterlagen von Alem Sabic
 - **Live Site**: https://ale.ms
 
-## Quick Start (Read This First!)
-
-For complete operator manual, see: **`OPERATOR.md`**
-
 ### Key Commands
-- **Dev server**: `npx quartz build --serve`
+- **Dev server**: `npx quartz build --serve` (runs on http://localhost:8080)
 - **Build**: `npx quartz build`
 - **Check types**: `npm run check`
 - **Format code**: `npm run format`
 
-### Content Workflow
-⚠️ Content editing happens in separate repository!
-
-```bash
-# Go to content repo (not this one!)
-cd /Users/alemsabic/Desktop/MEMEX/_projects/alems-notizen
-
-# Edit markdown files
-# Commit & push
-git add . && git commit -m "content: ..." && git push
-
-# Auto-syncs to this repo → Deploys to ale.ms
-```
+---
 
 ## File Structure
-- `content/` - ⚠️ AUTO-SYNCED - DO NOT EDIT! (see content/README.md)
-- `quartz.config.ts` - Main configuration (fonts, colors, SEO)
-- `quartz.layout.ts` - Layout and component positioning
-- `quartz/styles/custom.scss` - Custom CSS overrides
-- `quartz/components/` - UI components (including custom Tagline)
-- `public/` - Built site output (auto-generated)
-- `OPERATOR.md` - Complete operator manual
-- `CLAUDE.md` - This file (Quartz-specific context)
+```
+quartz/
+├── content/              # ⚠️ AUTO-SYNCED - DO NOT EDIT!
+├── quartz.config.ts      # Main configuration (fonts, colors, SEO)
+├── quartz.layout.ts      # Layout and component positioning
+├── quartz/
+│   ├── components/       # UI components (Tagline, EditOnGitHub, etc.)
+│   └── styles/
+│       └── custom.scss   # Custom CSS overrides
+├── public/               # Built site output (auto-generated)
+└── static/               # Static assets (Giscus themes, etc.)
+```
+
+---
 
 ## Current Configuration
-- **Page title**: "ale.ms"
-- **Page title suffix**: "Quellenangaben und Schulungsunterlagen von Alem Sabic"
-- **Tagline**: "Quellenangaben und Schulungsunterlagen von Alem Sabic"
-- **Typography**: Victor Mono (headers), Geist Mono (body), Inconsolata (code)
-- **Base URL**: https://ale.ms
-- **Footer**: Custom with Alem Šabić link + X/Twitter
-- **Theme**: Custom Quartz with noise texture
+
+**Site Identity**:
+- Page title: "ale.ms"
+- Tagline: "Quellenangaben und Schulungsunterlagen von Alem Sabic"
+- Base URL: https://ale.ms
+
+**Typography**:
+- Headers: Victor Mono
+- Body: Geist Mono
+- Code: Inconsolata
+
+**Layout** (Session 16):
+- Left sidebar: PageTitle, Tagline, Search, Darkmode, Explorer
+- Right sidebar: Graph, TableOfContents, Backlinks (gap: 1.2rem)
+- After body: RecentNotes (index only), Comments (Giscus)
+
+**Giscus Comments**:
+- Repository: `alemsabic/alems-notizen`
+- Custom themes: `static/giscus/light.css` & `dark.css`
+- Language: German
+
+---
 
 ## Deployment
-- **Platform**: Cloudflare Pages
+
+**Platform**: Cloudflare Pages
 - **Repository**: https://github.com/alemsabic/alems-site
 - **Branch**: `v4`
+- **Project**: `ale-ms`
 - **Build Command**: `npx quartz build`
 - **Output Directory**: `public`
-- **Live URL**: https://ale.ms
 - **Deploy Time**: 1-2 minutes after push
 
-## Completed Tasks
-✅ **Initial Setup**
-- Project cloned and set up
-- Dependencies installed  
-- Basic configuration updated (title, footer)
-- Site builds and runs successfully
-- CLAUDE.md created for future sessions
+---
 
-✅ **GitHub Repository Setup** (Session 2)
-- Installed GitHub CLI (`brew install gh`)
-- Authenticated with GitHub CLI (with workflow permissions)
-- Created repository: `alemsabic/nekontam-site` - "Präsentationsschicht für NE KONTAM"
-- Updated `.gitignore` to exclude `CLAUDE.md`, `.obsidian/`, `.claude/` (for Obsidian integration)
-- Changed git remote from original Quartz repo to personal repo
-- Set up SSH authentication for seamless git operations
-- Successfully pushed code to GitHub on `v4` branch
+## Content Workflow
 
-✅ **Cloudflare Pages Deployment**
-- Repository `alemsabic/nekontam-site` connected to Cloudflare Pages
-- Build settings: `npx quartz build`, output: `public`, branch: `v4`
-- Auto-deployment on git push configured
-- Custom domain configured: `nekontam.alemsabic.com`
-- Site successfully deployed and live
+### Publishing Content Changes
 
-⏳ **Next Session Tasks** (Resume Here)
-1. **Customize styling (colors, fonts, layout)**
-   - Edit `quartz/styles/custom.scss` for visual customizations
-   - Consider: color scheme, typography, spacing, layout adjustments
-   - Test locally with: `npx quartz build --serve`
-   
-2. **Add content and structure to digital garden**
-   - Create more markdown files in `content/` folder
-   - Organize content structure and navigation
-   - Set up Obsidian integration if desired
-
-## Session 2 Summary (Sept 7, 2025)
-✅ All technical infrastructure completed successfully
-- GitHub repository: `alemsabic/nekontam-site`
-- Live deployment: https://nekontam.alemsabic.com (auto-deploys from `v4` branch)
-- SSH authentication configured (no more manual auth needed)
-- Content publishing workflow documented
-- Updated git remote URL to match renamed repository
-
-## Current Deployment
-- **GitHub**: https://github.com/alemsabic/nekontam-site
-- **Live Site**: https://nekontam.com (primary) / https://nekontam.alemsabic.com (legacy)
-- **Cloudflare Pages**: Auto-deploys from `v4` branch
-
-## Workflow: Publishing Content Changes
-
-**To update your live site at https://nekontam.com:**
-
-1. **Edit content** in `content/` folder (with Obsidian or any editor)
-2. **Commit and push changes**:
+1. **Edit content** in `/Users/alemsabic/Desktop/MEMEX/_projects/alems-notizen/`
+2. **Commit and push**:
    ```bash
-   git add .
-   git commit -m "Your commit message"
-   git push
+   git add . && git commit -m "content: ..." && git push
    ```
-3. **Wait 1-2 minutes** - Cloudflare Pages automatically builds and deploys
+3. **Auto-sync**: GitHub Actions syncs to alems-site → Cloudflare deploys
 
 **Important**:
-- NO need to run `npx quartz build` locally - Cloudflare does this automatically
-- Changes appear live within 1-2 minutes of pushing to GitHub
-- All commits to `v4` branch trigger automatic deployment
-
-## Notes
-- Site rebuilds automatically in dev mode when files change
-- Git tracking affects file dates (warnings normal during development)
-- Custom styling goes in `quartz/styles/custom.scss`
-- Content managed in `content/` folder (Obsidian integration ready)
+- NO need to run `npx quartz build` locally
+- Changes appear live within 1-2 minutes
+- All commits to content repo trigger GitHub Actions workflow
 
 ---
 
-# CUSTOMIZATION LOG
-*Track all changes made to support future upstream merges and project replication*
+## Custom Components
 
-## Upstream Repository
-- **Original**: https://github.com/jackyzha0/quartz
-- **Fork Date**: Sept 7, 2025 (Quartz v4.5.1)
-- **Tracking**: Changes documented to enable clean upstream merges
+**Tagline** (`quartz/components/Tagline.tsx`):
+- Displays site description below PageTitle
+- Responsive: block (desktop), inline (mobile)
 
-## Session 3 Changes (Sept 10, 2025)
-
-### Layout Customizations
-**Files Modified**: `quartz.layout.ts`
-
-**Original State** (Baseline):
-```typescript
-// Left sidebar: PageTitle, Search+Darkmode+ReaderMode, Explorer
-// Right sidebar: Graph, TableOfContents, Backlinks  
-// Main content: Breadcrumbs, ArticleTitle, ContentMeta, TagList
-```
-
-**Layout Changes Made**:
-- **Moved Graph and Backlinks to afterBody**: Relocated from right sidebar to below main content
-- **Right sidebar removed**: Completely empty (removed Table of Contents)
-- **Search bar repositioned**: Moved to center above page header in main content area
-- **Dark mode toggle integrated**: Combined with search bar in Flex container (search grows, dark mode on right)
-- **Reader mode removed**: Completely removed from all layouts
-- **Component order**: Backlinks → Graph (below main content)
-
-**Design/Styling Changes**:
-- **Search bar width**: Set to 100% width using custom CSS (`.search` class)
-- **Burger button padding**: Removed left padding from mobile explorer toggle (`.explorer .mobile-explorer`)
-- **Page title font size**: Set to 1rem (`.page-title` class)
-- **Simplified layout**: Single Dark mode toggle on all devices (removed Reader mode complexity)
-- **Site name**: Changed from "My Digital Garden" to "ale.ms"
-- **Footer customization**: Added "Alem Šabić" link to alemsabic.com with © 2025 and X/Twitter link (removed Quartz attribution)
-- **Backlinks margin**: Added 2rem bottom margin to `.backlinks` component
-- **Typography**: Changed to Geist (headers) and Geist Mono (body/code) from Google Fonts
-
-**Rationale**:
-- Cleaner right sidebar focuses user attention on Table of Contents for navigation
-- Prominent search bar placement for better discoverability
-- Mode toggles in sidebar keep main content area clean
-- Reader mode only useful on desktop screens
-- Full-width search improves usability and visual balance
-
-## Session 4 Updates (Sept 13, 2025)
-
-### Documentation & Maintenance
-**Files Modified**: `CLAUDE.md`
-
-**Changes Made**:
-- **Typography correction**: Updated documentation from "Spectral" to "Geist" fonts (actual current implementation)
-- **Font update**: Changed fonts from Geist → "Old Standard TT" → "PT Sans" → "PT Sans Narrow" → "JetBrains Mono" (all typography)
-- **Deployment**: Committed and pushed typography changes to GitHub (commit 18a0708)
-- **Logging improvement**: Added Session 4 tracking for better change documentation
-
-**Current Font Configuration** (updated in `quartz.config.ts`):
-```typescript
-typography: {
-  header: "JetBrains Mono",
-  body: "JetBrains Mono",
-  code: "JetBrains Mono",
-}
-```
-
-**Process Improvement**:
-- ✅ Established real-time logging of changes in CLAUDE.md
-- ✅ Verification of actual vs documented configuration
-- 🎯 Going forward: Update CLAUDE.md immediately after any changes
-
-## Session 5 Updates (Sept 17, 2025)
-
-### Content Structure & Styling Improvements
-**Files Modified**: 9 markdown content files + `custom.scss`
-
-**Content Changes Made**:
-- **H1 to Frontmatter Migration**: Converted all H1 headings (`# Title`) to YAML frontmatter `title` properties across all content files
-- **Files Updated**: `typography-demo.md`, `long-form-article.md`, `quick-notes.md`, `projects/web-redesign.md`, `projects/design-system.md`, `research/user-study-2024.md`, `research/market-analysis.md`, `personal/book-reviews.md`, `personal/travel-log.md`
-- **Consistent Structure**: All files now follow the `about.md` pattern with frontmatter titles instead of markdown H1 headings
-
-**Styling Changes Made**:
-- **Explorer folder list**: Added darker background (`var(--gray)`) to `.explorer-content .folder-outer > ul` for better visibility
-- **CSS cleanup**: Improved formatting and dark theme noise opacity consistency
-
-**Benefits**:
-- **SEO improvement**: Frontmatter titles are better for page metadata and navigation
-- **Cleaner content**: Eliminates redundant H1 headings in markdown body
-- **Consistent structure**: All pages follow same title pattern
-- **Better UX**: Darker folder list improves readability
-
-**Deployment**:
-- Commit b4b0f11: "feat: move H1 headings to frontmatter titles and add styling improvements"
-- Live at https://ale.ms within 1-2 minutes of push
+**EditOnGitHub** (`quartz/components/EditOnGitHub.tsx`):
+- "Verbesser die Seite auf GitHub." link
+- Points to content repo: `https://github.com/alemsabic/alems-notizen/`
 
 ---
 
-## Session 6 Updates (Oct 7, 2025)
+## Session 16 Updates (Dec 9, 2025) - Current Session
 
-### Custom Tagline Component
-**Files Created**: `quartz/components/Tagline.tsx`
-**Files Modified**: `quartz/components/index.ts`, `quartz.layout.ts`, `custom.scss`
-
-**Changes Made**:
-- **New Component**: Created custom `Tagline.tsx` component to display site description
-- **Text**: "Füge Deiner Intelligenz eine Intelligenz hinzu." (current)
-- **Responsive Behavior**:
-  - Desktop/tablet (>768px): Block element below PageTitle with 0.5rem top margin
-  - Mobile (≤768px): Inline element next to PageTitle with 0.5rem left margin
-- **Styling**: Font-size 0.9rem, color: `var(--gray)`
-- **Layout Integration**: Replaced `MobileOnly(Spacer())` with `Tagline()` in both page layouts
-
-**Update Strategy for Future Quartz Merges**:
-When merging upstream Quartz updates:
-1. ✅ `Tagline.tsx` is a new file - won't conflict (just keep it)
-2. ✅ `index.ts` - Re-add import/export for Tagline after merge
-3. ✅ `quartz.layout.ts` - Replace `MobileOnly(Spacer())` with `Tagline()` in left sidebar
-4. ✅ `custom.scss` - Re-add tagline responsive styles (lines 50-62)
-
-**Rationale**:
-- Clean separation: No core component modifications
-- Easy to maintain: Single custom component
-- Update-friendly: Clear documentation for re-integration
-- Core components (PageTitle, Spacer) remain untouched
-
-### Explorer Styling Improvements
-**Files Modified**: `custom.scss`
-
-**Changes Made**:
-- **Font sizes**: Reduced `.folder-container div>a` and `.explorer-content ul li>a` to 0.85rem
-- **Hover effect**: Added opacity transition (0.75 → 1) with 0.2s ease on explorer links
-- **Spacing**: Set uniform 0.15rem margins for both `ul` and `li` elements in explorer
-
-**Benefits**:
-- Cleaner, more compact explorer sidebar
-- Better visual hierarchy with smaller font
-- Smooth hover feedback for improved UX
-
-### Additional Styling Updates (Oct 7, 2025 - continued)
-**Files Modified**: `custom.scss`, `static/icon.png`
-
-**Changes Made**:
-- **Profile image background (dark mode)**: Changed from `#b60c0c` (red) to `#a9a9a9` (gray)
-- **Top shadow effect**: Added inset box-shadow to create depth illusion
-  - Light theme: `rgba(0, 0, 0, 0.6)` shadow
-  - Dark theme: `rgba(255, 255, 255, 0.15)` lighter shadow for contrast
-- **Custom scrollbar styling**: Added WebKit scrollbar customization
-  - Width: 9px, height: 8px
-  - Subtle transparency-based colors
-  - Rounded 2px corners on thumb
-  - Active state: `#d65d0e` (orange accent)
-- **Site icon**: Updated `icon.png` (binary file change)
-
-**Benefits**:
-- Improved visual depth with top shadow
-- Consistent scrollbar styling across browsers
-- Better dark mode profile image integration
-
-**Deployment**: Ready to commit and push
-
----
-
-## Session 7 Updates (Oct 8, 2025) - **Design v1.0 Complete** ✅
-
-### Major Styling Overhaul
-**Files Modified**: `custom.scss`, `quartz.layout.ts`, `Tagline.tsx`
-
-**Changes Made**:
-- **Body shadow removed**: Eliminated inset box-shadow from body element (light & dark theme)
-- **Profile image removed**: Commented out ProfileImage component and CSS (easy restore)
-- **Tagline updated**:
-  - Text: "Füge Deiner Intelligenz eine Intelligenz hinzu." (current)
-  - Color: `var(--gray)` (responsive to theme)
-- **Typography**: Removed `text-transform: uppercase` from all headers (h1-h6)
-- **Noise effect**: Reduced dark theme opacity from 0.9 to 0.5 for subtler texture
-- **Table of Contents**: Font-size set to 0.85rem (matching Explorer links)
-- **Layout spacing**: Custom grid with 50px gap between sidebars and center content
-  - Grid template: `320px auto 320px` column layout
-  - Applied via `@media (min-width: 1200px)` for desktop only
-
-**Design Philosophy**:
-- Clean, minimal interface focused on content readability
-- Consistent typography sizing across navigation elements
-- Reduced visual noise for better focus
-- Generous spacing for improved reading experience
-
-**Version**: Design v1.0 - Base design complete, ready for content creation
-
----
-
-## 📋 Next Session Tasks (Future Development)
-
-### High Priority: Color Scheme Implementation
-**Objective**: Apply professional coding color scheme to entire site
-
-**Options to Explore**:
-1. **Gruvbox** - Warm, retro groove color palette (popular in code editors)
-2. **Nord** - Arctic, bluish color scheme
-3. **Dracula** - Dark purple theme
-4. **Solarized** - Precision colors for machines and people
-5. **Tokyo Night** - Modern dark theme
-
-**Implementation Strategy**:
-- Research: Quick feasibility check for color scheme integration
-- Define: Map Quartz CSS variables to chosen scheme colors
-- Apply: Update `variables.scss` with new color definitions
-- Test: Verify readability in light/dark modes
-
-**Benefits**:
-- Visual bridge between code and text content
-- Professional, recognizable aesthetic
-- Enhanced brand identity with AI/code association
-- Improved accessibility with tested color contrasts
-
-**Estimated Effort**: Quick implementation (1-2 hours) - Color schemes are well-documented with hex values readily available
-
-### Content-Driven Improvements
-*Features to add as content needs emerge during writing*
-
-**Potential Additions**:
-- Enhanced code block styling
-- Custom callout boxes for different note types
-- Improved link preview cards
-- Better image handling and galleries
-- Search improvements
-- Tag organization enhancements
-
----
-
-## Session 8 Updates (Oct 12, 2025) - Typography & Color Planning
-
-### Typography Changes
-**Files Modified**: `quartz.config.ts`, `custom.scss`
-
-**Changes Made**:
-- **Font update**: Changed from JetBrains Mono to serif fonts
-  - **Headers**: Playfair Display (700 Bold)
-  - **Body**: Spectral
-  - **Code**: JetBrains Mono (maintained for code blocks)
-- **Font weights**: Adjusted heading weight from 500 to 700 for better prominence
-- **Page title link**: Added explicit `font-weight: 700` to `.page-title a` to match other headings
-- **Tagline color**: Changed from purple (`#8877a5`) to `var(--gray)` for better theme integration
-- **Lined paper effect**: Commented out light theme lined paper background (lines 129-133 in custom.scss) - easily restorable
-
-**Rationale**:
-- Serif fonts provide better readability for long-form content
-- Playfair Display adds elegant, distinctive character to headings
-- Spectral optimized for digital reading with modern proportions
-- Combination creates visual hierarchy while maintaining cohesion
-
-### Planned Color Scheme (NOT YET IMPLEMENTED)
-**Objective**: Bold, distinctive color palette
-
-**Background Colors (First Step)**:
-- **Dark Theme**: `#0e0126` (very dark purple/violet)
-- **Light Theme**: `#FFEB3B` (bright yellow)
-
-**⚠️ IMPORTANT - Full Implementation Required**:
-When implementing this color scheme, ALL color values in `quartz.config.ts` must be updated for consistency:
-
-```typescript
-// In quartz.config.ts - colors section
-lightMode: {
-  light: "#FFEB3B",      // Background - BRIGHT YELLOW
-  lightgray: "...",      // TBD - adjust for yellow background
-  gray: "...",           // TBD - adjust for yellow background
-  darkgray: "...",       // TBD - adjust for yellow background
-  dark: "...",           // TBD - adjust for yellow background
-  secondary: "...",      // Links - TBD
-  tertiary: "...",       // Tags - TBD
-  highlight: "...",      // TBD
-  textHighlight: "...",  // TBD
-}
-darkMode: {
-  light: "#0e0126",      // Background - DARK PURPLE
-  lightgray: "...",      // TBD - adjust for purple background
-  gray: "...",           // TBD - adjust for purple background
-  darkgray: "...",       // TBD - adjust for purple background
-  dark: "...",           // TBD - adjust for purple background
-  secondary: "...",      // Links - TBD
-  tertiary: "...",       // Tags - TBD
-  highlight: "...",      // TBD
-  textHighlight: "...",  // TBD
-}
-```
-
-**Elements Requiring Color Adjustment**:
-- Text colors (body text, headings)
-- Links (secondary)
-- Tags (tertiary)
-- Borders (lightgray, gray)
-- Highlights and accents
-- Graph and UI component colors
-- Search bar and sidebar elements
-- All interactive elements (hover states, active states)
-
-**Implementation Notes**:
-- This is a bold, distinctive palette - yellow/purple combination
-- Requires careful contrast testing for accessibility
-- All colors must harmonize with new backgrounds
-- Consider color blindness and readability
-- Test in both light and dark modes thoroughly
-
-**Current Status**: Planning phase - colors noted for future implementation
-
----
-
-## Session 9 Updates (Nov 2, 2025) - **Migration to NE KONTAM** ✅
-
-### Complete Project Rebrand
-**Migration**: ale.ms → NE KONTAM
-
-**Changes Made**:
-
-**Phase 1: Local Structure**
-- Folder renamed: `ale.ms/` → `NE KONTAM/`
-- Content cleaned: Removed all ale.ms content (kept README.md, index.md only)
-- Config updated: `quartz.config.ts` - pageTitle, pageTitleSuffix
-- Tagline updated: `Tagline.tsx` - "Rječnik sarajevskog žargona"
-
-**Phase 2: GitHub Repositories**
-- Repos renamed: `alems-site` → `nekontam-site`
-- Repos renamed: `alems-zk` → `nekontam-zk`
-- Local git remotes updated
-- Repo descriptions updated via `gh` CLI
-
-**Phase 3: GitHub Actions**
-- Updated workflow file: `.github/workflows/sync-to-quartz.yml`
-- Changed repo reference: `alems-site` → `nekontam-site`
-- Commit message updated: "alems-zk" → "nekontam-zk"
-
-**Phase 4: Cloudflare Pages**
-- New Cloudflare Pages project created
-- Connected to: `alemsabic/nekontam-site`
-- Custom domain: `nekontam.alemsabic.com`
-- Branch: `v4`
-- Build: `npx quartz build` → `public/`
-
-**Phase 5: Documentation**
-- GitHub repo descriptions updated
-- `README.md` completely rewritten for NE KONTAM
-- This file (`CLAUDE.md`) updated with new URLs, paths, project name
-- All references changed: ale.ms → nekontam.alemsabic.com
-
-**New Project Identity**:
-- **Name**: NE KONTAM
-- **Purpose**: Rječnik sarajevskog žargona (Sarajevo slang dictionary)
-- **Live**: https://nekontam.com (primary) / https://nekontam.alemsabic.com (legacy)
-- **GitHub**: nekontam-site (presentation) + nekontam-zk (content)
-
-**Status**: Complete migration ✅ - System fully operational
-
-**Next Steps**:
-- Content creation for NE KONTAM (dictionary entries)
-- `ale.ms` will be repurposed for new Obsidian Publish vault (IA project)
-
----
-
-## Session 10 Updates (Nov 11, 2025) - **Domain Migration to nekontam.com** ✅
-
-### Primary Domain Migration
-**Migration**: nekontam.alemsabic.com → nekontam.com
-
-**Changes Made**:
-
-**Phase 1: Quartz Configuration**
-- Updated `quartz.config.ts`: baseUrl from `https://ale.ms` → `https://nekontam.com`
-- Committed and pushed to GitHub (commit bd989b2)
-
-**Phase 2: Cloudflare Pages**
-- Custom domain `nekontam.com` to be added in Cloudflare Pages dashboard
-- Legacy domain `nekontam.alemsabic.com` remains functional (can be kept or redirected)
-
-**Phase 3: DNS Configuration**
-- CNAME or A Record to be configured at domain registrar
-- Target: `nekontam-site.pages.dev`
-
-**Phase 4: Documentation**
-- Updated all domain references in `CLAUDE.md`
-- Changed from `nekontam.alemsabic.com` → `nekontam.com` (primary)
-- Legacy domain noted for backward compatibility
-
-**New Primary Domain**: https://nekontam.com
-**Status**: Configuration complete ✅ - Awaiting DNS/Cloudflare setup
-
----
-
-## Session 11 Updates (Nov 14, 2025) - **Content Repository Migration** ✅
-
-### Content Repository Relocation
-**Files Modified**: `CLAUDE.md` (quartz), created `CLAUDE.md` (content repo)
-
-**Changes Made**:
-- **Content repo relocated**: `/Users/alemsabic/Desktop/NE-KONTAM/content-repo/` → `/Users/alemsabic/Desktop/MEMEX/_projects/nekontam-content/`
-- **Renamed**: `content-repo` → `nekontam-content` for clarity
-- **MEMEX integration**: Content repo now inside MEMEX Obsidian vault at `_projects/` subfolder
-- **Documentation created**: New `CLAUDE.md` file in content repository with complete workflow documentation
-- **Path updates**: Updated quartz `CLAUDE.md` with new content repository path
-
-**Benefits**:
-- Single Obsidian vault for all projects (unified plugins, configuration)
-- Full Obsidian functionality available for NE KONTAM content
-- Clean separation: `_projects/nekontam-content/` (content) vs `NE-KONTAM/quartz/` (presentation)
-- Git repository integrity preserved during move
-
-**New Content Workflow**:
-1. Edit content in `/Users/alemsabic/Desktop/MEMEX/_projects/nekontam-content/`
-2. Use all Obsidian features (plugins, templates, links, etc.)
-3. Commit and push to GitHub
-4. GitHub Actions auto-syncs to nekontam-site → Cloudflare deploys → Live at nekontam.com
-
-**Status**: Migration complete ✅ - Ready for content creation
-
----
-
-## Session 12 Updates (Nov 20, 2025) - **Giscus Comments + Edit on GitHub Button** ✅
-
-### Interactive Features Implementation
-**Files Modified**: `quartz.layout.ts`, created `quartz/components/EditOnGitHub.tsx`, `quartz/components/index.ts`
-
-**Collaboration**: Implementation started by Claude Code Web, completed by Claude Code CLI
-
-**Changes Made**:
-
-**Phase 1: Edit on GitHub Button**
-- **New Component**: Created `EditOnGitHub.tsx` custom component
-- **Functionality**: Displays "Edit this page on GitHub" link below tags on content pages
-- **Target**: Links to content repository `https://github.com/alemsabic/nekontam-zk`
-- **Styling**: Right-aligned, subtle opacity effect on hover
-- **Integration**: Registered in `index.ts` and added to `quartz.layout.ts` beforeBody section
-
-**Phase 2: Giscus Comments Integration**
-- **Prerequisites Setup**:
-  - Enabled GitHub Discussions on nekontam-zk repository
-  - Installed Giscus app on nekontam-zk
-  - Retrieved configuration IDs via GitHub GraphQL API
-- **Configuration**:
-  - Repository: `alemsabic/nekontam-zk`
-  - `repoId`: `R_kgDOP_ghmA`
-  - Category: "General"
-  - `categoryId`: `DIC_kwDOP_ghmM4CyARP`
-  - Mapping: `pathname`
-  - Language: German (`"de"`)
-  - **Theme**: `"preferred_color_scheme"` - **Auto-switches between light/dark mode!** 🎨
-- **Placement**: Added to `afterBody` section (below content, before Backlinks and Graph)
-
-**Phase 3: Branch Workflow**
-- Claude Code Web created branch: `claude/add-giscus-edit-button-01JKcU8cUsAxkgZU6bdMrHmt`
-- Claude Code CLI fetched branch, completed Giscus configuration
-- Merged to `v4` branch and deployed
-
-**Benefits**:
-- **Community Engagement**: Visitors can comment using GitHub accounts
-- **Easy Contributions**: Direct edit links for content improvements
-- **Theme Consistency**: Comments section respects site theme (light/dark)
-- **Accessibility**: GitHub-based authentication, no separate account needed
-
-**Technical Details**:
-- Giscus uses GitHub Discussions API
-- Comments stored in nekontam-zk repository Discussions
-- Theme detection via `preferred_color_scheme` (system preference)
-- Edit button uses `fileData.filePath` for correct GitHub URLs
-
-**Deployment**:
-- Committed: `feat: add Giscus configuration values and theme support` (869d9f4)
-- Merged to v4 and pushed to GitHub
-- Live on https://nekontam.com via Cloudflare Pages auto-deploy
-
-**Status**: Both features live and functional ✅
-
-**Testing**:
-- Visit any content page (e.g., `/ablendovati`)
-- Verify "Edit this page on GitHub" button appears below tags
-- Verify Giscus comments section loads at page bottom
-- Test theme switching (Dark Mode toggle) - comments should follow
-
----
-
-## Session 13 Updates (Dec 2, 2025) - **Migration to PATHOLOGIE** ✅
-
-### Complete Project Rebrand: NE KONTAM → PATHOLOGIE
-**Files Modified**: `quartz.config.ts`, `README.md`, `CLAUDE.md`, `quartz/components/Tagline.tsx`
-
-**Migration**: nekontam.com → pathologie.gpunkt.org
-
-**Changes Made**:
-
-**Phase 1: Configuration Updates**
-- **Site Title**: "NE KONTAM" → "PATHOLOGIE"
-- **Page Title Suffix**: "Rječnik sarajevskog žargona" → "Quellenangaben für Gpunkt.org Satiremagazin"
-- **Base URL**: `https://nekontam.com` → `https://pathologie.gpunkt.org`
-- **Typography Updated**:
-  - Headers: Victor Mono
-  - Body: Geist Mono
-  - Code: Inconsolata
-- **Tagline**: Updated to "Quellenangaben für Gpunkt.org Satiremagazin"
-
-**Phase 2: Repository Updates**
-- **GitHub Repository**: nekontam-site → pathologie-site
-- **Git Remote**: Updated to `git@github.com:alemsabic/pathologie-site.git`
-- **Content Repository**: Continues to use `nekontam-zk` (unchanged)
-
-**Phase 3: Documentation Updates**
-- **README.md**: All references updated to pathologie.gpunkt.org
-- **CLAUDE.md**: Session 13 logged for migration tracking
-- All URLs, project names, and descriptions updated throughout
-
-**New Project Identity**:
-- **Name**: PATHOLOGIE
-- **Purpose**: Quellenangaben für Gpunkt.org Satiremagazin (Source references for Gpunkt.org satire magazine)
-- **Live**: https://pathologie.gpunkt.org
-- **GitHub**: pathologie-site (presentation) + nekontam-zk (content)
-
-**Content Repository**:
-- Still located at: `/Users/alemsabic/Desktop/MEMEX/_projects/nekontam-content/`
-- GitHub: https://github.com/alemsabic/nekontam-zk
-- Auto-syncs to pathologie-site via GitHub Actions
-
-**Status**: Complete migration ✅ - System fully operational
-
-**Note**: NE KONTAM project archived, PATHOLOGIE is now the active project on this infrastructure.
-
----
-
-## Session 14 Updates (Dec 3, 2025) - **German i18n + Giscus Styling** ⏳
-
-### Internationalization Migration: Bosnian → German
-**Files Modified**: `quartz/components/ContentHeader.tsx`, `quartz.layout.ts`, `quartz/components/Tagline.tsx`, `quartz/styles/custom.scss`
-
-**Changes Made**:
-
-**Phase 1: ContentHeader Component (i18n)**
-- **Reading Time**: Updated pluralization rules for German
-  - "1 Minute." (singular)
-  - "X Minuten." (plural)
-- **UI Labels**:
-  - "Naslov:" → "Titel:"
-  - "Vrijeme čitanja:" → "Lesezeit:"
-  - "Datum" unchanged (same in German)
-- **Font size**: Increased from 0.85rem → 1rem
-- **GitHub Edit Button**: Default text updated to "Verbesser die Seite auf GitHub."
-
-**Phase 2: Layout Configuration**
-- **Edit Button Text Override**: Updated `quartz.layout.ts` from "Dotjeraj stranicu na GitHub-u." → "Verbesser die Seite auf GitHub." (with period)
-- **Giscus Migration**: Moved from nekontam-zk to pathologie-site repository
-  - Repository: `alemsabic/pathologie-site`
-  - `repoId`: `R_kgDOQg3eGw`
-  - Category: "General"
-  - `categoryId`: `DIC_kwDOQg3eG84CzVVP`
-  - Language: `"de"` (German, was `"hbs"` Bosnian)
-  - Giscus app installed on pathologie-site repository
-- **Graph Configuration**: Added explicit `depth: -1` for global graph (show all nodes)
-
-**Phase 3: Giscus Visual Redesign**
-**Files Created**: `quartz/static/giscus/light.css`, `quartz/static/giscus/dark.css`
-
-- **Custom Giscus Themes**: Created separate CSS files for light/dark modes using PATHOLOGIE design system colors
-- **Color Mapping**:
-  ```css
-  /* Light Mode */
-  --bg: #e0cca6; /* var(--light) */
-  --bg-secondary: rgba(0, 0, 0, 0.05); /* var(--lightgray) */
-  --text: #4e4e4e; /* var(--darkgray) */
-  --text-muted: #4e4e4e; /* var(--gray) */
-  --link: #8b4840; /* var(--secondary) */
-  --link-hover: #9c5e56; /* var(--tertiary) */
-
-  /* Dark Mode */
-  --bg: #0a0200;
-  --bg-secondary: rgba(255, 255, 255, 0.05);
-  --text: #ebebec;
-  --text-muted: #646464;
-  --link: #8b4840;
-  --link-hover: #9c5e56;
-  ```
-- **Improved Placeholder Readability**:
-  - Light mode: `#2b2b2b` with 0.7 opacity
-  - Dark mode: `#d4d4d4` with 0.8 opacity
-- **Theme URL**: Updated `quartz.layout.ts` to use `themeUrl: "https://pathologie.gpunkt.org/static/giscus"`
-
-**Phase 4: Font Size Standardization**
-- **Tagline**: 0.9rem → 1rem (in `Tagline.tsx`)
-- **Explorer links**: 0.85rem → 1rem
-  - `.folder-container div > a`
-  - `.explorer-content ul li > a`
-- **Content header**: 0.85rem → 1rem (`.content-header dl`)
-
-**Benefits**:
-- Complete German localization for PATHOLOGIE project
-- Giscus comments now match site design system
-- Better readability with increased font sizes
-- Improved contrast for form placeholders
-
-**Commits**:
-- `5e1fe40`: feat: update i18n to German + Giscus PATHOLOGIE colors + placeholder readability
-- `41f3b15`: feat: standardize font sizes to 1rem across UI components
-
-**Status**: i18n and Giscus styling complete ✅
-
----
-
-### 🔴 ACTIVE ISSUE: Graph Visualization Not Working
-
-**Problem Description**:
-- Graph visualization completely non-functional
-- No nodes/points displayed in local graph view
-- Global graph button (top-right) not responding to clicks
-- No zoom/drag interaction working
-- Issue persisted after multiple debugging attempts
-
-**Investigation Performed**:
-1. ✅ Verified Graph component exists in `quartz.layout.ts`
-2. ✅ Checked HTML structure - graph containers present in DOM
-3. ✅ Verified `contentIndex.json` exists with all 7 pages
-4. ⚠️ Found all pages have empty `"links":[]` arrays
-5. ✅ Confirmed graph JavaScript exists in `postscript.js`
-6. ✅ Set explicit `depth: -1` in global graph config (should show all nodes even without links)
-7. ✅ Removed noise texture overlays from graph containers (suspected z-index conflicts)
-8. ❌ None of these fixes resolved the issue
-
-**Attempted Fixes**:
-```typescript
-// quartz.layout.ts - Added explicit configuration
-Component.Graph({
-  localGraph: {
-    depth: 1,
-    // ... other settings
-  },
-  globalGraph: {
-    depth: -1,  // -1 = show ALL nodes regardless of links
-    // ... other settings
-  },
-}),
-```
-
-```scss
-// custom.scss - Removed noise overlays from graph containers
-.graph > .graph-outer {
-  margin: 1.5em 0;
-  border: none !important;
-  background-color: var(--light) !important;
-  position: relative;
-  // Removed: z-index and pointer-events that might interfere
-}
-
-.global-graph-container {
-  background-color: var(--light) !important;
-  position: relative;
-  // Removed: z-index and pointer-events
-}
-```
-
-**Current State**:
-- All other site features working correctly
-- Graph HTML structure exists but no visual rendering
-- JavaScript loaded but no interaction
-- Awaiting user DevTools investigation:
-  1. Check Console for JavaScript errors
-  2. Verify if `<canvas>` element exists inside `.graph-container`
-
-**Next Debugging Steps** (when resumed):
-- Analyze JavaScript console errors (if any)
-- Check if canvas element is created but invisible
-- Investigate D3.js/graph rendering initialization
-- Consider checking browser compatibility
-- Verify graph data structure in contentIndex.json
-
-**Status**: Unresolved ⏳ - Investigation paused, awaiting user DevTools feedback
-
----
-
-## Session 15 Updates (Dec 9, 2025) - **Complete Migration: PATHOLOGIE → ale.ms** ⏳
-
-### Project Rebrand: PATHOLOGIE → ale.ms (Alem's Notizen)
-**Migration Goal**: Consolidate fragmented infrastructure into single coherent system
-
-**Current State (Before Migration)**:
-- Presentation folder: `/Users/alemsabic/Desktop/NE-KONTAM/quartz/`
-- Content folder: `/Users/alemsabic/Desktop/MEMEX/_projects/nekontam-content/`
-- Content repo: `nekontam-zk` (GitHub)
-- Presentation repo: `pathologie-site` (GitHub)
-- Live site: `pathologie.gpunkt.org`
-- **Problem**: Naming mismatch, historical baggage from nekontam.com → pathologie.gpunkt.org migrations
-
-**Target State (After Migration)**:
-- Presentation folder: `/Users/alemsabic/Desktop/NE-KONTAM/quartz/` (unchanged)
-- Content folder: `/Users/alemsabic/Desktop/MEMEX/_projects/alems-notizen/`
-- Content repo: `alems-notizen` (GitHub)
-- Presentation repo: `alems-site` (GitHub)
-- Live site: `ale.ms`
-- Description: "Quellenangaben und Schulungsunterlagen von Alem Sabic"
-- **Result**: Clean naming, clear purpose, single active site
-
-**Sites Being Retired**:
-- ❌ nekontam.com (original Sarajevo slang dictionary)
-- ❌ pathologie.gpunkt.org (Gpunkt.org satire sources)
-
----
-
-### 📋 Migration Plan - Detailed Steps
-
-**Phase 1: Content Repository Migration**
-- [x] 1.1 Rename local folder: `nekontam-content` → `alems-notizen`
-  - Path: `/Users/alemsabic/Desktop/MEMEX/_projects/`
-  - Command: `mv nekontam-content alems-notizen`
-- [x] 1.2 Rename GitHub repo: `nekontam-zk` → `alems-notizen`
-  - Command: `gh repo rename alems-notizen --repo alemsabic/nekontam-zk`
-- [x] 1.3 Update git remote in content folder
-  - cd to `/Users/alemsabic/Desktop/MEMEX/_projects/alems-notizen`
-  - Command: `git remote set-url origin git@github.com:alemsabic/alems-notizen.git`
-- [x] 1.4 Update repo description on GitHub
-  - Command: `gh repo edit alemsabic/alems-notizen --description "Content repository for ale.ms"`
-
-**Phase 2: Presentation Repository Migration**
-- [x] 2.1 Rename GitHub repo: `pathologie-site` → `alems-site`
-  - Command: `gh repo rename alems-site --repo alemsabic/pathologie-site`
-- [x] 2.2 Update git remote in presentation folder
-  - cd to `/Users/alemsabic/Desktop/NE-KONTAM/quartz`
-  - Command: `git remote set-url origin git@github.com:alemsabic/alems-site.git`
-- [x] 2.3 Update repo description on GitHub
-  - Command: `gh repo edit alemsabic/alems-site --description "Präsentationsschicht für ale.ms - Alem's Notizen"`
-
-**Phase 3: Quartz Configuration Updates**
-- [x] 3.1 Update `quartz.config.ts`
-  - pageTitle: "PATHOLOGIE" → "ale.ms"
-  - pageTitleSuffix: "Quellenangaben für Gpunkt.org Satiremagazin" → "Quellenangaben und Schulungsunterlagen von Alem Sabic"
-  - baseUrl: "https://pathologie.gpunkt.org" → "https://ale.ms"
-- [x] 3.2 Update `quartz/components/Tagline.tsx`
-  - Text: "Quellenangaben für Gpunkt.org Satiremagazin" → "Quellenangaben und Schulungsunterlagen von Alem Sabic"
-- [x] 3.3 Update `quartz.layout.ts` ContentHeader
-  - baseUrl: "https://github.com/alemsabic/nekontam-zk/blob/main" → "https://github.com/alemsabic/alems-notizen/blob/main"
-
-**Phase 4: GitHub Actions Workflow**
-- [x] 4.1 Update `.github/workflows/sync-to-quartz.yml`
-  - Source repo: `nekontam-zk` → `alems-notizen`
-  - Target repo: `pathologie-site` → `alems-site`
-  - All commit messages and references updated
-
-**Phase 5: Documentation Updates**
-- [x] 5.1 Update `README.md`
-  - Project name, URLs, descriptions
-  - Repository references
-- [x] 5.2 Update `CLAUDE.md` project overview
-  - Update top-level project information
-
-**Phase 6: Cloudflare Pages Configuration**
-- [ ] 6.1 Create new Cloudflare Pages project (or reconfigure existing)
-  - Connect to: `alemsabic/alems-site`
-  - Branch: `v4`
-  - Build command: `npx quartz build`
-  - Output directory: `public`
-- [ ] 6.2 Configure custom domain
-  - Domain: `ale.ms`
-  - DNS: CNAME or A record setup
-
-**Phase 7: Content Cleanup (Optional)**
-- [ ] 7.1 Review content in `alems-notizen`
-  - Remove old nekontam/pathologie content if irrelevant
-  - Add new content as needed
-
-**Phase 8: UI Cleanup (Current Session)**
-- [x] 8.1 Remove ProfileImage component from layouts
-- [x] 8.2 Set `.page-title` line-height to 1 (desktop)
-- [x] 8.3 Comment out `.profile-image` CSS
-
----
-
-### ✅ Completed Steps (Session 15)
-**Migration Complete** (Phases 1-5):
-- ✅ Content folder renamed: `nekontam-content` → `alems-notizen`
-- ✅ GitHub repos renamed: `nekontam-zk` → `alems-notizen`, `pathologie-site` → `alems-site`
-- ✅ Git remotes updated in both repositories
-- ✅ Quartz config updated: `quartz.config.ts`, `Tagline.tsx`, `quartz.layout.ts`
-- ✅ GitHub Actions workflow updated: `.github/workflows/sync-to-quartz.yml`
-- ✅ Documentation updated: `README.md`, `CLAUDE.md` (complete overhaul)
-- ✅ UI cleanup: ProfileImage removed, page-title line-height fixed
-
-**Files Changed**:
-- `/Users/alemsabic/Desktop/MEMEX/_projects/alems-notizen/.github/workflows/sync-to-quartz.yml`
-- `quartz.config.ts`
-- `quartz/components/Tagline.tsx`
-- `quartz.layout.ts`
-- `README.md` (complete rewrite)
-- `CLAUDE.md` (updated project overview + Session 15 documentation)
-- `quartz/styles/custom.scss` (ProfileImage CSS commented out)
-
-### 🔄 Current Status
-- **Completed**: Phases 1-5 (All configuration and documentation)
-- **Remaining**: Phase 6 (Cloudflare Pages) - Manual setup required
-- **Optional**: Phase 7 (Content cleanup)
-
-### 📝 Cleanup Tasks (TODO - Resume Later)
-
-**1. Dev-Server beenden**
-- Background Bash process (ID: 80fb9c) still running
-- Command: Kill via Claude Code or manually with Ctrl+C
-
-**2. Cloudflare Pages Projekte aufräumen**
-Projects to review/delete:
-- ⚠️ **altes `alems-site`** - Zu viele Deployments, braucht Lösch-Skript:
-  - Download: https://pub-505c82ba1c844ba788b97b1ed9415e75.r2.dev/delete-all-deployments.zip
-  - Commands documented in CLAUDE.md above
-- ⚠️ **`nekontam-site`** - Alt, nicht mehr gebraucht, kann gelöscht werden
-- ✅ **`ale-ms`** - NEU, BEHALTEN! (Live-Projekt für ale.ms)
-- ❓ **`alemsabic-com`** - Entscheidung: behalten oder löschen?
-
-**3. Content Cleanup (Optional)**
-- Path: `/Users/alemsabic/Desktop/MEMEX/_projects/alems-notizen/`
-- Review: Alte nekontam/pathologie Inhalte löschen?
-- Decision: Welcher Content bleibt für ale.ms?
-
-**4. CLAUDE.md finalisieren**
-- Session 15 Status auf "completed" setzen
-- Final summary schreiben
-
-**Status**: Notiert für spätere Session ⏸️
-
----
-
-## Session 16 Updates (Dec 9, 2025) - **Layout Redesign: Graph/Backlinks to Right Sidebar** ⏳
-
-### Layout Changes
+### Layout Changes ✅
 **Files Modified**: `quartz.layout.ts`, `quartz/styles/custom.scss`
 
 **Changes Made**:
-- **Graph component**: Moved from `afterBody` → `right` sidebar
-- **Backlinks component**: Moved from `afterBody` → `right` sidebar
-- **Right sidebar order**: Graph → TableOfContents → Backlinks
-- **Sidebar gap**: Added `gap: 1.2rem` only for `.sidebar.right` (left sidebar remains `gap: 0`)
-- **afterBody**: Now only contains RecentNotes (conditional on index) + Comments (Giscus)
-
-**Commit**: `cfe18a7` - "feat: move Graph and Backlinks to right sidebar"
-**Pushed**: 2025-12-09 17:28 UTC (18:28 UTC+1)
+- Moved Graph & Backlinks from `afterBody` → `right` sidebar
+- Right sidebar order: Graph → TableOfContents → Backlinks
+- Added `gap: 1.2rem` to `.sidebar.right`
+- Commit: `cfe18a7` - "feat: move Graph and Backlinks to right sidebar"
 
 ### 🔴 CURRENT ISSUE: Cloudflare Pages Deployment Failed
 
 **Problem**:
-- Commit successfully pushed to GitHub (`cfe18a7`)
-- Cloudflare Pages deployment **failed** with error:
-  ```
-  Failed: build failed to initialize in time. If this continues, contact support: https://cfl.re/3WgEyrH
-  ```
+- Commit `cfe18a7` pushed successfully
+- Cloudflare deployment failed: "build failed to initialize in time"
+- This is a **Cloudflare infrastructure issue**, NOT a code problem
+- Local build works fine: "Done processing 9 files in 152ms"
 
-**Analysis**:
-- **NOT a code problem** - local build successful ("Done processing 9 files in 152ms")
-- **Cloudflare infrastructure issue** - build environment failed to initialize within timeout
-- This is a known Cloudflare Pages intermittent issue
+**Status**: Awaiting Cloudflare infrastructure recovery or manual retry
 
-**Resolution Actions**:
-1. ✅ User authenticated Cloudflare Pages MCP server for direct log access
-2. ⏸️ Requires Claude Code restart to activate MCP connection
-3. **Next step after restart**: Use Cloudflare MCP to inspect deployment logs and retry build
-
-**Cloudflare Project**: `ale-ms`
-**Branch**: `v4`
-**Failed Commit**: `cfe18a7`
-
-**Status**: Awaiting Claude Code restart to access Cloudflare MCP ⏸️
+**Options**:
+1. Retry deployment in Cloudflare Dashboard
+2. Check https://www.cloudflarestatus.com/ for outages
+3. Wait 10-30 minutes for auto-resolution
+4. Contact support: https://cfl.re/3WgEyrH
 
 ---
 
-## Future Sessions
-*Continue logging changes in this section*
+## Notes
 
-### Potential Improvements (Not Urgent)
+- Site rebuilds automatically in dev mode when files change
+- Custom styling goes in `quartz/styles/custom.scss`
+- Theme: Custom with noise texture
+- Footer: Custom with Alem Šabić link + X/Twitter
 
-**Giscus Theme Fine-Tuning**:
-- Custom Giscus themes already created (`static/giscus/dark.css` and `light.css`)
-- Themes already match Quartz colors (backgrounds, borders, buttons)
-- Possible refinements:
-  - Typography alignment (ensure consistency with Victor Mono/Geist Mono)
-  - Spacing & padding harmonization
-  - Interactive state details (hover/focus effects)
-  - Color variable precision check against `quartz/styles/variables.scss`
-- Status: Working well, but could be perfected if desired
+---
+
+## Historical Context (Archived)
+
+**Migration History**: nekontam.com → pathologie.gpunkt.org → ale.ms
+- Complete migration details in git history (Sessions 1-15)
+- Current state: Clean ale.ms setup with two-repository architecture
+- Old CLAUDE.md content archived for brevity
