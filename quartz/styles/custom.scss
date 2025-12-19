@@ -559,3 +559,124 @@ article.dictionary-entry-columns .data-footnote-backref {
   border-bottom: 1px dashed var(--darkgray);
 }
 
+// ============================================
+// ZETTELKASTEN ENTRY - CARD AESTHETIC
+// ============================================
+
+// Zettelkasten Entry: Compact monospace note-card
+article.zettelkasten {
+  line-height: 1.12 !important;
+
+  // H1 Titel: Fett mit Minus-Margin (wie Wörterbuch headword) - Victor Mono 700
+  h1 {
+    font-weight: 700 !important;
+    font-size: 1.5rem !important;
+    margin-top: 0 !important;
+    transform: skewY(-2deg) !important;
+
+    @media (min-width: 800px) {
+      margin-left: -15px !important;
+    }
+  }
+
+  // Alle Paragraphen standardmäßig inline (wie dictionary-entry)
+  p {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline !important;
+    line-height: 1.12 !important;
+  }
+
+  // Pilcrow (¶) zwischen Absätzen als Lesehilfe - außer beim ersten Paragraph
+  p:not(:first-of-type)::before {
+    content: '¶ ';
+    font-weight: 400 !important;
+  }
+
+  // Kein Pilcrow für ersten Paragraph nach Überschrift oder nach Ein-Satz-Zusammenfassung
+  h2 + p::before,
+  h3 + p::before,
+  p:first-of-type + p::before {
+    content: '' !important;
+  }
+
+  // Erstes Paragraph: Zusammenfassung mit eckigen Klammern
+  > p:first-of-type {
+    letter-spacing: 1px !important;
+    color: var(--secondary) !important;
+    opacity: 0.7 !important;
+
+    // Eckige Klammern
+    &::before {
+      content: '[ ';
+    }
+    &::after {
+      content: ' ]';
+    }
+  }
+
+  // Kein Kursiv in der Ein-Satz-Zusammenfassung (überschreibt em-Element)
+  > p:first-of-type em {
+    font-style: normal !important;
+  }
+
+  // Paragraphen nach H3 bleiben inline, bekommen auch Pilcrow
+  // (entfernt - jetzt fließt alles inline)
+
+  // H2 Überschriften (falls vorhanden)
+  h2 {
+    font-size: 1.2rem !important;
+    margin-top: 2.5rem !important;
+    margin-bottom: 1rem !important;
+    font-weight: 700 !important;
+  }
+
+  // H3 Überschriften: Kleiner, mit Trennlinie
+  h3 {
+    font-size: 1rem !important;
+    margin-top: 2.5rem !important;
+    margin-bottom: 1rem !important;
+    font-weight: 700 !important;
+  }
+
+  // Listen: Kompakteres Spacing
+  ul, ol {
+    margin-top: 0.75rem !important;
+    margin-bottom: 0.75rem !important;
+
+    li {
+      margin-bottom: 0.5rem !important;
+
+      // Verschachtelte Listen unter Anknüpfungspunkte
+      ul {
+        margin-top: 0.25rem !important;
+        font-size: 0.9em !important;
+        color: var(--darkgray) !important;
+      }
+    }
+  }
+
+  // Strong/Bold: Betonung
+  strong {
+    font-weight: 700 !important;
+  }
+
+  // Links: Normales Gewicht
+  a {
+    font-weight: 400 !important;
+  }
+
+  // HR: Dashed line (falls vorhanden)
+  hr {
+    margin: 2rem 0 !important;
+  }
+
+  // Blockquotes (falls vorhanden): Kompakter
+  blockquote {
+    margin: 1.5rem 0 !important;
+    padding: 0.5rem 1rem !important;
+    border-left: 2px solid var(--gray) !important;
+    font-style: italic !important;
+  }
+}
+
