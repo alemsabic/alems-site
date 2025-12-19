@@ -47,15 +47,9 @@ export default ((opts?: Partial<ContentHeaderOptions>) => {
     // Only render if there's content and showContentHeader is not false
     if (!text || !showContentHeader) return null
 
-    // Calculate reading time with German plural rules
-    const { minutes } = readingTime(text)
-    const minutesCount = Math.ceil(minutes)
-    let readingTimeText
-    if (minutesCount === 1) {
-      readingTimeText = "1 Minute."
-    } else {
-      readingTimeText = `${minutesCount} Minuten.`
-    }
+    // Calculate word count
+    const { words } = readingTime(text)
+    const wordCountText = `${words} Wörter.`
 
     // Get date
     const date = getDate(cfg, fileData)
@@ -80,8 +74,8 @@ export default ((opts?: Partial<ContentHeaderOptions>) => {
             </>
           )}
 
-          <dt>Lesezeit:</dt>
-          <dd>{readingTimeText}</dd>
+          <dt>Wörter:</dt>
+          <dd>{wordCountText}</dd>
 
           {options.showTags && tags && tags.length > 0 && (
             <>
@@ -130,7 +124,8 @@ export default ((opts?: Partial<ContentHeaderOptions>) => {
   .content-header dt {
     display: inline;
     margin-right: 0.5rem;
-    color: var(--darkgray);
+    color: var(--secondary);
+    opacity: 0.5;
   }
 
   .content-header dd {

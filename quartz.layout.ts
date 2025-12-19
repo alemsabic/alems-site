@@ -30,7 +30,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ContentHeader({
       baseUrl: "https://github.com/alemsabic/alems-notizen/blob/main",
       editButtonText: "Verbesser die Seite auf GitHub.",
-      showTags: false,
+      showTags: true,
     }),
   ],
   left: [

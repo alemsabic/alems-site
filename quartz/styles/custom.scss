@@ -213,6 +213,16 @@ a.internal.tag-link {
   padding: 0.2rem 0.3rem !important;
 }
 
+// Light theme: schwarzer Hintergrund mit 10% opacity
+[saved-theme="light"] a.internal.tag-link {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+// Dark theme: weißer Hintergrund mit 10% opacity
+[saved-theme="dark"] a.internal.tag-link {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
 // Explorer folder left border with darker styling
 .explorer-content .folder-outer > ul {
   border-left: none !important;
@@ -453,8 +463,7 @@ article.dictionary-entry-columns blockquote {
   border: none !important;
   background-color: transparent !important;
   font-family: 'Baskerville', 'Baskerville Old Face', 'Garamond', 'Hoefler Text', serif !important;
-  font-size: 1rem !important;
-  line-height: 1.6 !important;
+  line-height: 1.5 !important;
   text-align: left !important;
   font-style: italic !important;
   color: inherit !important;
@@ -591,6 +600,8 @@ article.zettelkasten {
   p:not(:first-of-type)::before {
     content: '¶ ';
     font-weight: 400 !important;
+    color: var(--secondary) !important;
+    opacity: 0.5 !important;
   }
 
   // Kein Pilcrow für ersten Paragraph nach Überschrift oder nach Ein-Satz-Zusammenfassung
@@ -603,8 +614,6 @@ article.zettelkasten {
   // Erstes Paragraph: Zusammenfassung mit eckigen Klammern
   > p:first-of-type {
     letter-spacing: 1px !important;
-    color: var(--secondary) !important;
-    opacity: 0.7 !important;
 
     // Eckige Klammern
     &::before {
@@ -678,5 +687,14 @@ article.zettelkasten {
     border-left: 2px solid var(--gray) !important;
     font-style: italic !important;
   }
+}
+
+// Zettelkasten Ein-Satz-Zusammenfassung: Theme-spezifische Farben
+[saved-theme="light"] article.zettelkasten > p:first-of-type {
+  color: #5a6b7a !important; // Dunkles Blaugrau (wie Bleistift)
+}
+
+[saved-theme="dark"] article.zettelkasten > p:first-of-type {
+  color: #88a5c1 !important; // Helles Blaugrau (wie verblasste Tinte)
 }
 
