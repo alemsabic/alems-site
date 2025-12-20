@@ -687,7 +687,16 @@ article.zettelkasten {
     border-left: 2px solid var(--gray) !important;
     font-style: italic !important;
   }
+  
 }
+
+// Zettelkasten responsive font size for desktop
+@media (min-width: 800px) {
+  article.zettelkasten {
+    font-size: 1.25rem !important; // Desktop
+  }
+}
+
 
 // Zettelkasten Ein-Satz-Zusammenfassung: Theme-spezifische Farben
 [saved-theme="light"] article.zettelkasten > p:first-of-type {
@@ -696,5 +705,43 @@ article.zettelkasten {
 
 [saved-theme="dark"] article.zettelkasten > p:first-of-type {
   color: #88a5c1 !important; // Helles Blaugrau (wie verblasste Tinte)
+}
+
+// ============================================
+// TAG PAGES - REMOVE LIST BULLETS
+// ============================================
+
+// Tags list on tag pages (e.g., /tags/ZK-Theorie) - remove circles
+ul.tags {
+  list-style: none !important;
+}
+
+// ============================================
+// LINK UNDERLINE - CONTENT HEADER & ARTICLES
+// ============================================
+
+// Links underlined by default, no underline on hover with transition
+.content-header a,
+article.zettelkasten a,
+article.dictionary-entry-columns a,
+article.dictionary-entry a {
+  text-decoration: underline !important;
+  transition: text-decoration 0.2s ease;
+}
+
+.content-header a:hover,
+article.zettelkasten a:hover,
+article.dictionary-entry-columns a:hover,
+article.dictionary-entry a:hover {
+  text-decoration: none !important;
+}
+
+// Exception: Tag links should never be underlined
+a.internal.tag-link {
+  text-decoration: none !important;
+}
+
+a.internal.tag-link:hover {
+  text-decoration: none !important;
 }
 

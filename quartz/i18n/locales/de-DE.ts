@@ -76,12 +76,12 @@ export default {
         count === 1 ? "1 Datei in diesem Ordner." : `${count} Dateien in diesem Ordner.`,
     },
     tagContent: {
-      tag: "Tag",
-      tagIndex: "Tag-Übersicht",
+      tag: "Schlagwort",
+      tagIndex: "Schlagwörter-Übersicht",
       itemsUnderTag: ({ count }) =>
-        count === 1 ? "1 Datei mit diesem Tag." : `${count} Dateien mit diesem Tag.`,
-      showingFirst: ({ count }) => `Die ersten ${count} Tags werden angezeigt.`,
-      totalTags: ({ count }) => `${count} Tags insgesamt.`,
+        count === 1 ? "1 Datei mit diesem Schlagwort." : `${count} Dateien mit diesem Schlagwort.`,
+      showingFirst: ({ count }) => `Die ersten ${count} Schlagwörter werden angezeigt.`,
+      totalTags: ({ count }) => `${count} Schlagwörter insgesamt.`,
     },
   },
 } as const satisfies Translation

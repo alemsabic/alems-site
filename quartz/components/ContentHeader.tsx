@@ -74,12 +74,12 @@ export default ((opts?: Partial<ContentHeaderOptions>) => {
             </>
           )}
 
-          <dt>Wörter:</dt>
+          <dt>Textlänge:</dt>
           <dd>{wordCountText}</dd>
 
           {options.showTags && tags && tags.length > 0 && (
             <>
-              <dt>Tags:</dt>
+              <dt>Schlagwörter:</dt>
               <dd class="tags-inline">
                 {tags.map((tag, index) => {
                   const linkDest = resolveRelative(fileData.slug!, `tags/${tag}` as FullSlug)
