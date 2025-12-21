@@ -1,6 +1,4 @@
 ---
-title: Konnektivität
-cssclasses: zettelkasten
 tags:
   - ZK-Theorie
 ---

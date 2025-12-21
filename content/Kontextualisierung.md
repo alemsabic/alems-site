@@ -1,8 +1,5 @@
 ---
-title: Kontextualisierung
 cssclasses: zettelkasten
-tags:
-  - ZK-Theorie
 ---
 
 # Kontextualisierung
