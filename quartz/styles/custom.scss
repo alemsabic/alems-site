@@ -576,15 +576,26 @@ article.dictionary-entry-columns .data-footnote-backref {
 article.zettelkasten {
   line-height: 1.12 !important;
 
-  // H1 Titel: Fett mit Minus-Margin (wie Wörterbuch headword) - Victor Mono 700
+  // H1 Titel: Fett mit gestanztem Loch (VORSCHLAG 1 - angepasst)
   h1 {
     font-weight: 700 !important;
-    font-size: 1.5rem !important;
     margin-top: 0 !important;
-    transform: skewY(-2deg) !important;
+    margin-bottom: 0 !important;
+    position: relative;
+    margin-left: 20px !important;
 
-    @media (min-width: 800px) {
-      margin-left: -15px !important;
+    // Gestanztes Loch links vom Titel
+    &::before {
+      content: '';
+      position: absolute;
+      left: -30px;
+      top: 0.2em;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid var(--gray);
+      box-shadow: inset 1px 1px 3px #0003;
     }
   }
 
