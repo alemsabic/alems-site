@@ -1,13 +1,11 @@
 ---
-id: 202512170810
-created: 2025-12-17T08:10:00
-title: Theorie des Zettelkastens
+title: Zettelkasten Best Practices
 tags:
   - ZK-Theorie
   - Strukturnotiz
 ---
 
-# Theorie des Zettelkastens
+# Zettelkasten Best Practices
 
 *Das Betriebssystem für Ihr Gehirn. Ignorieren Sie diese Regeln, und Sie haben nur einen Haufen Papier.*
 

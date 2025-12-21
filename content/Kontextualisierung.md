@@ -1,13 +1,11 @@
 ---
-id: 202512170800
-created: 2025-12-17T08:00:00
-title: Kontextualisierung ZK
+title: Kontextualisierung
 cssclasses: zettelkasten
 tags:
   - ZK-Theorie
 ---
 
-# Kontextualisierung ZK
+# Kontextualisierung
 
 *Warum ein Link ohne Erklärung so nützlich ist wie ein toter Fisch im Briefkasten.*
 
@@ -17,7 +15,7 @@ Willkommen in der Hölle der fehlenden Kontextualisierung.
 **Das "Warum zur Hölle?"-Prinzip:** Wenn Sie Zettel A mit Zettel B verlinken, ist der Grund für **Sie** im Moment glasklar.
 Aber Ihr "Zukunfts-Ich" (in ca. 3 Monaten) ist dümmer als Sie. Oder zumindest vergesslicher. Wenn es auf den Link klickt und dort steht nichts, wird es den Link ignorieren.
 
-Ein Link ohne Kontext ("Siehe auch: [[202512170728|Atomizität ZK]]") ist ein Rätsel. Wir sind hier aber nicht bei "The Da Vinci Code", sondern beim Arbeiten.
+Ein Link ohne Kontext ("Siehe auch: [[Atomizität|Atomizität ZK]]") ist ein Rätsel. Wir sind hier aber nicht bei "The Da Vinci Code", sondern beim Arbeiten.
 
 **So geht es richtig:** Ein guter Link ist ein ganzer Satz, der eine Beziehung beschreibt: - "Widerspricht der These in [[...]] weil...", - "Ist ein Spezialfall von [[...]]", - "Erklärt, warum [[...]] totaler Unsinn ist."
 
@@ -31,6 +29,6 @@ zettelkasten.de. (Die Jungs wissen, dass Metadaten sexy sind).
 
 ### Anknüpfungspunkte
 
-Macht [[202512170745|Konnektivität]] erst nutzbar. Ein Netzwerk aus unerklärten Links ist kein "Web of Thought", sondern ein Kabelsalat.
+Macht [[Konnektivität]] erst nutzbar. Ein Netzwerk aus unerklärten Links ist kein "Web of Thought", sondern ein Kabelsalat.
 
-Erfordert [[202512170728|Atomizität]], denn man kann nicht erklären, *warum* A mit B verknüpft ist, wenn B eigentlich ein Smoothie aus drei Themen ist.
+Erfordert [[Atomizität]], denn man kann nicht erklären, *warum* A mit B verknüpft ist, wenn B eigentlich ein Smoothie aus drei Themen ist.

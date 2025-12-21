@@ -1,19 +1,17 @@
 ---
-id: 202512170745
-created: 2025-12-17T07:45:00
-title: Konnektivität ZK
+title: Konnektivität
 cssclasses: zettelkasten
 tags:
   - ZK-Theorie
 ---
 
-# Konnektivität ZK
+# Konnektivität
 
 *Verlinke oder stirb (digital). Eine unverlinkte Notiz ist keine Notiz, sondern ein tragischer Verlust.*
 
 Stellen Sie sich vor, Sie haben den genialsten Gedanken Ihres Lebens. Sie schreiben ihn auf einen Zettel. Dann legen Sie den Zettel in eine Kiste, kleben sie zu, graben ein Loch im Garten und werfen die Kiste hinein.
 
-Das ist eine Notiz ohne **Konnektivität**.
+Das ist eine Notiz ohne **Konnektivität**. 
 
 **Der Friedhof der Kuschel-Ideen:** Ein Zettelkasten ohne Links ist nur ein teures Archiv für Dinge, die Sie vergessen wollen. Der Wert entsteht nicht durch das *Sammeln* (das können Eichhörnchen auch), sondern durch das *Verbinden*.
 
@@ -24,7 +22,7 @@ Luhmann nannte seinen Kasten einen "Kommunikationspartner". Aber wenn Sie keine 
 
 Wenn Sie keinen Link finden, ist der Zettel vielleicht gar nicht so schlau, wie Sie dachten. Oder Ihr Zettelkasten ist noch zu leer. In beiden Fällen: Strengen Sie sich an.
 
-**Achtung: Kontext!** Wildes Verlinken ist wie wildes Um-sich-Schlagen. Es hilft niemandem. Ein Link braucht eine Erklärung (siehe [[202512170800|Kontextualisierung]]), sonst ist er nur digitale Graffiti.
+**Achtung: Kontext!** Wildes Verlinken ist wie wildes Um-sich-Schlagen. Es hilft niemandem. Ein Link braucht eine Erklärung (siehe [[Kontextualisierung]]), sonst ist er nur digitale Graffiti.
 
 ### Quellen
 
@@ -34,6 +32,6 @@ Schmidt, J. F. K. (2016). _Niklas Luhmann's Card Index_. (Der Mann, der Luhmanns
 
 ### Anknüpfungspunkte
 
-Basiert auf [[202512170728|Atomizität]] - denn man kann nur Dinge verbinden, die greifbar sind.
+Basiert auf [[Atomizität]] - denn man kann nur Dinge verbinden, die greifbar sind.
 
-Benötigt zwingend [[202512170800|Kontextualisierung]] - denn ein Pfeil ohne Schild führt nur in den Abgrund.
+Benötigt zwingend [[Kontextualisierung]] - denn ein Pfeil ohne Schild führt nur in den Abgrund.
