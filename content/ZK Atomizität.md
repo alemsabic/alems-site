@@ -2,15 +2,19 @@
 cssclasses: zettelkasten
 tags:
   - ZK-Theorie
+aliases:
+  - Atomarität
+  - Atomic Notes
+  - Atomare Notizen
 ---
 
 # ZK Atomizität
 
-*Atomare Notizen bedeuten thematische Unteilbarkeit: Ein Zettel enthält genau eine Idee, um als universeller Baustein in beliebigen Kontexten wiederverwendbar zu sein.*
+*Atomare Notizen bedeuten thematische Unteilbarkeit. Ein Zettel enthält genau eine Idee, um als universeller Baustein in beliebigen Kontexten wiederverwendbar zu sein.*
 
 Atomizität ist das fundamentale Prinzip für die Modularität des Zettelkastens. Es besagt nicht zwingend, dass eine Notiz kurz sein muss (Wortanzahl), sondern dass sie **thematisch unteilbar** sein muss (Single Responsibility Principle).
 
-Wenn eine Notiz zwei Themen vermischt (z.B. "Kapitalismuskritik und Depression"), verliert sie ihre Wiederverwendbarkeit. Will man sie später in einem Kontext zu "Depression in der Antike" nutzen, schleppt man unweigerlich den unpassenden "Kapitalismus"-Teil mit. Das blockiert präzise Verknüpfungen.
+Wenn eine Notiz zwei Themen vermischt (z.B. "Kapitalismuskritik und Depression"), verliert sie ihre Wiederverwendbarkeit. Willst du sie später in einem Kontext zu "Depression in der Antike" nutzen, schleppst du unweigerlich den unpassenden "Kapitalismus"-Teil mit. Das blockiert präzise Verknüpfungen.
 
 Nur wenn Wissen in seine kleinsten sinnvollen Einheiten (Atome) zerlegt ist, kann es wie Lego-Steine zu völlig neuen Strukturen zusammengesetzt werden. Aus denselben Steinen, die heute ein Auto bilden, kann morgen ein Flugzeug gebaut werden – aber nur, wenn Rad, Achse und Motor getrennt vorliegen und nicht verklebt sind.
 

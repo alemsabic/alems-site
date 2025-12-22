@@ -2,15 +2,20 @@
 cssclasses: zettelkasten
 tags:
   - ZK-Theorie
+aliases:
+  - Verknüpfung
+  - Vernetzung
+  - Links
+  - Connectivity
 ---
 
 # ZK Konnektivität
 
 *Der Wert einer Notiz entsteht nicht durch ihren Inhalt, sondern durch die Dichte und Qualität ihrer Vernetzung mit anderen Notizen.*
 
-Ein isolierter Zettel ist im Zettelkasten faktisch nicht existent. Luhmann beschrieb sein System als "Kommunikationspartner", der ihn überraschen kann. Diese Überraschung entsteht nur, wenn Pfade existieren, die man nicht aktiv gesucht hat.
+Ein isolierter Zettel ist im Zettelkasten faktisch nicht existent. Luhmann beschrieb sein System als "Kommunikationspartner", der ihn überraschen kann. Diese Überraschung entsteht nur, wenn Pfade existieren, die du nicht aktiv gesucht hast.
 
-Während eine Suchfunktion (Google, Spotlight) nur findet, was man bereits benennen kann (Bekanntes), führt ein Link zu etwas, das man *nicht* auf dem Schirm hatte (Unbekanntes/Vergessenes). Das Netz imitiert dabei neuronale Strukturen: Ein Gedanke feuert den nächsten an.
+Während eine Suchfunktion (Google, Spotlight) nur findet, was du bereits benennen kannst (Bekanntes), führt ein Link zu etwas, das du *nicht* auf dem Schirm hattest (Unbekanntes/Vergessenes). Das Netz imitiert dabei neuronale Strukturen: Ein Gedanke feuert den nächsten an.
 
 Konnektivität transformiert den Zettelkasten von einem passiven "Archiv" (Silo) in einen aktiven "Denkraum". Je mehr Verbindungen ein Zettel hat, desto höher ist die Wahrscheinlichkeit, dass er in Zukunft einen nützlichen Kontext liefert.
 
