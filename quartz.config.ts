@@ -15,7 +15,7 @@ const config: QuartzConfig = {
     analytics: {
       provider: "plausible",
     },
-    locale: "de-DE",
+    locale: "en-US", // Temporarily changed from de-DE for Citations plugin
     baseUrl: "https://ale.ms",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "modified",
@@ -77,6 +77,12 @@ const config: QuartzConfig = {
       Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
       Plugin.Description(),
       Plugin.Latex({ renderEngine: "katex" }),
+      Plugin.Citations({
+        bibliographyFile: "./content/bibliography.bib",
+        suppressBibliography: false,
+        linkCitations: false,
+        csl: "apa", // APA style (standard)
+      }),
     ],
     filters: [Plugin.RemoveDrafts()],
     emitters: [
