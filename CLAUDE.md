@@ -136,6 +136,40 @@ quartz/
 
 ---
 
+## ⚠️ Custom Modifications (Important for Quartz Updates)
+
+### Popover Behavior for Footnote Links
+
+**Issue**: Footnote reference links (`<sup><a>`) should NOT show popovers on hover (they link to footnotes on the same page, not other pages).
+
+**Solution Location**: `quartz/plugins/transformers/citations.ts`
+
+**Code to add** (if lost during Quartz update):
+```typescript
+// In the visit() function, add this block:
+// Disable popovers for footnote reference links (sup > a)
+if (
+  node.tagName === "a" &&
+  parent &&
+  parent.type === "element" &&
+  parent.tagName === "sup"
+) {
+  node.properties = node.properties || {}
+  node.properties["data-no-popover"] = true
+}
+```
+
+**Why**: Quartz uses `data-no-popover="true"` to disable popovers. This is the standard mechanism used for:
+- Bibliography citations (`#bib-*`) - already in `citations.ts:45`
+- Heading anchor links - in `gfm.ts:36`
+- Footnote links should work the same way
+
+**File**: `/Users/alemsabic/Desktop/ale.ms/quartz/plugins/transformers/citations.ts`
+
+**Context**: The `visit()` function already exists and adds `data-no-popover` to bibliography links. Just extend it to also catch `sup > a` elements.
+
+---
+
 ## Historical Context (Archived)
 
 **Migration History**: nekontam.com → pathologie.gpunkt.org → ale.ms

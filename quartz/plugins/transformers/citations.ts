@@ -40,8 +40,19 @@ export const Citations: QuartzTransformerPlugin<Partial<Options>> = (userOpts) =
       // using https://github.com/syntax-tree/unist-util-visit as they're just anochor links
       plugins.push(() => {
         return (tree, _file) => {
-          visit(tree, "element", (node, _index, _parent) => {
+          visit(tree, "element", (node, _index, parent) => {
+            // Disable popovers for bibliography citation links
             if (node.tagName === "a" && node.properties?.href?.startsWith("#bib")) {
+              node.properties["data-no-popover"] = true
+            }
+            // Disable popovers for footnote reference links (sup > a)
+            if (
+              node.tagName === "a" &&
+              parent &&
+              parent.type === "element" &&
+              parent.tagName === "sup"
+            ) {
+              node.properties = node.properties || {}
               node.properties["data-no-popover"] = true
             }
           })

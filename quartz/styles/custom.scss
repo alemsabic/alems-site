@@ -389,13 +389,6 @@ article.dictionary-entry {
   }
 }
 
-// Dictionary Entry responsive font size for desktop
-@media (min-width: 800px) {
-  article.dictionary-entry {
-    font-size: 1.25rem !important; // Desktop
-  }
-}
-
 // Dictionary Entry styling cleaned up (letterpress now global)
 
 // ============================================
@@ -458,12 +451,11 @@ article.dictionary-entry-columns {
 article.dictionary-entry blockquote,
 article.dictionary-entry-columns blockquote {
   margin: 2rem auto 2.5rem !important;
-  padding: 1.5rem 2rem 1rem !important;
+  padding: 1.5rem 0rem 1rem 2rem !important;
   max-width: 90% !important;
   border: none !important;
   background-color: transparent !important;
   font-family: 'Baskerville', 'Baskerville Old Face', 'Garamond', 'Hoefler Text', serif !important;
-  line-height: 1.5 !important;
   text-align: left !important;
   font-style: italic !important;
   color: inherit !important;
@@ -472,19 +464,6 @@ article.dictionary-entry-columns blockquote {
   // Break out of column layout (for dictionary-entry-columns)
   column-span: all !important;
 
-  // Decorative top border (subtle line)
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 30%;
-    height: 1px;
-    background: currentColor;
-    opacity: 0.4;
-  }
-
   // Quote text
   p {
     margin: 0 0 0.75rem 0 !important;
@@ -492,6 +471,7 @@ article.dictionary-entry-columns blockquote {
     text-align: left !important;
     font-style: italic !important;
     color: inherit !important;
+    line-height: 1.1!important;
   }
 
   // Author/attribution (em dash format: —Author Name, "Title")
@@ -529,10 +509,28 @@ article.dictionary-entry-columns .footnotes {
   padding-top: 0.75rem !important; // Add padding for border spacing
   font-size: 0.85rem !important; // Smaller than main text
   text-align: left !important; // Left-aligned, not justified
+  border-top: none !important; // Remove default border
+  position: relative;
+
+  // Shorter border-top (1/5 width) using ::before
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 1px;
+    background-color: var(--lightgray);
+  }
 
   ol {
     padding-left: 1rem !important; // Reduced padding for compact layout
     margin: 0 !important;
+
+    // Footnote markers color
+    ::marker {
+      color: darkgoldenrod !important;
+    }
   }
 
   li {
@@ -543,6 +541,14 @@ article.dictionary-entry-columns .footnotes {
       text-align: left !important; // Override justify for footnotes
     }
   }
+}
+
+// Superscript footnote links in dictionary entries
+article.dictionary-entry sup a,
+article.dictionary-entry-columns sup a {
+  font-size: 0.75rem !important;
+  text-decoration: none !important;
+  color: darkgoldenrod !important;
 }
 
 // Hide footnote backlinks in dictionary entries (book-like appearance, no back navigation needed)
@@ -590,21 +596,30 @@ article.dictionary-entry-columns .data-footnote-backref {
 // ZETTELKASTEN - FOOTNOTES STYLING
 // ============================================
 
-// Footnotes heading for zettelkasten entries
+// Hide "Footnotes" heading for zettelkasten entries
 article.zettelkasten .footnotes h2 {
-  font-size: 1.2rem !important;
-  font-weight: 700 !important;
-  margin-top: 2.5rem !important;
-  margin-bottom: 1rem !important;
+  display: none !important;
 }
 
 // Footnotes styling for zettelkasten - compact, consistent with dictionary-entry
 article.zettelkasten .footnotes {
   margin-top: 0.75rem !important;
-  padding-top: 0 !important;
+  padding-top: 0.75rem !important;
   border-top: none !important;
   font-size: 0.85rem !important;
   text-align: left !important;
+  position: relative;
+
+  // Shorter border-top (1/5 width) using ::before
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 1px;
+    background-color: var(--lightgray);
+  }
 
   ol {
     padding-left: 1.75rem !important;
@@ -612,7 +627,7 @@ article.zettelkasten .footnotes {
 
     // Footnote markers color
     ::marker {
-      color: var(--secondary) !important;
+      color: darkgoldenrod !important;
     }
   }
 
@@ -632,6 +647,24 @@ article.zettelkasten .footnotes {
 article.zettelkasten sup a {
   font-size: 0.75rem !important;
   text-decoration: none !important;
+  color: darkgoldenrod !important;
+}
+
+// Disable popovers for all footnote links (sup a)
+sup a {
+  pointer-events: auto !important;
+
+  &::after {
+    pointer-events: none !important;
+  }
+}
+
+// Hide popover when hovering over footnote links
+sup:hover + .popover,
+sup a:hover ~ .popover {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
 // Hide footnote backlinks in zettelkasten (book-like appearance)
@@ -732,7 +765,7 @@ article.zettelkasten {
 
   // H2 Überschriften (falls vorhanden)
   h2 {
-    font-size: 1.2rem !important;
+    font-size: 1rem !important;
     margin-top: 2.5rem !important;
     margin-bottom: 1rem !important;
     font-weight: 700 !important;
@@ -785,14 +818,7 @@ article.zettelkasten {
     border-left: 2px solid var(--gray) !important;
     font-style: italic !important;
   }
-  
-}
 
-// Zettelkasten responsive font size for desktop
-@media (min-width: 800px) {
-  article.zettelkasten {
-    font-size: 1.25rem !important; // Desktop
-  }
 }
 
 
