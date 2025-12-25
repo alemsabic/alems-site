@@ -20,8 +20,15 @@ Du schreibst im Zettelkasten immer für einen Fremden: Der Fremde bist du in der
 
 ### Quellen
 
-Doto, B. (2024). _A System for Writing_. ("Link context is king").
-Ahrens, S. (2017). _Das Zettelkasten-Prinzip_.
+Ahrens, S. (2017). _Das Zettelkasten-Prinzip: erfolgreich wissenschaftlich Schreiben und Studieren mit effektiven Notizen_. BoD - Books on Demand.
+
+Doto, B. (2024). _A system for writing: How an unconventional approach to note-making can help you capture ideas, think wildly, and write constantly: A Zettelkasten primer_ (First edition). New Old Traditions.
+
+Luhmann, N. (1981). Kommunikation mit Zettelkästen. In H. Baier, H. M. Kepplinger, & K. Reumann (Eds.), _Öffentliche Meinung und sozialer Wandel / Public Opinion and Social Change_ (pp. 222–228). VS Verlag für Sozialwissenschaften. [https://doi.org/10.1007/978-3-322-87749-9_19](https://doi.org/10.1007/978-3-322-87749-9_19)
+
+Schmidt, J. F. K. (2016). _Niklas Luhmann’s Card Index: Thinking Tool, Communication Partner, Publication Machine_. Brill. [https://doi.org/10.1163/9789004325258_014](https://doi.org/10.1163/9789004325258_014)
+
+Wittpahl, V. (Ed.). (2019). _Künstliche Intelligenz: Technologie | Anwendung | Gesellschaft_. Springer Berlin Heidelberg. [https://doi.org/10.1007/978-3-662-58042-4](https://doi.org/10.1007/978-3-662-58042-4)
 
 ### Anknüpfungspunkte
 
