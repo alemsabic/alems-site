@@ -170,6 +170,59 @@ if (
 
 ---
 
+### German Locale for Citations Plugin
+
+**Issue**: Citations plugin uses citation-js which only comes with `en-US` locale preloaded. Setting `locale: "de-DE"` in Quartz config caused error: "Input locale option, de-DE, is invalid or is an unknown file."
+
+**Root Cause**:
+- rehype-citation's `loadLocale()` function checks if locale is registered in `config.locales.data`
+- If not found, it tries to load it as a file path or URL
+- Simply passing "de-DE" tries to load a non-existent file at path "de-DE"
+
+**Solution**: Use URL to official CSL locale file + extend Citations plugin interface
+
+**Files Modified**:
+
+1. **`quartz.config.ts`**:
+   ```typescript
+   configuration: {
+     locale: "de-DE", // For Quartz UI (Graph View → Graphenansicht, etc.)
+   }
+
+   Plugin.Citations({
+     bibliographyFile: "./content/bibliography.bib",
+     suppressBibliography: false,
+     linkCitations: false,
+     csl: "apa",
+     lang: "https://raw.githubusercontent.com/citation-style-language/locales/master/locales-de-DE.xml",
+   })
+   ```
+
+2. **`quartz/plugins/transformers/citations.ts`**:
+   - Add `lang?: string` to Options interface (line 11)
+   - Update rehypeCitation config to use: `lang: opts.lang ?? ctx.cfg.configuration.locale ?? "en-US"` (line 36)
+
+**Why This Works**:
+- rehype-citation's `loadLocale()` accepts URLs (see node_modules/rehype-citation/dist/node/src/utils.js:127-151)
+- It fetches the XML, extracts `xml:lang="de-DE"`, and registers it with citation-js
+- `opts.lang` has priority over `ctx.cfg.configuration.locale`, so Citations uses German while Quartz UI also uses German
+
+**Alternative Solutions Considered**:
+- ❌ Local file path (`./content/locales/de-DE.xml`) - works but requires file management
+- ❌ Programmatic registration in citations.ts - more complex, harder to maintain
+- ✅ URL to official CSL repository - always up-to-date, no local files needed
+
+**For Future Quartz Updates**:
+- If `citations.ts` is overwritten, re-add `lang?: string` to Options interface
+- Ensure rehypeCitation config uses: `lang: opts.lang ?? ctx.cfg.configuration.locale ?? "en-US"`
+- The `lang` URL in quartz.config.ts will persist unless config is regenerated
+
+**Resources**:
+- Official CSL locales: https://github.com/citation-style-language/locales
+- Other locales: Replace `de-DE` in URL with desired locale code (e.g., `fr-FR`, `es-ES`)
+
+---
+
 ## Historical Context (Archived)
 
 **Migration History**: nekontam.com → pathologie.gpunkt.org → ale.ms
