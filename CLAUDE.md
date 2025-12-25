@@ -223,6 +223,108 @@ if (
 
 ---
 
+### Footnote Highlighting for SPA Navigation
+
+**Issue**: Clicking footnote reference links (e.g., `[^1]`) in the text does not visually highlight the corresponding footnote at the bottom when using Quartz's SPA (Single Page Application) mode with `enableSPA: true`.
+
+**Root Cause**:
+- Standard CSS `:target` pseudo-class works on page reload but not during client-side SPA navigation
+- Quartz's SPA mode intercepts link clicks and navigates without full page reload
+- Hash changes (`#user-content-fn-1`) don't trigger `:target` CSS in SPA mode
+
+**Solution**: JavaScript-based highlighting system + CSS dual selector
+
+**Files Created/Modified**:
+
+1. **NEW: `quartz/components/scripts/footnotes.inline.ts`**:
+   ```typescript
+   // Highlight footnotes when clicked (for SPA navigation)
+   function highlightFootnote() {
+     // Remove previous highlights
+     const previousHighlight = document.querySelector(".footnotes li.footnote-highlighted")
+     if (previousHighlight) {
+       previousHighlight.classList.remove("footnote-highlighted")
+     }
+
+     // Get current hash and highlight target
+     const hash = window.location.hash
+     if (!hash || !hash.startsWith("#user-content-fn-")) return
+
+     const target = document.querySelector(hash)
+     if (target && target.tagName === "LI") {
+       target.classList.add("footnote-highlighted")
+     }
+   }
+
+   document.addEventListener("nav", () => {
+     highlightFootnote()
+
+     function onHashChange() { highlightFootnote() }
+     window.addEventListener("hashchange", onHashChange)
+     window.addCleanup(() => window.removeEventListener("hashchange", onHashChange))
+
+     // Handle direct clicks on footnote reference links
+     const footnoteLinks = document.querySelectorAll('a[href^="#user-content-fn-"]')
+     footnoteLinks.forEach((link) => {
+       function onClick(e: Event) {
+         setTimeout(highlightFootnote, 10)
+       }
+       link.addEventListener("click", onClick)
+       window.addCleanup(() => link.removeEventListener("click", onClick))
+     })
+   })
+   ```
+
+2. **MODIFIED: `quartz/components/Body.tsx`**:
+   ```typescript
+   // Add import at top:
+   // @ts-ignore
+   import footnotesScript from "./scripts/footnotes.inline"
+
+   // Modify afterDOMLoaded to combine scripts:
+   Body.afterDOMLoaded = `
+     ${clipboardScript};
+     ${footnotesScript};
+   `
+   ```
+
+3. **MODIFIED: `quartz/styles/custom.scss`**:
+   - Add `.footnote-highlighted` class to existing `:target` selectors
+   - For dictionary-entry, dictionary-entry-columns, and zettelkasten articles
+
+   ```scss
+   // Example for zettelkasten (repeat for dictionary-entry):
+   article.zettelkasten .footnotes li:target,
+   article.zettelkasten .footnotes li.footnote-highlighted {
+     background-color: var(--highlight);
+     border-radius: 4px;
+     padding: 0.5rem;
+     margin-left: -0.5rem;
+     transition: background-color 0.3s ease;
+   }
+   ```
+
+**Why This Works**:
+- `:target` CSS handles traditional page reloads (still works)
+- `.footnote-highlighted` class handles SPA navigation
+- JavaScript adds/removes class dynamically on hash changes
+- Uses Quartz's `nav` event and `addCleanup` pattern for proper lifecycle management
+- No conflicts with existing popover/SPA systems
+
+**For Future Quartz Updates**:
+1. **If `footnotes.inline.ts` is lost**: Re-create the file with the code above
+2. **If `Body.tsx` is overwritten**: Re-add the import and combine scripts in `afterDOMLoaded`
+3. **If `custom.scss` footnote styles are lost**: Re-add `.footnote-highlighted` to `:target` selectors
+4. **Pattern to check**: Look for `.footnotes li:target` in custom.scss and ensure `.footnote-highlighted` is also included
+
+**Technical Details**:
+- Hash format: `#user-content-fn-1`, `#user-content-fn-2`, etc.
+- Highlight persists until another footnote is clicked
+- Uses `var(--highlight)` for theme-aware background color
+- 0.3s transition for smooth visual feedback
+
+---
+
 ## Historical Context (Archived)
 
 **Migration History**: nekontam.com → pathologie.gpunkt.org → ale.ms

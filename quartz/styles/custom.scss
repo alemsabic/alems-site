@@ -551,6 +551,18 @@ article.dictionary-entry-columns sup a {
   color: darkgoldenrod !important;
 }
 
+// Highlight footnote when clicked (using :target pseudo-class AND .footnote-highlighted class for SPA)
+article.dictionary-entry .footnotes li:target,
+article.dictionary-entry-columns .footnotes li:target,
+article.dictionary-entry .footnotes li.footnote-highlighted,
+article.dictionary-entry-columns .footnotes li.footnote-highlighted {
+  background-color: var(--highlight);
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-left: -0.5rem;
+  transition: background-color 0.3s ease;
+}
+
 // Hide footnote backlinks in dictionary entries (book-like appearance, no back navigation needed)
 article.dictionary-entry .data-footnote-backref,
 article.dictionary-entry-columns .data-footnote-backref {
@@ -648,6 +660,16 @@ article.zettelkasten sup a {
   font-size: 0.75rem !important;
   text-decoration: none !important;
   color: darkgoldenrod !important;
+}
+
+// Highlight footnote when clicked (using :target pseudo-class AND .footnote-highlighted class for SPA)
+article.zettelkasten .footnotes li:target,
+article.zettelkasten .footnotes li.footnote-highlighted {
+  background-color: var(--highlight);
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-left: -0.5rem;
+  transition: background-color 0.3s ease;
 }
 
 // Disable popovers for all footnote links (sup a)
