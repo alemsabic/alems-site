@@ -125,22 +125,6 @@ quartz/
 - Added `gap: 1.2rem` to `.sidebar.right`
 - Commit: `cfe18a7` - "feat: move Graph and Backlinks to right sidebar"
 
-### 🔴 CURRENT ISSUE: Cloudflare Pages Deployment Failed
-
-**Problem**:
-- Commit `cfe18a7` pushed successfully
-- Cloudflare deployment failed: "build failed to initialize in time"
-- This is a **Cloudflare infrastructure issue**, NOT a code problem
-- Local build works fine: "Done processing 9 files in 152ms"
-
-**Status**: Awaiting Cloudflare infrastructure recovery or manual retry
-
-**Options**:
-1. Retry deployment in Cloudflare Dashboard
-2. Check https://www.cloudflarestatus.com/ for outages
-3. Wait 10-30 minutes for auto-resolution
-4. Contact support: https://cfl.re/3WgEyrH
-
 ---
 
 ## Notes

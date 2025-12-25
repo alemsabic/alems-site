@@ -527,7 +527,6 @@ article.dictionary-entry .footnotes,
 article.dictionary-entry-columns .footnotes {
   margin-top: 0.75rem !important; // Halved from 1.5rem
   padding-top: 0.75rem !important; // Add padding for border spacing
-  border-top-color: var(--darkgray) !important; // Match text color
   font-size: 0.85rem !important; // Smaller than main text
   text-align: left !important; // Left-aligned, not justified
 
@@ -549,6 +548,94 @@ article.dictionary-entry-columns .footnotes {
 // Hide footnote backlinks in dictionary entries (book-like appearance, no back navigation needed)
 article.dictionary-entry .data-footnote-backref,
 article.dictionary-entry-columns .data-footnote-backref {
+  display: none !important;
+}
+
+// ============================================
+// REFERENCES / BIBLIOGRAPHY STYLING (GLOBAL)
+// ============================================
+
+// References/Bibliography section - clean, book-like layout
+#refs.references.csl-bib-body {
+  margin-top: 3rem !important;
+  padding-top: 0 !important;
+  border-top: none !important;
+  font-size: 0.9rem !important;
+  position: relative;
+
+  // Add "References" heading using ::before
+  &::before {
+    content: "Quellen";
+    display: block;
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 1rem !important;
+    margin-top: 0 !important;
+    color: var(--bodyText) !important;
+    font-family: var(--headerFont);
+  }
+}
+
+// Individual bibliography entries
+.csl-entry {
+  margin-bottom: .5rem !important;
+  text-align: left !important;
+
+  // Hanging indent for citations (classic bibliography style)
+  padding-left: 2rem !important;
+  text-indent: -2rem !important;
+}
+
+// ============================================
+// ZETTELKASTEN - FOOTNOTES STYLING
+// ============================================
+
+// Footnotes heading for zettelkasten entries
+article.zettelkasten .footnotes h2 {
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+  margin-top: 2.5rem !important;
+  margin-bottom: 1rem !important;
+}
+
+// Footnotes styling for zettelkasten - compact, consistent with dictionary-entry
+article.zettelkasten .footnotes {
+  margin-top: 0.75rem !important;
+  padding-top: 0 !important;
+  border-top: none !important;
+  font-size: 0.85rem !important;
+  text-align: left !important;
+
+  ol {
+    padding-left: 1.75rem !important;
+    margin: 0 !important;
+
+    // Footnote markers color
+    ::marker {
+      color: var(--secondary) !important;
+    }
+  }
+
+  li {
+    margin-bottom: 0 !important;
+
+    p {
+      margin: 0 !important;
+      text-align: left !important;
+      line-height: 1.1 !important; // Readable line-height for footnotes
+      display: block !important;
+    }
+  }
+}
+
+// Superscript footnote links in zettelkasten
+article.zettelkasten sup a {
+  font-size: 0.75rem !important;
+  text-decoration: none !important;
+}
+
+// Hide footnote backlinks in zettelkasten (book-like appearance)
+article.zettelkasten .data-footnote-backref {
   display: none !important;
 }
 

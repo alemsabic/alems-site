@@ -15,7 +15,7 @@ const config: QuartzConfig = {
     analytics: {
       provider: "plausible",
     },
-    locale: "en-US", // Temporarily changed from de-DE for Citations plugin
+    locale: "en-US", // Temporarily en-US (de-DE needs locale files for Citations plugin)
     baseUrl: "https://ale.ms",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "modified",
@@ -81,7 +81,7 @@ const config: QuartzConfig = {
         bibliographyFile: "./content/bibliography.bib",
         suppressBibliography: false,
         linkCitations: false,
-        csl: "apa", // APA style (standard)
+        csl: "apa", // APA style (standard) - TODO: German locale
       }),
     ],
     filters: [Plugin.RemoveDrafts()],
