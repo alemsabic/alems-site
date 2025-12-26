@@ -1,0 +1,50 @@
+filters:
+  and:
+    - file.folder == "NOTIZEN/Quellenverzeichnis"
+    - file.ext == "md"
+    - file.name.contains("@")
+properties:
+  status:
+    displayName: Status
+  rating:
+    displayName: Rating
+  authors:
+    displayName: Autoren
+  year:
+    displayName: Jahr
+views:
+  - type: table
+    name: Alle Quellen
+    order:
+      - file.name
+      - authors
+      - title
+      - rating
+      - status
+      - itemType
+      - contribution
+    sort:
+      - property: file.embeds
+        direction: ASC
+      - property: year
+        direction: ASC
+      - property: rating
+        direction: DESC
+    columnSize:
+      file.name: 200
+      note.authors: 135
+      note.title: 236
+      note.rating: 144
+      note.status: 125
+      note.itemType: 119
+  - type: cards
+    name: Cover-Galerie
+    order:
+      - rating
+      - contribution
+    sort:
+      - property: rating
+        direction: DESC
+    cardSize: 220
+    image: cover
+    imageAspectRatio: 1.45

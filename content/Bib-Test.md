@@ -10,7 +10,7 @@ Sönke Ahrens beschreibt das Zettelkasten-Prinzip [@ahrens_2017]. Niklas Luhmann
 
 Bob Doto hat kürzlich ein modernes Buch über Zettelkasten geschrieben [@doto_2024], und Johannes Schmidt analysierte Luhmanns Zettelkasten wissenschaftlich [@Schmidt_2016]. [^2]
 
-Die Bibliographie sollte automatisch am Ende dieser Seite erscheinen. @wittpahl_2019 das und das und dies sind Dinge, die wir kennen sollen.
+Die Bibliographie sollte automatisch am Ende dieser Seite erscheinen. @wittpahl_2019 das und das und dies sind Dinge, die wir kennen sollen.  [@Schmidt_2016] und so. 
 
 [^1]: Einfach nur ein Test für Footnotes.
 
