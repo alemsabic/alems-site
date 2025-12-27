@@ -12,6 +12,10 @@ properties:
     displayName: Autoren
   year:
     displayName: Jahr
+  pdfLink:
+    displayName: PDF
+  url:
+    displayName: URL
 views:
   - type: table
     name: Alle Quellen
@@ -22,6 +26,8 @@ views:
       - rating
       - status
       - itemType
+      - pdfLink
+      - url
       - contribution
     sort:
       - property: file.embeds
@@ -37,11 +43,14 @@ views:
       note.rating: 144
       note.status: 125
       note.itemType: 119
+      note.pdfLink: 247
+      note.url: 200
   - type: cards
     name: Cover-Galerie
     order:
       - rating
-      - contribution
+      - title
+      - itemType
     sort:
       - property: rating
         direction: DESC
