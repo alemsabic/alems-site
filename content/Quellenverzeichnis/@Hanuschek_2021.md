@@ -25,11 +25,13 @@ rating:
 status: unread
 contribution:
 pdfLink: "zotero://select/library/items/TVWPB93B"
-imported: "27-12-2025 5:59 pm"
+imported: "27-12-2025 7:07 pm"
 ---
 ## Arno Schmidt: Biografie
 
-![Book Cover](https://covers.openlibrary.org/b/isbn/978-3-446-27098-5-L.jpg)
+<div class="book-cover-container">
+  <img src="https://covers.openlibrary.org/b/isbn/978-3-446-27098-5-L.jpg" alt="Cover: Arno Schmidt: Biografie" class="book-cover" loading="lazy" />
+</div>
 
 > [!book] Quelle
 > Hanuschek, Sven. 2021. _Arno Schmidt: Biografie_. Hanser.
