@@ -25,7 +25,7 @@ contribution:
 pdfLink: ""
 imported: "27-12-2025 9:48 am"
 ---
-## Yomu AI Review | Academic AI Writing Tool
+## Yomu AI Review
 
 > [!book] Quelle
 > Sipos, Sophia. 2025. “Yomu AI Review | Academic AI Writing Tool.” _The Effortless Academic_, May 30. [https://effortlessacademic.com/yomu-ai-review-academic-ai-writing-tool/](https://effortlessacademic.com/yomu-ai-review-academic-ai-writing-tool/).

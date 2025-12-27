@@ -25,7 +25,9 @@ contribution:
 pdfLink: "zotero://select/library/items/AEVT7JJR"
 imported: "27-12-2025 9:48 am"
 ---
-## Niklas Luhmann’s Card Index: Thinking Tool, Communication Partner, Publication Machine
+## Niklas Luhmann’s Card Index
+
+## Thinking Tool, Communication Partner, Publication Machine
 
 > [!book] Quelle
 > Schmidt, Johannes F. K. 2016. _Niklas Luhmann’s Card Index: Thinking Tool, Communication Partner, Publication Machine_. Brill. [https://doi.org/10.1163/9789004325258_014](https://doi.org/10.1163/9789004325258_014).## Highlights & Notes

@@ -26,7 +26,9 @@ contribution:
 pdfLink: "zotero://select/library/items/UQQ6HVRR"
 imported: "27-12-2025 9:48 am"
 ---
-## Das Zettelkasten-Prinzip: erfolgreich wissenschaftlich Schreiben und Studieren mit effektiven Notizen
+## Das Zettelkasten-Prinzip
+
+## Erfolgreich wissenschaftlich Schreiben und Studieren mit effektiven Notizen
 
 ![Book Cover](https://covers.openlibrary.org/b/isbn/978-3-7431-2498-1-L.jpg)
 
