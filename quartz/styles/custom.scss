@@ -956,3 +956,156 @@ a.internal.tag-link:hover {
   opacity: 1;
 }
 
+// ============================================
+// CALLOUT STYLING - DEZENTER (QUELLENVERZEICHNIS)
+// ============================================
+
+// Callout titles: remove bold and make colors more muted (add gray)
+.callout-title {
+  .callout-title-inner {
+    font-weight: 400 !important; // Remove bold
+  }
+}
+
+// Override callout colors - add more gray for subtler appearance
+.callout[data-callout] {
+  --color: #6b8aa8 !important; // Muted blue-gray (instead of bright #448aff)
+}
+
+.callout[data-callout="abstract"] {
+  --color: #6b9fb5 !important; // Muted cyan-gray (instead of bright #00b0ff)
+}
+
+.callout[data-callout="info"],
+.callout[data-callout="todo"] {
+  --color: #6ba5b0 !important; // Muted teal-gray (instead of bright #00b8d4)
+}
+
+// ============================================
+// ZOTERO HIGHLIGHTS - COLOR CODING
+// ============================================
+
+// Zotero highlight colors matching Obsidian/Zotero annotations
+// Format: <mark class="hltr-{color}">highlighted text</mark>
+
+// Remove text-shadow from all highlights in light theme (letterpress effect interferes with colors)
+[saved-theme="light"] mark[class^="hltr-"],
+[saved-theme="light"] mark[class*=" hltr-"] {
+  text-shadow: none !important;
+}
+
+// Yellow highlight (default Zotero color)
+mark.hltr-yellow {
+  background-color: rgba(255, 212, 0, 0.5);
+  color: inherit;
+  padding: 0.1em 0.2em;
+  border-radius: 2px;
+}
+
+// Orange highlight
+mark.hltr-orange {
+  background-color: rgba(241, 152, 55, 0.5);
+  color: inherit;
+  padding: 0.1em 0.2em;
+  border-radius: 2px;
+}
+
+// Red/Pink highlight
+mark.hltr-red,
+mark.hltr-pink {
+  background-color: rgba(255, 102, 102, 0.5);
+  color: inherit;
+  padding: 0.1em 0.2em;
+  border-radius: 2px;
+}
+
+// Green highlight
+mark.hltr-green {
+  background-color: rgba(95, 178, 54, 0.5);
+  color: inherit;
+  padding: 0.1em 0.2em;
+  border-radius: 2px;
+}
+
+// Blue highlight
+mark.hltr-blue,
+mark.hltr-cyan {
+  background-color: rgba(46, 168, 229, 0.5);
+  color: inherit;
+  padding: 0.1em 0.2em;
+  border-radius: 2px;
+}
+
+// Purple/Violet highlight
+mark.hltr-purple,
+mark.hltr-violet {
+  background-color: rgba(162, 138, 229, 0.5);
+  color: inherit;
+  padding: 0.1em 0.2em;
+  border-radius: 2px;
+}
+
+// Magenta highlight - dimmed, inherit text color
+mark.hltr-magenta {
+  background-color: rgba(229, 110, 238, 0.4);
+  color: inherit;
+  padding: 0.1em 0.2em;
+  border-radius: 2px;
+}
+
+// Gray highlight
+mark.hltr-gray,
+mark.hltr-grey {
+  background-color: rgba(170, 170, 170, 0.5);
+  color: inherit;
+  padding: 0.1em 0.2em;
+  border-radius: 2px;
+}
+
+// Dark theme adjustments - reduce opacity for highlights to avoid eye strain
+[saved-theme="dark"] {
+  mark.hltr-yellow {
+    background-color: rgba(255, 212, 0, 0.4);
+    color: var(--light);
+  }
+
+  mark.hltr-orange {
+    background-color: rgba(241, 152, 55, 0.4);
+    color: var(--light);
+  }
+
+  mark.hltr-red,
+  mark.hltr-pink {
+    background-color: rgba(255, 102, 102, 0.4);
+    color: var(--light);
+  }
+
+  mark.hltr-green {
+    background-color: rgba(95, 178, 54, 0.4);
+    color: var(--light);
+  }
+
+  mark.hltr-blue,
+  mark.hltr-cyan {
+    background-color: rgba(46, 168, 229, 0.4);
+    color: var(--light);
+  }
+
+  mark.hltr-purple,
+  mark.hltr-violet {
+    background-color: rgba(162, 138, 229, 0.4);
+    color: var(--light);
+  }
+
+  mark.hltr-magenta {
+    background-color: rgba(229, 110, 238, 0.4);
+    color: var(--light);
+  }
+
+  mark.hltr-gray,
+  mark.hltr-grey {
+    background-color: rgba(170, 170, 170, 0.4);
+    color: var(--light);
+  }
+}
+

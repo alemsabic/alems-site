@@ -494,6 +494,36 @@ For regular notes (without `shortTitle`), the full title is used automatically.
 
 ---
 
+---
+
+## Session 17 Updates (Dec 27, 2025) - Zotero Highlights & Styling
+
+### Features Implemented ✅
+
+**1. Zotero Highlight Colors** (`quartz/styles/custom.scss`):
+- Added CSS for all 8 Zotero highlight colors (yellow, orange, red/pink, green, blue/cyan, purple/violet, magenta, gray)
+- Light Theme: 50% opacity (40% for magenta) for subtle highlighting
+- Dark Theme: 40% opacity for better readability
+- Removed text-shadow (letterpress effect) from highlights
+- White text on dark highlights (green, blue, purple, gray) for contrast
+
+**2. Callout Styling** (`quartz/styles/custom.scss`):
+- Made callout titles more subtle and less bold
+- Changed font-weight from semibold to 400 (regular)
+- Muted callout colors by adding gray tones:
+  - Default: #6b8aa8 (muted blue-gray)
+  - Abstract: #6b9fb5 (muted cyan-gray)
+  - Info/Todo: #6ba5b0 (muted teal-gray)
+
+**Files Modified**:
+- `quartz/styles/custom.scss` - Added ~120 lines for Zotero highlights and callout overrides
+
+### Documentation
+- Zotero highlight colors fully documented in custom.scss with comments
+- Resolved "Images from Zotero" issue in CLAUDE.md
+
+---
+
 ## Historical Context (Archived)
 
 **Migration History**: nekontam.com → pathologie.gpunkt.org → ale.ms
@@ -503,10 +533,10 @@ For regular notes (without `shortTitle`), the full title is used automatically.
 
 ---
 
-## 🔴 ACTIVE ISSUE: Images from Zotero Not Displaying on ale.ms
+## ✅ RESOLVED: Images from Zotero Not Displaying on ale.ms
 
-**Date**: 2025-12-27
-**Status**: INVESTIGATING
+**Date**: 2025-12-27 (Resolved same day)
+**Status**: RESOLVED
 
 ### Problem Summary
 
@@ -576,13 +606,16 @@ All contain image annotations from Zotero imports.
    - After fix, check https://ale.ms for image rendering
    - Ensure Cloudflare Pages serves images correctly
 
-### Related Documentation
+### Resolution
 
+**Fixed via Zotero Template Update** (same day):
+- Updated Zotero template to use simplified image paths
+- Changed from: `![[NOTIZEN/Quellenverzeichnis/Abbildungen/filename.png]]`
+- Changed to: `![[filename.png]]` (relative path)
+- Quartz correctly resolves relative Wikilink image paths
+- Images now display correctly both locally and on https://ale.ms
+
+**Related Documentation**:
 - **Content Repo**: https://github.com/alemsabic/alems-notizen
 - **Site Repo**: https://github.com/alemsabic/alems-site
-- **Sync Workflow**: `/Users/alemsabic/Desktop/MEMEX/NOTIZEN/.github/workflows/sync-to-quartz.yml`
 - **Zotero Template**: `/Users/alemsabic/Desktop/MEMEX/_templates/Zotero-Vorlage.md`
-
-### Session Context
-
-Working from `/Users/alemsabic/Desktop/MEMEX/NOTIZEN/` on Zotero template improvements. Need to switch to `/Users/alemsabic/Desktop/ale.ms/` to investigate Quartz-specific image rendering.
