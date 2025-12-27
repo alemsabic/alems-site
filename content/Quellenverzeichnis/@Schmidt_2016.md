@@ -23,14 +23,14 @@ rating:
 status: unread
 contribution:
 pdfLink: "zotero://select/library/items/AEVT7JJR"
-imported: "27-12-2025 9:48 am"
+imported: "27-12-2025 10:32 am"
 ---
-## Niklas Luhmann’s Card Index
-
-## Thinking Tool, Communication Partner, Publication Machine
+## Niklas Luhmann’s Card Index: Thinking Tool, Communication Partner, Publication Machine
 
 > [!book] Quelle
-> Schmidt, Johannes F. K. 2016. _Niklas Luhmann’s Card Index: Thinking Tool, Communication Partner, Publication Machine_. Brill. [https://doi.org/10.1163/9789004325258_014](https://doi.org/10.1163/9789004325258_014).## Highlights & Notes
+> Schmidt, Johannes F. K. 2016. _Niklas Luhmann’s Card Index: Thinking Tool, Communication Partner, Publication Machine_. Brill. [https://doi.org/10.1163/9789004325258_014](https://doi.org/10.1163/9789004325258_014).
+
+## Meine Notizen
 
 <mark class="hltr-magenta">"A remarkable aspect in this respect is that the large number of publications and the great diversity of subjects covered therein are not the product of utilizing a plurality of different theoretical approaches depending on the research topic in question."</mark>
 💭 **Note:** Das ist Pink - brauche ich Pink? Wohl kaum.

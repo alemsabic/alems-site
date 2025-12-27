@@ -23,15 +23,18 @@ rating:
 status: unread
 contribution:
 pdfLink: ""
-imported: "27-12-2025 9:48 am"
+imported: "27-12-2025 10:32 am"
 ---
-## Yomu AI Review
+## Yomu AI Review | Academic AI Writing Tool
 
 > [!book] Quelle
 > Sipos, Sophia. 2025. “Yomu AI Review | Academic AI Writing Tool.” _The Effortless Academic_, May 30. [https://effortlessacademic.com/yomu-ai-review-academic-ai-writing-tool/](https://effortlessacademic.com/yomu-ai-review-academic-ai-writing-tool/).
 
 > [!Abstract] Kurzfassung
-> Literature Review, AI Tools in academia, efficient note taking based on Zettelkasten## Highlights & Notes
+> Literature Review, AI Tools in academia, efficient note taking based on Zettelkasten
+
+
+## Meine Notizen
 
 <mark class="hltr-yellow">"Academic writing often requires a patchwork of tools – one for drafting, another for citations, a third for formatting."</mark>
 
