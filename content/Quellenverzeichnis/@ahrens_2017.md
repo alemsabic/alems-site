@@ -24,7 +24,7 @@ rating:
 status: unread
 contribution:
 pdfLink: "zotero://select/library/items/UQQ6HVRR"
-imported: "27-12-2025 10:32 am"
+imported: "27-12-2025 12:47 pm"
 ---
 ## Das Zettelkasten-Prinzip: erfolgreich wissenschaftlich Schreiben und Studieren mit effektiven Notizen
 
@@ -35,7 +35,7 @@ imported: "27-12-2025 10:32 am"
 
 ## Meine Notizen
 
-![[NOTIZEN/Quellenverzeichnis/Abbildungen/ahrens_2017-61-x66-y145.png]] *Abbildung von Seite 61*
+![[ahrens_2017-61-x66-y145.png]] *Abbildung von Seite 61*
 
 
 <mark class="hltr-yellow">"Von großangelegten Planungen Abstand zu nehmen und stattdessen zu lernen, wie man flexibel zwischen unterschiedlichen Arbeitsschritten wechselnd zum Ziel kommt, ähnelt der Entscheidung ohne Stützräder Fahrradfahren zu lernen. Man fühlt sich vielleicht zunächst etwas haltlos, weiß aber zugleich, dass man mit Stützrädern das Fahrradfahren auch nie lernen würde, nur das Fahren mit Stützrädern. Und wie das Fahrradfahren lernt man auch das praktische wissenschaftliche Arbeiten nicht dadurch, dass man Vorgaben befolgt – dabei lernt man nur das Befolgen von Vorgaben."</mark> (S. 62)

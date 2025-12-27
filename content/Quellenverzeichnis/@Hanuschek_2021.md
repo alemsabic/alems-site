@@ -7,7 +7,7 @@ title: "Arno Schmidt: Biografie"
 authors:
   - "Hanuschek, Sven"
 year: 2021
-citekey: "Hanuschek_2021"
+citekey: "hanuschek_2021"
 itemType: "book"
 
 
@@ -24,7 +24,7 @@ rating:
 status: unread
 contribution:
 pdfLink: "zotero://select/library/items/TVWPB93B"
-imported: "27-12-2025 10:32 am"
+imported: "27-12-2025 12:47 pm"
 ---
 ## Arno Schmidt: Biografie
 
@@ -39,7 +39,7 @@ imported: "27-12-2025 10:32 am"
 💭 **Note:** Orange, die Farbe. Test.
 
 
-![[NOTIZEN/Quellenverzeichnis/Abbildungen/Hanuschek_2021-1283-x51-y414.png]] *Abbildung von Seite 1283*
+![[hanuschek_2021-1283-x51-y414.png]] *Abbildung von Seite 1283*
 💭 **Note:** Nur ein Test.
 
 
