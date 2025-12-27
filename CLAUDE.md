@@ -515,12 +515,30 @@ For regular notes (without `shortTitle`), the full title is used automatically.
   - Abstract: #6b9fb5 (muted cyan-gray)
   - Info/Todo: #6ba5b0 (muted teal-gray)
 
+**3. Skeuomorphic Book Cover Effect** (`quartz/styles/custom.scss`, Zotero Template):
+- Implemented realistic 3D hardcover effect for Zotero book covers
+- Based on: [Skeuomorphic book cover in CSS by Varun Dhawan](https://varundhawan.com/blog/2022/01/18/skeuomorphic-book-cover-css)
+- Features:
+  - 14-stage gradient overlay simulating spine "dent" and light reflection
+  - 3D shadow effect (book lifted off surface)
+  - Hover animation (scale + lift)
+  - Dark theme support
+- Template changes: HTML structure with `.book-cover-container` wrapper
+- Key insight: `<img>` elements don't support pseudo-elements → gradient applied to container
+- Attribution: CSS gradient technique adapted from Varun Dhawan's blog post
+
 **Files Modified**:
-- `quartz/styles/custom.scss` - Added ~120 lines for Zotero highlights and callout overrides
+- `quartz/styles/custom.scss` - Added ~120 lines for Zotero highlights, callout overrides, and book cover styling
+- `/Users/alemsabic/Desktop/MEMEX/_templates/Zotero-Vorlage.md` - HTML structure for book covers
 
 ### Documentation
 - Zotero highlight colors fully documented in custom.scss with comments
 - Resolved "Images from Zotero" issue in CLAUDE.md
+- Book cover effect credited to Varun Dhawan (https://varundhawan.com/blog/2022/01/18/skeuomorphic-book-cover-css)
+
+### Credits
+- **Skeuomorphic Book Cover CSS**: Inspired by and adapted from [Varun Dhawan's blog post](https://varundhawan.com/blog/2022/01/18/skeuomorphic-book-cover-css)
+- Original technique: Gradient overlay on container (not img) with precise color stops for realistic hardcover effect
 
 ---
 
