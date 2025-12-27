@@ -4,6 +4,7 @@ tags:
 aliases:
   - "Arno Schmidt: Biografie"
 title: "Arno Schmidt: Biografie"
+shortTitle: "Hanuschek (2021)"
 authors:
   - "Hanuschek, Sven"
 year: 2021
@@ -24,7 +25,7 @@ rating:
 status: unread
 contribution:
 pdfLink: "zotero://select/library/items/TVWPB93B"
-imported: "27-12-2025 12:47 pm"
+imported: "27-12-2025 5:59 pm"
 ---
 ## Arno Schmidt: Biografie
 

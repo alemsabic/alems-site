@@ -4,6 +4,7 @@ tags:
 aliases:
   - "Yomu AI Review | Academic AI Writing Tool"
 title: "Yomu AI Review | Academic AI Writing Tool"
+shortTitle: "Sipos (2025)"
 authors:
   - "Sipos, Sophia"
 year: 2025
@@ -23,7 +24,7 @@ rating:
 status: unread
 contribution:
 pdfLink: ""
-imported: "27-12-2025 12:47 pm"
+imported: "27-12-2025 6:00 pm"
 ---
 ## Yomu AI Review | Academic AI Writing Tool
 

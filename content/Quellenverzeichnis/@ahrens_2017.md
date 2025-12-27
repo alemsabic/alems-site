@@ -4,6 +4,7 @@ tags:
 aliases:
   - "Das Zettelkasten-Prinzip: erfolgreich wissenschaftlich Schreiben und Studieren mit effektiven Notizen"
 title: "Das Zettelkasten-Prinzip: erfolgreich wissenschaftlich Schreiben und Studieren mit effektiven Notizen"
+shortTitle: "Ahrens (2017)"
 authors:
   - "Ahrens, Sönke"
 year: 2017
@@ -24,7 +25,7 @@ rating:
 status: unread
 contribution:
 pdfLink: "zotero://select/library/items/UQQ6HVRR"
-imported: "27-12-2025 12:47 pm"
+imported: "27-12-2025 5:59 pm"
 ---
 ## Das Zettelkasten-Prinzip: erfolgreich wissenschaftlich Schreiben und Studieren mit effektiven Notizen
 
