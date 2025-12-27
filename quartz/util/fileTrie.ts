@@ -4,6 +4,7 @@ import { FullSlug, joinSegments } from "./path"
 interface FileTrieData {
   slug: string
   title: string
+  shortTitle?: string  // Optional short title for navigation (e.g., "Ahrens (2017)")
   filePath: string
 }
 
@@ -29,8 +30,10 @@ export class FileTrieNode<T extends FileTrieData = ContentDetails> {
 
   get displayName(): string {
     const nonIndexTitle = this.data?.title === "index" ? undefined : this.data?.title
+    // Use shortTitle if available (for Zotero sources), fallback to title
+    const titleToUse = this.data?.shortTitle ?? nonIndexTitle
     return (
-      this.displayNameOverride ?? nonIndexTitle ?? this.fileSegmentHint ?? this.slugSegment ?? ""
+      this.displayNameOverride ?? titleToUse ?? this.fileSegmentHint ?? this.slugSegment ?? ""
     )
   }
 

@@ -325,9 +325,264 @@ if (
 
 ---
 
+### Short Title Support for Zotero Sources
+
+**Issue**: Zotero-imported sources have very long titles (e.g., "Das Zettelkasten-Prinzip: erfolgreich wissenschaftlich Schreiben und Studieren mit effektiven Notizen") that create display problems:
+- **Explorer** (sidebar): Titles appear as unreadable text blocks
+- **Breadcrumbs**: Long titles make navigation confusing
+- **ContentHeader**: Shows full title redundantly
+- **ArticleTitle (H1)**: Shows full title again
+
+This results in the same long title appearing 4x on each Zotero source page, making navigation nearly impossible.
+
+**Solution**: Implement `shortTitle` frontmatter property with fallback logic
+
+**Concept**:
+- **Navigation** (Explorer, Breadcrumbs): Use short form → e.g., "Ahrens (2017)"
+- **Content** (H1): Use full title → appears once where it belongs
+- **ContentHeader**: Remove redundant title line
+
+**Files Modified**:
+
+1. **`quartz/util/fileTrie.ts`**:
+   - Add `shortTitle?: string` to `FileTrieData` interface (line 7)
+   - Modify `displayName` getter to use shortTitle fallback (lines 31-38):
+   ```typescript
+   interface FileTrieData {
+     slug: string
+     title: string
+     shortTitle?: string  // Optional short title for navigation (e.g., "Ahrens (2017)")
+     filePath: string
+   }
+
+   get displayName(): string {
+     const nonIndexTitle = this.data?.title === "index" ? undefined : this.data?.title
+     // Use shortTitle if available (for Zotero sources), fallback to title
+     const titleToUse = this.data?.shortTitle ?? nonIndexTitle
+     return (
+       this.displayNameOverride ?? titleToUse ?? this.fileSegmentHint ?? this.slugSegment ?? ""
+     )
+   }
+   ```
+
+2. **`quartz/util/ctx.ts`**:
+   - Add `shortTitle?: string` to `BuildTimeTrieData` type (line 21)
+   - Extract shortTitle in `trieFromAllFiles()` function (line 43):
+   ```typescript
+   export type BuildTimeTrieData = QuartzPluginData & {
+     slug: string
+     title: string
+     shortTitle?: string  // Optional short title for navigation (Zotero sources)
+     filePath: string
+   }
+
+   export function trieFromAllFiles(allFiles: QuartzPluginData[]): FileTrieNode<BuildTimeTrieData> {
+     const trie = new FileTrieNode<BuildTimeTrieData>([])
+     allFiles.forEach((file) => {
+       if (file.frontmatter) {
+         trie.add({
+           ...file,
+           slug: file.slug!,
+           title: file.frontmatter.title,
+           shortTitle: file.frontmatter.shortTitle,  // Extract shortTitle from frontmatter
+           filePath: file.filePath!,
+         })
+       }
+     })
+     return trie
+   }
+   ```
+
+3. **`quartz/plugins/emitters/contentIndex.tsx`**:
+   - Add `shortTitle?: string` to `ContentDetails` type (line 16)
+   - Extract shortTitle when building content index (line 111):
+   ```typescript
+   export type ContentDetails = {
+     slug: FullSlug
+     filePath: FilePath
+     title: string
+     shortTitle?: string  // Optional short title for navigation (Zotero sources)
+     links: SimpleSlug[]
+     tags: string[]
+     content: string
+     richContent?: string
+     date?: Date
+     description?: string
+   }
+
+   // In emit function:
+   linkIndex.set(slug, {
+     slug,
+     filePath: file.data.relativePath!,
+     title: file.data.frontmatter?.title!,
+     shortTitle: file.data.frontmatter?.shortTitle,  // Extract shortTitle from frontmatter
+     links: file.data.links ?? [],
+     // ...
+   })
+   ```
+
+4. **`quartz/components/ContentHeader.tsx`** (lines 61-68):
+   - Comment out redundant title display:
+   ```typescript
+   {/* Title removed - redundant with ArticleTitle H1
+   {title && (
+     <>
+       <dt>Titel:</dt>
+       <dd>{title}.</dd>
+     </>
+   )}
+   */}
+   ```
+
+Note: Breadcrumbs.tsx requires no changes - it automatically uses `node.displayName` from fileTrie.
+
+**Frontmatter Usage**:
+
+For Zotero sources, add `shortTitle` to your template:
+```yaml
+title: "Das Zettelkasten-Prinzip: erfolgreich wissenschaftlich Schreiben und Studieren mit effektiven Notizen"
+shortTitle: "Ahrens (2017)"  # ← Used in Explorer & Breadcrumbs
+authors:
+  - "Ahrens, Sönke"
+year: 2017
+citekey: "ahrens_2017"
+```
+
+For regular notes (without `shortTitle`), the full title is used automatically.
+
+**Why This Works**:
+- `shortTitle` is a standard property in citation systems (BibTeX, CSL)
+- Fallback logic ensures backward compatibility with existing content
+- Navigator components (Explorer, Breadcrumbs) get readable labels
+- Full title remains visible exactly once (as H1 ArticleTitle)
+- No breaking changes for non-Zotero content
+
+**For Future Quartz Updates**:
+1. **If `fileTrie.ts` is overwritten**:
+   - Re-add `shortTitle?: string` to `FileTrieData` interface
+   - Re-add the `shortTitle` fallback in the `displayName` getter
+2. **If `ctx.ts` is overwritten**:
+   - Re-add `shortTitle?: string` to `BuildTimeTrieData` type
+   - Re-add `shortTitle: file.frontmatter.shortTitle` in `trieFromAllFiles()` function
+3. **If `contentIndex.tsx` is overwritten**:
+   - Re-add `shortTitle?: string` to `ContentDetails` type
+   - Re-add `shortTitle: file.data.frontmatter?.shortTitle` in the linkIndex.set() call
+4. **If `ContentHeader.tsx` is overwritten**: Comment out the title display block again
+5. **Pattern to check**: Search for "shortTitle" across the codebase - should appear in 4 files (fileTrie.ts, ctx.ts, contentIndex.tsx, ContentHeader.tsx)
+
+**Expected Result**:
+- Explorer: "Ahrens (2017)" instead of 100+ character title
+- Breadcrumbs: "Home ❯ Quellenverzeichnis ❯ Ahrens (2017)"
+- ContentHeader: No redundant title line
+- ArticleTitle: Full title as H1 (unchanged)
+
+**Zotero Template Location**: `/Users/alemsabic/Desktop/MEMEX/_templates/Zotero-Vorlage.md`
+
+**Implementation Summary**:
+- Total files modified: 4 (fileTrie.ts, ctx.ts, contentIndex.tsx, ContentHeader.tsx)
+- Type definitions extended in 3 places to support optional `shortTitle` property
+- Backward compatible: Works with and without `shortTitle` in frontmatter
+- Navigation components automatically use short title when available
+- Full title appears exactly once as H1, improving readability and reducing redundancy
+
+**Testing**:
+- Tested with `@ahrens_2017.md` (shortTitle: "Ahrens (2017)")
+- Explorer sidebar: Shows "Ahrens (2017)" ✓
+- Breadcrumbs: Shows "Home ❯ Quellenverzeichnis ❯ Ahrens (2017)" ✓
+- ContentHeader: No redundant title line ✓
+- ArticleTitle: Full title as H1 ✓
+
+---
+
 ## Historical Context (Archived)
 
 **Migration History**: nekontam.com → pathologie.gpunkt.org → ale.ms
 - Complete migration details in git history (Sessions 1-15)
 - Current state: Clean ale.ms setup with two-repository architecture
 - Old CLAUDE.md content archived for brevity
+
+---
+
+## 🔴 ACTIVE ISSUE: Images from Zotero Not Displaying on ale.ms
+
+**Date**: 2025-12-27
+**Status**: INVESTIGATING
+
+### Problem Summary
+
+Zotero-imported source files contain image references (annotations/screenshots from PDFs) that are:
+- ✅ Synced correctly to GitHub via GitHub Actions
+- ✅ Present in the Site-Repo (`content/Quellenverzeichnis/Abbildungen/`)
+- ❌ **NOT displaying on live site** (https://ale.ms)
+
+### Evidence
+
+**GitHub Actions Logs** (Run 20537552679, 2025-12-27T09:57):
+```
+Quellenverzeichnis/Abbildungen/
+Quellenverzeichnis/Abbildungen/Hanuschek_2021-1283-x51-y414.png
+Quellenverzeichnis/Abbildungen/Schmidt_2016-14-x49-y346.png
+Quellenverzeichnis/Abbildungen/ahrens_2017-61-x66-y145.png
+Quellenverzeichnis/Abbildungen/doto_2024-26-x56-y413.png
+
+sent 2,677,024 bytes
+[v4 0286661] content: sync from content repo
+```
+
+**Commit**: `0286661` on branch `v4` (alemsabic/alems-site)
+
+### Image Link Format in Markdown
+
+**Example from `@Sipos_2025.md`**:
+```markdown
+![[NOTIZEN/Quellenverzeichnis/Abbildungen/doto_2024-26-x56-y413.png]]
+```
+
+**Issue**: Wikilink syntax + incorrect path prefix
+
+### Suspected Root Causes
+
+1. **Wikilink Syntax**: Quartz may not transform Obsidian Wikilinks (`![[...]]`) for images
+2. **Path Prefix**: Links contain `NOTIZEN/Quellenverzeichnis/...` but content structure is `Quellenverzeichnis/...` (no `NOTIZEN/` root in synced content)
+3. **Missing Quartz Configuration**: Image handling might need special plugin/transformer
+
+### Files Affected
+
+- `Quellenverzeichnis/@Hanuschek_2021.md`
+- `Quellenverzeichnis/@Schmidt_2016.md`
+- `Quellenverzeichnis/@Sipos_2025.md`
+- `Quellenverzeichnis/@ahrens_2017.md`
+- `Quellenverzeichnis/@doto_2024.md`
+
+All contain image annotations from Zotero imports.
+
+### Next Steps (To Resume)
+
+1. **Understand Quartz image handling**:
+   - Check if Wikilinks for images are supported
+   - Review Quartz transformers/plugins for image processing
+   - Test with standard markdown syntax: `![](path/to/image.png)`
+
+2. **Fix path prefix issue**:
+   - Remove `NOTIZEN/` from image paths (via Zotero template or post-processing)
+   - Or: adjust sync workflow to match expected structure
+
+3. **Test locally**:
+   - Run `npx quartz build --serve`
+   - Navigate to affected source pages
+   - Check browser console for 404s or path errors
+
+4. **Verify online deployment**:
+   - After fix, check https://ale.ms for image rendering
+   - Ensure Cloudflare Pages serves images correctly
+
+### Related Documentation
+
+- **Content Repo**: https://github.com/alemsabic/alems-notizen
+- **Site Repo**: https://github.com/alemsabic/alems-site
+- **Sync Workflow**: `/Users/alemsabic/Desktop/MEMEX/NOTIZEN/.github/workflows/sync-to-quartz.yml`
+- **Zotero Template**: `/Users/alemsabic/Desktop/MEMEX/_templates/Zotero-Vorlage.md`
+
+### Session Context
+
+Working from `/Users/alemsabic/Desktop/MEMEX/NOTIZEN/` on Zotero template improvements. Need to switch to `/Users/alemsabic/Desktop/ale.ms/` to investigate Quartz-specific image rendering.

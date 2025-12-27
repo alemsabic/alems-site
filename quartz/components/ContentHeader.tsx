@@ -58,12 +58,14 @@ export default ((opts?: Partial<ContentHeaderOptions>) => {
     return (
       <div class={classNames(displayClass, "content-header")}>
         <dl>
+          {/* Title removed - redundant with ArticleTitle H1
           {title && (
             <>
               <dt>Titel:</dt>
               <dd>{title}.</dd>
             </>
           )}
+          */}
 
           {dateText && (
             <>
