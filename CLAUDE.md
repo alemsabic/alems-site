@@ -540,6 +540,14 @@ For regular notes (without `shortTitle`), the full title is used automatically.
 - **Skeuomorphic Book Cover CSS**: Inspired by and adapted from [Varun Dhawan's blog post](https://varundhawan.com/blog/2022/01/18/skeuomorphic-book-cover-css)
 - Original technique: Gradient overlay on container (not img) with precise color stops for realistic hardcover effect
 
+### TODO for Future Sessions
+- [ ] Add "Credits" or "Acknowledgments" section to README.md (English sounds less pompous than "Ehre, wem Ehre gebührt")
+  - Credit Varun Dhawan for skeuomorphic book cover CSS
+  - Credit Claude Code / Anthropic for development assistance
+- [ ] Add credits/acknowledgments link on ale.ms footer or dedicated page
+  - Include link to this repository
+  - Acknowledge contributors (Varun Dhawan, Claude, etc.)
+
 ---
 
 ## Historical Context (Archived)
