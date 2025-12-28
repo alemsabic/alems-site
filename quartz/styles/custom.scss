@@ -962,9 +962,18 @@ a.internal.tag-link:hover {
 
 // Callout titles: remove bold and make colors more muted (add gray)
 .callout-title {
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+
   .callout-title-inner {
     font-weight: 400 !important; // Remove bold
   }
+}
+
+// Callout content: smaller font size and line-height
+.callout-content-inner p {
+  font-size: .85rem;
+  line-height: 1.25rem;
 }
 
 // Override callout colors - add more gray for subtler appearance
@@ -1181,18 +1190,17 @@ article.literature-note {
   // CSS Counters for automatic numbering
   counter-reset: section figure;
 
-  // Annotation Highlights - numbered with roman numerals
+  // Annotation Highlights - numbered with lowercase letters (a, b, c, d)
   .annotation-highlight {
     counter-increment: section;
     margin-bottom: 1rem;
 
-    // Roman numerals - block, right-aligned: I. II. III.
+    // Lowercase letters - block, left-aligned: a. b. c. d.
     .section-marker::before {
-      content: counter(section, upper-roman) ".";
+      content: counter(section, lower-alpha) ".";
       display: block;
-      text-align: right;
       color: inherit;
-      font-weight: 400;
+      font-weight: bold;
     }
 
     // Page number - block, right-aligned: (S. 42)
@@ -1200,6 +1208,40 @@ article.literature-note {
       display: block;
       text-align: right;
     }
+  }
+
+  // Spacing between highlight groups (only when they follow each other)
+  // Case 1: highlight after comment (comment was the end of previous group)
+  .annotation-comment + .annotation-highlight {
+    margin-top: 2.5rem;
+  }
+
+  // Case 2: highlight after highlight (no comment in between)
+  .annotation-highlight + .annotation-highlight {
+    margin-top: 2.5rem;
+  }
+
+  // Exception: No extra spacing after headings (they already have margin)
+  h2 + .annotation-highlight,
+  h3 + .annotation-highlight {
+    margin-top: 0;
+  }
+
+  // Spacing for images (same logic as highlights)
+  .annotation-comment + p:has(> img),
+  .annotation-highlight + p:has(> img) {
+    margin-top: 2.5rem;
+  }
+
+  // No extra spacing after headings
+  h2 + p:has(> img),
+  h3 + p:has(> img) {
+    margin-top: 0;
+  }
+
+  // Spacing when highlight follows figure caption (no comment in between)
+  .annotation-figure-caption + .annotation-highlight {
+    margin-top: 2.5rem;
   }
 
   // Annotation Comments - block layout
@@ -1228,6 +1270,7 @@ article.literature-note {
   .annotation-figure-caption {
     counter-increment: figure;
     text-align: right;
+    margin-bottom: 1rem;
 
     // Opening parenthesis before figure label
     &::before {
@@ -1237,6 +1280,7 @@ article.literature-note {
     // Figure label: "Abb. 1 - " "Abb. 2 - " etc.
     .figure-label::before {
       content: "Abb. " counter(figure) " - ";
+      font-weight: bold;
     }
 
     // Closing parenthesis after figure source
