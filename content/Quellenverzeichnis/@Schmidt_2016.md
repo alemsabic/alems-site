@@ -25,7 +25,7 @@ rating:
 status: unread
 contribution:
 pdfLink: "zotero://select/library/items/AEVT7JJR"
-imported: "28-12-2025 12:08 pm"
+imported: "28-12-2025 12:37 pm"
 ---
 ## Niklas Luhmann’s Card Index: Thinking Tool, Communication Partner, Publication Machine
 
