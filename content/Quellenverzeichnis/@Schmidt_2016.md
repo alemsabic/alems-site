@@ -9,7 +9,7 @@ shortTitle: "Schmidt (2016)"
 authors:
   - "Schmidt, Johannes F. K."
 year: 2016
-citekey: "Schmidt_2016"
+citekey: "schmidt_2016"
 itemType: "bookSection"
 
 
@@ -25,7 +25,7 @@ rating:
 status: unread
 contribution:
 pdfLink: "zotero://select/library/items/AEVT7JJR"
-imported: "28-12-2025 12:37 pm"
+imported: "28-12-2025 12:49 pm"
 ---
 ## Niklas Luhmann’s Card Index: Thinking Tool, Communication Partner, Publication Machine
 
@@ -96,7 +96,7 @@ imported: "28-12-2025 12:37 pm"
 </div>
 
 
-![[Schmidt_2016-14-x49-y346.png]]
+![[schmidt_2016-14-x49-y346.png]]
 
 <div class="annotation-figure-caption"><span class="figure-label"></span><span class="figure-source">S. 14</span></div>
 

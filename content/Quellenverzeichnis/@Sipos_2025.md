@@ -9,7 +9,7 @@ shortTitle: "Sipos (2025)"
 authors:
   - "Sipos, Sophia"
 year: 2025
-citekey: "Sipos_2025"
+citekey: "sipos_2025"
 itemType: "blogPost"
 
 
@@ -25,7 +25,7 @@ rating:
 status: unread
 contribution:
 pdfLink: ""
-imported: "28-12-2025 12:37 pm"
+imported: "28-12-2025 12:49 pm"
 ---
 ## Yomu AI Review | Academic AI Writing Tool
 
