@@ -988,6 +988,16 @@ a.internal.tag-link:hover {
 // Zotero highlight colors matching Obsidian/Zotero annotations
 // Format: <mark class="hltr-{color}">highlighted text</mark>
 
+// Common styling for all mark elements
+mark[class^="hltr-"],
+mark[class*=" hltr-"] {
+  display: block;
+  padding: 0;
+  border-radius: 0;
+  line-height: 1.15rem;
+  color: inherit;
+}
+
 // Remove text-shadow from all highlights in light theme (letterpress effect interferes with colors)
 [saved-theme="light"] mark[class^="hltr-"],
 [saved-theme="light"] mark[class*=" hltr-"] {
@@ -997,69 +1007,45 @@ a.internal.tag-link:hover {
 // Yellow highlight (default Zotero color)
 mark.hltr-yellow {
   background-color: rgba(255, 212, 0, 0.5);
-  color: inherit;
-  padding: 0.1em 0.2em;
-  border-radius: 2px;
 }
 
 // Orange highlight
 mark.hltr-orange {
   background-color: rgba(241, 152, 55, 0.5);
-  color: inherit;
-  padding: 0.1em 0.2em;
-  border-radius: 2px;
 }
 
 // Red/Pink highlight
 mark.hltr-red,
 mark.hltr-pink {
   background-color: rgba(255, 102, 102, 0.5);
-  color: inherit;
-  padding: 0.1em 0.2em;
-  border-radius: 2px;
 }
 
 // Green highlight
 mark.hltr-green {
   background-color: rgba(95, 178, 54, 0.5);
-  color: inherit;
-  padding: 0.1em 0.2em;
-  border-radius: 2px;
 }
 
 // Blue highlight
 mark.hltr-blue,
 mark.hltr-cyan {
   background-color: rgba(46, 168, 229, 0.5);
-  color: inherit;
-  padding: 0.1em 0.2em;
-  border-radius: 2px;
 }
 
 // Purple/Violet highlight
 mark.hltr-purple,
 mark.hltr-violet {
   background-color: rgba(162, 138, 229, 0.5);
-  color: inherit;
-  padding: 0.1em 0.2em;
-  border-radius: 2px;
 }
 
 // Magenta highlight - dimmed, inherit text color
 mark.hltr-magenta {
   background-color: rgba(229, 110, 238, 0.4);
-  color: inherit;
-  padding: 0.1em 0.2em;
-  border-radius: 2px;
 }
 
 // Gray highlight
 mark.hltr-gray,
 mark.hltr-grey {
   background-color: rgba(170, 170, 170, 0.5);
-  color: inherit;
-  padding: 0.1em 0.2em;
-  border-radius: 2px;
 }
 
 // Dark theme adjustments - reduce opacity for highlights to avoid eye strain
@@ -1126,11 +1112,11 @@ mark.hltr-grey {
   border-radius: 3px;
   overflow: hidden; // Critical: clips the ::after to exact container size
 
-  // Deep shadow for depth (book lifted off surface)
+  // Enhanced shadow (book lifted off surface) - no hover effect
   box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.12),
-    0 4px 8px rgba(0, 0, 0, 0.16),
-    0 12px 32px rgba(0, 0, 0, 0.24);
+    0 2px 6px rgba(0, 0, 0, 0.15),
+    0 8px 16px rgba(0, 0, 0, 0.2),
+    0 16px 48px rgba(0, 0, 0, 0.3);
 
   // Gradient overlay for skeuomorphic hardcover effect
   // Simulates light hitting the book from the left with spine "dent"
@@ -1151,7 +1137,6 @@ mark.hltr-grey {
     background: linear-gradient(
       to right,
       rgba(0, 0, 0, 0.02) 0%,
-      rgba(0, 0, 0, 0.05) 0.75%,
       rgba(255, 255, 255, 0.5) 1%,
       rgba(255, 255, 255, 0.6) 1.3%,
       rgba(255, 255, 255, 0.5) 1.4%,
@@ -1167,18 +1152,6 @@ mark.hltr-grey {
     );
     box-shadow: inset 0 -1px 4px rgba(0, 0, 0, 0.12); // Inner shadow like original
   }
-
-  // Smooth transition on hover
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  // Subtle lift on hover with enhanced shadow
-  &:hover {
-    transform: scale(1.01) translateY(-4px);
-    box-shadow:
-      0 2px 6px rgba(0, 0, 0, 0.15),
-      0 8px 16px rgba(0, 0, 0, 0.2),
-      0 16px 48px rgba(0, 0, 0, 0.3);
-  }
 }
 
 // Book cover image: no shadow (container has it)
@@ -1191,18 +1164,85 @@ mark.hltr-grey {
   margin: 0; // Remove default img margin to prevent overlay overflow
 }
 
-// Dark theme: adjust shadows for better visibility
+// Dark theme: enhanced shadow (no hover effect)
 [saved-theme="dark"] .book-cover-container {
   box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.3),
-    0 4px 8px rgba(0, 0, 0, 0.4),
-    0 12px 32px rgba(0, 0, 0, 0.6);
+    0 2px 6px rgba(0, 0, 0, 0.4),
+    0 8px 16px rgba(0, 0, 0, 0.5),
+    0 16px 48px rgba(0, 0, 0, 0.7);
+}
 
-  &:hover {
-    box-shadow:
-      0 2px 6px rgba(0, 0, 0, 0.4),
-      0 8px 16px rgba(0, 0, 0, 0.5),
-      0 16px 48px rgba(0, 0, 0, 0.7);
+// ============================================
+// LITERATURE NOTE STYLING (ZOTERO SOURCES)
+// ============================================
+
+// Academic, formal styling for Zotero-imported sources
+article.literature-note {
+  // CSS Counters for automatic numbering
+  counter-reset: section figure;
+
+  // Annotation Highlights - numbered with roman numerals
+  .annotation-highlight {
+    counter-increment: section;
+    margin-bottom: 1rem;
+
+    // Roman numerals - block, right-aligned: I. II. III.
+    .section-marker::before {
+      content: counter(section, upper-roman) ".";
+      display: block;
+      text-align: right;
+      color: inherit;
+      font-weight: 400;
+    }
+
+    // Page number - block, right-aligned: (S. 42)
+    .annotation-page {
+      display: block;
+      text-align: right;
+    }
+  }
+
+  // Annotation Comments - block layout
+  .annotation-comment {
+    display: block;
+    line-height: 1.15rem;
+
+    // Comment label "Anm.:" - bold
+    .comment-label {
+      font-weight: bold;
+    }
+  }
+
+  // Paragraphs containing images - remove spacing for tight caption placement
+  p:has(> img) {
+    margin: 0;
+    padding: 0;
+  }
+
+  // Images - no margin for tight caption placement
+  img {
+    margin: 0;
+  }
+
+  // Figure captions - numbered with "Abb." (Arabic numerals)
+  .annotation-figure-caption {
+    counter-increment: figure;
+    text-align: right;
+
+    // Opening parenthesis before figure label
+    &::before {
+      content: "(";
+    }
+
+    // Figure label: "Abb. 1 - " "Abb. 2 - " etc.
+    .figure-label::before {
+      content: "Abb. " counter(figure) " - ";
+    }
+
+    // Closing parenthesis after figure source
+    &::after {
+      content: ")";
+    }
   }
 }
 

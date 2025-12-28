@@ -645,3 +645,136 @@ All contain image annotations from Zotero imports.
 - **Content Repo**: https://github.com/alemsabic/alems-notizen
 - **Site Repo**: https://github.com/alemsabic/alems-site
 - **Zotero Template**: `/Users/alemsabic/Desktop/MEMEX/_templates/Zotero-Vorlage.md`
+
+---
+
+## Session 28 (Dec 28, 2025) - Zotero Source Annotations Styling
+
+### ⚠️ TODO: Zotero Template - Image Filename Case-Sensitivity Issue
+
+**Problem:** Bild-Dateinamen im Wikilink stimmen nicht mit echten Dateinamen überein:
+- Wikilink im Markdown: `![[hanuschek_2021-1283-x51-y414.png]]` (lowercase)
+- Echte Datei: `Hanuschek_2021-1283-x51-y414.png` (uppercase H)
+- Resultat: Bild wird nicht angezeigt
+
+**Ursache:** Zotero-Template generiert unterschiedliche Case für:
+- `annotation.imageRelativePath` (Dateiname im Dateisystem)
+- Wikilink-Referenz in der Markdown-Datei
+
+**Lösung:** Template-Variablen überprüfen und sicherstellen, dass beide konsistent sind (entweder beide lowercase oder beide wie Zotero sie speichert).
+
+**Temporärer Fix (28.12.2025):**
+- `Hanuschek_2021-1283-x51-y414.png` → `hanuschek_2021-1283-x51-y414.png` umbenannt (lokal in beiden Repos)
+
+**Template-Location:** `/Users/alemsabic/Desktop/MEMEX/_templates/Zotero-Vorlage.md` (Zeile 89)
+
+---
+
+### ⏸️ PAUSIERT: Academic Styling for Zotero Sources
+
+**Status:** Design-Arbeit pausiert wegen kritischem Bild-Import-Problem (siehe oben)
+
+**Bisherige Fortschritte (Session 28, 2025-12-28):**
+- ✅ Book Cover Hover-Effekt entfernt (enhanced shadow permanent)
+- ✅ Highlights: Römische Ziffern (I., II., III.) rechtsbündig, display: block
+- ✅ Highlights: `mark` als block, line-height 1.15rem, kein padding/border-radius
+- ✅ Seitenzahlen: `(S. 42)` rechtsbündig, display: block
+- ✅ Kommentare: `display: block`, line-height 1.15rem, "Anm.:" fett
+- ✅ Bildunterschriften: `(Abb. 1 - S. 61)` rechtsbündig mit CSS Counter
+- ✅ Template: "Seite" → "S." + Whitespace-Fix in Klammern
+- ✅ CSS `:has(> img)` für tight caption placement (p-Element ohne margin/padding)
+
+**Nächste Schritte (nach Bild-Problem-Fix):**
+- Spacing zwischen Highlights klären
+- Weitere Design-Details
+
+**Wichtig:** Erst das Bild-Import-Problem lösen, dann Design fortsetzen!
+
+---
+
+### 🔜 TODO (PAUSED): Academic Styling - Weitere Elemente
+
+**Goal**: Trockenes, akademisches Design für Zotero-importierte Quellen (wie alte Akten)
+
+**CSS-Klasse**: `literature-note` (im Frontmatter: `cssclasses: literature-note`)
+
+**Elemente zum Stylen** (alle in `quartz/styles/custom.scss`):
+
+```scss
+article.literature-note {
+
+  // 1. Highlights (Text-Annotationen aus Zotero)
+  .annotation-highlight {
+    .section-marker::before {
+      content: "§ " counter(section, upper-roman);
+      // § I, § II, § III, ...
+      // CSS Counter für automatische Nummerierung
+    }
+    mark.hltr-yellow { /* Gelb */ }
+    mark.hltr-orange { /* Orange */ }
+    mark.hltr-red { /* Rot/Pink */ }
+    mark.hltr-green { /* Grün */ }
+    mark.hltr-blue { /* Blau/Cyan */ }
+    mark.hltr-purple { /* Lila/Violett */ }
+    mark.hltr-magenta { /* Magenta */ }
+    mark.hltr-gray { /* Grau */ }
+    .annotation-page { /* (S. 42) */ }
+  }
+
+  // 2. Kommentare (Anmerkungen zu Highlights/Bildern)
+  .annotation-comment {
+    .comment-label { /* "Anm.:" */ }
+  }
+
+  // 3. Abbildungen (Screenshots aus Zotero)
+  img + .annotation-figure-caption {
+    .figure-label::before {
+      content: "Abb. " counter(figure);
+      // Abb. 1, Abb. 2, Abb. 3, ...
+      // CSS Counter für automatische Nummerierung
+    }
+    .figure-source { /* "Seite 42" */ }
+  }
+
+  // 4. CSS Counter Setup
+  counter-reset: section figure;
+  .annotation-highlight { counter-increment: section; }
+  .annotation-figure-caption { counter-increment: figure; }
+}
+```
+
+**Design-Richtlinien**:
+- **Typografie**: JetBrains Mono (body), Victor Mono (headings)
+- **Stil**: Formell, trocken, akademisch (wie alte Akten)
+- **§-Zeichen**: Römische Ziffern (§ I, § II, § III)
+- **Abb.-Label**: Arabische Ziffern (Abb. 1, Abb. 2)
+- **Spacing**: Genug Luft zwischen Elementen
+- **Farben**: Dezent, nicht zu grell (evtl. leicht entsättigt)
+
+**Referenz-Dateien**:
+- Live: https://ale.ms/Quellenverzeichnis/@ahrens_2017
+- Template: `/Users/alemsabic/Desktop/MEMEX/_templates/Zotero-Vorlage.md`
+- Custom CSS: `/Users/alemsabic/Desktop/ale.ms/quartz/styles/custom.scss`
+
+**HTML-Struktur** (aus Template):
+```html
+<div class="annotation-highlight">
+  <span class="section-marker"></span>
+  <mark class="hltr-yellow">"Text..."</mark>
+  <span class="annotation-page">(S. 42)</span>
+</div>
+
+<div class="annotation-comment">
+  <span class="comment-label">Anm.:</span> Kommentar...
+</div>
+
+![[image.png]]
+<div class="annotation-figure-caption">
+  <span class="figure-label"></span>
+  <span class="figure-source">Seite 42</span>
+</div>
+```
+
+**Status**: Template ready (with `cssclasses: literature-note`), CSS styling needed
+
+---
