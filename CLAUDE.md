@@ -650,45 +650,85 @@ All contain image annotations from Zotero imports.
 
 ## Session 28 (Dec 28, 2025) - Zotero Source Annotations Styling
 
-### ⚠️ TODO: Zotero Template - Image Filename Case-Sensitivity Issue
+### 🔴 KRITISCH: Git Case-Sensitivity Problem - MUSS GELÖST WERDEN!
 
-**Problem:** Bild-Dateinamen im Wikilink stimmen nicht mit echten Dateinamen überein:
-- Wikilink im Markdown: `![[hanuschek_2021-1283-x51-y414.png]]` (lowercase)
-- Echte Datei: `Hanuschek_2021-1283-x51-y414.png` (uppercase H)
-- Resultat: Bild wird nicht angezeigt
+**Problem:** Uppercase/Lowercase Duplikate auf GitHub (Session 28, 2025-12-28)
 
-**Ursache:** Zotero-Template generiert unterschiedliche Case für:
-- `annotation.imageRelativePath` (Dateiname im Dateisystem)
-- Wikilink-Referenz in der Markdown-Datei
+**Symptome:**
+- Lokal: Alle Dateien lowercase (`@schmidt_2016.md`, `schmidt_2016-*.png`)
+- Online (GitHub/ale.ms): Beide Versionen existieren (`@Schmidt_2016.md` UND `@schmidt_2016.md`)
+- Resultat: Bilder erscheinen nicht online, weil Wikilinks auf lowercase zeigen, aber GitHub die uppercase-Version ausliefert
 
-**Lösung:** Template-Variablen überprüfen und sicherstellen, dass beide konsistent sind (entweder beide lowercase oder beide wie Zotero sie speichert).
+**Root Cause:**
+- Git auf macOS: **case-insensitive** (`Schmidt` = `schmidt`)
+- GitHub/Cloudflare (Linux): **case-sensitive** (zwei verschiedene Dateien!)
+- Bei `git mv` lokal: Git merkt die Umbenennung, aber GitHub behält beide Versionen
 
-**Temporärer Fix (28.12.2025):**
-- `Hanuschek_2021-1283-x51-y414.png` → `hanuschek_2021-1283-x51-y414.png` umbenannt (lokal in beiden Repos)
+**Betroffene Dateien:**
+- ❌ `Quellenverzeichnis/@*.md` (Markdown-Dateien)
+- ❌ `Quellenverzeichnis/Abbildungen/*.png` (Bilder)
 
-**Template-Location:** `/Users/alemsabic/Desktop/MEMEX/_templates/Zotero-Vorlage.md` (Zeile 89)
+**LÖSUNG - Kompletter Reset (nächste Session):**
+
+```bash
+# 1. Alte Dateien komplett von GitHub löschen
+cd /Users/alemsabic/Desktop/MEMEX/NOTIZEN
+git rm -r Quellenverzeichnis/@*.md Quellenverzeichnis/Abbildungen/
+git commit -m "chore: remove all Zotero files for case-sensitivity cleanup"
+git push
+
+# 2. Warten bis GitHub Actions synct (~1-2 Min)
+
+# 3. Neu hinzufügen (jetzt nur lowercase)
+git add Quellenverzeichnis/@*.md Quellenverzeichnis/Abbildungen/
+git commit -m "feat: re-add Zotero sources with lowercase filenames"
+git push
+```
+
+**Warum das funktioniert:**
+- `git rm` löscht die Dateien auf GitHub (alle Versionen!)
+- Neues `git add` fügt nur die aktuellen (lowercase) Dateien hinzu
+- Keine Duplikate mehr ✅
+
+**Status:** Dokumentiert, bereit für Umsetzung in nächster Session
+
+**Zotero Better BibTeX Settings (bereits korrekt):**
+- Citation key formula: `auth.lower + "_" + year` ✅
+- Alle citekeys refreshed auf lowercase ✅
+- Template nutzt lowercase-citekeys ✅
 
 ---
 
-### ⏸️ PAUSIERT: Academic Styling for Zotero Sources
+### ✅ Academic Styling for Zotero Sources - HAUPTARBEIT ERLEDIGT
 
-**Status:** Design-Arbeit pausiert wegen kritischem Bild-Import-Problem (siehe oben)
+**Status:** Kern-Features implementiert (Session 28, 2025-12-28)
 
-**Bisherige Fortschritte (Session 28, 2025-12-28):**
+**Abgeschlossene Features:**
 - ✅ Book Cover Hover-Effekt entfernt (enhanced shadow permanent)
-- ✅ Highlights: Römische Ziffern (I., II., III.) rechtsbündig, display: block
+- ✅ Highlights: Kleinbuchstaben (a., b., c., d.) rechtsbündig, display: block
 - ✅ Highlights: `mark` als block, line-height 1.15rem, kein padding/border-radius
 - ✅ Seitenzahlen: `(S. 42)` rechtsbündig, display: block
 - ✅ Kommentare: `display: block`, line-height 1.15rem, "Anm.:" fett
 - ✅ Bildunterschriften: `(Abb. 1 - S. 61)` rechtsbündig mit CSS Counter
 - ✅ Template: "Seite" → "S." + Whitespace-Fix in Klammern
 - ✅ CSS `:has(> img)` für tight caption placement (p-Element ohne margin/padding)
+- ✅ Spacing zwischen Elementen (2.5rem margin-top mit Adjacent Sibling Combinator)
+  - comment → highlight
+  - highlight → highlight
+  - comment/highlight → image
+  - figure-caption → highlight
+  - Exception: Nach h2/h3 kein extra margin
 
-**Nächste Schritte (nach Bild-Problem-Fix):**
-- Spacing zwischen Highlights klären
-- Weitere Design-Details
+**🔜 Nächste Schritte - Feintuning:**
+1. **Callouts stylen:**
+   - Schriftgröße anpassen
+   - line-height anpassen
+2. **Feinheiten:**
+   - line-height optimieren
+   - font-size anpassen
+   - color/Farben verfeinern
 
-**Wichtig:** Erst das Bild-Import-Problem lösen, dann Design fortsetzen!
+**Wichtig:** Die Hauptstruktur steht - nur noch Politur!
 
 ---
 
