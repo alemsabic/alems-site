@@ -26,7 +26,7 @@ rating:
 status: unread
 contribution:
 pdfLink: "zotero://select/library/items/TVWPB93B"
-imported: "28-12-2025 10:20 am"
+imported: "28-12-2025 12:08 pm"
 ---
 ## Arno Schmidt: Biografie
 
@@ -54,9 +54,7 @@ imported: "28-12-2025 10:20 am"
 
 ![[hanuschek_2021-1283-x51-y414.png]]
 
-<div class="annotation-figure-caption">
-  <span class="figure-label"></span><span class="figure-source">Seite 1283</span>
-</div>
+<div class="annotation-figure-caption"><span class="figure-label"></span><span class="figure-source">S. 1283</span></div>
 
 <div class="annotation-comment">
   <span class="comment-label">Anm.:</span> Nur ein Test.

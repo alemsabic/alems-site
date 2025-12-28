@@ -26,7 +26,7 @@ rating:
 status: unread
 contribution:
 pdfLink: "zotero://select/library/items/UQQ6HVRR"
-imported: "28-12-2025 10:19 am"
+imported: "28-12-2025 12:08 pm"
 ---
 ## Das Zettelkasten-Prinzip: erfolgreich wissenschaftlich Schreiben und Studieren mit effektiven Notizen
 
@@ -44,9 +44,7 @@ imported: "28-12-2025 10:19 am"
 
 ![[ahrens_2017-61-x66-y145.png]]
 
-<div class="annotation-figure-caption">
-  <span class="figure-label"></span><span class="figure-source">Seite 61</span>
-</div>
+<div class="annotation-figure-caption"><span class="figure-label"></span><span class="figure-source">S. 61</span></div>
 
 
 <div class="annotation-highlight">
