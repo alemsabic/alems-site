@@ -24,9 +24,11 @@ rating:
 status: unread
 contribution:
 pdfLink: "zotero://select/library/items/AEVT7JJR"
-imported: "28-12-2025 9:43 am"
+imported: "28-12-2025 10:09 am"
 ---
 ## Niklas Luhmann’s Card Index: Thinking Tool, Communication Partner, Publication Machine
+
+
 
 > [!book] Quelle
 > Schmidt, Johannes F. K. 2016. _Niklas Luhmann’s Card Index: Thinking Tool, Communication Partner, Publication Machine_. Brill. [https://doi.org/10.1163/9789004325258_014](https://doi.org/10.1163/9789004325258_014).

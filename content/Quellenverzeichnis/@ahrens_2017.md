@@ -25,13 +25,17 @@ rating:
 status: unread
 contribution:
 pdfLink: "zotero://select/library/items/UQQ6HVRR"
-imported: "28-12-2025 9:43 am"
+imported: "28-12-2025 10:09 am"
 ---
 ## Das Zettelkasten-Prinzip: erfolgreich wissenschaftlich Schreiben und Studieren mit effektiven Notizen
+
 
 <div class="book-cover-container">
   <img src="https://covers.openlibrary.org/b/isbn/978-3-7431-2498-1-L.jpg" alt="Cover: Das Zettelkasten-Prinzip: erfolgreich wissenschaftlich Schreiben und Studieren mit effektiven Notizen von Ahrens" class="book-cover" loading="lazy" />
 </div>
+
+
+
 > [!book] Quelle
 > Ahrens, Sönke. 2017. _Das Zettelkasten-Prinzip: erfolgreich wissenschaftlich Schreiben und Studieren mit effektiven Notizen_. BoD - Books on Demand.
 
