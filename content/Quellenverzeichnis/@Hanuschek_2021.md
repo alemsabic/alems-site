@@ -26,7 +26,7 @@ rating:
 status: unread
 contribution:
 pdfLink: "zotero://select/library/items/TVWPB93B"
-imported: "28-12-2025 12:08 pm"
+imported: "28-12-2025 12:37 pm"
 ---
 ## Arno Schmidt: Biografie
 

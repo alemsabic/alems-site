@@ -25,7 +25,7 @@ rating:
 status: unread
 contribution:
 pdfLink: ""
-imported: "28-12-2025 12:08 pm"
+imported: "28-12-2025 12:37 pm"
 ---
 ## Yomu AI Review | Academic AI Writing Tool
 
