@@ -1,4 +1,5 @@
 ---
+cssclasses: literature-note
 tags:
   - bookSection
 aliases:
@@ -24,7 +25,7 @@ rating:
 status: unread
 contribution:
 pdfLink: "zotero://select/library/items/AEVT7JJR"
-imported: "28-12-2025 10:09 am"
+imported: "28-12-2025 10:19 am"
 ---
 ## Niklas Luhmann’s Card Index: Thinking Tool, Communication Partner, Publication Machine
 

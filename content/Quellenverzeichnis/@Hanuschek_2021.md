@@ -1,4 +1,5 @@
 ---
+cssclasses: literature-note
 tags:
   - book
 aliases:
@@ -25,7 +26,7 @@ rating:
 status: unread
 contribution:
 pdfLink: "zotero://select/library/items/TVWPB93B"
-imported: "28-12-2025 10:09 am"
+imported: "28-12-2025 10:20 am"
 ---
 ## Arno Schmidt: Biografie
 

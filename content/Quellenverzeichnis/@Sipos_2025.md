@@ -1,4 +1,5 @@
 ---
+cssclasses: literature-note
 tags:
   - blogPost
 aliases:
@@ -24,7 +25,7 @@ rating:
 status: unread
 contribution:
 pdfLink: ""
-imported: "28-12-2025 10:09 am"
+imported: "28-12-2025 10:19 am"
 ---
 ## Yomu AI Review | Academic AI Writing Tool
 
