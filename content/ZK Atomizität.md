@@ -5,26 +5,24 @@ tags:
 aliases:
   - Atomarität
   - Atomic Notes
-  - Atomare Notizen
 ---
 
 # ZK Atomizität
 
-*Atomare Notizen bedeuten thematische Unteilbarkeit. Ein Zettel enthält genau eine Idee, um als universeller Baustein in beliebigen Kontexten wiederverwendbar zu sein.*
+*Ein Gedanke, ein Zettel.*
 
-Atomizität ist das fundamentale Prinzip für die Modularität des Zettelkastens. Es besagt nicht zwingend, dass eine Notiz kurz sein muss (Wortanzahl), sondern dass sie **thematisch unteilbar** sein muss (Single Responsibility Principle).
+Wer zwei Gedanken in einen Zettel steckt, kann später nur beide oder keinen wiederfinden.
 
-Wenn eine Notiz zwei Themen vermischt (z.B. "Kapitalismuskritik und Depression"), verliert sie ihre Wiederverwendbarkeit. Willst du sie später in einem Kontext zu "Depression in der Antike" nutzen, schleppst du unweigerlich den unpassenden "Kapitalismus"-Teil mit. Das blockiert präzise Verknüpfungen.
+Ein Zettel enthält genau einen Gedanken – aber diesen so vollständig, dass du den Ursprungstext nicht mehr brauchst.^[Ahrens nennt das "Atomic Notes": "Ein Zettel enthält nur einen Gedanken, aber diesen so vollständig, dass man den Ursprungstext nicht mehr benötigt" [@ahrens_2017].] Das klingt nach Einschränkung. Es ist Befreiung. Denn nur was getrennt ist, lässt sich neu kombinieren.
 
-Nur wenn Wissen in seine kleinsten sinnvollen Einheiten (Atome) zerlegt ist, kann es wie Lego-Steine zu völlig neuen Strukturen zusammengesetzt werden. Aus denselben Steinen, die heute ein Auto bilden, kann morgen ein Flugzeug gebaut werden – aber nur, wenn Rad, Achse und Motor getrennt vorliegen und nicht verklebt sind.
+Atomizität meint nicht Kürze. Ein atomarer Zettel kann 500 Wörter haben, solange er nur ein Thema behandelt. Die Grenze ist nicht die Wortanzahl, sondern die thematische Unteilbarkeit.^[Kritiker wenden ein, Atomizität zerstöre den narrativen Fluss. Aber: Der Fluss entsteht im Manuskript, nicht im Archiv. Der Kontext wird durch Links explizit gemacht, nicht durch Vermischung vernichtet.]
 
-### Quellen
-
-Ahrens, S. (2017). _Das Zettelkasten-Prinzip_. (Der Begriff "Atomic Notes" stammt primär von ihm, nicht Luhmann).
-Doto, B. (2024). _A System for Writing_.
+Denk an Lego: Ein einzelner Stein kann Teil eines Autos oder einer Burg sein. Ein fertig verklebtes Modell ist starr. Die Zettel müssen klein genug sein, um in wechselnde Konstellationen zu passen [@luhmann_1981].
 
 ### Anknüpfungspunkte
 
-[[ZK Konnektivität]] - Atomizität ist die technische Voraussetzung für Konnektivität. Ohne getrennte Module kann kein flexibles Netz entstehen, sondern nur ein Klumpen.
+[[ZK Konnektivität]] - Atomare Zettel sind wertlos ohne Verbindung. Das eine bedingt das andere.
 
-[[ZK Kontextualisierung]] - Weil atomare Notizen für sich allein stehen (ohne Buch-Kontext), müssen ihre Verbindungen zu anderen Notizen explizit erklärt werden.
+[[SWE Single Responsibility]] - Das technische Äquivalent: Eine Klasse, eine Verantwortung. Ein Zettel, ein Gedanke.
+
+[[ZK Kontextualisierung]] - Weil der Zettel atomar ist, muss der Kontext künstlich erzeugt werden – durch Links mit Begründung.
