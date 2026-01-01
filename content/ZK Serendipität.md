@@ -11,14 +11,18 @@ aliases:
 
 *Plane für den glücklichen Unfall.*
 
-Der Zettelkasten ist ein Zufallsgenerator mit Gedächtnis.^[@luhmann_zk_trier]
+Der Zettelkasten ist ein Zufallsgenerator mit Gedächtnis.[^1]
 
-Der Zettelkasten ist so konstruiert, dass du nicht nur findest, was du suchst, sondern vor allem das, was du nicht gesucht hast, aber gerade brauchst.^[Eco: "Serendipität ist, wenn man die Nadel im Heuhaufen sucht und die Bauerntochter findet" [@eco_1998].] Das ist kein Zufall, sondern vorbereiteter Zufall.
+Der Zettelkasten ist so konstruiert, dass du nicht nur findest, was du suchst, sondern vor allem das, was du nicht gesucht hast, aber gerade brauchst.[^2] Das ist kein Zufall, sondern vorbereiteter Zufall.
 
-Denk an eine Cocktailparty: Du gehst hin, um den Gastgeber zu begrüßen (Suchziel), kommst aber ins Gespräch mit einem Fremden, der dein Leben verändert. Der Zettelkasten legt die Wege für solche Kollisionen – durch Links, die du vor Monaten gesetzt hast.^[Kritiker sagen, Zufall sei keine Strategie. Aber: Pasteur: "Chance favors the prepared mind." Die Struktur erhöht die Wahrscheinlichkeit für glückliche Kollisionen.]
+Denk an eine Cocktailparty: Du gehst hin, um den Gastgeber zu begrüßen (Suchziel), kommst aber ins Gespräch mit einem Fremden, der dein Leben verändert. Der Zettelkasten legt die Wege für solche Kollisionen – durch Links, die du vor Monaten gesetzt hast.[^3]
 
 ### Anknüpfungspunkte
 
 [[ZK Konnektivität]] - Die Wege für den Zufall werden durch Links gelegt.
 
 [[ZK Emergenz]] - Serendipität ist das Erlebnis von Emergenz im Moment des Findens.
+
+[^1]: @luhmann_zk_trier
+[^2]: Eco: "Serendipität ist, wenn man die Nadel im Heuhaufen sucht und die Bauerntochter findet" [@eco_1998].
+[^3]: Kritiker sagen, Zufall sei keine Strategie. Aber: Pasteur: "Chance favors the prepared mind." Die Struktur erhöht die Wahrscheinlichkeit für glückliche Kollisionen.

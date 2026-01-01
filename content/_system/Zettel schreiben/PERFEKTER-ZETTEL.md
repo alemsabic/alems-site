@@ -2,21 +2,88 @@
 
 ---
 
-## 0. Was ist dieses Dokument?
+## 0. Das Talmud-Prinzip
 
-**0.1** Dieses Dokument beschreibt, wie du einen perfekten Zettel erstellst.
+### Die Seite
 
-**0.2** Es enthält: Struktur, Zitier-Syntax, Recherche-Workflow, Schreib-Anleitung, Korrektur-Checkliste, Erweiterungs-Prinzip, Template, Beispiel.
+Eine Seite des Talmud sieht aus wie keine andere. In der Mitte steht die Mishna – der Ursprungstext, wenige Zeilen, manchmal ein einziger Satz. Drumherum die Gemara – die Diskussion der Rabbiner, Fragen, Einwände, Gegenargumente. Am äußeren Rand Rashi, der erklärt. Daneben die Tosafot, die Rashi widersprechen. Kommentare zu Kommentaren. Stimmen über Jahrhunderte.
 
-**0.3** Zielgruppe: Du (Mensch) und KI (als Assistent).
+Das ist keine Dekoration. Das ist die Struktur des Denkens selbst.
 
-**0.4** Arbeitsprinzip: Dieses Dokument wächst mit der Praxis. Nichts ist endgültig.
+Die Mishna ist nicht wichtiger als die Gemara. Sie ist älter. Sie ist der Kern. Aber ohne die Stimmen am Rand wäre sie tot – ein Fossil, kein Gespräch.
+
+### Der Zettel
+
+Ein Zettel ist eine Seite aus dem Talmud.
+
+In der Mitte: der Haupttext. Ein Gedanke, kristallisiert. Das ist die Mishna.
+
+Drumherum: die Fußnoten. Wer hat das auch gesagt? Wer widerspricht? Welche Beispiele gibt es? Woher kommt die Idee? Das ist die Gemara.
+
+Die Fußnoten sind keine Nachweise. Sie sind der Diskurs. Sie streiten, vertiefen, differenzieren. Sie sind keine Cheerleader des Haupttextes – sie sind seine Gesprächspartner.
+
+### Der Garten und die Wildnis
+
+Die Gärtner-Metapher führt in die Irre. Ein Garten hat einen Zaun. Drinnen: Ordnung. Draußen: Chaos. Der Gärtner jätet.
+
+Das Talmud-Prinzip kennt keinen Zaun.
+
+Der Haupttext ist der Garten – gepflegt, präzise, jedes Wort gewählt. Die Fußnoten sind die Wildnis – hier darf wuchern, was wuchern will. Zitate, Exkurse, Gegenargumente, Fundstücke. Was nicht in den Haupttext passt, aber zu wertvoll ist zum Wegwerfen.
+
+Die Wildnis nährt den Garten. Die beste Quelle ist vielleicht die, die du noch nicht gelesen hast. Das tiefste Blau wächst im dunkelsten Wald. Die schönste Blüte versteckt sich im Dickicht.
+
+Luhmann nannte den Zettelkasten eine "Klärgrube". Nicht nur abgeklärte Notizen hineintun. Die Klärgrube klärt. Der Kompost nährt. Die Wildnis blüht.
+
+### Die Praxis
+
+1. **Schreibe den Kern zuerst.** Knapp, präzise, atomar. Das ist die Mishna.
+
+2. **Dann lass die Stimmen sprechen.** Wer bestätigt? Wer widerspricht? Das ist die Gemara. Sie kommt in die Fußnoten.
+
+3. **Lösche nichts vorschnell.** Was heute überflüssig scheint, kann morgen der Schlüssel sein. Die Wildnis ist Reservoir, nicht Müllhalde.
+
+4. **Der Rand wächst.** Ein guter Zettel hat nach einem Jahr mehr Fußnoten als am Anfang. Der Haupttext bleibt. Der Diskurs lebt.
+
+### Die Struktur
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                                                             │
+│                    ┌───────────────────┐                    │
+│   Fußnote 1        │                   │        Fußnote 2   │
+│   (Bestätigung)    │    HAUPTTEXT      │     (Widerspruch)  │
+│                    │    (Mishna)       │                    │
+│   "Hutchins sagt   │                   │   "Schmidt wendet  │
+│    dasselbe..."    │   Der Gedanke,    │    ein, dass..."   │
+│                    │   kristallisiert  │                    │
+│                    │                   │                    │
+│   Fußnote 3        │                   │        Fußnote 4   │
+│   (Beispiel)       └───────────────────┘       (Genealogie) │
+│                                                             │
+│   "Am Beispiel     ─────────────────────      "Die Idee     │
+│    der Marine..."        (Gemara)              geht zurück  │
+│                                                 auf..."     │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+```
 
 ---
 
-## 1. Das Ziel
+## 1. Was ist dieses Dokument?
 
-**1.1** Ein perfekter Zettel ist:
+**1.1** Dieses Dokument beschreibt, wie du einen perfekten Zettel erstellst.
+
+**1.2** Es enthält: Leitgedanke (Talmud-Prinzip), Struktur, Zitier-Syntax, Recherche-Workflow, Schreib-Anleitung, Korrektur-Checkliste, Pipeline, Template, Beispiel.
+
+**1.3** Zielgruppe: Du (Mensch) und KI (als Assistent).
+
+**1.4** Arbeitsprinzip: Dieses Dokument wächst mit der Praxis. Nichts ist endgültig.
+
+---
+
+## 2. Das Ziel
+
+**2.1** Ein perfekter Zettel ist:
 
 - **atomar** – ein Gedanke pro Zettel, thematisch unteilbar. Nicht gemeint: kurz. Ein atomarer Zettel kann 500 Wörter haben, solange er nur ein Thema behandelt.
 
@@ -32,17 +99,17 @@
 
 - **kurz** – so wenig Wörter wie nötig für diesen Gedanken. Kürze ist nicht Minimalismus, sondern Prägnanz. Wer kürzt, muss schärfer denken. Pascal: "Ich entschuldige mich, dass dieser Brief so lang geworden ist – hätte ich mehr Zeit gehabt, wäre er kürzer."
 
-**1.2** Perfektion ist kein Endpunkt. Ein Zettel kann wachsen (Talmud-Prinzip, siehe 7.).
+**2.2** Perfektion ist kein Endpunkt. Ein Zettel kann wachsen (Talmud-Prinzip, siehe 0.).
 
-**1.3** Perfektion ist kein Einstiegspunkt. Ein Zettel darf als Draft beginnen. Luhmann: "Zettelkasten als Klärgrube – nicht nur abgeklärte Notizen hineintun." Die Klärgrube klärt. Der Zettel reift.
+**2.3** Perfektion ist kein Einstiegspunkt. Ein Zettel darf als Draft beginnen. Luhmann: "Zettelkasten als Klärgrube – nicht nur abgeklärte Notizen hineintun." Die Klärgrube klärt. Der Zettel reift.
 
-**1.4** Der perfekte Zettel entsteht nicht isoliert. Er entsteht im Cluster mit verwandten Zetteln (siehe 4.).
+**2.4** Der perfekte Zettel entsteht nicht isoliert. Er entsteht im Cluster mit verwandten Zetteln (siehe 5.).
 
 ---
 
-## 2. Die Anatomie
+## 3. Die Anatomie
 
-**2.1** Struktur eines Zettels:
+**3.1** Struktur eines Zettels:
 
 ```
 ┌─────────────────────────────────────┐
@@ -66,7 +133,7 @@
 └─────────────────────────────────────┘
 ```
 
-**2.2** Frontmatter:
+**3.2** Frontmatter:
 
 ```yaml
 ---
@@ -83,7 +150,7 @@ aliases:
 - `tags:` → Optional, für thematische Gruppierung
 - `aliases:` → Optional, für Auffindbarkeit (Synonyme, Übersetzungen)
 
-**2.3** Titel (H1):
+**3.3** Titel (H1):
 
 **Prinzip:** Auf kürzestem Raum so viel über den Inhalt verraten wie möglich. Grammatik ist egal. Auskunft ist das Ziel.
 
@@ -97,14 +164,14 @@ aliases:
 - Vage: "Gedanken zu Pragmatismus"
 - Clever: "Der Mönch und die Methode"
 
-**2.4** Merksatz:
+**3.4** Merksatz:
 
 - Kursiv: `*Merksatz*`
 - Lakonisch, wie ein Knoten im Taschentuch
 - Erinnert dich sofort, worum es geht
 - Beispiel: `*Ein Gedanke pro Zettel.*`
 
-**2.5** Ein-Satz-Essenz (optional):
+**3.5** Ein-Satz-Essenz (optional):
 
 - Kommt NACH der Ausführung, nicht davor
 - Erst möglich, wenn du den Zettel wirklich verstanden hast
@@ -112,19 +179,19 @@ aliases:
 - Kein Pflichtfeld – ein guter Zettel funktioniert auch ohne
 - Beispiel: "Wer zwei Gedanken in einen Zettel steckt, kann später nur beide oder keinen wiederfinden."
 
-**2.6** Ausführung:
+**3.6** Ausführung:
 
 - Der atomare Haupttext
 - Eigene Worte, nicht nur Zitate
 - Mit Zitierungen `[@key]` und Fußnoten `[^n]`
 
-**2.7** Anknüpfungspunkte:
+**3.7** Anknüpfungspunkte:
 
 - Kontextualisierte Links
 - Nicht nur `[[Link]]`, sondern `[[Link]] - Warum relevant`
 - Mindestens ein Link (keine Waisen)
 
-**2.8** Quellen:
+**3.8** Quellen:
 
 - Werden automatisch generiert durch Pandoc
 - Du brauchst keine manuelle `### Quellen`-Sektion
@@ -132,11 +199,11 @@ aliases:
 
 ---
 
-## 3. Zitieren & Belegen
+## 4. Zitieren & Belegen
 
 Ziel ist nicht bürokratische Korrektheit, sondern gedankliche Nachvollziehbarkeit. Wir nutzen die volle Pandoc-Syntax.
 
-### 3.1 Inline-Zitierung
+### 4.1 Inline-Zitierung
 
 Zwei Arten:
 1. **Parenthetical (Klammer):** Die Quelle steht in Klammern. Fokus auf der Aussage.
@@ -165,7 +232,7 @@ Zwei Arten:
 *Beleg-Stil (gut für harte Fakten):*
 > Das Zettelkasten-Prinzip basiert auf der Annahme, dass unser Kurzzeitgedächtnis limitiert ist [@miller_1956], weshalb wir externe Denkgerüste benötigen [@ahrens_2017, p. 23].
 
-### 3.2 Fußnoten (Der Diskurs-Raum)
+### 4.2 Fußnoten (Der Diskurs-Raum)
 
 Fußnoten sind keine Müllhalde für bibliographische Daten (das macht Pandoc automatisch). Fußnoten sind Denk-Ebenen. Talmud-Prinzip.
 
@@ -186,7 +253,7 @@ Das System erzwingt Atomizität.[^1]
 
 Zitate innerhalb der Fußnote landen ebenfalls im Literaturverzeichnis.
 
-### 3.3 Wann was nutzen?
+### 4.3 Wann was nutzen?
 
 **Szenario A: Direkte Stütze**
 *Ich behaupte X und hier ist der Beweis.*
@@ -200,32 +267,32 @@ Nutze Fußnote: `Das Gehirn denkt in Assoziationen.[^1]` mit `[^1]: Interessante
 *A sagt X, B sagt Y, ich sage Z.*
 Nutze Narrativ: `@freud_1900 sah Träume als Wünsche, während @jung_1934 sie als Archetypen deutete. Wir betrachten sie hier als neuronales Rauschen.`
 
-### 3.4 Goldene Regeln
+### 4.4 Goldene Regeln
 
 1. **Sei präzise:** Zitiere nicht das ganze Buch `[@buch]`, wenn der Gedanke auf Seite 45 steht `[@buch, p. 45]`. Atomarer Zettel, atomarer Beleg.
 2. **Kein Namedropping:** Vermeide `(Müller, 2000; Meier, 2001; Schulze, 2002; ...)`, es sei denn, die Menge ist das Argument. Wähle die stärkste Quelle.
 3. **Zotero ist die Wahrheit:** Der `@citekey` muss exakt mit Zotero/BetterBibTeX übereinstimmen. Tippfehler = Zitat wird nicht gerendert.
 
-### 3.5 Workflow: Quelle → Zettel
+### 4.5 Workflow: Quelle → Zettel
 
 ```
-3.5.1  Quelle finden (Recherche, Lektüre)
-3.5.2  Quelle in Zotero aufnehmen
-3.5.3  Zotero → Auto-Export → bibliography.bib
-3.5.4  Citekey nutzen: [@citekey] im Zettel
-3.5.5  Pandoc/Quartz generiert Bibliographie automatisch
+4.5.1  Quelle finden (Recherche, Lektüre)
+4.5.2  Quelle in Zotero aufnehmen
+4.5.3  Zotero → Auto-Export → bibliography.bib
+4.5.4  Citekey nutzen: [@citekey] im Zettel
+4.5.5  Pandoc/Quartz generiert Bibliographie automatisch
 ```
 
-### 3.6 Citekey-Format
+### 4.6 Citekey-Format
 
 - Zotero Better BibTeX generiert: `autor_jahr` (z.B. `ahrens_2017`)
 - Bei Konflikten: `ahrens_2017a`, `ahrens_2017b`
 
 ---
 
-## 4. Recherche
+## 5. Recherche
 
-### 4.1 Stufe 0: Cluster-Exploration
+### 5.1 Stufe 0: Cluster-Exploration
 
 Bevor du Titel festlegst, Überblick verschaffen. Kartografie vor dem Graben.
 
@@ -242,35 +309,35 @@ Liefere mir nur die Titel dieser Zettel-Cluster.
 
 Erst DANACH → Stufe 1 (Cluster-Recherche).
 
-### 4.2 Das Problem mit Begriff-Recherche
+### 5.2 Das Problem mit Begriff-Recherche
 
-**4.2.1** "Recherchiere Atomizität" → isolierter Zettel
+**5.2.1** "Recherchiere Atomizität" → isolierter Zettel
 
-**4.2.2** Der Zettel existiert nicht im Vakuum. Er braucht Nachbarn.
+**5.2.2** Der Zettel existiert nicht im Vakuum. Er braucht Nachbarn.
 
-**4.2.3** Besser: Thema → Cluster → Zusammen recherchieren
+**5.2.3** Besser: Thema → Cluster → Zusammen recherchieren
 
-### 4.3 Der Cluster-Ansatz
+### 5.3 Der Cluster-Ansatz
 
 ```
-4.3.1  Thema wählen
+5.3.1  Thema wählen
        └── Beispiel: "Prinzipien des Zettelkastens"
 
-4.3.2  Haupt-Zettel identifizieren (3-5)
+5.3.2  Haupt-Zettel identifizieren (3-5)
        └── Atomizität, Konnektivität, Kontextualisierung
 
-4.3.3  Neben-Zettel identifizieren (2-3)
+5.3.3  Neben-Zettel identifizieren (2-3)
        └── Single Responsibility, Modularität, Baukastenprinzip
 
-4.3.4  Zusammen recherchieren
+5.3.4  Zusammen recherchieren
        └── Eine Recherche, Material für alle Zettel
 ```
 
-### 4.4 Prüffrage nach der Cluster-Recherche
+### 5.4 Prüffrage nach der Cluster-Recherche
 
 > Kann jeder Zettel für sich stehen, auch wenn die anderen nicht existieren würden? Wenn nein, sind die Zettel nicht atomar, sondern verklammert.
 
-### 4.5 Recherche-Prompt
+### 5.5 Recherche-Prompt
 
 Kopiere diesen Prompt in Perplexity Pro oder Gemini Pro:
 
@@ -323,7 +390,7 @@ WICHTIG:
 - Für jeden Zettel eine eigene Sektion
 ```
 
-### 4.6 Goldstück-Prinzip
+### 5.6 Goldstück-Prinzip
 
 Die Recherche liefert viel Material. Deine Aufgabe: Die Goldstücke finden und markieren (⭐).
 
@@ -340,7 +407,7 @@ Die Recherche liefert viel Material. Deine Aufgabe: Die Goldstücke finden und m
 
 **Regel:** Am Ende des Schreibens: Alle Goldstücke verwendet? Wenn nein → zurück zur Ausführung.
 
-### 4.8 Recherche-Output
+### 5.7 Recherche-Output
 
 Speichere das Ergebnis als: `_recherchen/R-[Thema].md`
 
@@ -348,49 +415,49 @@ Beispiel: `_recherchen/R-Prinzipien des Zettelkastens.md`
 
 ---
 
-## 5. Schreiben
+## 6. Schreiben
 
-### 5.1 Vor dem Schreiben
-
-```
-5.1.1  Thema wählen
-5.1.2  Cluster definieren (Haupt- + Neben-Zettel)
-5.1.3  Recherche durchführen (siehe 4.)
-5.1.4  Quellen in Zotero aufnehmen
-5.1.5  Recherche-Output sichten
-```
-
-### 5.2 Beim Schreiben
+### 6.1 Vor dem Schreiben
 
 ```
-5.2.1  Template kopieren (siehe 8.)
-5.2.2  Frontmatter ausfüllen (cssclasses, tags, aliases)
-5.2.3  Titel schreiben (grob): Auskunft, nicht Satz
-5.2.4  Ausführung schreiben: Atomar, eigene Worte
-5.2.5  Zitieren: [@key] für Inline, ^[...] für Fußnoten
-5.2.6  Anknüpfungspunkte: [[Link]] - Warum relevant
-5.2.7  Merksatz schreiben: Lakonisch, kursiv (Knoten im Taschentuch)
-5.2.8  Ein-Satz-Essenz (optional): Erst wenn du den Zettel verstanden hast
-5.2.9  Titel präzisieren
+6.1.1  Thema wählen
+6.1.2  Cluster definieren (Haupt- + Neben-Zettel)
+6.1.3  Recherche durchführen (siehe 5.)
+6.1.4  Quellen in Zotero aufnehmen
+6.1.5  Recherche-Output sichten
 ```
 
-### 5.3 Nach dem Schreiben
+### 6.2 Beim Schreiben
 
 ```
-5.3.1  Korrektur (siehe 6.)
-5.3.2  Vorlese-Test
-5.3.3  Links prüfen (existieren die Ziele?)
+6.2.1  Template kopieren (siehe 10.)
+6.2.2  Frontmatter ausfüllen (cssclasses, tags, aliases)
+6.2.3  Titel schreiben (grob): Auskunft, nicht Satz
+6.2.4  Ausführung schreiben: Atomar, eigene Worte
+6.2.5  Zitieren: [@key] für Inline, [^n] für Fußnoten
+6.2.6  Anknüpfungspunkte: [[Link]] - Warum relevant
+6.2.7  Merksatz schreiben: Lakonisch, kursiv (Knoten im Taschentuch)
+6.2.8  Ein-Satz-Essenz (optional): Erst wenn du den Zettel verstanden hast
+6.2.9  Titel präzisieren
+```
+
+### 6.3 Nach dem Schreiben
+
+```
+6.3.1  Korrektur (siehe 7.)
+6.3.2  Vorlese-Test
+6.3.3  Links prüfen (existieren die Ziele?)
 ```
 
 ---
 
-## 6. Korrektur
+## 7. Korrektur
 
-### 6.1 Der Vorlese-Test
+### 7.1 Der Vorlese-Test
 
 Lies den Zettel laut vor. Wenn du stolperst, stimmt etwas nicht.
 
-### 6.2 Checkliste
+### 7.2 Checkliste
 
 ```
 [ ] Du statt man
@@ -402,68 +469,211 @@ Lies den Zettel laut vor. Wenn du stolperst, stimmt etwas nicht.
 [ ] Aktiv statt Passiv
 [ ] Verben statt Nomen
 [ ] Merksatz ist lakonisch (nicht zwei Sätze)
-[ ] Hook zieht rein
+[ ] Ein-Satz-Essenz zieht rein
 [ ] Jeder Link ist kontextualisiert
 ```
 
-### 6.3 Später ausbauen
-
-Diese Sektion wird mit der Praxis wachsen. Beispiele, häufige Fehler, Lösungen.
-
----
-
-## 7. Talmud-Prinzip
-
-### 7.1 Die Idee
-
-**7.1.1** Der Haupttext bleibt atomar. Er ist der "Blumengarten" – gepflegt, begrenzt.
-
-**7.1.2** Die Fußnoten wachsen. Sie sind die "Wildnis" – hier können Dinge entstehen, die du nie geplant hast.
-
-**7.1.3** Der Zettel selbst wächst nicht. Das Drumherum wächst.
-
-### 7.2 Arten der Erweiterung
-
-**7.2.1** Andere Perspektiven:
-```markdown
-Text.[^1]
-
-[^1]: Luhmann sieht das anders: "..." [@luhmann_1981, p. 223].
-```
-
-**7.2.2** Gegenargumente:
-```markdown
-Text.[^2]
-
-[^2]: Kritiker wie X wenden ein, dass... Aber: ...
-```
-
-**7.2.3** Vertiefungen:
-```markdown
-Text.[^3]
-
-[^3]: Für eine ausführliche Behandlung siehe [@doto_2024, Kap. 3].
-```
-
-**7.2.4** Zitat vom Zitat:
-```markdown
-Text.[^4]
-
-[^4]: Ahrens zitiert hier Luhmann, der wiederum auf... [@ahrens_2017, p. 78].
-```
-
-### 7.3 Wann erweitern?
+### 7.3 Die sieben Attribute
 
 ```
-7.3.1  Beim Wiederlesen (nach Wochen, Monaten)
-7.3.2  Wenn neue Quellen auftauchen
-7.3.3  Wenn du Widersprüche entdeckst
-7.3.4  Wenn jemand etwas Kluges dazu gesagt hat
+[ ] atomar – ein Gedanke
+[ ] vernetzt – Links vorhanden
+[ ] zitierfähig – Quellen angegeben
+[ ] erweiterbar – Fußnoten für Wildnis
+[ ] selbsterklärend – ohne andere Zettel verständlich
+[ ] lesbar – vorlesbar ohne Stolpern
+[ ] kurz – so wenig Wörter wie nötig
 ```
 
 ---
 
-## 8. Template
+## 8. Pipeline
+
+Die Zettel-Erstellung folgt einer zweiphasigen Pipeline.
+
+### 8.1 Übersicht
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                            ZETTEL-PIPELINE                                   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  [STUFE_0]──────>[STUFE_1]──────>[STUFE_2]──────>[STUFE_3]                  │
+│  Exploration     Recherche       Schreiben       Korrektur                  │
+│                                                                             │
+│  Output:         Output:         Output:         Output:                    │
+│  CLUSTER         BAUPLAN         ENTWURF         ZETTEL_KERN                │
+│                                                                             │
+│                            ═══════════════════                              │
+│                            MISHNA STEHT                                     │
+│                            ═══════════════════                              │
+│                                    │                                        │
+│                                    ▼                                        │
+│                  [STUFE_4]──────>[STUFE_5]                                  │
+│                  Talmud-          Anreicherung                              │
+│                  Recherche                                                  │
+│                                                                             │
+│                  Output:          Output:                                   │
+│                  GEMARA           ZETTEL_FINAL                              │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### 8.2 PHASE 1: MISHNA (Der Kern entsteht)
+
+**STUFE_0: Cluster-Exploration**
+- Input: Thema
+- Prozess: Thema in atomare Konzepte zerlegen
+- Output: CLUSTER (5 Hauptzettel, 3 Randzettel – nur Titel)
+
+**STUFE_1: Recherche**
+- Input: CLUSTER
+- Prozess: Für jeden Titel recherchieren (Kernaussage, Definitionen, Zitate, Gegenargumente)
+- Output: BAUPLAN (mit Goldstücken ⭐ markiert)
+
+**STUFE_2: Schreiben**
+- Input: BAUPLAN
+- Prozess: Zettel schreiben, Goldstücke einbauen
+- Output: ENTWURF
+
+**STUFE_3: Korrektur**
+- Input: ENTWURF
+- Prozess: Checkliste durchgehen, sieben Attribute prüfen
+- Output: ZETTEL_KERN (Status: kern_fertig)
+
+### 8.3 PHASE 2: GEMARA (Die Stimmen kommen)
+
+**STUFE_4: Talmud-Recherche**
+- Input: ZETTEL_KERN
+- Prozess: Zweite Recherche auf Basis des fertigen Zettels
+- Suche nach: Bestätigungen, Widersprüche, Beispiele, Genealogie, Vertiefungen
+- Output: GEMARA (Fußnoten-Kandidaten + Quellen-Manifest)
+
+**STUFE_5: Anreicherung**
+- Input: ZETTEL_KERN + GEMARA
+- Prozess: Fußnoten einfügen, Links ergänzen
+- Output: ZETTEL_FINAL (Status: angereichert → final)
+
+### 8.4 Zwei-Phasen-Logik
+
+PHASE 1 kann ohne PHASE 2 abgeschlossen werden. Der Zettel ist dann "kern_fertig" – lesbar, atomar, aber noch ohne volle Gemara. Das ist okay. Der Rand wächst später.
+
+PHASE 2 kann jederzeit nachgeholt werden – auch Monate später. Der Zettel reift. Die Wildnis wächst.
+
+### 8.5 Fußnoten-Typen in der Gemara
+
+| Typ | Frage | Beispiel |
+|-----|-------|----------|
+| Bestätigung | Wer sagt dasselbe? | "Hutchins kommt zum selben Schluss..." |
+| Widerspruch | Wer widerspricht? | "Schmidt wendet ein, dass..." |
+| Beispiel | Welche Fälle illustrieren? | "Am Beispiel der Navigation..." |
+| Genealogie | Woher kommt die Idee? | "Die Idee geht zurück auf..." |
+| Vertiefung | Wer geht weiter? | "Clark zieht daraus die Konsequenz..." |
+
+### 8.6 Protokoll: Fußnote ergänzen
+
+Wenn der Nutzer sagt:
+- "Füge zu Zettel X hinzu: [Text]"
+- "Vertiefe Zettel X mit Quellen zu Y"
+- "Erzähl mir was zu Y und füge es zu Zettel X hinzu"
+
+Dann automatisch:
+
+**1. Text → Fußnote formatieren**
+
+Eingabe:
+> Edwin Hutchins (Cognition in the Wild, 1995) ist der Begründer...
+
+Ausgabe:
+```markdown
+[^hutchins]: Edwin Hutchins ist der Begründer der Theorie der Distributed Cognition. Er wies am Beispiel der Navigation auf Marineschiffen nach, dass kognitive Prozesse nicht isoliert im Gehirn stattfinden, sondern auf die Umgebung und Werkzeuge verteilt sind [@hutchins_1995]. Seine radikale These: Medien erleichtern das Denken nicht nur, sie ermöglichen es erst.
+```
+
+**2. Inline-Referenz → Citekey konvertieren**
+
+| Eingabe | Ausgabe |
+|---------|---------|
+| (Cognition in the Wild, 1995) | `[@hutchins_1995]` |
+| (Hutchins, 1995) | `[@hutchins_1995]` |
+| Hutchins (1995) | `@hutchins_1995` (narrativ) |
+
+**3. Quellen-Manifest erzeugen (wenn nicht in Zotero)**
+
+```yaml
+NEUE_QUELLE:
+  citekey_vorschlag: "@hutchins_1995"
+  autor: "Edwin Hutchins"
+  titel: "Cognition in the Wild"
+  jahr: 1995
+  typ: book
+  import_priorität: hoch
+```
+
+**4. Fußnoten-Typ klassifizieren**
+
+| Typ | Erkennungsmuster |
+|-----|------------------|
+| Bestätigung | "sagt dasselbe", "kommt zum selben Schluss", "bestätigt" |
+| Widerspruch | "wendet ein", "widerspricht", "kritisiert" |
+| Beispiel | "am Beispiel", "zeigt sich bei", "etwa bei" |
+| Genealogie | "geht zurück auf", "Begründer", "erstmals bei" |
+| Vertiefung | "geht weiter", "radikale These", "Konsequenz" |
+
+**5. In Zettel einfügen**
+
+- Fußnotenmarker `[^n]` an passender Stelle im Haupttext
+- Fußnotendefinition am Ende des Dokuments
+- Quellen-Manifest als separater Output
+
+---
+
+### 8.7 Prompt: Talmud-Recherche (STUFE_4)
+
+```text
+Die Mishna steht. Jetzt kommen die Stimmen.
+
+Hier ist der Zettel-Kern:
+
+[ZETTEL_KERN EINFÜGEN]
+
+Führe eine Talmud-Recherche durch:
+
+1. BESTÄTIGUNGEN
+   Wer sagt dasselbe? Welche Denker, Forscher, Praktiker kommen
+   zum selben Schluss? Liefere Autor, Werk, Jahr, und formuliere
+   eine Fußnote, die erklärt WARUM diese Stimme relevant ist.
+
+2. WIDERSPRÜCHE
+   Wer widerspricht? Was ist das stärkste Gegenargument?
+   Formuliere die Gegenposition fair. Dann: Wie entkräftest du sie?
+
+3. BEISPIELE
+   Welche konkreten Fälle illustrieren den Gedanken?
+   Empirische Studien, historische Ereignisse, Alltagsbeobachtungen.
+
+4. GENEALOGIE
+   Woher kommt die Idee? Wer hat sie zuerst formuliert?
+   Welche Tradition steht dahinter?
+
+5. VERTIEFUNGEN
+   Wer geht weiter? Welche Konsequenzen werden anderswo gezogen?
+   Was sind die radikalen Implikationen?
+
+Für jede Quelle:
+- Wenn in meiner Zotero-Bibliothek: Citekey angeben
+- Wenn neu: Autor, Titel, Jahr, Typ (book/article/chapter/web)
+- Relevanz: Warum gehört diese Stimme in die Gemara?
+- Import-Priorität: hoch/mittel/niedrig
+
+Liefere:
+1. Fußnoten-Kandidaten (mit Position im Text)
+2. Verwandte Zettel im Vault
+3. Quellen-Manifest für Zotero-Import
+```
+
+---
+
+## 9. Template
 
 Kopiere diese Vorlage für jeden neuen Zettel:
 
@@ -493,7 +703,7 @@ Ausführung.[^1]
 
 ---
 
-## 9. Beispiel
+## 10. Beispiel
 
 Ein vollständiger Zettel mit allen Elementen:
 
@@ -529,14 +739,15 @@ Nur wenn Wissen in seine kleinsten sinnvollen Einheiten zerlegt ist, kann es zu 
 
 ---
 
-## 10. Änderungshistorie
+## 11. Änderungshistorie
 
-| Datum      | Version | Änderung                                                                                                                                                                                                                           |
-| ---------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 30.12.2025 | 1.0     | Initiale Version                                                                                                                                                                                                                   |
-| 31.12.2025 | 2.0     | Große Revision: 7 Attribute (1.1), Klärgruben-Prinzip (1.3), Titel als Auskunft (2.3), Hook → Ein-Satz-Essenz (2.5), Zitier-Sektion erweitert (3.), Recherche mit Stufe 0 und Prüffrage (4.), Schreib-Reihenfolge korrigiert (5.2) |
-| 31.12.2025 | 2.1     | Recherche-Prompt erweitert (Definitionen, Modelle, Goldstück-Markierung), Goldstück-Prinzip (4.6): IN den Zettel, nicht daneben |
-| 01.01.2026 | 2.2     | Fußnoten-Syntax auf Obsidian-Format umgestellt (`[^n]` statt `^[...]`), Beispiel-Zettel verbessert |
+| Datum      | Version | Änderung |
+| ---------- | ------- | -------- |
+| 30.12.2025 | 1.0     | Initiale Version |
+| 31.12.2025 | 2.0     | Große Revision: 7 Attribute, Klärgruben-Prinzip, Titel als Auskunft, Hook → Ein-Satz-Essenz, Zitier-Sektion erweitert, Recherche mit Stufe 0 und Prüffrage |
+| 31.12.2025 | 2.1     | Recherche-Prompt erweitert (Definitionen, Modelle, Goldstück-Markierung), Goldstück-Prinzip: IN den Zettel, nicht daneben |
+| 01.01.2026 | 2.2     | Fußnoten-Syntax auf Obsidian-Format umgestellt (`[^n]` statt `^[...]`) |
+| 01.01.2026 | 3.0     | **Talmud-Prinzip als Leitgedanke (Sektion 0):** Mishna/Gemara-Struktur, Garten/Wildnis-Metapher. **Zweiphasige Pipeline (Sektion 8):** PHASE 1 (Mishna) mit STUFE_0-3, PHASE 2 (Gemara) mit STUFE_4-5. Talmud-Recherche nach dem Zettel. Fünf Fußnoten-Typen (Bestätigung, Widerspruch, Beispiel, Genealogie, Vertiefung). |
 
 ---
 
