@@ -473,7 +473,49 @@ Lies den Zettel laut vor. Wenn du stolperst, stimmt etwas nicht.
 [ ] Jeder Link ist kontextualisiert
 ```
 
-### 7.3 Die sieben Attribute
+### 7.3 Erweiterte Stilregeln
+
+**Kein "Als" am Satzanfang**
+- Schlecht: "Als ein Historiker fragte..."
+- Nur wenn der Zeitpunkt relevant ist.
+
+**Namen statt Rollen**
+- Schlecht: "Ein Historiker fragte Feynman"
+- Gut: "Charles Weiner fragte Feynman" (+ Fußnote wer Weiner ist)
+- Wenn die Person unwichtig ist: Rolle weglassen, nicht erwähnen.
+
+**Show, don't tell**
+- Schlecht: "Feynman widersprach"
+- Gut: "Feynman sagte" – der Leser urteilt selbst.
+
+**Originalzitate in Fußnoten**
+- Wenn du übersetzt oder paraphrasierst: Original in Fußnote.
+- Feynman sprach Englisch, also englisches Zitat in Fußnote.
+
+**Semikolon für Kontraste**
+- Schlecht: "nicht X, sondern Y"
+- Gut: "nicht X; Y"
+- Beispiel: "Du schreibst nicht, um zu speichern; du schreibst, um zu denken."
+
+**Wiederholung für Klarheit**
+- Schlecht: "kein Archiv, sondern Werkstatt"
+- Gut: "kein Archiv; das Papier ist eine Werkstatt"
+
+**Konkret statt abstrakt**
+- Schlecht: "externe Symbole manipulieren"
+- Gut: "Zettel verschieben", "Wörter streichen"
+- Schreib für ein intelligentes Kind.
+
+**Klares Subjekt**
+- Schlecht: "Schreiber", "Man", "Menschen"
+- Gut: "Du", konkreter Name, oder Satz umbauen.
+
+**Ein starkes Beispiel**
+- Schlecht: Zwei mittelmäßige Beispiele
+- Gut: Ein Beispiel, das sitzt.
+- Wenn es nicht passt, weglassen.
+
+### 7.4 Die sieben Attribute
 
 ```
 [ ] atomar – ein Gedanke
@@ -833,7 +875,8 @@ Nur wenn Wissen in seine kleinsten sinnvollen Einheiten zerlegt ist, kann es zu 
 | 01.01.2026 | 3.0     | **Talmud-Prinzip als Leitgedanke (Sektion 0):** Mishna/Gemara-Struktur, Garten/Wildnis-Metapher. **Zweiphasige Pipeline (Sektion 8):** PHASE 1 (Mishna) mit STUFE_0-3, PHASE 2 (Gemara) mit STUFE_4-5. Talmud-Recherche nach dem Zettel. Fünf Fußnoten-Typen (Bestätigung, Widerspruch, Beispiel, Genealogie, Vertiefung). |
 | 01.01.2026 | 3.1     | Talmud-Recherche-Prompt: CONSTRAINTS-Sektion, QUALITÄTSPRÜFUNG. |
 | 01.01.2026 | 3.2     | Prompt: Beispiel statt Regeln, SELBST-CHECK, PALIMPSEST-REGEL. |
-| 01.01.2026 | 3.3     | **Arbeitsteilung:** STUFE_4 (Recherche) und STUFE_5 (Schreiben) getrennt. Externe KIs liefern ROHMATERIAL (Quellen, Zitate, Kontext). Schreiben übernimmt Autor/Claude. Prompt komplett neu als strukturiertes YAML-Format für maximale Weiterverarbeitung. |
+| 01.01.2026 | 3.3     | **Arbeitsteilung:** STUFE_4 (Recherche) und STUFE_5 (Schreiben) getrennt. Externe KIs liefern ROHMATERIAL. Prompt als YAML-Format. |
+| 01.01.2026 | 3.4     | **Erweiterte Stilregeln (7.3):** Kein "Als", Namen statt Rollen, Show don't tell, Originalzitate in Fußnoten, Semikolon für Kontraste, Wiederholung für Klarheit, Konkret statt abstrakt, Klares Subjekt, Ein starkes Beispiel. |
 
 ---
 
