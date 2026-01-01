@@ -39,9 +39,17 @@ Cluster   Recherche  Schreiben  Korrektur  Talmud     Anreicherung
 
 ---
 
+## Nächste Session
+
+1. **[[ZK Emergenz]] kritisieren und verbessern** – Stilregeln anwenden, iterieren
+2. **Weitere Zettel durch Pipeline** – testen, verbessern, Regeln schärfen
+3. **Volle Pipeline testen** – STUFE_0 (Cluster) bis STUFE_5 mit neuem Thema
+
+---
+
 ## Offene Aufgaben
 
-### 1. Talmud-Recherche-Prompt verbessern (PRIORITÄT)
+### 1. Talmud-Recherche-Prompt verbessern (ERLEDIGT ✅)
 
 **Problem:** Gemini liefert inhaltlich gute, aber strukturell fehlerhafte Zettel.
 
@@ -104,6 +112,7 @@ Aus der Talmud-Recherche:
 
 | Datum | Was |
 |-------|-----|
+| 01.01.2026 | "Kognition Externalisierung" finalisiert, 9 neue Stilregeln in PERFEKTER-ZETTEL.md (v3.4) |
 | 01.01.2026 | STATUS.md → ZIEL-UND-AUFGABEN.md umbenannt |
 | 01.01.2026 | Prompt-Schwächen identifiziert (fehlende CONSTRAINTS) |
 | 01.01.2026 | Zweiter Pipeline-Test mit verbessertem Prompt (Schreibregeln) |
