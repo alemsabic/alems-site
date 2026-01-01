@@ -57,7 +57,7 @@
 ├─────────────────────────────────────┤
 │ Ausführung.                         │
 │ Mit Zitierungen [@key] und          │
-│ Fußnoten.^[Kommentar]               │
+│ Fußnoten.[^1]                       │
 ├─────────────────────────────────────┤
 │ ### Anknüpfungspunkte               │
 │ [[Link]] - Warum relevant.          │
@@ -116,7 +116,7 @@ aliases:
 
 - Der atomare Haupttext
 - Eigene Worte, nicht nur Zitate
-- Mit Pandoc-Zitierungen `[@key]` und Fußnoten `^[...]`
+- Mit Zitierungen `[@key]` und Fußnoten `[^n]`
 
 **2.7** Anknüpfungspunkte:
 
@@ -169,15 +169,20 @@ Zwei Arten:
 
 Fußnoten sind keine Müllhalde für bibliographische Daten (das macht Pandoc automatisch). Fußnoten sind Denk-Ebenen. Talmud-Prinzip.
 
-**Syntax:**
+**Syntax (Obsidian-kompatibel):**
 
 | Syntax | Beschreibung |
 | :--- | :--- |
-| `^[Das ist eine Fußnote.]` | Inline-Fußnote. Wird automatisch nummeriert. |
-| `Text^[Erste.]` und `mehr^[Zweite.]` | Auto-Nummerierung. Du kümmerst dich nicht um Zahlen. |
+| `Text mit Fußnote.[^1]` | Referenz im Text. Die Zahl ist frei wählbar. |
+| `[^1]: Inhalt der Fußnote.` | Definition am Ende des Dokuments. |
 
 **Beispiel (diskursive Fußnote):**
-> Das System erzwingt Atomizität.^[Dies ist nicht unumstritten. Schmidt [@schmidt_2016] argumentiert, dass zu starke Atomisierung den Kontext zerstört. Ich folge hier jedoch Ahrens, weil...]
+
+```markdown
+Das System erzwingt Atomizität.[^1]
+
+[^1]: Dies ist nicht unumstritten. Schmidt [@schmidt_2016] argumentiert, dass zu starke Atomisierung den Kontext zerstört. Ich folge hier jedoch Ahrens, weil...
+```
 
 Zitate innerhalb der Fußnote landen ebenfalls im Literaturverzeichnis.
 
@@ -189,7 +194,7 @@ Nutze Inline: `Das Gehirn denkt in Assoziationen [@kahneman_2011].`
 
 **Szenario B: Abstecher**
 *Ich behaupte X, aber es gibt eine spannende Nebentheorie.*
-Nutze Fußnote: `Das Gehirn denkt in Assoziationen.^[Interessanterweise widerspricht das der klassischen KI-Forschung, siehe [@dreyfus_1972].]`
+Nutze Fußnote: `Das Gehirn denkt in Assoziationen.[^1]` mit `[^1]: Interessanterweise widerspricht das der klassischen KI-Forschung, siehe [@dreyfus_1972].`
 
 **Szenario C: Akademischer Streit**
 *A sagt X, B sagt Y, ich sage Z.*
@@ -420,23 +425,31 @@ Diese Sektion wird mit der Praxis wachsen. Beispiele, häufige Fehler, Lösungen
 ### 7.2 Arten der Erweiterung
 
 **7.2.1** Andere Perspektiven:
-```
-^[Luhmann sieht das anders: "..." [@luhmann_1981, p. 223].]
+```markdown
+Text.[^1]
+
+[^1]: Luhmann sieht das anders: "..." [@luhmann_1981, p. 223].
 ```
 
 **7.2.2** Gegenargumente:
-```
-^[Kritiker wie X wenden ein, dass... Aber: ...]
+```markdown
+Text.[^2]
+
+[^2]: Kritiker wie X wenden ein, dass... Aber: ...
 ```
 
 **7.2.3** Vertiefungen:
-```
-^[Für eine ausführliche Behandlung siehe [@doto_2024, Kap. 3].]
+```markdown
+Text.[^3]
+
+[^3]: Für eine ausführliche Behandlung siehe [@doto_2024, Kap. 3].
 ```
 
 **7.2.4** Zitat vom Zitat:
-```
-^[Ahrens zitiert hier Luhmann, der wiederum auf... [@ahrens_2017, p. 78].]
+```markdown
+Text.[^4]
+
+[^4]: Ahrens zitiert hier Luhmann, der wiederum auf... [@ahrens_2017, p. 78].
 ```
 
 ### 7.3 Wann erweitern?
@@ -469,11 +482,13 @@ aliases:
 
 Ein-Satz-Essenz. (optional)
 
-Ausführung.^[Fußnote bei Bedarf.]
+Ausführung.[^1]
 
 ### Anknüpfungspunkte
 
 [[Link]] - Warum relevant.
+
+[^1]: Fußnote bei Bedarf.
 ```
 
 ---
@@ -496,17 +511,20 @@ aliases:
 
 *Ein Gedanke pro Zettel.*
 
-Ein isolierter Zettel, der zwei Themen vermischt, ist wie ein Legostein, der Rad und Motor verklebt.^[Ahrens nennt das "Atomic Notes" – ein Begriff, den Luhmann selbst nie nutzte [@ahrens_2017, p. 45].]
+Wer zwei Gedanken in einen Zettel steckt, kann später nur beide oder keinen wiederfinden.
 
-Atomizität bedeutet nicht Kürze (Wortanzahl), sondern thematische Unteilbarkeit (Single Responsibility). Wenn eine Notiz "Kapitalismuskritik und Depression" behandelt, kannst du sie nicht in einem Kontext zu "Depression in der Antike" nutzen, ohne den Kapitalismus-Teil mitzuschleppen [@doto_2024].
+Atomizität bedeutet nicht Kürze (Wortanzahl), sondern thematische Unteilbarkeit.[^1] Wenn eine Notiz "Kapitalismuskritik und Depression" behandelt, kannst du sie nicht in einem Kontext zu "Depression in der Antike" nutzen, ohne den Kapitalismus-Teil mitzuschleppen [@doto_2024].
 
-Nur wenn Wissen in seine kleinsten sinnvollen Einheiten zerlegt ist, kann es wie Lego zu neuen Strukturen kombiniert werden.^[Das Prinzip ist isomorph zum Single Responsibility Principle in der Softwareentwicklung: Eine Klasse, eine Verantwortung.]
+Nur wenn Wissen in seine kleinsten sinnvollen Einheiten zerlegt ist, kann es zu neuen Strukturen kombiniert werden.[^2]
 
 ### Anknüpfungspunkte
 
 [[ZK Konnektivität]] - Atomizität ist die Voraussetzung für Konnektivität. Ohne getrennte Module kein flexibles Netz.
 
 [[ZK Kontextualisierung]] - Weil atomare Notizen aus ihrem Ursprungskontext gelöst sind, müssen Links den Kontext explizit herstellen.
+
+[^1]: Ahrens nennt das "Atomic Notes" – ein Begriff, den Luhmann selbst nie nutzte [@ahrens_2017, p. 45].
+[^2]: Das Prinzip ist isomorph zum Single Responsibility Principle in der Softwareentwicklung: Eine Klasse, eine Verantwortung.
 ```
 
 ---
@@ -518,6 +536,7 @@ Nur wenn Wissen in seine kleinsten sinnvollen Einheiten zerlegt ist, kann es wie
 | 30.12.2025 | 1.0     | Initiale Version                                                                                                                                                                                                                   |
 | 31.12.2025 | 2.0     | Große Revision: 7 Attribute (1.1), Klärgruben-Prinzip (1.3), Titel als Auskunft (2.3), Hook → Ein-Satz-Essenz (2.5), Zitier-Sektion erweitert (3.), Recherche mit Stufe 0 und Prüffrage (4.), Schreib-Reihenfolge korrigiert (5.2) |
 | 31.12.2025 | 2.1     | Recherche-Prompt erweitert (Definitionen, Modelle, Goldstück-Markierung), Goldstück-Prinzip (4.6): IN den Zettel, nicht daneben |
+| 01.01.2026 | 2.2     | Fußnoten-Syntax auf Obsidian-Format umgestellt (`[^n]` statt `^[...]`), Beispiel-Zettel verbessert |
 
 ---
 
