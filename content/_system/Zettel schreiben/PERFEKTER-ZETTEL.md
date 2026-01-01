@@ -543,16 +543,18 @@ Die Zettel-Erstellung folgt einer zweiphasigen Pipeline.
 
 ### 8.3 PHASE 2: GEMARA (Die Stimmen kommen)
 
-**STUFE_4: Talmud-Recherche**
+**STUFE_4: Talmud-Recherche** (extern, z.B. Gemini)
 - Input: ZETTEL_KERN
-- Prozess: Zweite Recherche auf Basis des fertigen Zettels
+- Prozess: Recherche auf Basis des fertigen Zettels
 - Suche nach: Bestätigungen, Widersprüche, Beispiele, Genealogie, Vertiefungen
-- Output: GEMARA (Fußnoten-Kandidaten + Quellen-Manifest)
+- Output: ROHMATERIAL (Quellen, Zitate, Kontext – kein fertiger Text)
 
-**STUFE_5: Anreicherung**
-- Input: ZETTEL_KERN + GEMARA
-- Prozess: Fußnoten einfügen, Links ergänzen
+**STUFE_5: Anreicherung** (intern, Claude oder Autor)
+- Input: ZETTEL_KERN + ROHMATERIAL
+- Prozess: Fußnoten schreiben, Stil anwenden, Qualität sichern
 - Output: ZETTEL_FINAL (Status: angereichert → final)
+
+**Arbeitsteilung:** Recherche und Schreiben sind getrennte Fähigkeiten. Externe KIs recherchieren gut, schreiben schlecht. Das Schreiben übernimmt der Autor oder eine stilsichere KI.
 
 ### 8.4 Zwei-Phasen-Logik
 
@@ -560,7 +562,34 @@ PHASE 1 kann ohne PHASE 2 abgeschlossen werden. Der Zettel ist dann "kern_fertig
 
 PHASE 2 kann jederzeit nachgeholt werden – auch Monate später. Der Zettel reift. Die Wildnis wächst.
 
-### 8.5 Fußnoten-Typen in der Gemara
+### 8.5 Das Palimpsest-Prinzip
+
+Die Gemara nährt nicht nur den Rand – sie darf den Kern verbessern.
+
+Ein Palimpsest ist ein Pergament, das abgeschabt und neu beschrieben wurde. Der alte Text schimmert durch. Der neue ist schärfer, weil er auf dem alten aufbaut.
+
+**Wann darf die Mishna überschrieben werden?**
+
+| Situation | Aktion |
+|-----------|--------|
+| Goldstück gefunden, das besser formuliert als der Haupttext | Haupttext ersetzen, alten in Fußnote |
+| Kernaussage kann präzisiert werden | Kernaussage schärfen |
+| Besseres Beispiel gefunden | Beispiel tauschen |
+| Widerspruch gefunden, der überzeugt | Position revidieren (!) |
+
+**Wann bleibt die Mishna?**
+
+| Situation | Aktion |
+|-----------|--------|
+| Goldstück ist gut, aber Haupttext ist besser | Goldstück in Fußnote |
+| Neue Info ist Ergänzung, nicht Ersatz | Fußnote |
+| Widerspruch ist interessant, aber nicht überzeugend | Fußnote mit Entkräftung |
+
+**Der Unterschied zu "ständig umschreiben":**
+
+Das Palimpsest-Prinzip erlaubt Verbesserung, nicht Unruhe. Der Zettel wird nicht jeden Tag neu geschrieben. Aber wenn die Talmud-Recherche etwas findet, das den Kern stärker macht – dann gehört es in den Kern.
+
+### 8.6 Fußnoten-Typen in der Gemara
 
 | Typ | Frage | Beispiel |
 |-----|-------|----------|
@@ -570,7 +599,7 @@ PHASE 2 kann jederzeit nachgeholt werden – auch Monate später. Der Zettel rei
 | Genealogie | Woher kommt die Idee? | "Die Idee geht zurück auf..." |
 | Vertiefung | Wer geht weiter? | "Clark zieht daraus die Konsequenz..." |
 
-### 8.6 Protokoll: Fußnote ergänzen
+### 8.7 Protokoll: Fußnote ergänzen
 
 Wenn der Nutzer sagt:
 - "Füge zu Zettel X hinzu: [Text]"
@@ -627,48 +656,102 @@ NEUE_QUELLE:
 
 ---
 
-### 8.7 Prompt: Talmud-Recherche (STUFE_4)
+### 8.8 Prompt: Talmud-Recherche (STUFE_4)
+
+Dieser Prompt ist für externe Recherche-KIs (Gemini, Perplexity, etc.).
+Sie liefern ROHMATERIAL. Das Schreiben übernimmt der Autor oder Claude (STUFE_5).
 
 ```text
-Die Mishna steht. Jetzt kommen die Stimmen.
+# Talmud-Recherche: Rohmaterial sammeln
 
-Hier ist der Zettel-Kern:
+Du recherchierst für einen Zettelkasten-Eintrag.
+Deine Aufgabe: Quellen finden und strukturiert liefern.
+NICHT deine Aufgabe: Den fertigen Text schreiben.
 
-[ZETTEL_KERN EINFÜGEN]
+---
 
-Führe eine Talmud-Recherche durch:
+## ZETTEL-KERN
 
-1. BESTÄTIGUNGEN
-   Wer sagt dasselbe? Welche Denker, Forscher, Praktiker kommen
-   zum selben Schluss? Liefere Autor, Werk, Jahr, und formuliere
-   eine Fußnote, die erklärt WARUM diese Stimme relevant ist.
+[ZETTEL_KERN HIER EINFÜGEN]
 
-2. WIDERSPRÜCHE
-   Wer widerspricht? Was ist das stärkste Gegenargument?
-   Formuliere die Gegenposition fair. Dann: Wie entkräftest du sie?
+---
 
-3. BEISPIELE
-   Welche konkreten Fälle illustrieren den Gedanken?
-   Empirische Studien, historische Ereignisse, Alltagsbeobachtungen.
+## DEIN AUFTRAG
 
-4. GENEALOGIE
-   Woher kommt die Idee? Wer hat sie zuerst formuliert?
-   Welche Tradition steht dahinter?
+Finde Stimmen zu diesem Zettel in 5 Kategorien:
 
-5. VERTIEFUNGEN
-   Wer geht weiter? Welche Konsequenzen werden anderswo gezogen?
-   Was sind die radikalen Implikationen?
+### 1. BESTÄTIGUNG
+Wer sagt dasselbe? Welche Autorität stützt die These?
 
-Für jede Quelle:
-- Wenn in meiner Zotero-Bibliothek: Citekey angeben
-- Wenn neu: Autor, Titel, Jahr, Typ (book/article/chapter/web)
-- Relevanz: Warum gehört diese Stimme in die Gemara?
-- Import-Priorität: hoch/mittel/niedrig
+### 2. WIDERSPRUCH
+Wer widerspricht? Was ist das stärkste Gegenargument?
 
-Liefere:
-1. Fußnoten-Kandidaten (mit Position im Text)
-2. Verwandte Zettel im Vault
-3. Quellen-Manifest für Zotero-Import
+### 3. BEISPIEL
+Welcher konkrete Fall illustriert den Gedanken?
+(Historisch, empirisch, Alltagsbeobachtung)
+
+### 4. GENEALOGIE
+Woher kommt die Idee? Wer hat sie zuerst formuliert?
+
+### 5. VERTIEFUNG
+Wer geht weiter? Welche radikalen Konsequenzen zieht jemand?
+
+---
+
+## OUTPUT-FORMAT
+
+Für JEDE Quelle liefere:
+
+```yaml
+QUELLE:
+  kategorie: [Bestätigung/Widerspruch/Beispiel/Genealogie/Vertiefung]
+  autor: [Vollständiger Name]
+  titel: [Vollständiger Titel]
+  jahr: [JJJJ]
+  typ: [book/article/chapter/interview]
+  citekey_vorschlag: @autor_jahr
+
+  zitat: |
+    [Wörtliches Zitat, wenn vorhanden. Mit Seitenangabe.]
+
+  kernaussage: |
+    [Was sagt diese Quelle in 1-2 Sätzen?]
+
+  relevanz: |
+    [Warum gehört das zu diesem Zettel?]
+
+  einfüge_vorschlag: |
+    [Wo im Zettel könnte das passen? Nach welchem Satz?]
+```
+
+---
+
+## PALIMPSEST-HINWEISE
+
+Falls du beim Recherchieren findest:
+- Ein besseres Zitat als das im Haupttext
+- Eine präzisere Formulierung der Kernthese
+- Ein stärkeres Beispiel
+
+→ Notiere es unter "PALIMPSEST-KANDIDATEN" mit Begründung.
+→ Schreibe NICHT um. Nur Hinweis geben.
+
+---
+
+## VERWANDTE ZETTEL
+
+Liste Konzepte, die eigene Zettel verdienen:
+- [Konzeptname] - Kurzbeschreibung (1 Satz)
+
+---
+
+## WICHTIG
+
+- Liefere ROHMATERIAL, keinen fertigen Text
+- Zitate wörtlich, nicht paraphrasiert
+- Bibliographische Daten vollständig
+- Keine Stilentscheidungen treffen
+- Keine Fußnoten formulieren
 ```
 
 ---
@@ -748,6 +831,9 @@ Nur wenn Wissen in seine kleinsten sinnvollen Einheiten zerlegt ist, kann es zu 
 | 31.12.2025 | 2.1     | Recherche-Prompt erweitert (Definitionen, Modelle, Goldstück-Markierung), Goldstück-Prinzip: IN den Zettel, nicht daneben |
 | 01.01.2026 | 2.2     | Fußnoten-Syntax auf Obsidian-Format umgestellt (`[^n]` statt `^[...]`) |
 | 01.01.2026 | 3.0     | **Talmud-Prinzip als Leitgedanke (Sektion 0):** Mishna/Gemara-Struktur, Garten/Wildnis-Metapher. **Zweiphasige Pipeline (Sektion 8):** PHASE 1 (Mishna) mit STUFE_0-3, PHASE 2 (Gemara) mit STUFE_4-5. Talmud-Recherche nach dem Zettel. Fünf Fußnoten-Typen (Bestätigung, Widerspruch, Beispiel, Genealogie, Vertiefung). |
+| 01.01.2026 | 3.1     | Talmud-Recherche-Prompt: CONSTRAINTS-Sektion, QUALITÄTSPRÜFUNG. |
+| 01.01.2026 | 3.2     | Prompt: Beispiel statt Regeln, SELBST-CHECK, PALIMPSEST-REGEL. |
+| 01.01.2026 | 3.3     | **Arbeitsteilung:** STUFE_4 (Recherche) und STUFE_5 (Schreiben) getrennt. Externe KIs liefern ROHMATERIAL (Quellen, Zitate, Kontext). Schreiben übernimmt Autor/Claude. Prompt komplett neu als strukturiertes YAML-Format für maximale Weiterverarbeitung. |
 
 ---
 
