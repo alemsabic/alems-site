@@ -26,7 +26,9 @@ Die Kehrseite: Was du externalisierst, merkst du dir schlechter.[^4] Das ist der
 ### Anknüpfungspunkte
 
 [[ZK Emergenz]] - Muster erkennst du erst, wenn die Teile vor dir liegen.
+
 [[ZK Atomizität]] - Nur kleine Einheiten lassen sich frei kombinieren.
+
 [[ZK Epistemische Handlung]] (neu) - Handeln, um zu denken.
 
 [^1]: **Beispiel.** Original: "I actually did the work on the paper." – "Well, the work was done in your head, but the record of it is still here." – "No, it's not a record, not really. It's working. You have to work on paper and this is the paper." Charles Weiner war Wissenschaftshistoriker am MIT [@gleick_1992].
