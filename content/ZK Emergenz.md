@@ -13,7 +13,7 @@ aliases:
 
 *Baue Brücken, ohne zu wissen, wohin sie führen.*
 
-Struktur entsteht nicht durch Planung; sie wächst aus der Masse der Zettel.
+Der Zettelkasten produziert Antworten auf Fragen, die du nie gestellt hast.
 
 Luhmann baute 90.000 Zettel auf, ohne zu wissen, welche Bücher daraus entstehen. Er hatte ein Ziel - "Theorie der Gesellschaft; Laufzeit: 30 Jahre"[^1] - aber keine Gliederung. Er plante nicht Top-Down ("Kapitel A, B, C"), sondern sammelte Bottom-Up: Zettel für Zettel, Link für Link. Irgendwann bildeten sich Cluster; Themen kristallisierten sich heraus.
 
