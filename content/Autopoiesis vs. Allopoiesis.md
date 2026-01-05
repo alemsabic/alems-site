@@ -27,7 +27,7 @@ Wer ihn nur als Archiv (Allopoiesis) nutzt, verpasst diesen Sprung zur Partnersc
 [[ZK Emergenz]] - Autopoiesis ist der Motor der Emergenz. Ohne sie bleibt das System starr.
 [[ZK Atomizität]] - Nur atomare Zettel können sich frei zu neuen Mustern verbinden.
 
-[^1]: Maturana und Varela definierten 1972 Autopoiesis als Eigenschaft von Systemen, die "continuously regenerate and realize the network of processes that produced them" [@maturana_1980, p. 78].
+[^1]: Maturana und Varela definierten Autopoiesis als Eigenschaft von Systemen, die "continuously regenerate and realize the network of processes that produced them" [@maturana_varela_1987].
 
 [^2]: Die Schwelle zur Autopoiesis ist die "kritische Masse". Erst wenn genug Verbindungen existieren, kann das System überraschen (siehe [[ZK Emergenz]]).
 

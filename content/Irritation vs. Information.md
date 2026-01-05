@@ -4,7 +4,7 @@ tags:
   - systemtheorie
   - epistemologie
   - informationstheorie
-alias:
+aliases:
   - Unterschied Irritation Information
   - Perturbation
 ---
