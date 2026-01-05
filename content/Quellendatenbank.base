@@ -1,6 +1,6 @@
 filters:
   and:
-    - file.folder == "NOTIZEN/Quellenverzeichnis"
+    - file.folder == "NOTIZEN"
     - file.ext == "md"
     - file.name.contains("@")
 properties:
@@ -19,7 +19,8 @@ properties:
 views:
   - type: table
     name: Alle Quellen
-    order: []
+    order:
+      - title
     sort:
       - property: title
         direction: DESC
