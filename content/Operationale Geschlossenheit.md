@@ -3,8 +3,6 @@ cssclasses: zettelkasten
 tags:
   - systemtheorie
   - autopoiesis
-alias:
-  - Operationale Geschlossenheit
 ---
 
 # Operationale Geschlossenheit

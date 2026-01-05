@@ -4,7 +4,6 @@ tags:
   - systemtheorie
   - kognition
 aliases:
-  - Strukturelle Kopplung
   - Irritation
 ---
 
