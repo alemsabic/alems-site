@@ -27,12 +27,6 @@ Wir denken nicht *im* Zettelkasten. Wir denken *am* Zettelkasten. Andy Clark nen
 [[Autopoiesis vs. Allopoiesis]] - Kopplung ist nur möglich, weil Systeme geschlossen sind (Autopoiesis).
 [[Kognition Externalisierung]] - Externalisierung ist der Mechanismus der Kopplung.
 
-### Nächste Zettel
-
-- **[[Operationale Geschlossenheit]]** - Die Voraussetzung für Kopplung (Systeme müssen geschlossen sein).
-- **[[Irritation vs. Information]]** - Systeme verarbeiten keine Information von außen, nur Irritationen.
-- **[[Active Externalism]]** - Vertiefung des Clark/Chalmers Konzepts.
-
 [^1]: Maturana und Varela definieren strukturelle Kopplung als "history of recurrent interactions leading to the structural congruence between two (or more) systems" [@maturana_varela_1987].
 
 [^2]: Luhmann beschreibt das Verhältnis von Bewusstsein und Kommunikation als strukturelle Kopplung: "Communication systems are dependent on being structurally coupled with consciousness systems" [@luhmann_1995]. Sie können nicht fusionieren, da Gedanken nicht kommunizieren und Kommunikation nicht denken kann.
