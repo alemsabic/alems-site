@@ -13,9 +13,9 @@ alias:
 
 Ein System reagiert nicht auf die Umwelt, sondern auf die Störungen seiner eigenen Ordnung.
 
-Operationale Geschlossenheit bedeutet, dass ein autopoietisches System seine Operationen ausschließlich aus dem Netzwerk seiner eigenen Operationen erzeugt. Es gibt keinen direkten Durchgriff der Umwelt in das System; jede äußere Einwirkung wird systemintern als "Irritation" übersetzt und nach eigenen Regeln verarbeitet. Diese Geschlossenheit ist paradoxerweise die Bedingung für Offenheit: Nur weil das System über eine stabile interne Struktur verfügt, kann es überhaupt zwischen System und Umwelt unterscheiden und Informationen generieren.[^1]
+Operationale Geschlossenheit bedeutet, dass ein autopoietisches System seine Operationen ausschließlich aus dem Netzwerk seiner eigenen Operationen erzeugt.[^4] Es gibt keinen direkten Durchgriff der Umwelt in das System; jede äußere Einwirkung wird systemintern als "Irritation" übersetzt und nach eigenen Regeln verarbeitet. Diese Geschlossenheit ist paradoxerweise die Bedingung für Offenheit: Nur weil das System über eine stabile interne Struktur verfügt, kann es überhaupt zwischen System und Umwelt unterscheiden und Informationen generieren.[^1] Kritiker fürchten hier oft den Solipsismus, doch die Systemtheorie antwortet mit dem Konzept der strukturellen Kopplung: Das System ist zwar operativ geschlossen, aber energetisch offen und durch Irritationen steuerbar.[^3]
 
-Der Zettelkasten ist ein Paradebeispiel für diese Dynamik. Er "liest" keine Bücher; er verarbeitet nur die Zettel, die bereits in ihm existieren. Ein neuer Gedanke wird nur dann zur Information, wenn er an das vorhandene Netz von Verknüpfungen anschließen kann. Ohne diesen internen Resonanzboden bleibt jeder externe Input bloßes Rauschen.[^2]
+Der Zettelkasten ist ein Paradebeispiel für diese Dynamik. Er "liest" keine Bücher; er verarbeitet nur die Zettel, die bereits in ihm existieren. Ein neuer Gedanke wird nur dann zur Information, wenn er an das vorhandene Netz von Verknüpfungen anschließen kann. Ohne diesen internen Resonanzboden bleibt jeder externe Input bloßes Rauschen.[^2] In der Informatik kennt man dieses Prinzip als *Encapsulation*: Interne Zustände sind verborgen, Interaktion läuft nur über definierte Schnittstellen.[^5]
 
 ### Anknüpfungspunkte
 
