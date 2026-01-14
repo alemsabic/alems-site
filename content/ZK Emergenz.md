@@ -44,3 +44,5 @@ Adam Ferguson prägte 1767 die Formulierung, die später Hayeks "spontane Ordnun
 [^4]: **Beispiel.** Steven Johnson beschreibt Ameisen: "An individual ant, like an individual neuron, is just about as dumb as can be. Connect enough of them together properly, though, and you get spontaneous intelligence" @johnson_2001. Ameisen bilden Straßen, finden Nahrung, bauen Nester – ohne Königin, die plant. Die Kolonie ist klüger als das Individuum. Der Zettelkasten funktioniert nach demselben Prinzip.
 
 [^5]: **Vertiefung.** Deleuze und Guattari unterscheiden in *A Thousand Plateaus* zwischen Baum und Rhizom @deleuze_1987. Der Baum repräsentiert Hierarchie: feste Wurzel, definierte Struktur. Das Rhizom ist nicht-hierarchisch: "any point can be connected to any other", ohne vordefinierten Eintrittspunkt oder Ordnung. Der Zettelkasten ist rhizomatisch - kein "Wurzel-Zettel", keine Gliederung, nur horizontale Verbindungen, die wachsen.
+
+- [ ] TODO #important
