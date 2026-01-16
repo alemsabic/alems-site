@@ -1,31 +1,56 @@
 ---
 cssclasses: zettelkasten
-tags:
-  - ZK-Theorie
-aliases:
-  - Atomarität
-  - Atomic Notes
+tags: [ZK-Theorie, prinzipien]
+aliases: [Atomarität, Atomic Notes]
+erstellt: 2026-01-16
+bearbeitet: 2026-01-16
 ---
 
 # ZK Atomizität
 
 *Ein Gedanke, ein Zettel.*
 
-Wer zwei Gedanken in einen Zettel steckt, kann später nur beide oder keinen wiederfinden.
+**Jeder Zettel darf nur eine einzige Idee enthalten, damit er sich flexibel in neue Kontexte einfügen lässt.**
 
-Ein Zettel enthält genau einen Gedanken – aber diesen so vollständig, dass du den Ursprungstext nicht mehr brauchst.[^1] Das klingt nach Einschränkung. Es ist Befreiung. Denn nur was getrennt ist, lässt sich neu kombinieren.
+Atomizität ist die Währung des Zettelkastens. Wer zwei Gedanken auf einen Zettel schreibt ("A und B"), verklebt sie untrennbar. Wenn ich später über A schreiben will, muss ich B mitschleppen, auch wenn es nicht passt.
 
-Atomizität meint nicht Kürze. Ein atomarer Zettel kann 500 Wörter haben, solange er nur ein Thema behandelt. Die Grenze ist nicht die Wortanzahl, sondern die thematische Unteilbarkeit.[^2]
+Das Ziel ist nicht Kürze, sondern Unteilbarkeit. Ein atomarer Zettel kann lang sein, solange er *ein* Thema behandelt. Er muss "selbst-enthalten" sein (verständlich ohne den Kontext, aus dem er kam).[^1]
 
-Denk an Lego: Ein einzelner Stein kann Teil eines Autos oder einer Burg sein. Ein fertig verklebtes Modell ist starr. Die Zettel müssen klein genug sein, um in wechselnde Konstellationen zu passen [@luhmann_1981].
+Denk an Lego:
+-   Ein fertig geklebtes Modellschiff (nicht atomar) kann ich nur als Schiff verwenden.
+-   Einen einzelnen Legostein (atomar) kann ich für ein Schiff, eine Burg oder ein Raumschiff nutzen.
+
+Die Magie des Zettelkastens – die [[ZK Emergenz]] unerwarteter Verbindungen – funktioniert nur, wenn die Bausteine klein und frei kombinierbar sind. Nur was getrennt ist, lässt sich neu verbinden.
 
 ### Anknüpfungspunkte
 
-[[ZK Konnektivität]] - Atomare Zettel sind wertlos ohne Verbindung. Das eine bedingt das andere.
+[[ZK Konnektivität]] - Atomare Zettel sind nutzlos ohne Links. Links sind unmöglich ohne atomare Ziele.
+[[SWE Single Responsibility]] - Das gleiche Prinzip im Software-Design: Eine Klasse, eine Aufgabe.
+[[ZK Kontextualisierung]] - Weil der Zettel atomar (kontextlos) ist, muss Kontext künstlich durch Links erzeugt werden.
 
-[[SWE Single Responsibility]] - Das technische Äquivalent: Eine Klasse, eine Verantwortung. Ein Zettel, ein Gedanke.
+---
 
-[[ZK Kontextualisierung]] - Weil der Zettel atomar ist, muss der Kontext künstlich erzeugt werden – durch Links mit Begründung.
+## Rückseite
 
-[^1]: Ahrens nennt das "Atomic Notes": "Ein Zettel enthält nur einen Gedanken, aber diesen so vollständig, dass man den Ursprungstext nicht mehr benötigt" [@ahrens_2017].
-[^2]: Kritiker wenden ein, Atomizität zerstöre den narrativen Fluss. Aber: Der Fluss entsteht im Manuskript, nicht im Archiv. Der Kontext wird durch Links explizit gemacht, nicht durch Vermischung vernichtet.
+### Bestätigung
+Luhmann betonte, dass die Zettel "kombinationsfähig" sein müssen. Die Ordnung entsteht nicht durch feste Kapitel, sondern durch die mobile Anordnung der Atome. [@luhmann_1981]
+
+### Widerspruch
+Kritiker wenden ein, dass Atomisierung den narrativen Fluss zerstört. Man hat am Ende nur Schnipsel, kein Buch. Die Antwort: Der Zettelkasten ist *nicht* das Buch. Er ist der Steinbruch. Das Buch entsteht, indem man die Steine in eine *neue* Reihenfolge bringt (Manuskript), die sich von der Eingabe-Reihenfolge unterscheidet.
+
+### Beispiel
+Ein Zettel über "Kaffeeanbau in Brasilien" ist schwer wiederverwendbar. Besser:
+1.  "Kaffee braucht Höhenlage" (Biologie)
+2.  "Brasilien hat Hochebenen" (Geografie)
+3.  "Monokulturen schaden dem Boden" (Ökologie)
+Jetzt kann Zettel 3 auch in einem Text über Landwirtschaft in Deutschland verwendet werden.
+
+### Genealogie
+**Paul Otlet** ("Mundaneum") formulierte schon 1934 das "Monographische Prinzip": Um Wissen neu zu ordnen, muss man Bücher in ihre Fakten zerlegen. Er zerschnitt physisch Seiten, um Informationen auf Karteikarten zu kleben. [@otlet_1934]
+
+### Blick über den Rand
+In der **Chemie** entstehen komplexe Moleküle (Wasser) aus einfachen Atomen (H, O). Die Eigenschaft "nass" ist weder in H noch in O enthalten; sie emergiert aus der Verbindung. Wären Atome riesige Klumpen, gäbe es keine Chemie, nur Physik.
+
+---
+
+[^1]: Ahrens, S. (2017). *How to Take Smart Notes*. CreateSpace.
