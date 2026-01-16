@@ -24,7 +24,8 @@ Wir denken nicht *im* Zettelkasten. Wir denken *am* Zettelkasten. Andy Clark nen
 ### Anknüpfungspunkte
 
 [[Autopoiesis vs. Allopoiesis]] - Kopplung ist nur möglich, weil Systeme geschlossen sind (Autopoiesis).
-[[Kognition Externalisierung]] - Externalisierung ist der Mechanismus der Kopplung.
+
+[[Kognitive Externalisierung]] - Externalisierung ist der Mechanismus der Kopplung.
 
 [^1]: Maturana und Varela definieren strukturelle Kopplung als "history of recurrent interactions leading to the structural congruence between two (or more) systems" [@maturana_varela_1987].
 
