@@ -14,7 +14,7 @@ bearbeitet: 2026-01-16
 
 Wir stellen uns Kommunikation intuitiv als Übertragung vor: Ich packe einen Gedanken in ein Paket (Wort), werfe es dir zu, du packst es aus. Das ist physikalisch falsch. Es fliegt kein Gedanke durch die Luft, nur Schallwellen.
 
-**Irritation (Perturbation):** Ein physikalisches Ereignis in der Umwelt, das an die Grenzen des Systems stößt (Licht, Schall, Druck). Es hat an sich keine Bedeutung. Die Umwelt ist, wie sie ist. Sie enthält keine Information. [@foerster_1985]
+**Irritation (Perturbation):** Ein physikalisches Ereignis in der Umwelt, das an die Grenzen des Systems stößt (Licht, Schall, Druck). Es hat an sich keine Bedeutung. Die Umwelt ist, wie sie ist. Sie enthält keine Information. [@von_foerster_1985]
 
 **Information:** Eine interne Leistung des Systems. Das System reagiert auf die Irritation, indem es aus vielen Möglichkeiten eine auswählt. Diese Auswahl ("Unterschied, der einen Unterschied macht") ist die Information. [@bateson_1972] Information ist ein Ereignis, das Systemzustände ändert. [@luhmann_1984]
 
@@ -50,7 +50,7 @@ Die klassische **Informationstheorie** nach Claude Shannon definiert Information
 
 ### Genealogie
 
-Gregory Bateson lieferte die berühmte Definition: "Information is a difference that makes a difference." [@bateson_1972] Luhmann übernahm dies: Information ist ein Ereignis, das Systemzustände ändert. Heinz von Foerster radikalisierte: "Die Umwelt enthält keine Information. Die Umwelt ist so, wie sie ist." [@foerster_1985]
+Gregory Bateson lieferte die berühmte Definition: "Information is a difference that makes a difference." [@bateson_1972] Luhmann übernahm dies: Information ist ein Ereignis, das Systemzustände ändert. Heinz von Foerster radikalisierte: "Die Umwelt enthält keine Information. Die Umwelt ist so, wie sie ist." [@von_foerster_1985]
 
 ### Vertiefung
 

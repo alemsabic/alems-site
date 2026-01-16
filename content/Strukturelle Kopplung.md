@@ -50,7 +50,7 @@ Habermas kritisiert Luhmanns Theorie struktureller Kopplung, weil sie kommunikat
 
 **Recht und Politik:** Das Rechtssystem ist strukturell gekoppelt mit dem politischen System über die Verfassung. Politik kann Gesetze ändern; das Rechtssystem entscheidet aber selbst, ob es diese als Recht behandelt. Die Verfassung ist die strukturelle Schnittstelle; sie ermöglicht Irritation ohne Determination. [@luhmann_1984]
 
-**Bewusstsein und Kommunikation:** Gedanken existieren nur im Bewusstsein; Kommunikation läuft außerhalb ab. Beide Systeme sind strukturell gekoppelt über Sprache. Das Bewusstsein muss Gedanken in Worte übersetzen; die Kommunikation interpretiert diese nach eigener Logik. Was ich meine, ist nicht identisch mit dem, was ankommt. [@luhmann_1995]
+**Bewusstsein und Kommunikation:** Gedanken existieren nur im Bewusstsein; Kommunikation läuft außerhalb ab. Beide Systeme sind strukturell gekoppelt über Sprache. Das Bewusstsein muss Gedanken in Worte übersetzen; die Kommunikation interpretiert diese nach eigener Logik. Was ich meine, ist nicht identisch mit dem, was ankommt. [@luhmann_1984]
 
 ### Genealogie
 
@@ -74,4 +74,4 @@ In der Software-Architektur spricht man von Loose Coupling (lose Kopplung). Modu
 
 [^1]: "Structural coupling is a history of recurrent interactions leading to the structural congruence between two (or more) systems." [@maturana_varela_1987]
 
-[^2]: "Communication systems are dependent on being structurally coupled with consciousness systems." [@luhmann_1995]
+[^2]: „Kommunikationssysteme sind darauf angewiesen, daß sie an Bewußtseinssysteme strukturell gekoppelt sind.“ [@luhmann_1984]

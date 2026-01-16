@@ -18,7 +18,7 @@ Die Rettungsinseln-Metapher zeigt das Prinzip. Mehrere Rettungsinseln sind locke
 
 Stoßdämpfer im Auto funktionieren nach demselben Prinzip. Sie verbinden Rad und Karosserie (Kopplung), schlucken aber Erschütterungen (Lose). Ohne sie würde jede Unebenheit das Auto zerstören. Die Kopplung ist da, aber sie ist gedämpft.
 
-Diese Separateness ermöglicht es dem Gesamtsystem, lokale Mutationen und innovative Lösungen zu entwickeln, ohne dass ein lokaler Fehler sofort das gesamte System kollabieren lässt. [@orton_weick_1990] Ein Lehrer kann im Klassenzimmer experimentieren; die Entscheidungen des Direktors dringen nicht deterministisch in den Unterricht ein. Lose Kopplung ist Voraussetzung für Resilienz und Anpassungsfähigkeit in einer sich schnell ändernden Umwelt.
+Strukturelle Kopplung als Spezialfall loser Kopplung. [@orton_1990] Ein Lehrer kann im Klassenzimmer experimentieren; die Entscheidungen des Direktors dringen nicht deterministisch in den Unterricht ein. Lose Kopplung ist Voraussetzung für Resilienz und Anpassungsfähigkeit in einer sich schnell ändernden Umwelt.
 
 Charles Perrow identifizierte das Gegenstück – "Tight Coupling" – als Hauptursache für "Normal Accidents". In eng gekoppelten Systemen wie Atomkraftwerken kaskadieren kleine Fehler unvermeidlich zu Katastrophen, weil es keinen Spielraum ("slack") gibt. [@perrow_1984] Flash Crashs im Algorithmic Trading zeigen dasselbe Muster. Algorithmen interagieren extrem eng gekoppelt; ein einzelner Fehler destabilisiert in Millisekunden den gesamten Markt. [@min_borch_2021]
 
@@ -38,7 +38,7 @@ Luhmann nutzt lose Kopplung in seiner Medientheorie. Medien (z.B. Sprache) sind 
 
 ### Bestätigung
 
-Orton und Weick radikalisieren Weicks These: Lose Kopplung ist kein Fehler, sondern ein evolutionärer Vorteil. Sie erlaubt lokalen Teilen, sich anzupassen, ohne das Gesamtsystem zu gefährden. "Loose coupling allows some portions of an organization to persist while others change." [@orton_weick_1990]
+Orton und Weick radikalisieren Weicks These: Lose Kopplung ist kein Fehler, sondern ein evolutionärer Vorteil. Sie erlaubt lokalen Teilen, sich anzupassen, ohne das Gesamtsystem zu gefährden. "Loose coupling allows some portions of an organization to persist while others change." [@orton_1990]
 
 ### Widerspruch
 
