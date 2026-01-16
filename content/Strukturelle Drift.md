@@ -26,7 +26,7 @@ Die Entwicklung eines Zettelkastens ist reine strukturelle Drift. Man plant nich
 
 [[Strukturelle Kopplung]] - Der Mechanismus, der die Drift kanalisiert (Ufer des Flusses).
 
-[[Autopoiesis vs. Allopoiesis]] - Die Drift dient dem Erhalt der Autopoiesis, keinem externen Zweck.
+[[Unterschied Autopoiesis Allopoiesis]] - Die Drift dient dem Erhalt der Autopoiesis, keinem externen Zweck.
 
 ---
 

@@ -24,7 +24,7 @@ In der Informatik kennt man dieses Prinzip als **Encapsulation**: Ein Objekt ver
 
 ### Anknüpfungspunkte
 
-[[Autopoiesis vs. Allopoiesis]] - Geschlossenheit ist das Merkmal autopoietischer Systeme.
+[[Unterschied Autopoiesis Allopoiesis]] - Geschlossenheit ist das Merkmal autopoietischer Systeme.
 
 [[Strukturelle Kopplung]] - Der Mechanismus, der trotz Geschlossenheit Koordination ermöglicht.
 

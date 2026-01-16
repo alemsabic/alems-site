@@ -23,7 +23,7 @@ Wir denken nicht *im* Zettelkasten. Wir denken *am* Zettelkasten. Andy Clark nen
 
 ### Anknüpfungspunkte
 
-[[Autopoiesis vs. Allopoiesis]] - Kopplung ist nur möglich, weil Systeme geschlossen sind (Autopoiesis).
+[[Unterschied Autopoiesis Allopoiesis]] - Kopplung ist nur möglich, weil Systeme geschlossen sind (Autopoiesis).
 
 [[Kognitive Externalisierung]] - Externalisierung ist der Mechanismus der Kopplung.
 
