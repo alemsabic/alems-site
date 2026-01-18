@@ -25,7 +25,7 @@ Die Entwicklung deines Zettelkastens ist reine strukturelle Drift. Du planst nic
 [[Strukturelle Kopplung]] - Kanalisiert die Drift – wie Ufer den Fluss.
 [[Unterschied Autopoiesis Allopoiesis]] - Die Drift dient nur dem Erhalt der Autopoiesis, keinem externen Zweck.
 
-Des Zettels Rückseite
+## Des Zettels Rückseite
 
 ### Bestätigung
 Stephen Jay Gould bestätigt dies mit dem Konzept der *Exaptation*.[^4] Federn entwickelten sich ursprünglich für Thermoregulation, nicht fürs Fliegen. Vögel "entdeckten" das Fliegen später als Nebenprodukt. Evolution ist offen und kontingent, nicht deterministisch. [@gould_1982, p. 384]

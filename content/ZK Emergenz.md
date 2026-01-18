@@ -24,7 +24,7 @@ Denk an Trampelpfade. Niemand plant sie. Sie entstehen dort, wo viele Menschen g
 [[ZK Konnektivität]] - Verbindungen sind der Motor der Emergenz.
 [[ZK Atomizität]] - Nur bewegliche Einheiten können emergente Strukturen bilden.
 
-Des Zettels Rückseite
+## Des Zettels Rückseite
 
 ### Bestätigung
 Adam Ferguson prägte 1767 die Formulierung: Gesellschaft sei das Ergebnis menschlichen Handelns, aber nicht menschlicher Planung.[^5] [@ferguson_1767] Niklas Luhmann wandte dies auf Wissensproduktion an. Sein Zettelkasten war eine "spontane Ordnung" – eine Kombination von Unordnung und Ordnung, von Clustern und unvorhersehbaren Verbindungen.[^6] [@luhmann_2000, p. 26]

@@ -24,7 +24,7 @@ Für die Wissensarbeit ist der Unterschied entscheidend. Behandelst du deinen Ze
 [[ZK Atomizität]] - Nur atomare Zettel können sich frei verbinden (Voraussetzung für Autopoiesis).
 [[Operationale Geschlossenheit]] - Autopoietische Systeme sind operational geschlossen.
 
-Des Zettels Rückseite
+## Des Zettels Rückseite
 
 ### Bestätigung
 Niklas Luhmann beschreibt seine Arbeitsweise explizit als Kommunikation mit einem autopoietischen System. "Man muss den Zettelkasten so anlegen, dass er fähig ist, Informationen zu kombinieren [...] und dadurch Überraschungseffekte zu erzielen."[^4] [@luhmann_1981] Er betrachtet den Zettelkasten als Partner, der Eigenleben entwickelt.

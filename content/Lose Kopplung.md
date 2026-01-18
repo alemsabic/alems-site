@@ -24,7 +24,7 @@ Das Gegenteil – *Tight Coupling* (enge Kopplung) – macht Systeme fragil.[^3]
 [[ZK Atomizität]] - Nur lose gekoppelte Gedanken lassen sich flexibel neu kombinieren.
 [[SWE Single Responsibility]] - Microservices stürzen nicht komplett ab, wenn ein Teil versagt.
 
-Des Zettels Rückseite
+## Des Zettels Rückseite
 
 ### Bestätigung
 Orton und Weick formulierten 1990: Lose Kopplung erlaubt Organisationen, gleichzeitig stabil und flexibel zu sein. Schulen sind widerstandsfähig, weil Lehrer experimentieren können, ohne auf Genehmigung zu warten. Reformen von oben verpuffen oft; Innovation von unten bleibt lokal. Das System opfert Effizienz für Resilienz. [@orton_1990]

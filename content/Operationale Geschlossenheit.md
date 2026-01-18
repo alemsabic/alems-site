@@ -24,7 +24,7 @@ Ein Objekt verbirgt seinen internen Zustand und erlaubt Interaktion nur über de
 [[Strukturelle Kopplung]] - Der Mechanismus, der trotz Geschlossenheit koordiniert.
 [[ZK Emergenz]] - Zettel vernetzen sich intern und ordnen sich ohne externen Plan.
 
-Des Zettels Rückseite
+## Des Zettels Rückseite
 
 ### Bestätigung
 Humberto Maturana betont: Kognition ist kein "Abbilden" einer objektiven Welt, sondern ein "Hervorbringen" – *Enactment* – einer Welt durch das geschlossene Operieren.[^4] Das Nervensystem repräsentiert nicht die Außenwelt; es erzeugt eine Welt durch rekursive interne Operationen. [@maturana_1980, p. 13]

@@ -24,7 +24,7 @@ Denk an ein Radio. Draußen sind nur elektromagnetische Wellen (Irritation). Ers
 [[Strukturelle Kopplung]] - Irritation ist der einzige Weg, wie gekoppelte Systeme interagieren.
 [[ZK Emergenz]] - Im Zettelkasten entsteht Information erst, wenn du eine Verbindung ziehst.
 
-Des Zettels Rückseite
+## Des Zettels Rückseite
 
 ### Bestätigung
 Maturana und Varela betonen: Lebende Systeme sind *strukturdeterminiert*.[^4] Die Umwelt kann Reaktionen nur triggern, niemals bestimmen. Ein Tritt gegen einen Stein bewirkt Bewegung; ein Tritt gegen einen Hund bewirkt Beißen oder Flucht. Die Struktur des Hundes bestimmt die Reaktion, der Tritt löst sie nur aus. [@maturana_varela_1987]

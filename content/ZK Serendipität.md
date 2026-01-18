@@ -24,7 +24,7 @@ Stell dir eine Cocktailparty vor. Du gehst hin, um den Gastgeber zu begrüßen (
 [[ZK Emergenz]] - Serendipität ist der Moment, in dem emergente Strukturen sichtbar werden.
 [[ZK Retrieval]] - Navigation (Browsing) provoziert Serendipität; gezielte Suche verhindert sie.
 
-Des Zettels Rückseite
+## Des Zettels Rückseite
 
 ### Bestätigung
 Robert K. Merton untersuchte Serendipität soziologisch: Große Entdeckungen (Penicillin, Röntgenstrahlen) waren "Unfälle". Aber sie passierten Forschern, die fähig waren, die *Anomalie* als bedeutsam zu erkennen.[^3] [@merton_2004] Merton definiert: Du beobachtest etwas Unerwartetes, Anomales und Strategisches, das dich zu einer neuen Theorie führt.

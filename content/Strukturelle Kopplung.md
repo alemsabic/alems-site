@@ -27,7 +27,7 @@ Niklas Luhmann macht diesen Gedanken zur Grundlage seiner Gesellschaftstheorie. 
 [[Unterschied Irritation Information]] - Kopplung produziert Irritationen, überträgt aber keine Information.
 [[Kognitive Externalisierung]] - Extended Mind ist strukturelle Kopplung zwischen Gehirn und Werkzeug.
 
-Des Zettels Rückseite
+## Des Zettels Rückseite
 
 ### Bestätigung
 Luhmann definiert strukturelle Kopplungen als Einrichtungen, die trotz operativer Geschlossenheit die Strukturentwicklung beeinflussen.[^3] Systeme bleiben geschlossen, aber sie entwickeln sich ko-evolutionär. [@luhmann_1997, p. 100]

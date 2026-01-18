@@ -24,7 +24,7 @@ Sönke Ahrens schreibt: Du speicherst Informationen in dem Kontext, in dem du si
 [[Kognitive Externalisierung]] - Wir lagern Verknüpfungs-Muster aus; Daten allein genügen nicht.
 [[ZK Atomizität]] - Atomare Zettel lassen sich leichter in neue Kontexte verschieben.
 
-Des Zettels Rückseite
+## Des Zettels Rückseite
 
 ### Bestätigung
 Das Prinzip wurzelt in der philosophischen *Hermeneutik*.[^1] Gadamer argumentiert, dass ein Text seinen Sinn erst im "Horizont" des Lesers erhält (*Horizontverschmelzung*).[^2] [@gadamer_1960] Der Zettelkasten materialisiert dies. Die Bedeutung eines Zettels entsteht beim Verlinken.

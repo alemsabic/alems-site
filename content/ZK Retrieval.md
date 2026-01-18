@@ -24,7 +24,7 @@ Luhmann formulierte: "Das Problem liegt darin, Wissen so wiederzufinden, dass es
 [[ZK Konnektivität]] - Links bilden Pfade; Pfade ermöglichen Browsing.
 [[ZK Serendipität]] - Navigation ermöglicht Zufallsfunde; Suche verengt den Blick.
 
-Des Zettels Rückseite
+## Des Zettels Rückseite
 
 ### Bestätigung
 Johannes Schmidt analysierte Luhmanns Arbeitsweise: Luhmann nutzte das Schlagwortregister als Einstieg ("Türen ins Labyrinth"). [@schmidt_2013] Die Recherche fand im Kasten statt, indem er internen Verweisungsketten folgte. Das Register war der Türgriff; die Karte kam später.
