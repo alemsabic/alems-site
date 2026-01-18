@@ -33,7 +33,7 @@ Die Entwicklung deines Zettelkastens ist reine strukturelle Drift. Du planst nic
 Stephen Jay Gould bestätigt dies mit dem Konzept der *Exaptation*.[^4] Federn entwickelten sich ursprünglich für Thermoregulation, nicht fürs Fliegen. Vögel "entdeckten" das Fliegen später als Nebenprodukt. Evolution ist offen und kontingent, nicht deterministisch. [@gould_1982, p. 384]
 
 ### Widerspruch
-Der klassische Neo-Darwinismus (Richard Dawkins) sieht Evolution stärker als Optimierungsprozess. Organismen konkurrieren um Ressourcen; natürliche Selektion optimiert. Dawkins: "Natural selection is the blind watchmaker." [@dawkins_1976] Hier gilt Drift als "Rauschen". Für Maturana ist die Drift der eigentliche Modus; Selektion eliminiert nur, was nicht mehr passt.
+Der klassische Neo-Darwinismus (Richard Dawkins) sieht Evolution stärker als Optimierungsprozess. Organismen konkurrieren um Ressourcen; natürliche Selektion optimiert. Dawkins nennt die natürliche Selektion den "blinden Uhrmacher".[^6] Hier gilt Drift als "Rauschen". Für Maturana ist die Drift der eigentliche Modus; Selektion eliminiert nur, was nicht mehr passt.
 
 ### Beispiel
 **Zettelkasten-Entwicklung:** Du planst nicht die Themen von morgen. Du schreibst Zettel, verlinkst sie, und Themencluster driften in unerwartete Richtungen. Der Zettelkasten entwickelt keine Strategie; er folgt lokal den *Attraktoren* – häufigen Verknüpfungen.[^7] Ein Zettel über Luhmann verlinkt zu Kybernetik, der zu Feedbackschleifen, der zu Thermostaten. Plötzlich hast du ein Cluster über "Selbstregulation", ohne Plan.
@@ -56,6 +56,8 @@ In der *Linguistik*: Sprachen wandeln sich nicht, um "besser" zu werden. Sie dri
 [^3]: **Perturbationen** (Störungen): Externe Ereignisse, die das interne Gleichgewicht eines Systems irritieren, aber nicht determinieren.
 
 [^4]: **Exaptation**: Ein Merkmal, das für einen Zweck entstand, aber später für einen anderen genutzt wurde (Federn: Wärme -> Fliegen).
+
+[^6]: Originalzitat: "Natural selection is the blind watchmaker." [@dawkins_1976]
 
 [^7]: **Attraktoren**: Zustände, zu denen ein dynamisches System tendiert (z.B. Themen-Cluster im Zettelkasten).
 

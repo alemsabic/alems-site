@@ -29,7 +29,7 @@ Die Lösung ist radikale Trennung. Ein Zettel für die Biografie, einer für die
 ## Rückseite
 
 ### Bestätigung
-Die *Unixphilosophie* demonstriert SRP in Reinform. "Make each program do one thing well."[^5] [@mcilroy_1978] `grep` sucht nur Text, `sort` sortiert nur. Wenn du suchen und sortieren willst, baust du kein riesiges Programm. Du verbindest beide mit einer Pipe (`|`).
+Die *Unixphilosophie* demonstriert SRP in Reinform: Jedes Programm soll eine Sache gut machen.[^5] `grep` sucht nur Text, `sort` sortiert nur. Wenn du suchen und sortieren willst, baust du kein riesiges Programm. Du verbindest beide mit einer Pipe (`|`).
 
 ### Widerspruch
 Kritiker warnen vor "Ravioli Code". Wenn du alles in winzige Schnipsel zerlegst, verlierst du den Überblick. Zu viele kleine Klassen führen zu Fragmentierung; der *Kontrollfluss* wird schwer nachvollziehbar.[^6] Im Zettelkasten löst du das durch Strukturzettel (Hubs), die die Teile wieder zusammenführen.

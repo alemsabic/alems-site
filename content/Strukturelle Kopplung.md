@@ -46,7 +46,7 @@ Jürgen Habermas kritisiert: Luhmann blendet *kommunikative Rationalität* aus.[
 Der Begriff stammt aus der Biologie (Maturana, 1970er). Er beschreibt lebende Systeme und ihre Umweltbeziehungen. [@maturana_1980] Heinz von Foerster lieferte die Basis mit *selbstreferentiellen Systemen*, die ihre Umwelt beobachten, aber nicht von ihr determiniert werden.[^7] [@von_foerster_1960]
 
 ### Vertiefung
-Francisco Varela entwickelt den Gedanken weiter zum *Enactivism* (Hervorbringung).[^8] Kognition entsteht durch strukturelle Kopplungen, nicht durch Repräsentation. Ein Organismus erzeugt seine Welt, indem er wiederholt mit ihr interagiert. "Cognition is embodied action."[^9] [@varela_1991]
+Francisco Varela entwickelt den Gedanken weiter zum *Enactivism* (Hervorbringung).[^8] Kognition entsteht durch strukturelle Kopplungen, nicht durch Repräsentation. Ein Organismus erzeugt seine Welt, indem er wiederholt mit ihr interagiert. Kognition ist verkörpertes Handeln.[^9]
 
 ### Blick über den Rand
 In der Software-Architektur: *Loose Coupling*. Module sind verbunden, bleiben aber unabhängig. Änderungen in einem Modul lassen andere unberührt. Das ist analog zur strukturellen Kopplung: Verbindung ja, Abhängigkeit nein. [@weick_1976]

@@ -38,7 +38,7 @@ Die klassische *Informationstheorie* (Claude Shannon) definiert Information tech
 **Farbwahrnehmung:** Physikalisch gibt es kein "Rot", nur Wellen von 700nm (Irritation). "Rot" ist eine Konstruktion unseres Gehirns, um Wellenlängen zu unterscheiden. Ein Farbenblinder erhält dieselbe Irritation, generiert aber andere Information. Die Welt ist farblos; du machst sie farbig.
 
 ### Genealogie
-Gregory Bateson lieferte die Definition: "Information is a difference that makes a difference." [@bateson_1972] Niklas Luhmann übernahm dies. Heinz von Foerster radikalisierte es: "Die Umwelt enthält keine Information. Die Umwelt ist so, wie sie ist."[^7] [@von_foerster_1985]
+Gregory Bateson lieferte die Definition: Information ist eine Differenz, die eine Differenz macht.[^3] Niklas Luhmann übernahm dies. Heinz von Foerster radikalisierte es: Die Umwelt enthält keine Information. Die Umwelt ist so, wie sie ist.[^7]
 
 ### Vertiefung
 Luhmann baut darauf seinen Kommunikationsbegriff auf. Kommunikation ist die Einheit von *Information*, *Mitteilung* und *Verstehen*.[^8] Erst das Verstehen (die Unterscheidung von Info und Mitteilung durch den Empfänger) schließt die Kommunikation ab. Ohne Verstehen gibt es keine Kommunikation, nur Geräusch.
