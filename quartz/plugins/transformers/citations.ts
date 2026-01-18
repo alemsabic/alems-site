@@ -60,6 +60,24 @@ export const Citations: QuartzTransformerPlugin<Partial<Options>> = (userOpts) =
               node.properties = node.properties || {}
               node.properties["data-no-popover"] = true
             }
+            // Decode HTML entities in data-tooltip attribute
+            if (node.properties && node.properties["data-tooltip"]) {
+              const tooltip = node.properties["data-tooltip"]
+              if (typeof tooltip === "string") {
+                // Decode common HTML entities
+                node.properties["data-tooltip"] = tooltip
+                  .replace(/&#38;/g, "&")
+                  .replace(/&amp;/g, "&")
+                  .replace(/&#34;/g, '"')
+                  .replace(/&quot;/g, '"')
+                  .replace(/&#39;/g, "'")
+                  .replace(/&apos;/g, "'")
+                  .replace(/&#60;/g, "<")
+                  .replace(/&lt;/g, "<")
+                  .replace(/&#62;/g, ">")
+                  .replace(/&gt;/g, ">")
+              }
+            }
           })
         }
       })

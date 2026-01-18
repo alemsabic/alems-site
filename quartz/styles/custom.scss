@@ -13,7 +13,6 @@
   padding-left: 0px !important;
 }
 
-
 // Graph component bottom margin (gap to Backlinks)
 .graph {
   margin-bottom: 2rem !important;
@@ -50,10 +49,9 @@
   color: var(--gray) !important;
 }
 
-// Page title font size and font-family - responsive
+// Page title font size - responsive
 .page-title {
   font-size: 1.95rem !important; // Mobile
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
 }
 
 @media (min-width: 800px) {
@@ -91,9 +89,13 @@
 //   object-position: center !important;
 // }
 
-
 // Headers font-weight and color
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700 !important;
   color: var(--bodyText) !important;
 }
@@ -140,7 +142,6 @@ strong {
   -moz-osx-font-smoothing: grayscale;
 }
 
-
 // Noise texture overlay - light theme
 body::before {
   content: "";
@@ -166,7 +167,9 @@ body::before {
 
 // Light Theme: Paper vignette effect + Letterpress text (entire viewport)
 [saved-theme="light"] body {
-  box-shadow: inset 0 0 300px #00000044, inset 0 0 180px #00000030 !important;
+  box-shadow:
+    inset 0 0 300px #00000044,
+    inset 0 0 180px #00000030 !important;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5) !important;
 }
 
@@ -270,13 +273,23 @@ a.internal.tag-link {
 }
 
 .explorer-content ul li {
-  margin-top: 0.15rem !important;
-  margin-bottom: 0.15rem !important;
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.25rem !important;
+  line-height: 1.1rem;
 }
 
-// Table of Contents links font size
+// Table of Contents links font size and line-height
 .toc ul li a {
   font-size: 0.85rem !important;
+}
+
+.toc-content li {
+  line-height: 1.1rem !important;
+}
+
+// Tagline styling
+.tagline a {
+  text-decoration: none !important;
 }
 
 // Explorer and Table of Contents heading styling
@@ -289,16 +302,29 @@ button.toc-header {
 button.mobile-explorer h2,
 button.desktop-explorer h2,
 button.toc-header h3 {
-  font-weight: 400 !important;
+  font-weight: 700 !important;
+  font-family: var(--bodyFont) !important;
+}
+
+// Graph and Backlinks heading styling
+.graph > h3,
+.backlinks > h3 {
+  font-weight: 700 !important;
+  font-family: var(--bodyFont) !important;
+}
+
+// Rückseite heading alignment
+h2#rückseite {
+  text-align: right !important;
 }
 
 // Increase gap between center and sidebars
 
 @media (min-width: 1200px) {
-  .page>#quartz-body {
-    grid-template: "grid-sidebar-left grid-header grid-sidebar-right""grid-sidebar-left grid-center grid-sidebar-right""grid-sidebar-left grid-footer grid-sidebar-right"/320px auto 320px;
+  .page > #quartz-body {
+    grid-template: "grid-sidebar-left grid-header grid-sidebar-right" "grid-sidebar-left grid-center grid-sidebar-right" "grid-sidebar-left grid-footer grid-sidebar-right"/320px auto 320px;
     gap: 20px;
-    display: grid
+    display: grid;
   }
 }
 
@@ -351,13 +377,13 @@ a.internal {
 // Dictionary Entry: Old dictionary aesthetic (Baskerville/Garamond serif style)
 // Everything inline, dense block layout like printed dictionaries - no paragraph breaks
 article.dictionary-entry {
-  font-family: 'Baskerville', 'Baskerville Old Face', 'Garamond', 'Hoefler Text',
-               'Palatino Linotype', 'Book Antiqua', 'Times New Roman', serif !important;
+  font-family:
+    "Baskerville", "Baskerville Old Face", "Garamond", "Hoefler Text", "Palatino Linotype",
+    "Book Antiqua", "Times New Roman", serif !important;
   line-height: 1.12 !important;
   text-align: justify !important;
   font-size: 1.1rem !important; // Mobile
   letter-spacing: 0.01em !important;
-  
 
   // Remove ALL paragraph spacing - everything flows inline
   p {
@@ -377,8 +403,8 @@ article.dictionary-entry {
     font-weight: 900;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-      @media (min-width: 800px) {
-    margin-left: -15px;
+    @media (min-width: 800px) {
+      margin-left: -15px;
     }
   }
 
@@ -397,8 +423,9 @@ article.dictionary-entry {
 
 // Two-column dictionary layout (desktop only, same font-size as mobile)
 article.dictionary-entry-columns {
-  font-family: 'Baskerville', 'Baskerville Old Face', 'Garamond', 'Hoefler Text',
-               'Palatino Linotype', 'Book Antiqua', 'Times New Roman', serif !important;
+  font-family:
+    "Baskerville", "Baskerville Old Face", "Garamond", "Hoefler Text", "Palatino Linotype",
+    "Book Antiqua", "Times New Roman", serif !important;
   line-height: 1.12 !important;
   text-align: justify !important;
   font-size: 1.1rem !important; // Same size on mobile AND desktop
@@ -423,7 +450,7 @@ article.dictionary-entry-columns {
     letter-spacing: 0.05em;
     text-transform: uppercase;
     @media (min-width: 800px) {
-    margin-left: -15px;
+      margin-left: -15px;
     }
   }
 
@@ -455,7 +482,7 @@ article.dictionary-entry-columns blockquote {
   max-width: 90% !important;
   border: none !important;
   background-color: transparent !important;
-  font-family: 'Baskerville', 'Baskerville Old Face', 'Garamond', 'Hoefler Text', serif !important;
+  font-family: "Baskerville", "Baskerville Old Face", "Garamond", "Hoefler Text", serif !important;
   text-align: left !important;
   font-style: italic !important;
   color: inherit !important;
@@ -471,7 +498,7 @@ article.dictionary-entry-columns blockquote {
     text-align: left !important;
     font-style: italic !important;
     color: inherit !important;
-    line-height: 1.1!important;
+    line-height: 1.1 !important;
   }
 
   // Author/attribution (em dash format: —Author Name, "Title")
@@ -486,7 +513,7 @@ article.dictionary-entry-columns blockquote {
 
     // Em dash before author
     &::before {
-      content: '—';
+      content: "—";
       margin-right: 0.25em;
     }
   }
@@ -514,7 +541,7 @@ article.dictionary-entry-columns .footnotes {
 
   // Shorter border-top (1/5 width) using ::before
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -596,7 +623,7 @@ article.dictionary-entry-columns .data-footnote-backref {
 
 // Individual bibliography entries
 .csl-entry {
-  margin-bottom: .5rem !important;
+  margin-bottom: 0.5rem !important;
   text-align: left !important;
 
   // Hanging indent for citations (classic bibliography style)
@@ -624,7 +651,7 @@ article.zettelkasten .footnotes {
 
   // Shorter border-top (1/5 width) using ::before
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -728,7 +755,7 @@ article.zettelkasten {
 
     // Gestanztes Loch links vom Titel
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       left: -30px;
       top: 0.2em;
@@ -751,7 +778,7 @@ article.zettelkasten {
 
   // Pilcrow (¶) zwischen Absätzen als Lesehilfe - außer beim ersten Paragraph
   p:not(:first-of-type)::before {
-    content: '¶ ';
+    content: "¶ ";
     font-weight: 400 !important;
     color: var(--secondary) !important;
     opacity: 0.5 !important;
@@ -761,7 +788,7 @@ article.zettelkasten {
   h2 + p::before,
   h3 + p::before,
   p:first-of-type + p::before {
-    content: '' !important;
+    content: "" !important;
   }
 
   // Erstes Paragraph: Zusammenfassung mit eckigen Klammern
@@ -770,10 +797,10 @@ article.zettelkasten {
 
     // Eckige Klammern
     &::before {
-      content: '[ ';
+      content: "[ ";
     }
     &::after {
-      content: ' ]';
+      content: " ]";
     }
   }
 
@@ -787,27 +814,41 @@ article.zettelkasten {
 
   // H2 Überschriften (falls vorhanden)
   h2 {
-    font-size: 1rem !important;
     margin-top: 2.5rem !important;
     margin-bottom: 1rem !important;
     font-weight: 700 !important;
   }
 
-  // H3 Überschriften: Kleiner, mit Trennlinie
+  // H3 Überschriften: Kleiner, mit Trennlinie - mit gestanztem Loch
   h3 {
-    font-size: 1rem !important;
     margin-top: 2.5rem !important;
     margin-bottom: 1rem !important;
     font-weight: 700 !important;
+
+    // Gestanztes Loch vor allen H3
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #efefef;
+      border: 1px solid var(--gray);
+      box-shadow: inset 1px 1px 3px #0003;
+      margin-right: 0.5rem;
+      vertical-align: middle;
+    }
   }
 
   // Listen: Kompakteres Spacing
-  ul, ol {
-    margin-top: 0.75rem !important;
-    margin-bottom: 0.75rem !important;
+  ul,
+  ol {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
 
     li {
-      margin-bottom: 0.5rem !important;
+      margin-bottom: 0rem !important;
+      line-height: 1.1rem;
 
       // Verschachtelte Listen unter Anknüpfungspunkte
       ul {
@@ -840,9 +881,7 @@ article.zettelkasten {
     border-left: 2px solid var(--gray) !important;
     font-style: italic !important;
   }
-
 }
-
 
 // Zettelkasten Ein-Satz-Zusammenfassung: Theme-spezifische Farben
 [saved-theme="light"] article.zettelkasten > p:first-of-type {
@@ -901,7 +940,6 @@ a.internal.tag-link:hover {
   position: relative;
   display: inline-block;
   cursor: pointer;
-  text-shadow: none !important; // Remove letterpress effect for tooltips
 }
 
 // Tooltip content (appears above the element)
@@ -925,9 +963,12 @@ a.internal.tag-link:hover {
   line-height: 1.25rem;
   color: var(--light);
   opacity: 0;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
   transition: opacity 0.2s;
   pointer-events: none;
+  text-shadow: none !important; // Remove letterpress effect for tooltips
 }
 
 // Tooltip arrow (small triangle pointing down)
@@ -962,8 +1003,8 @@ a.internal.tag-link:hover {
 
 // Callout titles: remove bold and make colors more muted (add gray)
 .callout-title {
-  padding-top: .5rem;
-  padding-bottom: .5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 
   .callout-title-inner {
     font-weight: 400 !important; // Remove bold
@@ -972,7 +1013,7 @@ a.internal.tag-link:hover {
 
 // Callout content: smaller font size and line-height
 .callout-content-inner p {
-  font-size: .85rem;
+  font-size: 0.85rem;
   line-height: 1.25rem;
 }
 
@@ -1132,7 +1173,7 @@ mark.hltr-grey {
   // Based on: https://varundhawan.com/blog/2022/01/18/skeuomorphic-book-cover-css
   // IMPORTANT: Must be on container, not img (img doesn't support pseudo-elements)
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -1289,4 +1330,3 @@ article.literature-note {
     }
   }
 }
-

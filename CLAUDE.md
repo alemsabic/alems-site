@@ -5,12 +5,14 @@
 This repository handles **PRESENTATION ONLY** (Quartz static site generator).
 
 **Content is managed separately**:
+
 - Content Repository: https://github.com/alemsabic/alems-notizen
 - Path: `/Users/alemsabic/Desktop/MEMEX/_projects/alems-notizen/`
 - Auto-syncs to `content/` folder via GitHub Actions
 - **DO NOT edit files in `content/` directly** - changes will be overwritten!
 
 ### Repository Focus:
+
 - ✅ Design, styling, layout
 - ✅ Quartz configuration
 - ✅ UI components
@@ -19,12 +21,14 @@ This repository handles **PRESENTATION ONLY** (Quartz static site generator).
 ---
 
 ## Project Overview
+
 - **Name**: alems-site
 - **Type**: Static site generator using Quartz v4.5.1
 - **Purpose**: ale.ms - Quellenangaben und Schulungsunterlagen von Alem Sabic
 - **Live Site**: https://ale.ms
 
 ### Key Commands
+
 - **Dev server**: `npx quartz build --serve` (runs on http://localhost:8080)
 - **Build**: `npx quartz build`
 - **Check types**: `npm run check`
@@ -33,6 +37,7 @@ This repository handles **PRESENTATION ONLY** (Quartz static site generator).
 ---
 
 ## File Structure
+
 ```
 quartz/
 ├── content/              # ⚠️ AUTO-SYNCED - DO NOT EDIT!
@@ -51,21 +56,25 @@ quartz/
 ## Current Configuration
 
 **Site Identity**:
+
 - Page title: "ale.ms"
 - Tagline: "Quellenangaben und Schulungsunterlagen von Alem Sabic"
 - Base URL: https://ale.ms
 
 **Typography**:
+
 - Headers: Victor Mono
 - Body: Geist Mono
 - Code: Inconsolata
 
 **Layout** (Session 16):
+
 - Left sidebar: PageTitle, Tagline, Search, Darkmode, Explorer
 - Right sidebar: Graph, TableOfContents, Backlinks (gap: 1.2rem)
 - After body: RecentNotes (index only), Comments (Giscus)
 
 **Giscus Comments**:
+
 - Repository: `alemsabic/alems-notizen`
 - Custom themes: `static/giscus/light.css` & `dark.css`
 - Language: German
@@ -75,6 +84,7 @@ quartz/
 ## Deployment
 
 **Platform**: Cloudflare Pages
+
 - **Repository**: https://github.com/alemsabic/alems-site
 - **Branch**: `v4`
 - **Project**: `ale-ms`
@@ -96,6 +106,7 @@ quartz/
 3. **Auto-sync**: GitHub Actions syncs to alems-site → Cloudflare deploys
 
 **Important**:
+
 - NO need to run `npx quartz build` locally
 - Changes appear live within 1-2 minutes
 - All commits to content repo trigger GitHub Actions workflow
@@ -105,10 +116,12 @@ quartz/
 ## Custom Components
 
 **Tagline** (`quartz/components/Tagline.tsx`):
+
 - Displays site description below PageTitle
 - Responsive: block (desktop), inline (mobile)
 
 **EditOnGitHub** (`quartz/components/EditOnGitHub.tsx`):
+
 - "Verbesser die Seite auf GitHub." link
 - Points to content repo: `https://github.com/alemsabic/alems-notizen/`
 
@@ -117,9 +130,11 @@ quartz/
 ## Session 16 Updates (Dec 9, 2025) - Current Session
 
 ### Layout Changes ✅
+
 **Files Modified**: `quartz.layout.ts`, `quartz/styles/custom.scss`
 
 **Changes Made**:
+
 - Moved Graph & Backlinks from `afterBody` → `right` sidebar
 - Right sidebar order: Graph → TableOfContents → Backlinks
 - Added `gap: 1.2rem` to `.sidebar.right`
@@ -145,21 +160,18 @@ quartz/
 **Solution Location**: `quartz/plugins/transformers/citations.ts`
 
 **Code to add** (if lost during Quartz update):
+
 ```typescript
 // In the visit() function, add this block:
 // Disable popovers for footnote reference links (sup > a)
-if (
-  node.tagName === "a" &&
-  parent &&
-  parent.type === "element" &&
-  parent.tagName === "sup"
-) {
+if (node.tagName === "a" && parent && parent.type === "element" && parent.tagName === "sup") {
   node.properties = node.properties || {}
   node.properties["data-no-popover"] = true
 }
 ```
 
 **Why**: Quartz uses `data-no-popover="true"` to disable popovers. This is the standard mechanism used for:
+
 - Bibliography citations (`#bib-*`) - already in `citations.ts:45`
 - Heading anchor links - in `gfm.ts:36`
 - Footnote links should work the same way
@@ -175,6 +187,7 @@ if (
 **Issue**: Citations plugin uses citation-js which only comes with `en-US` locale preloaded. Setting `locale: "de-DE"` in Quartz config caused error: "Input locale option, de-DE, is invalid or is an unknown file."
 
 **Root Cause**:
+
 - rehype-citation's `loadLocale()` function checks if locale is registered in `config.locales.data`
 - If not found, it tries to load it as a file path or URL
 - Simply passing "de-DE" tries to load a non-existent file at path "de-DE"
@@ -184,6 +197,7 @@ if (
 **Files Modified**:
 
 1. **`quartz.config.ts`**:
+
    ```typescript
    configuration: {
      locale: "de-DE", // For Quartz UI (Graph View → Graphenansicht, etc.)
@@ -203,21 +217,25 @@ if (
    - Update rehypeCitation config to use: `lang: opts.lang ?? ctx.cfg.configuration.locale ?? "en-US"` (line 36)
 
 **Why This Works**:
+
 - rehype-citation's `loadLocale()` accepts URLs (see node_modules/rehype-citation/dist/node/src/utils.js:127-151)
 - It fetches the XML, extracts `xml:lang="de-DE"`, and registers it with citation-js
 - `opts.lang` has priority over `ctx.cfg.configuration.locale`, so Citations uses German while Quartz UI also uses German
 
 **Alternative Solutions Considered**:
+
 - ❌ Local file path (`./content/locales/de-DE.xml`) - works but requires file management
 - ❌ Programmatic registration in citations.ts - more complex, harder to maintain
 - ✅ URL to official CSL repository - always up-to-date, no local files needed
 
 **For Future Quartz Updates**:
+
 - If `citations.ts` is overwritten, re-add `lang?: string` to Options interface
 - Ensure rehypeCitation config uses: `lang: opts.lang ?? ctx.cfg.configuration.locale ?? "en-US"`
 - The `lang` URL in quartz.config.ts will persist unless config is regenerated
 
 **Resources**:
+
 - Official CSL locales: https://github.com/citation-style-language/locales
 - Other locales: Replace `de-DE` in URL with desired locale code (e.g., `fr-FR`, `es-ES`)
 
@@ -228,6 +246,7 @@ if (
 **Issue**: Clicking footnote reference links (e.g., `[^1]`) in the text does not visually highlight the corresponding footnote at the bottom when using Quartz's SPA (Single Page Application) mode with `enableSPA: true`.
 
 **Root Cause**:
+
 - Standard CSS `:target` pseudo-class works on page reload but not during client-side SPA navigation
 - Quartz's SPA mode intercepts link clicks and navigates without full page reload
 - Hash changes (`#user-content-fn-1`) don't trigger `:target` CSS in SPA mode
@@ -237,6 +256,7 @@ if (
 **Files Created/Modified**:
 
 1. **NEW: `quartz/components/scripts/footnotes.inline.ts`**:
+
    ```typescript
    // Highlight footnotes when clicked (for SPA navigation)
    function highlightFootnote() {
@@ -259,7 +279,9 @@ if (
    document.addEventListener("nav", () => {
      highlightFootnote()
 
-     function onHashChange() { highlightFootnote() }
+     function onHashChange() {
+       highlightFootnote()
+     }
      window.addEventListener("hashchange", onHashChange)
      window.addCleanup(() => window.removeEventListener("hashchange", onHashChange))
 
@@ -276,6 +298,7 @@ if (
    ```
 
 2. **MODIFIED: `quartz/components/Body.tsx`**:
+
    ```typescript
    // Add import at top:
    // @ts-ignore
@@ -305,6 +328,7 @@ if (
    ```
 
 **Why This Works**:
+
 - `:target` CSS handles traditional page reloads (still works)
 - `.footnote-highlighted` class handles SPA navigation
 - JavaScript adds/removes class dynamically on hash changes
@@ -312,12 +336,14 @@ if (
 - No conflicts with existing popover/SPA systems
 
 **For Future Quartz Updates**:
+
 1. **If `footnotes.inline.ts` is lost**: Re-create the file with the code above
 2. **If `Body.tsx` is overwritten**: Re-add the import and combine scripts in `afterDOMLoaded`
 3. **If `custom.scss` footnote styles are lost**: Re-add `.footnote-highlighted` to `:target` selectors
 4. **Pattern to check**: Look for `.footnotes li:target` in custom.scss and ensure `.footnote-highlighted` is also included
 
 **Technical Details**:
+
 - Hash format: `#user-content-fn-1`, `#user-content-fn-2`, etc.
 - Highlight persists until another footnote is clicked
 - Uses `var(--highlight)` for theme-aware background color
@@ -328,6 +354,7 @@ if (
 ### Short Title Support for Zotero Sources
 
 **Issue**: Zotero-imported sources have very long titles (e.g., "Das Zettelkasten-Prinzip: erfolgreich wissenschaftlich Schreiben und Studieren mit effektiven Notizen") that create display problems:
+
 - **Explorer** (sidebar): Titles appear as unreadable text blocks
 - **Breadcrumbs**: Long titles make navigation confusing
 - **ContentHeader**: Shows full title redundantly
@@ -338,6 +365,7 @@ This results in the same long title appearing 4x on each Zotero source page, mak
 **Solution**: Implement `shortTitle` frontmatter property with fallback logic
 
 **Concept**:
+
 - **Navigation** (Explorer, Breadcrumbs): Use short form → e.g., "Ahrens (2017)"
 - **Content** (H1): Use full title → appears once where it belongs
 - **ContentHeader**: Remove redundant title line
@@ -347,6 +375,7 @@ This results in the same long title appearing 4x on each Zotero source page, mak
 1. **`quartz/util/fileTrie.ts`**:
    - Add `shortTitle?: string` to `FileTrieData` interface (line 7)
    - Modify `displayName` getter to use shortTitle fallback (lines 31-38):
+
    ```typescript
    interface FileTrieData {
      slug: string
@@ -368,11 +397,12 @@ This results in the same long title appearing 4x on each Zotero source page, mak
 2. **`quartz/util/ctx.ts`**:
    - Add `shortTitle?: string` to `BuildTimeTrieData` type (line 21)
    - Extract shortTitle in `trieFromAllFiles()` function (line 43):
+
    ```typescript
    export type BuildTimeTrieData = QuartzPluginData & {
      slug: string
      title: string
-     shortTitle?: string  // Optional short title for navigation (Zotero sources)
+     shortTitle?: string // Optional short title for navigation (Zotero sources)
      filePath: string
    }
 
@@ -384,7 +414,7 @@ This results in the same long title appearing 4x on each Zotero source page, mak
            ...file,
            slug: file.slug!,
            title: file.frontmatter.title,
-           shortTitle: file.frontmatter.shortTitle,  // Extract shortTitle from frontmatter
+           shortTitle: file.frontmatter.shortTitle, // Extract shortTitle from frontmatter
            filePath: file.filePath!,
          })
        }
@@ -396,12 +426,13 @@ This results in the same long title appearing 4x on each Zotero source page, mak
 3. **`quartz/plugins/emitters/contentIndex.tsx`**:
    - Add `shortTitle?: string` to `ContentDetails` type (line 16)
    - Extract shortTitle when building content index (line 111):
+
    ```typescript
    export type ContentDetails = {
      slug: FullSlug
      filePath: FilePath
      title: string
-     shortTitle?: string  // Optional short title for navigation (Zotero sources)
+     shortTitle?: string // Optional short title for navigation (Zotero sources)
      links: SimpleSlug[]
      tags: string[]
      content: string
@@ -415,7 +446,7 @@ This results in the same long title appearing 4x on each Zotero source page, mak
      slug,
      filePath: file.data.relativePath!,
      title: file.data.frontmatter?.title!,
-     shortTitle: file.data.frontmatter?.shortTitle,  // Extract shortTitle from frontmatter
+     shortTitle: file.data.frontmatter?.shortTitle, // Extract shortTitle from frontmatter
      links: file.data.links ?? [],
      // ...
    })
@@ -424,14 +455,16 @@ This results in the same long title appearing 4x on each Zotero source page, mak
 4. **`quartz/components/ContentHeader.tsx`** (lines 61-68):
    - Comment out redundant title display:
    ```typescript
-   {/* Title removed - redundant with ArticleTitle H1
+   {
+     /* Title removed - redundant with ArticleTitle H1
    {title && (
      <>
        <dt>Titel:</dt>
        <dd>{title}.</dd>
      </>
    )}
-   */}
+   */
+   }
    ```
 
 Note: Breadcrumbs.tsx requires no changes - it automatically uses `node.displayName` from fileTrie.
@@ -439,9 +472,10 @@ Note: Breadcrumbs.tsx requires no changes - it automatically uses `node.displayN
 **Frontmatter Usage**:
 
 For Zotero sources, add `shortTitle` to your template:
+
 ```yaml
 title: "Das Zettelkasten-Prinzip: erfolgreich wissenschaftlich Schreiben und Studieren mit effektiven Notizen"
-shortTitle: "Ahrens (2017)"  # ← Used in Explorer & Breadcrumbs
+shortTitle: "Ahrens (2017)" # ← Used in Explorer & Breadcrumbs
 authors:
   - "Ahrens, Sönke"
 year: 2017
@@ -451,6 +485,7 @@ citekey: "ahrens_2017"
 For regular notes (without `shortTitle`), the full title is used automatically.
 
 **Why This Works**:
+
 - `shortTitle` is a standard property in citation systems (BibTeX, CSL)
 - Fallback logic ensures backward compatibility with existing content
 - Navigator components (Explorer, Breadcrumbs) get readable labels
@@ -458,6 +493,7 @@ For regular notes (without `shortTitle`), the full title is used automatically.
 - No breaking changes for non-Zotero content
 
 **For Future Quartz Updates**:
+
 1. **If `fileTrie.ts` is overwritten**:
    - Re-add `shortTitle?: string` to `FileTrieData` interface
    - Re-add the `shortTitle` fallback in the `displayName` getter
@@ -471,6 +507,7 @@ For regular notes (without `shortTitle`), the full title is used automatically.
 5. **Pattern to check**: Search for "shortTitle" across the codebase - should appear in 4 files (fileTrie.ts, ctx.ts, contentIndex.tsx, ContentHeader.tsx)
 
 **Expected Result**:
+
 - Explorer: "Ahrens (2017)" instead of 100+ character title
 - Breadcrumbs: "Home ❯ Quellenverzeichnis ❯ Ahrens (2017)"
 - ContentHeader: No redundant title line
@@ -479,6 +516,7 @@ For regular notes (without `shortTitle`), the full title is used automatically.
 **Zotero Template Location**: `/Users/alemsabic/Desktop/MEMEX/_templates/Zotero-Vorlage.md`
 
 **Implementation Summary**:
+
 - Total files modified: 4 (fileTrie.ts, ctx.ts, contentIndex.tsx, ContentHeader.tsx)
 - Type definitions extended in 3 places to support optional `shortTitle` property
 - Backward compatible: Works with and without `shortTitle` in frontmatter
@@ -486,6 +524,7 @@ For regular notes (without `shortTitle`), the full title is used automatically.
 - Full title appears exactly once as H1, improving readability and reducing redundancy
 
 **Testing**:
+
 - Tested with `@ahrens_2017.md` (shortTitle: "Ahrens (2017)")
 - Explorer sidebar: Shows "Ahrens (2017)" ✓
 - Breadcrumbs: Shows "Home ❯ Quellenverzeichnis ❯ Ahrens (2017)" ✓
@@ -501,6 +540,7 @@ For regular notes (without `shortTitle`), the full title is used automatically.
 ### Features Implemented ✅
 
 **1. Zotero Highlight Colors** (`quartz/styles/custom.scss`):
+
 - Added CSS for all 8 Zotero highlight colors (yellow, orange, red/pink, green, blue/cyan, purple/violet, magenta, gray)
 - Light Theme: 50% opacity (40% for magenta) for subtle highlighting
 - Dark Theme: 40% opacity for better readability
@@ -508,6 +548,7 @@ For regular notes (without `shortTitle`), the full title is used automatically.
 - White text on dark highlights (green, blue, purple, gray) for contrast
 
 **2. Callout Styling** (`quartz/styles/custom.scss`):
+
 - Made callout titles more subtle and less bold
 - Changed font-weight from semibold to 400 (regular)
 - Muted callout colors by adding gray tones:
@@ -516,6 +557,7 @@ For regular notes (without `shortTitle`), the full title is used automatically.
   - Info/Todo: #6ba5b0 (muted teal-gray)
 
 **3. Skeuomorphic Book Cover Effect** (`quartz/styles/custom.scss`, Zotero Template):
+
 - Implemented realistic 3D hardcover effect for Zotero book covers
 - Based on: [Skeuomorphic book cover in CSS by Varun Dhawan](https://varundhawan.com/blog/2022/01/18/skeuomorphic-book-cover-css)
 - Features:
@@ -528,19 +570,23 @@ For regular notes (without `shortTitle`), the full title is used automatically.
 - Attribution: CSS gradient technique adapted from Varun Dhawan's blog post
 
 **Files Modified**:
+
 - `quartz/styles/custom.scss` - Added ~120 lines for Zotero highlights, callout overrides, and book cover styling
 - `/Users/alemsabic/Desktop/MEMEX/_templates/Zotero-Vorlage.md` - HTML structure for book covers
 
 ### Documentation
+
 - Zotero highlight colors fully documented in custom.scss with comments
 - Resolved "Images from Zotero" issue in CLAUDE.md
 - Book cover effect credited to Varun Dhawan (https://varundhawan.com/blog/2022/01/18/skeuomorphic-book-cover-css)
 
 ### Credits
+
 - **Skeuomorphic Book Cover CSS**: Inspired by and adapted from [Varun Dhawan's blog post](https://varundhawan.com/blog/2022/01/18/skeuomorphic-book-cover-css)
 - Original technique: Gradient overlay on container (not img) with precise color stops for realistic hardcover effect
 
 ### TODO for Future Sessions
+
 - [ ] Add "Credits" or "Acknowledgments" section to README.md (English sounds less pompous than "Ehre, wem Ehre gebührt")
   - Credit Varun Dhawan for skeuomorphic book cover CSS
   - Credit Claude Code / Anthropic for development assistance
@@ -553,6 +599,7 @@ For regular notes (without `shortTitle`), the full title is used automatically.
 ## Historical Context (Archived)
 
 **Migration History**: nekontam.com → pathologie.gpunkt.org → ale.ms
+
 - Complete migration details in git history (Sessions 1-15)
 - Current state: Clean ale.ms setup with two-repository architecture
 - Old CLAUDE.md content archived for brevity
@@ -567,6 +614,7 @@ For regular notes (without `shortTitle`), the full title is used automatically.
 ### Problem Summary
 
 Zotero-imported source files contain image references (annotations/screenshots from PDFs) that are:
+
 - ✅ Synced correctly to GitHub via GitHub Actions
 - ✅ Present in the Site-Repo (`content/Quellenverzeichnis/Abbildungen/`)
 - ❌ **NOT displaying on live site** (https://ale.ms)
@@ -574,6 +622,7 @@ Zotero-imported source files contain image references (annotations/screenshots f
 ### Evidence
 
 **GitHub Actions Logs** (Run 20537552679, 2025-12-27T09:57):
+
 ```
 Quellenverzeichnis/Abbildungen/
 Quellenverzeichnis/Abbildungen/Hanuschek_2021-1283-x51-y414.png
@@ -590,6 +639,7 @@ sent 2,677,024 bytes
 ### Image Link Format in Markdown
 
 **Example from `@Sipos_2025.md`**:
+
 ```markdown
 ![[NOTIZEN/Quellenverzeichnis/Abbildungen/doto_2024-26-x56-y413.png]]
 ```
@@ -635,6 +685,7 @@ All contain image annotations from Zotero imports.
 ### Resolution
 
 **Fixed via Zotero Template Update** (same day):
+
 - Updated Zotero template to use simplified image paths
 - Changed from: `![[NOTIZEN/Quellenverzeichnis/Abbildungen/filename.png]]`
 - Changed to: `![[filename.png]]` (relative path)
@@ -642,9 +693,94 @@ All contain image annotations from Zotero imports.
 - Images now display correctly both locally and on https://ale.ms
 
 **Related Documentation**:
+
 - **Content Repo**: https://github.com/alemsabic/alems-notizen
 - **Site Repo**: https://github.com/alemsabic/alems-site
 - **Zotero Template**: `/Users/alemsabic/Desktop/MEMEX/_templates/Zotero-Vorlage.md`
+
+---
+
+### Citation Tooltip HTML Entity Decoding
+
+**Issue**: Citation tooltips (from rehype-citation) display HTML entities like `&#38;` instead of `&` when hovering over citations like "(Luhmann, 1981)".
+
+**Root Cause**:
+
+- `rehype-citation` sets `data-tooltip` attributes with HTML-encoded text
+- CSS `attr(data-tooltip)` displays the raw encoded value
+- Example: "Luhmann, N. (1981). Kommunikation Mit Zettelkasten..." shows as "...Kepplinger, &#38; Reumann..."
+
+**Solution**: Client-side JavaScript decoding after DOM load
+
+**Files Created/Modified**:
+
+1. **NEW: `quartz/components/scripts/tooltips.inline.ts`**:
+
+   ```typescript
+   // Decode HTML entities in data-tooltip attributes
+   document.addEventListener("nav", () => {
+     const elementsWithTooltips = document.querySelectorAll("[data-tooltip]")
+
+     elementsWithTooltips.forEach((element) => {
+       const tooltip = element.getAttribute("data-tooltip")
+       if (tooltip) {
+         // Create a temporary element to decode HTML entities
+         const textarea = document.createElement("textarea")
+         textarea.innerHTML = tooltip
+         const decoded = textarea.value
+         element.setAttribute("data-tooltip", decoded)
+       }
+     })
+   })
+   ```
+
+2. **MODIFIED: `quartz/components/Body.tsx`**:
+
+   ```typescript
+   // Add import at top:
+   // @ts-ignore
+   import tooltipsScript from "./scripts/tooltips.inline"
+
+   // Modify afterDOMLoaded to include tooltips script:
+   Body.afterDOMLoaded = `
+     ${clipboardScript};
+     ${footnotesScript};
+     ${tooltipsScript};
+   `
+   ```
+
+**Why This Works**:
+
+- Uses `<textarea>` trick: Browser automatically decodes HTML entities when setting `innerHTML`
+- Runs on every SPA navigation (`nav` event)
+- Replaces encoded `data-tooltip` with decoded version before CSS displays it
+- No server-side changes needed - pure client-side fix
+
+**Alternative Approaches Considered**:
+
+- ❌ Transform in `citations.ts` plugin: Attempted regex replacement, but `data-tooltip` value already encoded by rehype-citation
+- ❌ CSS solution: CSS `attr()` has no decode function
+- ✅ Client-side decode: Simple, works with SPA, no build-time overhead
+
+**For Future Quartz Updates**:
+
+1. **If `tooltips.inline.ts` is lost**: Re-create the file with the code above
+2. **If `Body.tsx` is overwritten**: Re-add the import and include `${tooltipsScript};` in `afterDOMLoaded`
+3. **Pattern to check**: Look for `tooltipsScript` import in `Body.tsx`
+
+**Testing**:
+
+- Hover over citation like "(Luhmann, 1981)" with multiple authors
+- Tooltip should show: "Baier, Kepplinger, & Reumann" (not `&#38;`)
+- Works in both light and dark themes
+- Persists across SPA navigation
+
+**Technical Details**:
+
+- Decodes all standard HTML entities: `&`, `"`, `'`, `<`, `>`
+- Uses browser's native decoding (via `textarea.innerHTML`)
+- Runs after every page navigation for SPA compatibility
+- Lightweight: Only processes elements with `data-tooltip` attribute
 
 ---
 
@@ -655,16 +791,19 @@ All contain image annotations from Zotero imports.
 **Problem:** Uppercase/Lowercase Duplikate auf GitHub (Session 28, 2025-12-28)
 
 **Symptome:**
+
 - Lokal: Alle Dateien lowercase (`@schmidt_2016.md`, `schmidt_2016-*.png`)
 - Online (GitHub/ale.ms): Beide Versionen existieren (`@Schmidt_2016.md` UND `@schmidt_2016.md`)
 - Resultat: Bilder erscheinen nicht online, weil Wikilinks auf lowercase zeigen, aber GitHub die uppercase-Version ausliefert
 
 **Root Cause:**
+
 - Git auf macOS: **case-insensitive** (`Schmidt` = `schmidt`)
 - GitHub/Cloudflare (Linux): **case-sensitive** (zwei verschiedene Dateien!)
 - Bei `git mv` lokal: Git merkt die Umbenennung, aber GitHub behält beide Versionen
 
 **Betroffene Dateien:**
+
 - ❌ `Quellenverzeichnis/@*.md` (Markdown-Dateien)
 - ❌ `Quellenverzeichnis/Abbildungen/*.png` (Bilder)
 
@@ -686,6 +825,7 @@ git push
 ```
 
 **Warum das funktioniert:**
+
 - `git rm` löscht die Dateien auf GitHub (alle Versionen!)
 - Neues `git add` fügt nur die aktuellen (lowercase) Dateien hinzu
 - Keine Duplikate mehr ✅
@@ -693,6 +833,7 @@ git push
 **Status:** Dokumentiert, bereit für Umsetzung in nächster Session
 
 **Zotero Better BibTeX Settings (bereits korrekt):**
+
 - Citation key formula: `auth.lower + "_" + year` ✅
 - Alle citekeys refreshed auf lowercase ✅
 - Template nutzt lowercase-citekeys ✅
@@ -704,6 +845,7 @@ git push
 **Status:** Kern-Features implementiert (Session 28, 2025-12-28)
 
 **Abgeschlossene Features:**
+
 - ✅ Book Cover Hover-Effekt entfernt (enhanced shadow permanent)
 - ✅ Highlights: Kleinbuchstaben (a., b., c., d.) rechtsbündig, display: block
 - ✅ Highlights: `mark` als block, line-height 1.15rem, kein padding/border-radius
@@ -720,6 +862,7 @@ git push
   - Exception: Nach h2/h3 kein extra margin
 
 **🔜 Nächste Schritte - Feintuning:**
+
 1. **Callouts stylen:**
    - Schriftgröße anpassen
    - line-height anpassen
@@ -742,7 +885,6 @@ git push
 
 ```scss
 article.literature-note {
-
   // 1. Highlights (Text-Annotationen aus Zotero)
   .annotation-highlight {
     .section-marker::before {
@@ -750,20 +892,40 @@ article.literature-note {
       // § I, § II, § III, ...
       // CSS Counter für automatische Nummerierung
     }
-    mark.hltr-yellow { /* Gelb */ }
-    mark.hltr-orange { /* Orange */ }
-    mark.hltr-red { /* Rot/Pink */ }
-    mark.hltr-green { /* Grün */ }
-    mark.hltr-blue { /* Blau/Cyan */ }
-    mark.hltr-purple { /* Lila/Violett */ }
-    mark.hltr-magenta { /* Magenta */ }
-    mark.hltr-gray { /* Grau */ }
-    .annotation-page { /* (S. 42) */ }
+    mark.hltr-yellow {
+      /* Gelb */
+    }
+    mark.hltr-orange {
+      /* Orange */
+    }
+    mark.hltr-red {
+      /* Rot/Pink */
+    }
+    mark.hltr-green {
+      /* Grün */
+    }
+    mark.hltr-blue {
+      /* Blau/Cyan */
+    }
+    mark.hltr-purple {
+      /* Lila/Violett */
+    }
+    mark.hltr-magenta {
+      /* Magenta */
+    }
+    mark.hltr-gray {
+      /* Grau */
+    }
+    .annotation-page {
+      /* (S. 42) */
+    }
   }
 
   // 2. Kommentare (Anmerkungen zu Highlights/Bildern)
   .annotation-comment {
-    .comment-label { /* "Anm.:" */ }
+    .comment-label {
+      /* "Anm.:" */
+    }
   }
 
   // 3. Abbildungen (Screenshots aus Zotero)
@@ -773,17 +935,24 @@ article.literature-note {
       // Abb. 1, Abb. 2, Abb. 3, ...
       // CSS Counter für automatische Nummerierung
     }
-    .figure-source { /* "Seite 42" */ }
+    .figure-source {
+      /* "Seite 42" */
+    }
   }
 
   // 4. CSS Counter Setup
   counter-reset: section figure;
-  .annotation-highlight { counter-increment: section; }
-  .annotation-figure-caption { counter-increment: figure; }
+  .annotation-highlight {
+    counter-increment: section;
+  }
+  .annotation-figure-caption {
+    counter-increment: figure;
+  }
 }
 ```
 
 **Design-Richtlinien**:
+
 - **Typografie**: JetBrains Mono (body), Victor Mono (headings)
 - **Stil**: Formell, trocken, akademisch (wie alte Akten)
 - **§-Zeichen**: Römische Ziffern (§ I, § II, § III)
@@ -792,11 +961,13 @@ article.literature-note {
 - **Farben**: Dezent, nicht zu grell (evtl. leicht entsättigt)
 
 **Referenz-Dateien**:
+
 - Live: https://ale.ms/Quellenverzeichnis/@ahrens_2017
 - Template: `/Users/alemsabic/Desktop/MEMEX/_templates/Zotero-Vorlage.md`
 - Custom CSS: `/Users/alemsabic/Desktop/ale.ms/quartz/styles/custom.scss`
 
 **HTML-Struktur** (aus Template):
+
 ```html
 <div class="annotation-highlight">
   <span class="section-marker"></span>
@@ -804,9 +975,7 @@ article.literature-note {
   <span class="annotation-page">(S. 42)</span>
 </div>
 
-<div class="annotation-comment">
-  <span class="comment-label">Anm.:</span> Kommentar...
-</div>
+<div class="annotation-comment"><span class="comment-label">Anm.:</span> Kommentar...</div>
 
 ![[image.png]]
 <div class="annotation-figure-caption">
