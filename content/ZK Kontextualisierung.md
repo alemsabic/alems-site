@@ -3,32 +3,32 @@ cssclasses: zettelkasten
 tags: [ZK-Theorie, kontext]
 aliases: []
 erstellt: 2026-01-16
-bearbeitet: 2026-01-16
+bearbeitet: 2026-01-17
 ---
 
 # ZK Kontextualisierung
 
-*Schreibe nicht, woher du es hast, sondern wofür du es brauchst.*
+*Schreibe auf, wofür du es brauchst, statt woher du es hast.*
 
-**Ein isolierter Fakt ist wertlos; erst die Einbettung in einen spezifischen Frage-Kontext verleiht ihm Bedeutung und macht ihn wiederauffindbar.**
+Ein isolierter Fakt bleibt wertlos. Erst wenn du ihn in einen spezifischen Frage-Kontext stellst, erhält er Bedeutung und wird wiederauffindbar.
 
-Informationen haben keine feste Bedeutung. Sie erhalten ihre Bedeutung erst durch die Frage, die du an sie stellst, und den Kontext, in den du sie einbettest. Das ist keine Beliebigkeit, sondern Präzision.
+Informationen gewinnen ihre Bedeutung durch die Frage, die du stellst, und durch den Kontext, in den du sie einwebst. Diese Kontextabhängigkeit macht Bedeutung präzise, statt beliebig.
 
-Wir neigen dazu, Informationen nach ihrer Herkunft zu speichern ("Zitat aus Buch X"). Das ist Archivdenken. Im Zettelkasten speichern wir nach Zukunftsnutzen ("Argument für These Y"). Ein Zettel ist ein Missverständnis auf Vorrat, bis er in einen Kontext gestellt wird.
+Du archivierst Information gern nach ihrer Herkunft: "Zitat aus Buch X". So denken Archive. Im Zettelkasten speicherst du nach Zukunftsnutzen: "Argument für These Y". Ein Zettel bleibt ein Missverständnis auf Vorrat, bis du ihn in einen Kontext stellst.
 
-Denk an ein Spenderorgan: Die Niere wird dem Spender entnommen (De-Kontextualisierung). Sie wird dem Empfänger eingenäht und an den Blutkreislauf angeschlossen (Re-Kontextualisierung). Wenn du das Organ einfach in den Kasten legst, stirbt es. Du musst es verlinken – und zwar dort, wo es gebraucht wird. Ein Zitat über "Evolution" gehört nicht zwingend zu "Biologie"; vielleicht gehört es zu "Unternehmensstrategie" oder "Software-Entwicklung".
+Stell dir ein Spenderorgan vor. Der Chirurg entnimmt die Niere dem Spender (du löst sie aus ihrem Kontext). Dann näht er sie dem Empfänger ein und schließt sie an den Blutkreislauf an (du gibst ihr einen neuen Kontext). Wenn du das Organ einfach in den Kasten legst, stirbt es. Du musst es verlinken, und zwar dort, wo es gebraucht wird. Ein Zitat über Evolution gehört vielleicht zu Unternehmensstrategie oder Software-Entwicklung, weniger zu Biologie.
 
-Der Kontext entscheidet über die Bedeutung. Ein Satz von Darwin ("Survival of the Fittest") kann drei verschiedene Zettel produzieren, je nach Kontext: Biologie (Anpassung), Soziologie (Kritik am Sozialdarwinismus) oder Wirtschaft (Marktmechanismen). Der Zettelkasten zwingt dich, dich zu entscheiden – oder drei Zettel zu machen.
+Der Kontext entscheidet, was ein Satz bedeutet. Darwin schrieb "Survival of the Fittest". Du kannst daraus drei Zettel machen: Biologie (wie Arten sich anpassen), Soziologie (Kritik am Sozialdarwinismus) oder Wirtschaft (wie Märkte funktionieren). Der Zettelkasten fordert dich auf: Entscheide dich, oder mache drei Zettel.
 
-Ahrens betont: "Wir speichern Informationen nicht, um sie zu 'haben', sondern in einem Kontext, in dem wir sie wiederfinden wollen." [@ahrens_2017] Die Frage ist nie "Wo lege ich das ab?", sondern "In welchem Zusammenhang will ich darüber stolpern?"
+Ahrens schreibt: Du speicherst Informationen in einem Kontext, in dem du sie wiederfinden willst. [@ahrens_2017] Die Frage lautet: "In welchem Zusammenhang will ich darüber stolpern?" (Nicht: "Wo lege ich das ab?")
 
 ### Anknüpfungspunkte
 
-[[ZK Retrieval]] - Du findest Informationen nur in dem Kontext wieder, in dem du sie abgelegt (verlinkt) hast.
+[[ZK Retrieval]] Du findest Informationen in dem Kontext wieder, in dem du sie abgelegt (verlinkt) hast.
 
-[[Kognitive Externalisierung]] - Wir lagern nicht nur Daten aus, sondern Verknüpfungs-Muster (Kontexte).
+[[Kognitive Externalisierung]] Du lagerst Verknüpfungs-Muster (Kontexte) aus; Daten allein genügen da wenig.
 
-[[ZK Atomizität]] - Atomare Zettel sind leichter in neue Kontexte zu verschieben als große Textblöcke.
+[[ZK Atomizität]] Atomare Zettel lassen sich leichter in neue Kontexte verschieben als große Textblöcke.
 
 ---
 
@@ -36,22 +36,28 @@ Ahrens betont: "Wir speichern Informationen nicht, um sie zu 'haben', sondern in
 
 ### Bestätigung
 
-Das Prinzip wurzelt in der philosophischen Hermeneutik. Gadamer argumentiert, dass ein Text keine objektive Bedeutung "an sich" hat, sondern Sinn erst im "Horizont" des Lesers erhält. [@gadamer_1960] Der Zettelkasten materialisiert diese Horizontverschmelzung. Die Bedeutung eines Zettels entsteht nicht beim Schreiben, sondern beim Verlinken und Wiederlesen.
+Das Prinzip wurzelt in der philosophischen Hermeneutik[^1]. Gadamer argumentiert, dass ein Text seinen Sinn im "Horizont" des Lesers erhält. [@gadamer_1960] Der Zettelkasten materialisiert diese Horizontverschmelzung[^2]. Die Bedeutung eines Zettels entsteht beim Verlinken und Wiederlesen.
+
+[^1]: Hermeneutik: Die Lehre vom Verstehen und Auslegen von Texten. Sie fragt, wie Bedeutung zwischen Text und Leser entsteht.
+
+[^2]: Horizontverschmelzung: Bei Gadamer der Prozess, in dem der "Horizont" (Erwartungen, Vorwissen) des Lesers mit dem Horizont des Textes verschmilzt und so Verständnis entsteht.
 
 ### Widerspruch
 
-Traditionelle Archive folgen dem Provenienzprinzip: Die Herkunft bestimmt die Ordnung. Der Zettelkasten bricht damit radikal. Die Herkunft (Quelle) wird notiert, ist aber für die Struktur irrelevant. Relevant ist nur die Anschlussfähigkeit. Kritiker warnen, dass De-Kontextualisierung zu Informationsverlust führt. Aber: Wir lösen die Info aus dem Ursprungstext, um sie in unserem eigenen Denkgebäude neu zu verankern.
+Traditionelle Archive folgen dem Provenienzprinzip[^3]: Die Herkunft bestimmt die Ordnung. Der Zettelkasten bricht damit radikal. Die Herkunft (Quelle) wird notiert, spielt aber für die Struktur keine Rolle. Relevant ist allein die Anschlussfähigkeit. Kritiker wie Manfred Kuehn warnen, dass du Information verlierst, wenn du sie aus dem Ursprungstext löst. Aber: Du löst die Info aus dem Ursprungstext, um sie in deinem eigenen Denknetz neu zu verankern.
+
+[^3]: Provenienzprinzip: Im Archivwesen die Regel, dass Dokumente nach ihrer Herkunft (Provenanz) geordnet werden, z.B. nach Behörde oder Nachlass.
 
 ### Beispiel
 
-Ein Witz über Ärzte kann in drei Kontexten abgelegt werden: "Humor" (Sammlung guter Witze), "Medizinsoziologie" (Kritik an Standesdenken) oder "Rhetorik" (wie man Vorträge auflockert). Je nach Kontext wird der Witz unterschiedlich relevant. Der Zettelkasten zwingt zur expliziten Wahl.
+Ein Witz über Ärzte lässt sich in drei Kontexten ablegen: "Humor" (Sammlung guter Witze), "Medizinsoziologie" (Kritik an Standesdenken) oder "Rhetorik" (wie du Vorträge auflockerst). Je nach Kontext wird der Witz unterschiedlich relevant. Der Zettelkasten zwingt dich zur expliziten Wahl.
 
 ### Genealogie
 
-Luhmann beschrieb dies als Kern seiner Methode: Der Zettelkasten funktioniert nicht durch Ordnung, sondern durch Anschlussfähigkeit. [@luhmann_1981] Jeder neue Zettel muss nicht "eingeordnet", sondern "angeschlossen" werden. Die Frage ist: Wo kann dieser Gedanke weiterwachsen?
+Luhmann beschrieb dies als Kern seiner Methode: Der Zettelkasten funktioniert durch Anschlussfähigkeit. [@luhmann_1981] Jeder neue Zettel muss angeschlossen werden. Die Frage lautet: Wo kann dieser Gedanke weiterwachsen?
 
 ### Blick über den Rand
 
-In der Übersetzungswissenschaft gilt dasselbe: Man übersetzt nicht Wort für Wort (De-Kontextualisierung), sondern Sinn für Sinn (Re-Kontextualisierung in der Zielsprache). Ein Wort wie "Bank" ist bedeutungslos, bis der Kontext (Fluss oder Geld?) feststeht. Der Zettelkasten übersetzt jede Information in den Kontext deines Denkens.
+In der Übersetzungswissenschaft gilt dasselbe: Du übersetzt Sinn für Sinn (du gibst ihm einen neuen Kontext in der Zielsprache). Ein Wort wie "Bank" bleibt bedeutungslos, bis der Kontext feststeht: Fluss oder Geld? Der Zettelkasten übersetzt jede Information in den Kontext deines Denkens.
 
 ---
