@@ -12,7 +12,7 @@ bearbeitet: 2026-01-17
 
 Wir unterscheiden zwei Arten von Handlungen. Eine **pragmatische Handlung** bringt dich dem Ziel physisch näher (den Stein in die Mauer setzen). Eine **epistemische Handlung** verändert die Welt, um Informationen zu gewinnen oder Rechenlast zu sparen (den Stein drehen, um zu sehen, ob er passen könnte).[^1] [@kirsh_maglio_1994]
 
-Das klassische Beispiel ist Tetris. David Kirsh und Paul Maglio zeigten, dass Spieler die fallenden Steine viel öfter rotieren als nötig. Sie tun das, um schneller zu erkennen, wo er hinpasst. Sie wollen ihn dabei gar nicht bewegen. Die physische Rotation auf dem Screen ist schneller als die mentale Rotation im Kopf. "Epistemic actions are physical actions that make mental computation easier, faster, or more reliable."[^2] [@kirsh_maglio_1994]
+Das klassische Beispiel ist Tetris. David Kirsh und Paul Maglio zeigten, dass Spieler die fallenden Steine viel öfter rotieren als nötig. Sie tun das, um schneller zu erkennen, wo er hinpasst. Sie wollen ihn dabei gar nicht bewegen. Die physische Rotation auf dem Screen ist schneller als die mentale Rotation im Kopf. Kirsh definiert: Epistemische Handlungen sind physische Aktionen, die mentale Berechnungen einfacher, schneller oder verlässlicher machen.[^2] [@kirsh_maglio_1994]
 
 Im Zettelkasten ist das Schreiben, Verschieben und Verlinken von Zetteln eine Kette epistemischer Handlungen. Wenn du Zettel auf dem Tisch ausbreitest und umsortierst, räumst du nicht auf. Du denkst mit den Händen. Du manipulierst die Umwelt, um Muster zu sehen, die dein Gehirn intern niemals halten kann.
 

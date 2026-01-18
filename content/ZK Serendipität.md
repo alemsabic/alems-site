@@ -16,7 +16,7 @@ Der Zettelkasten ist ein Zufallsgenerator mit Gedächtnis. Du findest etwas viel
 
 Du suchst nach Zetteln zu "Evolution". Du findest einen alten Link zu "Marktwirtschaft", den du vergessen hattest. Plötzlich siehst du die Parallele zwischen biologischer Selektion und Marktwettbewerb. Diese Kollision wäre ohne den Link ausgeblieben. Der Zettelkasten speichert Wissen und gleichzeitig mögliche Verbindungen, die erst in der Zukunft zünden.
 
-Julius Comroe bringt es auf den Punkt: "Serendipity is looking in a haystack for a needle and discovering a farmer's daughter." [@merton_2004] Doch Louis Pasteur warnte: "Chance favors the prepared mind." Der Zettelkasten ist dieser "prepared mind". Er erhöht die Wahrscheinlichkeit für glückliche Kollisionen.
+Julius Comroe bringt es auf den Punkt: Serendipität bedeute, im Heuhaufen nach einer Nadel zu suchen und die Tochter des Bauern zu finden.[^10] [@merton_2004] Doch Louis Pasteur warnte: Der Zufall begünstigt den vorbereiteten Geist.[^11] Der Zettelkasten ist dieser vorbereitete Geist. Er erhöht die Wahrscheinlichkeit für glückliche Kollisionen.
 
 Stell dir eine Cocktailparty vor: Du gehst hin, um den Gastgeber zu begrüßen, kommst aber ins Gespräch mit einem Fremden, der dein Leben verändert. Der Zettelkasten legt die Wege für solche Kollisionen – durch Links, die du vor Monaten gesetzt hast. Wenn du nur mit Leuten redest, die du kennst (Suche), lernst du wenig Neues. Wenn du dich treiben lässt und Fremde ansprichst (Serendipität), entstehen neue Chancen. Der Zettelkasten ist eine Party, auf der deine Gedanken von gestern deine Gedanken von heute vorstellen.
 
@@ -61,3 +61,7 @@ Der Zettelkasten liefert den Zufall (durch Links); du lieferst den Scharfsinn. L
 In der Pharmaforschung ist Serendipität legendär: Aspirin, Penicillin, Teflon, Viagra waren alle Nebenprodukte anderer Forschungsziele. Die Pharmaindustrie spricht von "Fail Fast": Scheitere schnell, aber behalte die interessanten Unfälle. Der Zettelkasten ist ein Labor für Gedanken-Unfälle.
 
 ---
+
+[^10]: Originalzitat: "Serendipity is looking in a haystack for a needle and discovering a farmer's daughter." [@merton_2004]
+
+[^11]: Originalzitat: "Chance favors the prepared mind." (Louis Pasteur)

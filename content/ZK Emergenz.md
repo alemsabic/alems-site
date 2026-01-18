@@ -16,7 +16,7 @@ Wir sind gewohnt, **von oben nach unten** zu arbeiten.[^2] Erst das Inhaltsverze
 
 Denk an Trampelpfade. Niemand plant sie. Sie entstehen dort, wo viele Menschen gehen. Später werden sie asphaltiert. Im Zettelkasten werden Pfade zu Buchkapiteln, aber erst, wenn kritische Masse erreicht ist. Wer vorher plant, baut Straßen, die keiner nutzt.
 
-Adam Ferguson prägte 1767 die Formulierung, die später Hayeks "spontane Ordnung" wurde. Gesellschaft sei "the result of human action, but not the execution of any human design".[^5] [@ferguson_1767] Niklas Luhmann wandte dies auf Wissensproduktion an. Sein Zettelkasten war eine spontane Ordnung. "combination of disorder and order, of clustering and unpredictable combinations".[^6] [@luhmann_2000, p. 26]
+Adam Ferguson prägte 1767 die Formulierung, die später Hayeks "spontane Ordnung" wurde. Gesellschaft sei das Ergebnis menschlichen Handelns, aber nicht die Ausführung menschlicher Planung.[^5] [@ferguson_1767] Niklas Luhmann wandte dies auf Wissensproduktion an. Sein Zettelkasten war eine spontane Ordnung – eine Kombination von Unordnung und Ordnung, von Clustern und unvorhersehbaren Verbindungen.[^6] [@luhmann_2000, p. 26]
 
 Gilles Deleuze und Félix Guattari unterscheiden zwischen Baum und **Rhizom** (Wurzelgeflecht).[^7] [@deleuze_1987] Der Baum repräsentiert Hierarchie. Feste Wurzel, definierte Struktur. Das Rhizom (wie Gras oder Ingwer) wuchert horizontal. Jeder Punkt kann mit jedem verbunden werden, vordefinierte Ordnung gibt es niemals. Der Zettelkasten ist rhizomatisch. Kein "Wurzel-Zettel", keine Gliederung, nur Verbindungen, die wachsen.
 
@@ -36,11 +36,11 @@ Luhmann sagte: "Der Zettelkasten kostet mich mehr Zeit, als ich für Bücher bra
 
 ### Bestätigung
 
-Steven Johnson beschreibt Ameisen. "An individual ant, like an individual neuron, is just about as dumb as can be. Connect enough of them together properly, though, and you get spontaneous intelligence."[^9] [@johnson_2001] Die Kolonie ist klüger als das Individuum. Der Zettelkasten funktioniert nach demselben Prinzip. Lokale Interaktionen zwischen einfachen Elementen produzieren globale Intelligenz.
+Steven Johnson beschreibt Ameisen. Eine einzelne Ameise ist dumm wie ein einzelnes Neuron. Verbinde genug davon richtig, und du erhältst spontane Intelligenz.[^9] [@johnson_2001] Die Kolonie ist klüger als das Individuum. Der Zettelkasten funktioniert nach demselben Prinzip. Lokale Interaktionen zwischen einfachen Elementen produzieren globale Intelligenz.
 
 ### Widerspruch
 
-Nutzer berichten von der "Messy Middle". Bevor Emergenz sichtbar wird, herrscht Chaos. Ein Forumsbeitrag formuliert es drastisch. "Cognitively very hard to work with an external system – a mess, like standing in the middle of the woods with all the leaves and arms and twigs around you."[^10] Das Vertrauen darauf, dass sich Ordnung von selbst einstellt, erfordert Disziplin und eine kritische Masse an Zetteln. Aber: "Eventually something like a hut emerges." Der Preis zahlt sich aus.
+Nutzer berichten von der "Messy Middle". Bevor Emergenz sichtbar wird, herrscht Chaos. Ein Forumsbeitrag formuliert es drastisch: Mit einem externen System zu arbeiten sei kognitiv sehr schwer – ein Chaos, als stünde man mitten im Wald, umgeben von Blättern, Ästen und Zweigen.[^10] Das Vertrauen darauf, dass sich Ordnung von selbst einstellt, erfordert Disziplin und eine kritische Masse an Zetteln. Aber irgendwann entsteht etwas wie eine Hütte. Der Preis zahlt sich aus.
 
 ### Beispiel
 

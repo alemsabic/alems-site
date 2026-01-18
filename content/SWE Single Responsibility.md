@@ -10,9 +10,9 @@ bearbeitet: 2026-01-17
 
 *Trenne, was getrennt gehört.*
 
-In der Softwareentwicklung ist das **Single Responsibility Principle** (SRP) eines der wichtigsten Gesetze für sauberen Code.[^1] Robert C. Martin formulierte es so. "A class should have one, and only one, reason to change."[^2] [@martin_2003]
+In der Softwareentwicklung ist das **Single Responsibility Principle** (SRP) eines der wichtigsten Gesetze für sauberen Code.[^1] Robert C. Martin formulierte es so: Eine Klasse sollte einen und nur einen Grund haben, sich zu ändern.[^2] [@martin_2003]
 
-Warum? Wenn eine Komponente X und Y erledigt (zum Beispiel Drucken und Berechnen), muss ich sie anfassen, wenn sich das Druckformat ändert. Ich riskiere dabei, dass ich das Berechnen zerstöre. "Gather together the things that change for the same reasons. Separate those things that change for different reasons."[^3] [@martin_2003]
+Warum? Wenn eine Komponente X und Y erledigt (zum Beispiel Drucken und Berechnen), muss ich sie anfassen, wenn sich das Druckformat ändert. Ich riskiere dabei, dass ich das Berechnen zerstöre. Martin schreibt: Sammle zusammen, was sich aus denselben Gründen ändert. Trenne, was sich aus verschiedenen Gründen ändert.[^3] [@martin_2003]
 
 Das Prinzip gilt isomorph für den Zettelkasten. Behandelt ein Zettel "Luhmanns Biografie" und "Luhmanns Theorie", hat er zwei Gründe zur Änderung. Finde ich neue Details zur Biografie, muss ich den Theorie-Text anfassen. Will ich die Theorie woanders verlinken, schleppe ich unnötigen Ballast (Biografie) mit.
 
