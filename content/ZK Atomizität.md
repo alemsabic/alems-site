@@ -10,61 +10,54 @@ bearbeitet: 2026-01-17
 
 *Ein Gedanke, ein Zettel.*
 
-Wer zwei Gedanken auf einen Zettel schreibt ("A und B"), verklebt sie untrennbar. Wenn ich später über A schreiben will, muss ich B mitschleppen, auch wenn B überhaupt nicht passt. Atomizität ist die Währung des Zettelkastens.[^1]
+Wer zwei Gedanken auf einen Zettel schreibt ("A und B"), verklebt sie untrennbar. Wenn ich später über A schreiben will, muss ich B mitschleppen, auch wenn B überhaupt nicht passt. Atomizität ist die Währung des Zettelkastens. Ohne sie gibt es kein Wechselgeld.[^1]
 
-Das Ziel ist Unteilbarkeit, Kürze allein zählt wenig. Ein atomarer Zettel kann lang sein, solange er ein Thema behandelt. Er muss "selbst-enthalten" sein. Verständlich, auch wenn der Kontext fehlt, aus dem er kam. [@ahrens_2017] Ein Zettel enthält nur einen Gedanken, aber diesen so vollständig, dass man den Ursprungstext niemals mehr benötigt.
+Das Ziel ist Unteilbarkeit, nicht Kürze. Ein atomarer Zettel kann lang sein, solange er genau ein Thema behandelt. Er muss "selbst-enthalten" sein – verständlich auch ohne den Kontext, aus dem er kam. [@ahrens_2017] Du isolierst den Gedanken, um ihn frei flottierend zu machen.
 
-Denk an Lego. Ein fertig geklebtes Modellschiff kannst du nur als Schiff verwenden. Einen einzelnen Legostein kannst du für ein Schiff, eine Burg oder ein Raumschiff nutzen. Die Magie des Zettelkastens funktioniert nur, wenn die Bausteine klein und frei kombinierbar sind. [[ZK Emergenz]] unerwarteter Verbindungen entsteht nur aus atomaren Elementen.
+Denk an Lego. Ein fertig geklebtes Modellschiff kannst du nur als Schiff verwenden. Einen einzelnen Legostein kannst du für ein Schiff, eine Burg oder ein Raumschiff nutzen. Die Magie des Zettelkastens funktioniert nur, wenn die Bausteine klein und frei kombinierbar sind. Emergenz entsteht nur aus atomaren Elementen.
 
-Paul Otlet formulierte schon 1934 das **Monographische Prinzip** (jeder Fakt auf eine eigene Karte).[^2] Um Wissen neu zu ordnen, muss man Bücher in ihre Fakten zerlegen. [@otlet_1934] Er zerschnitt physisch Seiten, um Informationen auf Karteikarten zu kleben. Niklas Luhmann betonte später, dass die Zettel "kombinationsfähig" sein müssen. [@luhmann_1981] Die Ordnung entsteht durch die mobile Anordnung der Atome, durch feste Kapitel niemals.
-
-Container in der Schifffahrt zeigen dasselbe Prinzip. Standardisierte Container erlauben globale Logistik. Ein riesiges, unförmiges Gut muss speziell verladen werden. Kleine, standardisierte Einheiten passen überall hin.
+Paul Otlet formulierte dies schon 1934 als **Monographisches Prinzip** (siehe Genealogie).[^2] Um Wissen neu zu ordnen, musst du Bücher in ihre Fakten zerlegen.
 
 ### Anknüpfungspunkte
 
-[[ZK Konnektivität]] - Atomare Zettel sind wertlos ohne Links. Links funktionieren nur mit atomaren Zielen.
-
-[[SWE Single Responsibility]] - Das gleiche Prinzip im Software-Design. Eine Klasse, eine Aufgabe.
-
-[[ZK Kontextualisierung]] - Weil der Zettel atomar ist, muss Kontext künstlich durch Links erzeugt werden.
+[[ZK Konnektivität]] - Atomare Zettel sind wertlos ohne Links; Links funktionieren nur mit atomaren Zielen.
+[[SWE Single Responsibility]] - Das gleiche Prinzip im Software-Design: Eine Klasse, eine Aufgabe.
+[[ZK Kontextualisierung]] - Weil der Zettel atomar (kontextlos) ist, musst du Kontext künstlich durch Links erzeugen.
 
 ---
 
 ## Rückseite
 
 ### Bestätigung
-
-Niklas Luhmann betonte, dass die Zettel "kombinationsfähig" sein müssen. Die Ordnung entsteht durch die mobile Anordnung der Atome, durch feste Kapitel niemals. "Der Zettelkasten ist ein Partner, der uns überrascht."[^3] [@luhmann_1981] Die Überraschung funktioniert nur, wenn die Teile frei kombinierbar sind.
+Niklas Luhmann betonte: Zettel müssen "kombinationsfähig" sein. Die Ordnung entsteht durch die mobile Anordnung der Atome, niemals durch feste Kapitel. "Der Zettelkasten ist ein Partner, der uns überrascht."[^3] [@luhmann_1981] Diese Überraschung gelingt nur, wenn die Teile frei beweglich sind.
 
 ### Widerspruch
-
-Kritiker wenden ein, dass Atomisierung den narrativen Fluss zerstört. Man hat am Ende nur Schnipsel, kein Buch. Die Antwort. Der Zettelkasten ist der Steinbruch, das Buch selbst niemals. Das Buch entsteht, indem man die Steine in eine neue Reihenfolge bringt (Manuskript), die sich von der Eingabe-Reihenfolge unterscheidet. Der Kontext wird explizit gemacht (durch Links mit Begründung), zerstört wird er niemals.
+Kritiker wenden ein: Atomisierung zerstört den narrativen Fluss. Man hat am Ende nur Schnipsel, kein Buch. Die Antwort lautet: Der Zettelkasten ist der Steinbruch, nicht das Buch. Das Buch entsteht, indem du die Steine in eine neue Reihenfolge bringst (Manuskript). Du zerstörst den ursprünglichen Kontext, um neue Kontexte zu ermöglichen.
 
 ### Beispiel
-
-**Kaffeeanbau in Brasilien.** Ein Zettel über "Kaffeeanbau in Brasilien" ist schwer wiederverwendbar. Besser:
+**Kaffeeanbau in Brasilien.** Ein Zettel über "Kaffeeanbau in Brasilien" ist schwer wiederverwendbar. Er klebt an Geografie und Biologie gleichzeitig.
+Besser:
 1. "Kaffee braucht Höhenlage" (Biologie)
 2. "Brasilien hat Hochebenen" (Geografie)
 3. "Monokulturen schaden dem Boden" (Ökologie)
 
-Jetzt kann Zettel 3 auch in einem Text über Landwirtschaft in Deutschland verwendet werden.
-
-**Lange Texte vs. Atomar.** Ein langer Text über "Klimawandel und Wirtschaft" ist starr. Getrennt in "CO2-Effekt" und "CO2-Steuer" kann ich "CO2-Steuer" auch in einem Zettel über "Steuerrecht" verwenden.
+Jetzt kann ich Zettel 3 ("Monokulturen") auch in einem Text über Landwirtschaft in Deutschland verwenden. Ich habe die Ökologie von der Geografie befreit.
 
 ### Genealogie
-
-Paul Otlet („Mundaneum") formulierte schon 1934 das **Monographische Prinzip**. Um Wissen neu zu ordnen, muss man Bücher in ihre Fakten zerlegen.[^2] [@otlet_1934] Er zerschnitt physisch Seiten, um Informationen auf Karteikarten zu kleben. Die Hypertexttheorie später. Knoten (Nodes) müssen klein sein, um Vernetzung zu maximieren.
+Paul Otlet („Mundaneum") formulierte 1934 das **Monographische Prinzip**. Er erkannte: Um Wissen neu zu ordnen, muss man Bücher physisch zerlegen. Er zerschnitt Seiten und klebte Fakten auf Karteikarten. [@otlet_1934] Dies ist der Vorläufer des Hypertext-Knotens ("Node").
 
 ### Blick über den Rand
+In der **Chemie**: Komplexe Moleküle (Wasser) entstehen aus einfachen Atomen (H, O). Die Eigenschaft "nass" ist weder in H noch in O enthalten; sie **emergiert** aus der Verbindung.[^4] Wären Atome riesige Klumpen, gäbe es keine Chemie, nur Physik. Dasselbe gilt für Zettel: Große Klumpen verhindern intellektuelle Chemie.
 
-In der **Chemie** entstehen komplexe Moleküle (Wasser) aus einfachen Atomen (H, O). Die Eigenschaft "nass" ist weder in H noch in O enthalten. Sie **emergiert** aus der Verbindung.[^4] Wären Atome riesige Klumpen, gäbe es keine Chemie, nur Physik. Dasselbe gilt für Zettel. Große Klumpen verhindern Chemie.
+### Transfer
+**Container-Schifffahrt:** Vor 1950 wurden Säcke, Fässer und Kisten einzeln verladen (Break Bulk). Das war langsam. Der **Standard-Container** (TEU) atomisierte die Fracht. Egal ob Bananen oder Autos – alles passt in die gleiche Box. Das senkte die Frachtkosten um 90% und ermöglichte die Globalisierung. Der Zettel ist der Container für Gedanken.
 
 ---
 
-[^1]: **Atomizität.** Jeder Zettel darf nur eine einzige Idee enthalten, damit er sich flexibel in neue Kontexte einfügen lässt. Wer zwei Gedanken auf einen Zettel schreibt ("A und B"), verklebt sie untrennbar. Wenn ich später über A schreiben will, muss ich B mitschleppen, auch wenn B überhaupt nicht passt.
+[^1]: **Atomizität** (griech. *atomos* = unteilbar): Das Prinzip, Information in die kleinstmögliche sinnvolle Einheit zu zerlegen.
 
-[^2]: **Monographisches Prinzip** (Paul Otlet, 1934). Jeder Fakt auf eine eigene Karte. Um Wissen neu zu ordnen, muss man Bücher in ihre Fakten zerlegen. Otlet zerschnitt physisch Seiten, um Informationen auf Karteikarten zu kleben. [@otlet_1934]
+[^2]: **Monographisches Prinzip**: Jeder Fakt auf eine eigene Karte. Begriff von Paul Otlet (1934).
 
-[^3]: Originalzitat. "Der Zettelkasten ist ein Partner, der uns überrascht." [@luhmann_1981]
+[^3]: Originalzitat: "Der Zettelkasten ist ein Partner, der uns überrascht." [@luhmann_1981]
 
-[^4]: **Emergenz** (lat. *emergere* = auftauchen). Eigenschaften, die erst aus der Verbindung von Elementen entstehen, aber in den Elementen selbst niemals enthalten sind. Wasser ist "nass", aber H und O sind es jeweils einzeln niemals. Die Nässe emergiert aus der Verbindung H₂O.
+[^4]: **Emergenz** (lat. *emergere* = auftauchen): Eigenschaften eines Systems, die nicht in den Teilen enthalten sind, sondern erst aus deren Zusammenwirken entstehen.

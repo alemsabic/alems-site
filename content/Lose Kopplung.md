@@ -10,62 +10,50 @@ bearbeitet: 2026-01-17
 
 *Verbunden, aber nicht gefesselt.*
 
-Elemente reagieren aufeinander, bleiben aber eigenständig.[^1] Was in einem Teil passiert, pflanzt sich nicht sofort und zwangsläufig in alle anderen Teile fort. Das klingt ineffizient – ist aber der Weg, wie komplexe Systeme überleben.
+Elemente reagieren aufeinander, bleiben aber eigenständig. Was in einem Teil passiert, pflanzt sich nicht sofort in alle anderen Teile fort. Das klingt ineffizient – ist aber der Weg, wie komplexe Systeme überleben. Karl Weick zeigte am Beispiel von Schulen: Was der Direktor im Büro entscheidet, dringt nicht deterministisch in jedes Klassenzimmer.
 
-Karl Weick beobachtete Schulen und stellte fest: Was der Direktor im Büro entscheidet, dringt nicht deterministisch in jedes Klassenzimmer. Der Lehrer kann experimentieren. Die Verbindung ist da, aber sie ist elastisch – wie ein Stoßdämpfer, der Rad und Karosserie verbindet, aber Erschütterungen schluckt. Ohne diese Dämpfung würde jede Unebenheit das Auto zerstören. [@weick_1976]
+Die Verbindung ist da, aber sie ist elastisch.[^1] Wie ein Stoßdämpfer, der Rad und Karosserie verbindet, aber Erschütterungen schluckt. Ohne diese Dämpfung würde jede Unebenheit das Auto zerstören. [@weick_1976]
 
-Weicks Rettungsinseln-Metapher zeigt das Prinzip. Du bindest mehrere Rettungsinseln locker zusammen, um eine Einheit zu bilden. Wenn eine Insel durch eine Welle schwankt, bringt sie nicht die gesamte Flotte zum Kentern. Jede Insel behält ihre eigene Dynamik; die Verbindung ist elastisch genug, um Erschütterungen zu absorbieren.
+James Orton radikalisierte diese These: Lose Kopplung ist kein Fehler, sondern ein evolutionärer Vorteil.[^2] Lokale Teile können sich anpassen, ohne das Gesamtsystem zu gefährden. Das System ist ineffizient koordiniert, aber robust gegen schlechte zentrale Vorgaben.
 
-James Orton radikalisierte Weicks These: Lose Kopplung ist kein Fehler, sondern ein evolutionärer Vorteil.[^2] Lokale Teile können sich anpassen, ohne das Gesamtsystem zu gefährden. Schulen bleiben stabil, obwohl einzelne Lehrer reformieren – oder gerade deswegen. [@orton_1990]
-
-Das Gegenteil – **Tight Coupling** (enge Kopplung) – macht Systeme fragil.[^3] Charles Perrow analysierte Unfälle in Atomkraftwerken und prägte den Begriff **Normal Accidents** (unvermeidbare Unfälle).[^4] In eng gekoppelten Systemen gibt es keinen Spielraum; kleine Fehler kaskadieren unvermeidlich zu Katastrophen. [@perrow_1984] Der **Flash Crash** vom 6. Mai 2010 zeigt dasselbe Muster: Algorithmen im Hochfrequenzhandel interagierten so eng gekoppelt, dass ein einzelner fehlerhafter Verkaufsauftrag in Millisekunden den gesamten US-Aktienmarkt um 9% abstürzen ließ.[^5] [@min_borch_2021]
-
-Niklas Luhmann nutzte lose Kopplung in seiner Medientheorie. Sprache besteht aus losen Elementen – Wörtern, die du frei kombinieren kannst. Sätze sind strikte Kopplungen dieser Wörter – Grammatik erzwingt Struktur. Die Lockerheit des Mediums ermöglicht Variation und Kreativität; die Strenge der Form ermöglicht Bedeutung und Verstehen. Ohne lose Elemente keine Komplexität. [@luhmann_1997]
+Das Gegenteil – **Tight Coupling** (enge Kopplung) – macht Systeme fragil.[^3] Charles Perrow analysierte Unfälle in Atomkraftwerken und prägte den Begriff **Normal Accidents**.[^4] In eng gekoppelten Systemen gibt es keinen Spielraum; kleine Fehler kaskadieren unvermeidlich zu Katastrophen. Der **Flash Crash** von 2010 beweist dies: Algorithmen interagierten so eng, dass ein einzelner Fehler den US-Markt in Minuten crashte.
 
 ### Anknüpfungspunkte
 
-[[Strukturelle Kopplung]] - Systeme irritieren sich, ohne einander zu determinieren – möglich durch lose Kopplung.
-
+[[Strukturelle Kopplung]] - Systeme irritieren sich, ohne einander zu determinieren.
 [[ZK Atomizität]] - Nur lose gekoppelte Gedanken lassen sich flexibel neu kombinieren.
-
-[[SWE Single Responsibility]] - Microservices kommunizieren über APIs, können aber unabhängig deployt werden und abstürzen.
+[[SWE Single Responsibility]] - Microservices stürzen nicht komplett ab, wenn ein Teil versagt.
 
 ---
 
 ## Rückseite
 
 ### Bestätigung
-
-James Orton und Karl Weick formulierten 1990 die radikale These: Lose Kopplung ist kein Fehler, sondern ein Vorteil. Sie erlaubt lokalen Teilen, sich anzupassen, ohne das Gesamtsystem zu gefährden.[^2] Schulen sind widerstandsfähig, weil Lehrer experimentieren können, ohne auf zentrale Genehmigung zu warten. Reformen von oben verpuffen oft. Innovation von unten bleibt lokal. Das System ist ineffizient koordiniert, aber robust gegen schlechte zentrale Vorgaben. [@orton_1990]
+Orton und Weick formulierten 1990: Lose Kopplung erlaubt Organisationen, gleichzeitig stabil und flexibel zu sein. Schulen sind widerstandsfähig, weil Lehrer experimentieren können, ohne auf Genehmigung zu warten. Reformen von oben verpuffen oft; Innovation von unten bleibt lokal. Das System opfert Effizienz für Resilienz. [@orton_1990]
 
 ### Widerspruch
-
-Frederick Taylor und die Scientific-Management-Bewegung sahen das Gegenteil als Ideal: maximale Standardisierung, zentrale Steuerung, enge Kopplung aller Prozesse.[^6] Aus dieser Perspektive ist lose Kopplung verschwendete Effizienz, weil Teile redundant arbeiten. Wenn Teile nicht synchronisiert sind, wie kann das System dann kohärent handeln? Tayloristen argumentieren: Ohne enge Kopplung entsteht Chaos. Lose Kopplung verhindert zentrale Kontrolle – und das ist aus ihrer Sicht ein Problem, kein Vorteil.
+Frederick Taylor und das Scientific Management sahen das Gegenteil als Ideal: maximale Standardisierung und zentrale Steuerung.[^5] Aus dieser Perspektive ist lose Kopplung Verschwendung. Wenn Teile nicht synchronisiert sind, wie kann das System kohärent handeln? Tayloristen argumentieren: Ohne enge Kopplung entsteht Chaos. Lose Kopplung verhindert Kontrolle.
 
 ### Beispiel
+**Rettungsinseln:** Weick nutzt die Metapher einer Flotte von Rettungsinseln, die locker zusammengebunden sind. Wenn eine Insel durch eine Welle schwankt, bringt sie nicht die gesamte Flotte zum Kentern. Die Verbindung ist elastisch genug, um Erschütterungen zu absorbieren, aber fest genug, um die Gruppe zusammenzuhalten. Wären sie starr verbunden (ein großes Schiff), würde die Welle das ganze Schiff brechen.
 
-**Software Microservices:** Netflix baut Services so, dass sie über APIs kommunizieren – das ist die Kopplung. Aber jeder Service kann unabhängig deployt werden und abstürzen – das ist die Lockerheit. Ein Fehler im Empfehlungsalgorithmus reißt nicht den gesamten Streaming-Service mit. Der Nutzer kann weiterhin Videos abspielen; Empfehlungen werden später nachgeladen. Die Architektur akzeptiert partielle Ausfälle, statt auf perfekte Synchronisation zu setzen.
-
-**Schulsystem:** Der Direktor einer Grundschule in Hamburg entscheidet, dass alle Klassen projektbasiertes Lernen einführen sollen. Lehrer A ignoriert die Anweisung und unterrichtet weiter frontal. Lehrer B experimentiert mit Projekten, scheitert, kehrt zurück. Lehrer C macht brillante Projekte und wird zur Inspiration für andere Schulen. Das System ist chaotisch – aber resilient. Schlechte Entscheidungen der Schulleitung führen nicht zum Kollaps, weil die Kopplung lose ist.
+### Transfer
+**Software Microservices:** Netflix baut Services so, dass sie über APIs kommunizieren (Kopplung), aber unabhängig abstürzen können (Lose). Ein Fehler im Empfehlungsalgorithmus reißt nicht den gesamten Streaming-Service mit. Der Nutzer kann weiterhin Videos abspielen; Empfehlungen werden später nachgeladen. Die Architektur akzeptiert partielle Ausfälle, statt auf perfekte Synchronisation zu setzen.
 
 ### Genealogie
-
-Robert Glassman führte den Begriff **loose coupling** 1973 für biologische Systeme ein – Organe sind verbunden, aber autonom. Karl Weick übertrug ihn 1976 auf Organisationen, insbesondere Bildungseinrichtungen. [@weick_1976] Der Begriff wurde zur Grundlage der Organisationsforschung für Systeme, die man nicht von oben durchsteuern kann. Orton und Weick erweiterten 1990 die Theorie und zeigten: Lose Kopplung ist kein Defizit, sondern Voraussetzung dafür, dass Systeme sich anpassen können. [@orton_1990]
+Robert Glassman führte den Begriff 1973 für biologische Systeme ein. Karl Weick übertrug ihn 1976 auf Organisationen. Der Begriff wurde zur Grundlage für das Verständnis von Systemen, die man nicht von oben durchsteuern kann. Orton und Weick erweiterten die Theorie 1990.
 
 ### Vertiefung
-
-Niklas Luhmann integriert lose Kopplung in seine Theorie der Formbildung. Ein **Medium** besteht aus losen Elementen, die nur schwach aneinander gekoppelt sind – Luft aus Molekülen, Sprache aus Wörtern. Eine **Form** entsteht, wenn diese Elemente strikt gekoppelt werden – Schallwellen in Luft, Sätze aus Wörtern. Dass das Medium locker ist, ermöglicht unendliche Variation; dass die Form streng ist, ermöglicht Wiederholung und Bedeutung. Ohne lose Elemente kann nichts Neues entstehen. Ohne strikte Formen kann nichts verstanden werden. Lose Kopplung ist die Bedingung für Komplexität. [@luhmann_1997]
+Niklas Luhmann nutzt lose Kopplung für seine Medientheorie. Ein **Medium** (Sprache) besteht aus losen Elementen (Wörtern). Eine **Form** (Satz) entsteht, wenn diese Elemente strikt gekoppelt werden. Ohne die Lockerheit der Wörter gäbe es keine neuen Sätze. Ohne die Strenge der Grammatik gäbe es keine Bedeutung. Lose Kopplung ist die Bedingung für Kreativität. [@luhmann_1997]
 
 ---
 
-[^1]: **Lose Kopplung** (engl. *loose coupling*): Elemente eines Systems sind verbunden, bewahren aber ihre Eigenständigkeit. Ereignisse in einem Teil beeinflussen andere Teile, aber nicht zwangsläufig oder sofort. Gegenteil: **Tight Coupling** – enge Kopplung. Hier pflanzen sich Ereignisse deterministisch und sofort fort.
+[^1]: **Lose Kopplung** (engl. *loose coupling*): Elemente sind verbunden, bewahren aber ihre Eigenständigkeit. Ereignisse in einem Teil beeinflussen andere Teile, aber nicht zwangsläufig oder sofort.
 
-[^2]: "Loose coupling allows some portions of an organization to persist while others change." [@orton_1990, p. 205]
+[^2]: Originalzitat: "Loose coupling allows some portions of an organization to persist while others change." [@orton_1990, p. 205]
 
-[^3]: **Tight Coupling** (enge Kopplung): Elemente eines Systems sind so eng verbunden, dass eine Änderung in einem Teil sofort und zwangsläufig alle anderen Teile beeinflusst. Kein Spielraum für Fehler.
+[^3]: **Tight Coupling** (enge Kopplung): Elemente sind so eng verbunden, dass eine Änderung in einem Teil sofort und zwangsläufig alle anderen beeinflusst.
 
-[^4]: **Normal Accidents** (unvermeidbare Unfälle): Charles Perrows Begriff für Katastrophen, die nicht durch menschliches Versagen, sondern durch die Struktur des Systems selbst verursacht werden. In eng gekoppelten, komplexen Systemen – Atomkraftwerke, Chemieanlagen – sind Unfälle statistisch unvermeidbar. [@perrow_1984]
+[^4]: **Normal Accidents**: Charles Perrows Begriff für Katastrophen, die in eng gekoppelten Systemen unvermeidbar sind, weil kleine Fehler kaskadieren. [@perrow_1984]
 
-[^5]: **Flash Crash**: Am 6. Mai 2010 stürzte der US-Aktienmarkt innerhalb von Minuten um 9% ab und erholte sich ebenso schnell. Ursache: Ein einzelner großer Verkaufsauftrag löste eine Kettenreaktion unter Hochfrequenzhandelsalgorithmen aus. Die Algorithmen waren so eng gekoppelt, dass sie sich gegenseitig in eine Panik-Spirale trieben. [@min_borch_2021]
-
-[^6]: **Frederick Taylor** (1856–1915): Ingenieur und Begründer des Scientific Management. Taylor glaubte: Jede Arbeit lässt sich in optimale Einzelschritte zerlegen, die zentral geplant und strikt durchgesetzt werden müssen. Seine Vision war maximale Effizienz durch enge Kopplung – das Gegenteil von Weicks lose gekoppelten Organisationen.
+[^5]: **Frederick Taylor** (1856–1915): Begründer des Scientific Management. Ziel: Maximale Effizienz durch enge Kopplung und zentrale Planung.
