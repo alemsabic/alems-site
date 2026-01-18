@@ -12,7 +12,7 @@ bearbeitet: 2026-01-17
 
 Operativ geschlossene Systeme bleiben füreinander Umwelt. Sie bleiben stumm. Wie sie operieren, bleibt strikt getrennt. Dennoch reagieren sie aufeinander, aber nur durch Resonanz, niemals durch Übertragung.[^1]
 
-Humberto Maturana und Francisco Varela nennen dies **strukturelle Kopplung**. Zwei Systeme koppeln sich, wenn ihre Strukturen so aufeinander abgestimmt sind, dass der Zustand des einen das andere irritiert. Die Kopplung entsteht durch wiederholte Interaktionen. Sie passen sich einander an, verschmelzen aber niemals. [@maturana_varela_1987]
+Humberto Maturana und Francisco Varela nennen dies *strukturelle Kopplung*. Zwei Systeme koppeln sich, wenn ihre Strukturen so aufeinander abgestimmt sind, dass der Zustand des einen das andere irritiert. Die Kopplung entsteht durch wiederholte Interaktionen. Sie passen sich einander an, verschmelzen aber niemals. [@maturana_varela_1987]
 
 Das Gehirn ist strukturell gekoppelt mit seinem Körper. Es registriert Irritationen und verarbeitet sie nach eigener Logik. Was draußen ein roter Apfel ist, ist drinnen ein neuronales Muster. Das System interpretiert die Irritation; es übernimmt sie nicht.
 
@@ -34,22 +34,22 @@ Niklas Luhmann macht diesen Gedanken zur Grundlage seiner Gesellschaftstheorie. 
 ### Bestätigung
 Luhmann definiert strukturelle Kopplungen als Einrichtungen, die trotz operativer Geschlossenheit die Strukturentwicklung beeinflussen.[^3] Systeme bleiben geschlossen, aber sie entwickeln sich ko-evolutionär. [@luhmann_1997, p. 100]
 
-Clark und Chalmers bauen ihre **Extended Mind** These darauf auf. Gehirn und Werkzeug bilden ein gekoppeltes System. Wenn ein System plastisch ist und in engem Kontakt mit der Umwelt steht, wird es die relevanten Merkmale der Welt verfolgen. [@clark_chalmers_1998, p. 11]
+Clark und Chalmers bauen ihre *Extended Mind* These darauf auf. Gehirn und Werkzeug bilden ein gekoppeltes System. Wenn ein System plastisch ist und in engem Kontakt mit der Umwelt steht, wird es die relevanten Merkmale der Welt verfolgen. [@clark_chalmers_1998, p. 11]
 
 ### Widerspruch
-Jürgen Habermas kritisiert: Luhmann blendet **kommunikative Rationalität** aus.[^5] Wenn Systeme nur irritiert werden, wo bleibt der Raum für Verständigung? Die Theorie versagt bei der Erklärung, wie Konsens entsteht oder wie rationale Argumente wirken. [@leydesdorff_2000]
+Jürgen Habermas kritisiert: Luhmann blendet *kommunikative Rationalität* aus.[^5] Wenn Systeme nur irritiert werden, wo bleibt der Raum für Verständigung? Die Theorie versagt bei der Erklärung, wie Konsens entsteht oder wie rationale Argumente wirken. [@leydesdorff_2000]
 
 ### Beispiel
 **Recht und Politik:** Das Rechtssystem ist über die Verfassung mit der Politik gekoppelt. Politik kann Gesetze ändern (Irritation). Das Rechtssystem entscheidet aber selbst, ob es diese als Recht behandelt (Operation). Die Verfassung ist die Schnittstelle: Sie ermöglicht Einfluss, determiniert aber nicht. [@luhmann_1984]
 
 ### Genealogie
-Der Begriff stammt aus der Biologie (Maturana, 1970er). Er beschreibt lebende Systeme und ihre Umweltbeziehungen. [@maturana_1980] Heinz von Foerster lieferte die Basis mit **selbstreferentiellen Systemen**, die ihre Umwelt beobachten, aber nicht von ihr determiniert werden.[^7] [@von_foerster_1960]
+Der Begriff stammt aus der Biologie (Maturana, 1970er). Er beschreibt lebende Systeme und ihre Umweltbeziehungen. [@maturana_1980] Heinz von Foerster lieferte die Basis mit *selbstreferentiellen Systemen*, die ihre Umwelt beobachten, aber nicht von ihr determiniert werden.[^7] [@von_foerster_1960]
 
 ### Vertiefung
-Francisco Varela entwickelt den Gedanken weiter zum **Enactivism** (Hervorbringung).[^8] Kognition entsteht durch strukturelle Kopplungen, nicht durch Repräsentation. Ein Organismus erzeugt seine Welt, indem er wiederholt mit ihr interagiert. "Cognition is embodied action."[^9] [@varela_1991]
+Francisco Varela entwickelt den Gedanken weiter zum *Enactivism* (Hervorbringung).[^8] Kognition entsteht durch strukturelle Kopplungen, nicht durch Repräsentation. Ein Organismus erzeugt seine Welt, indem er wiederholt mit ihr interagiert. "Cognition is embodied action."[^9] [@varela_1991]
 
 ### Blick über den Rand
-In der Software-Architektur: **Loose Coupling**. Module sind verbunden, bleiben aber unabhängig. Änderungen in einem Modul lassen andere unberührt. Das ist analog zur strukturellen Kopplung: Verbindung ja, Abhängigkeit nein. [@weick_1976]
+In der Software-Architektur: *Loose Coupling*. Module sind verbunden, bleiben aber unabhängig. Änderungen in einem Modul lassen andere unberührt. Das ist analog zur strukturellen Kopplung: Verbindung ja, Abhängigkeit nein. [@weick_1976]
 
 ---
 

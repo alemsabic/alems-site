@@ -41,10 +41,10 @@ Digitale Tools (Obsidian, Roam) verführen zur Volltextsuche ("Ich finde es ja w
 Das Prinzip antizipierte die Hypertextstruktur des Web. Vannevar Bush träumte 1945 von "Trails". [@bush_1945] Allerdings tragen Links im Web selten Begründungen ("dumme" Links), während ZK-Links semantisch qualifiziert sein sollten ("X widerspricht Y").
 
 ### Vertiefung
-Marcia Bates prägte den Begriff **Berrypicking**.[^1] Du suchst Information dynamisch. Jede gefundene Information (Beere) verändert die nächste Frage. Du sammelst Beeren entlang eines Pfades, Stück für Stück. Der Zettelkasten ist ein Beerenfeld, das beim Pflücken nachwächst. [@bates_1989]
+Marcia Bates prägte den Begriff *Berrypicking*.[^1] Du suchst Information dynamisch. Jede gefundene Information (Beere) verändert die nächste Frage. Du sammelst Beeren entlang eines Pfades, Stück für Stück. Der Zettelkasten ist ein Beerenfeld, das beim Pflücken nachwächst. [@bates_1989]
 
 ### Blick über den Rand
-In der Stadtplanung spricht Kevin Lynch von **Legibility** (Lesbarkeit).[^2] Eine gut lesbare Stadt erlaubt intuitive Orientierung durch Landmarken und Pfade. [@lynch_1960] Dasselbe gilt für den Zettelkasten: Ein gut strukturierter Kasten erlaubt intuitive Navigation. Du spürst, wo du bist.
+In der Stadtplanung spricht Kevin Lynch von *Legibility* (Lesbarkeit).[^2] Eine gut lesbare Stadt erlaubt intuitive Orientierung durch Landmarken und Pfade. [@lynch_1960] Dasselbe gilt für den Zettelkasten: Ein gut strukturierter Kasten erlaubt intuitive Navigation. Du spürst, wo du bist.
 
 ---
 

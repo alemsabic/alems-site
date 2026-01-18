@@ -10,7 +10,7 @@ bearbeitet: 2026-01-17
 
 *Trenne, was getrennt gehört.*
 
-In der Softwareentwicklung ist das **Single Responsibility Principle** (SRP) Gesetz. Robert C. Martin formuliert es so: Eine Klasse sollte einen und nur einen Grund haben, sich zu ändern.[^2] [@martin_2003]
+In der Softwareentwicklung ist das *Single Responsibility Principle* (SRP) Gesetz. Robert C. Martin formuliert es so: Eine Klasse sollte einen und nur einen Grund haben, sich zu ändern.[^2] [@martin_2003]
 
 Wenn eine Komponente Drucken und Berechnen erledigt, musst du sie anfassen, wenn sich das Druckformat ändert. Du riskierst dabei, dass du das Berechnen zerstörst. Martin schreibt: Sammle zusammen, was sich aus denselben Gründen ändert. Trenne, was sich aus verschiedenen Gründen ändert.[^3] [@martin_2003]
 
@@ -29,22 +29,22 @@ Die Lösung ist radikale Trennung. Ein Zettel für die Biografie, einer für die
 ## Rückseite
 
 ### Bestätigung
-Die **Unixphilosophie** demonstriert SRP in Reinform. "Make each program do one thing well."[^5] [@mcilroy_1978] `grep` sucht nur Text, `sort` sortiert nur. Wenn du suchen und sortieren willst, baust du kein riesiges Programm. Du verbindest beide mit einer Pipe (`|`).
+Die *Unixphilosophie* demonstriert SRP in Reinform. "Make each program do one thing well."[^5] [@mcilroy_1978] `grep` sucht nur Text, `sort` sortiert nur. Wenn du suchen und sortieren willst, baust du kein riesiges Programm. Du verbindest beide mit einer Pipe (`|`).
 
 ### Widerspruch
-Kritiker warnen vor "Ravioli Code". Wenn du alles in winzige Schnipsel zerlegst, verlierst du den Überblick. Zu viele kleine Klassen führen zu Fragmentierung; der **Kontrollfluss** wird schwer nachvollziehbar.[^6] Im Zettelkasten löst du das durch Strukturzettel (Hubs), die die Teile wieder zusammenführen.
+Kritiker warnen vor "Ravioli Code". Wenn du alles in winzige Schnipsel zerlegst, verlierst du den Überblick. Zu viele kleine Klassen führen zu Fragmentierung; der *Kontrollfluss* wird schwer nachvollziehbar.[^6] Im Zettelkasten löst du das durch Strukturzettel (Hubs), die die Teile wieder zusammenführen.
 
 ### Beispiel
 **Unix Tools:** `grep` sucht, `sort` sortiert, `uniq` entfernt Duplikate. Jedes Tool hat eine einzige Verantwortung. Komplexe Operationen entstehen durch Kombination (`grep | sort | uniq`). Sie entstehen niemals durch Monolithen.
 
 ### Genealogie
-Der Urvater ist David Parnas (1972). Er beschrieb **Information Hiding** (Informationen verbergen).[^7] Ein Modul sollte ein "Geheimnis" vor anderen verbergen. [@parnas_1972] SRP ist die moderne Anwendung dieses Denkens.
+Der Urvater ist David Parnas (1972). Er beschrieb *Information Hiding* (Informationen verbergen).[^7] Ein Modul sollte ein "Geheimnis" vor anderen verbergen. [@parnas_1972] SRP ist die moderne Anwendung dieses Denkens.
 
 ### Vertiefung
-Ein noch allgemeineres Konzept ist **Separation of Concerns** (SoC), geprägt von Edsger W. Dijkstra.[^8] Verschiedene Aspekte eines Problems (Logik vs. Darstellung) müssen strikt getrennt werden, um sie intellektuell beherrschbar zu machen. [@dijkstra_1974]
+Ein noch allgemeineres Konzept ist *Separation of Concerns* (SoC), geprägt von Edsger W. Dijkstra.[^8] Verschiedene Aspekte eines Problems (Logik vs. Darstellung) müssen strikt getrennt werden, um sie intellektuell beherrschbar zu machen. [@dijkstra_1974]
 
 ### Blick über den Rand
-Im **Journalismus**: Ein Artikel behandelt ein Thema. Ein Kommentar behandelt die Meinung dazu. Eine Reportage behandelt das Erlebnis. Vermischt man Nachricht und Meinung, leidet die Glaubwürdigkeit. SRP schafft Klarheit in Textgattungen.
+Im *Journalismus*: Ein Artikel behandelt ein Thema. Ein Kommentar behandelt die Meinung dazu. Eine Reportage behandelt das Erlebnis. Vermischt man Nachricht und Meinung, leidet die Glaubwürdigkeit. SRP schafft Klarheit in Textgattungen.
 
 ---
 

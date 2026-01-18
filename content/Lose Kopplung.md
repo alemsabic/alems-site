@@ -16,7 +16,7 @@ Die Verbindung ist da, aber sie ist elastisch.[^1] Wie ein Stoßdämpfer, der Ra
 
 James Orton radikalisierte diese These: Lose Kopplung ist kein Fehler, sondern ein evolutionärer Vorteil.[^2] Lokale Teile können sich anpassen, ohne das Gesamtsystem zu gefährden. Das System ist ineffizient koordiniert, aber robust gegen schlechte zentrale Vorgaben.
 
-Das Gegenteil – **Tight Coupling** (enge Kopplung) – macht Systeme fragil.[^3] Charles Perrow analysierte Unfälle in Atomkraftwerken und prägte den Begriff **Normal Accidents**.[^4] In eng gekoppelten Systemen gibt es keinen Spielraum; kleine Fehler kaskadieren unvermeidlich zu Katastrophen. Der **Flash Crash** von 2010 beweist dies: Algorithmen interagierten so eng, dass ein einzelner Fehler den US-Markt in Minuten crashte.
+Das Gegenteil – *Tight Coupling* (enge Kopplung) – macht Systeme fragil.[^3] Charles Perrow analysierte Unfälle in Atomkraftwerken und prägte den Begriff *Normal Accidents*.[^4] In eng gekoppelten Systemen gibt es keinen Spielraum; kleine Fehler kaskadieren unvermeidlich zu Katastrophen. Der *Flash Crash* von 2010 beweist dies: Algorithmen interagierten so eng, dass ein einzelner Fehler den US-Markt in Minuten crashte.
 
 ### Anknüpfungspunkte
 
@@ -44,7 +44,7 @@ Frederick Taylor und das Scientific Management sahen das Gegenteil als Ideal: ma
 Robert Glassman führte den Begriff 1973 für biologische Systeme ein. Karl Weick übertrug ihn 1976 auf Organisationen. Der Begriff wurde zur Grundlage für das Verständnis von Systemen, die man nicht von oben durchsteuern kann. Orton und Weick erweiterten die Theorie 1990.
 
 ### Vertiefung
-Niklas Luhmann nutzt lose Kopplung für seine Medientheorie. Ein **Medium** (Sprache) besteht aus losen Elementen (Wörtern). Eine **Form** (Satz) entsteht, wenn diese Elemente strikt gekoppelt werden. Ohne die Lockerheit der Wörter gäbe es keine neuen Sätze. Ohne die Strenge der Grammatik gäbe es keine Bedeutung. Lose Kopplung ist die Bedingung für Kreativität. [@luhmann_1997]
+Niklas Luhmann nutzt lose Kopplung für seine Medientheorie. Ein *Medium* (Sprache) besteht aus losen Elementen (Wörtern). Eine *Form* (Satz) entsteht, wenn diese Elemente strikt gekoppelt werden. Ohne die Lockerheit der Wörter gäbe es keine neuen Sätze. Ohne die Strenge der Grammatik gäbe es keine Bedeutung. Lose Kopplung ist die Bedingung für Kreativität. [@luhmann_1997]
 
 ---
 

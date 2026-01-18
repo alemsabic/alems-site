@@ -16,7 +16,7 @@ Das Ziel ist Unteilbarkeit, nicht Kürze. Ein atomarer Zettel kann lang sein, so
 
 Denk an Lego. Ein fertig geklebtes Modellschiff kannst du nur als Schiff verwenden. Einen einzelnen Legostein kannst du für ein Schiff, eine Burg oder ein Raumschiff nutzen. Die Magie des Zettelkastens funktioniert nur, wenn die Bausteine klein und frei kombinierbar sind. Emergenz entsteht nur aus atomaren Elementen.
 
-Paul Otlet formulierte dies schon 1934 als **Monographisches Prinzip** (siehe Genealogie).[^2] Um Wissen neu zu ordnen, musst du Bücher in ihre Fakten zerlegen.
+Paul Otlet formulierte dies schon 1934 als *Monographisches Prinzip* (siehe Genealogie).[^2] Um Wissen neu zu ordnen, musst du Bücher in ihre Fakten zerlegen.
 
 ### Anknüpfungspunkte
 
@@ -44,10 +44,10 @@ Besser:
 Jetzt kann ich Zettel 3 ("Monokulturen") auch in einem Text über Landwirtschaft in Deutschland verwenden. Ich habe die Ökologie von der Geografie befreit.
 
 ### Genealogie
-Paul Otlet („Mundaneum") formulierte 1934 das **Monographische Prinzip**. Er erkannte: Um Wissen neu zu ordnen, muss man Bücher physisch zerlegen. Er zerschnitt Seiten und klebte Fakten auf Karteikarten. [@otlet_1934] Dies ist der Vorläufer des Hypertext-Knotens ("Node").
+Paul Otlet („Mundaneum") formulierte 1934 das *Monographische Prinzip*. Er erkannte: Um Wissen neu zu ordnen, muss man Bücher physisch zerlegen. Er zerschnitt Seiten und klebte Fakten auf Karteikarten. [@otlet_1934] Dies ist der Vorläufer des Hypertext-Knotens ("Node").
 
 ### Blick über den Rand
-In der **Chemie**: Komplexe Moleküle (Wasser) entstehen aus einfachen Atomen (H, O). Die Eigenschaft "nass" ist weder in H noch in O enthalten; sie **emergiert** aus der Verbindung.[^4] Wären Atome riesige Klumpen, gäbe es keine Chemie, nur Physik. Dasselbe gilt für Zettel: Große Klumpen verhindern intellektuelle Chemie.
+In der *Chemie*: Komplexe Moleküle (Wasser) entstehen aus einfachen Atomen (H, O). Die Eigenschaft "nass" ist weder in H noch in O enthalten; sie *emergiert* aus der Verbindung.[^4] Wären Atome riesige Klumpen, gäbe es keine Chemie, nur Physik. Dasselbe gilt für Zettel: Große Klumpen verhindern intellektuelle Chemie.
 
 ### Transfer
 **Container-Schifffahrt:** Vor 1950 wurden Säcke, Fässer und Kisten einzeln verladen (Break Bulk). Das war langsam. Der **Standard-Container** (TEU) atomisierte die Fracht. Egal ob Bananen oder Autos – alles passt in die gleiche Box. Das senkte die Frachtkosten um 90% und ermöglichte die Globalisierung. Der Zettel ist der Container für Gedanken.

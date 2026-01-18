@@ -29,10 +29,10 @@ Sönke Ahrens schreibt: Du speicherst Informationen in dem Kontext, in dem du si
 ## Rückseite
 
 ### Bestätigung
-Das Prinzip wurzelt in der philosophischen **Hermeneutik**.[^1] Gadamer argumentiert, dass ein Text seinen Sinn erst im "Horizont" des Lesers erhält (**Horizontverschmelzung**).[^2] [@gadamer_1960] Der Zettelkasten materialisiert dies. Die Bedeutung eines Zettels entsteht beim Verlinken.
+Das Prinzip wurzelt in der philosophischen *Hermeneutik*.[^1] Gadamer argumentiert, dass ein Text seinen Sinn erst im "Horizont" des Lesers erhält (*Horizontverschmelzung*).[^2] [@gadamer_1960] Der Zettelkasten materialisiert dies. Die Bedeutung eines Zettels entsteht beim Verlinken.
 
 ### Widerspruch
-Traditionelle Archive folgen dem **Provenienzprinzip**.[^3] Die Herkunft bestimmt die Ordnung. Der Zettelkasten bricht damit radikal. Die Quelle wird notiert, spielt aber für die Struktur keine Rolle. Relevant ist allein die Anschlussfähigkeit. Kritiker warnen vor Informationsverlust durch Kontext-Entriss. Aber: Du löst die Info aus dem Ursprungstext, um sie in deinem Denknetz neu zu verankern.
+Traditionelle Archive folgen dem *Provenienzprinzip*.[^3] Die Herkunft bestimmt die Ordnung. Der Zettelkasten bricht damit radikal. Die Quelle wird notiert, spielt aber für die Struktur keine Rolle. Relevant ist allein die Anschlussfähigkeit. Kritiker warnen vor Informationsverlust durch Kontext-Entriss. Aber: Du löst die Info aus dem Ursprungstext, um sie in deinem Denknetz neu zu verankern.
 
 ### Beispiel
 **Der Arzt-Witz:** Ein Witz über Ärzte lässt sich in drei Kontexten ablegen: "Humor" (Sammlung guter Witze), "Medizinsoziologie" (Kritik an Standesdenken) oder "Rhetorik" (Eisbrecher für Vorträge). Je nach Kontext wird der Witz unterschiedlich relevant. Der Zettelkasten zwingt dich zur expliziten Wahl.
@@ -41,7 +41,7 @@ Traditionelle Archive folgen dem **Provenienzprinzip**.[^3] Die Herkunft bestimm
 Luhmann beschrieb dies als Kern seiner Methode: Der Zettelkasten funktioniert durch Anschlussfähigkeit. [@luhmann_1981] Jeder neue Zettel muss angeschlossen werden. Die Frage lautet: Wo kann dieser Gedanke weiterwachsen?
 
 ### Blick über den Rand
-In der **Übersetzungswissenschaft**: Du übersetzt Sinn für Sinn (neuer Kontext in Zielsprache), nicht Wort für Wort. "Bank" bleibt bedeutungslos, bis der Kontext feststeht: Fluss oder Geld? Der Zettelkasten übersetzt jede Information in den Kontext deines Denkens.
+In der *Übersetzungswissenschaft*: Du übersetzt Sinn für Sinn (neuer Kontext in Zielsprache), nicht Wort für Wort. "Bank" bleibt bedeutungslos, bis der Kontext feststeht: Fluss oder Geld? Der Zettelkasten übersetzt jede Information in den Kontext deines Denkens.
 
 ---
 

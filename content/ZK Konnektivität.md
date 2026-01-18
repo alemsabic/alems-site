@@ -14,7 +14,7 @@ Ein Zettel ohne Link gleicht einem Neuron ohne Synapse: Er feuert ins Leere. Er 
 
 Niklas Luhmann formulierte: "Jeder Zettel ist ein Element, das seine Qualität aus dem Netz der Verweise erhält." [@luhmann_1981] Du musst wissen, wie du von einem Punkt zum anderen kommst. Das Ziel heißt Vernetzung. So findest du, was du suchst, und stolperst über das, was du suchtest.
 
-Die Netzwerktheorie zeigt, dass der Zettelkasten zu einem skalenfreien Netzwerk wird.[^1] Die meisten Zettel haben wenige Links; wenige Zettel (**Hubs**) haben extrem viele.[^2] Diese Struktur erlaubt es dir, mit wenigen Schritten von jedem Punkt zu jedem anderen zu kommen (**Small-World-Effekt**).[^3] [@barabasi_2002] Das Gehirn arbeitet genauso: über ausbreitende Aktivierung durch Verknüpfungen.[^4]
+Die Netzwerktheorie zeigt, dass der Zettelkasten zu einem skalenfreien Netzwerk wird.[^1] Die meisten Zettel haben wenige Links; wenige Zettel (*Hubs*) haben extrem viele.[^2] Diese Struktur erlaubt es dir, mit wenigen Schritten von jedem Punkt zu jedem anderen zu kommen (**Small-World-Effekt**).[^3] [@barabasi_2002] Das Gehirn arbeitet genauso: über ausbreitende Aktivierung durch Verknüpfungen.[^4]
 
 **Metcalfe's Law** besagt, dass der Nutzen eines Netzwerks proportional zum Quadrat der Teilnehmerzahl wächst. [@gilder_1993] Ein Zettelkasten mit 1000 Zetteln ist hundertmal so wertvoll wie einer mit 100. Jeder neue Zettel fügt Information hinzu und wird gleichzeitig ein potenzieller Verknüpfungspunkt für alle anderen.
 
@@ -29,10 +29,10 @@ Die Netzwerktheorie zeigt, dass der Zettelkasten zu einem skalenfreien Netzwerk 
 ## Rückseite
 
 ### Bestätigung
-Das Gehirn arbeitet assoziativ (Links), nicht hierarchisch (Ordner). **Spreading Activation** bedeutet, dass die Aktivierung eines Gedankens benachbarte Gedanken mitaktiviert. Der Zettelkasten externalisiert diese Struktur. Das Netzwerk bildet nach, wie du wirklich denkst: in Assoziationen.
+Das Gehirn arbeitet assoziativ (Links), nicht hierarchisch (Ordner). *Spreading Activation* bedeutet, dass die Aktivierung eines Gedankens benachbarte Gedanken mitaktiviert. Der Zettelkasten externalisiert diese Struktur. Das Netzwerk bildet nach, wie du wirklich denkst: in Assoziationen.
 
 ### Widerspruch
-Zu viele Links desorientieren (**Lost in Hyperspace**).[^5] Wenn alles mit allem verknüpft ist, büßt ein Link seinen Wert ein. Kritiker wie Nick Milo fordern deshalb Hierarchien oder Strukturnotizen (Maps of Content), um Navigationspunkte zu schaffen.[^6] Die Lösung ist nicht weniger Links, sondern begründete Links. Ein Link, der erklärt ("Widerspricht, weil..."), ist wertvoll.
+Zu viele Links desorientieren (*Lost in Hyperspace*).[^5] Wenn alles mit allem verknüpft ist, büßt ein Link seinen Wert ein. Kritiker wie Nick Milo fordern deshalb Hierarchien oder Strukturnotizen (Maps of Content), um Navigationspunkte zu schaffen.[^6] Die Lösung ist nicht weniger Links, sondern begründete Links. Ein Link, der erklärt ("Widerspricht, weil..."), ist wertvoll.
 
 ### Beispiel
 **Autopoiesis-Netzwerk:** Ein Zettel über "Autopoiesis" ist verlinkt mit "Zelle" (biologisches Beispiel), "Zettelkasten" (funktionale Analogie), "Allopoiesis" (Kontrast) und "Luhmann" (Autor). Jeder Link hat einen anderen Grund. Das Netzwerk wird semantisch reich, nicht nur dicht.

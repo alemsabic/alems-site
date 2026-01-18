@@ -29,7 +29,7 @@ Stell dir eine Cocktailparty vor. Du gehst hin, um den Gastgeber zu begrüßen (
 ## Rückseite
 
 ### Bestätigung
-Robert K. Merton untersuchte Serendipität soziologisch: Große Entdeckungen (Penicillin, Röntgenstrahlen) waren "Unfälle". Aber sie passierten Forschern, die fähig waren, die **Anomalie** als bedeutsam zu erkennen.[^3] [@merton_2004] Merton definiert: Du beobachtest etwas Unerwartetes, Anomales und Strategisches, das dich zu einer neuen Theorie führt.
+Robert K. Merton untersuchte Serendipität soziologisch: Große Entdeckungen (Penicillin, Röntgenstrahlen) waren "Unfälle". Aber sie passierten Forschern, die fähig waren, die *Anomalie* als bedeutsam zu erkennen.[^3] [@merton_2004] Merton definiert: Du beobachtest etwas Unerwartetes, Anomales und Strategisches, das dich zu einer neuen Theorie führt.
 
 ### Widerspruch
 Kritiker sagen, Zufall lasse sich nicht planen. Aber die Wissenschaftsgeschichte zeigt: Wenn du nur das Erwartete suchst, findest du nur das Erwartete. Wenn du offen bleibst (strukturiert offen durch Links), findest du das Unerwartete. Serendipität bedeutet, Zufall intelligent zu nutzen.
