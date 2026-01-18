@@ -24,9 +24,7 @@ Stell dir eine Cocktailparty vor. Du gehst hin, um den Gastgeber zu begrüßen (
 [[ZK Emergenz]] - Serendipität ist der Moment, in dem emergente Strukturen sichtbar werden.
 [[ZK Retrieval]] - Navigation (Browsing) provoziert Serendipität; gezielte Suche verhindert sie.
 
----
-
-## Rückseite
+Des Zettels Rückseite
 
 ### Bestätigung
 Robert K. Merton untersuchte Serendipität soziologisch: Große Entdeckungen (Penicillin, Röntgenstrahlen) waren "Unfälle". Aber sie passierten Forschern, die fähig waren, die *Anomalie* als bedeutsam zu erkennen.[^3] [@merton_2004] Merton definiert: Du beobachtest etwas Unerwartetes, Anomales und Strategisches, das dich zu einer neuen Theorie führt.
@@ -44,11 +42,9 @@ Horace Walpole prägte den Begriff 1754, inspiriert vom Märchen "Die drei Prinz
 Der Zettelkasten liefert den Zufall (durch Links); du lieferst den Scharfsinn. Links verwandeln den Kasten von einem stummen Archiv in einen produktiven Partner. Luhmann nannte ihn einen "Kommunikationspartner", der ihn auf neue Gedanken brachte. [@luhmann_1981]
 
 ### Blick über den Rand
-In der Pharmaindustrie spricht man von "Fail Fast". Scheitere schnell, aber behalte die interessanten Unfälle (wie Viagra oder Teflon). Der Zettelkasten ist ein Labor für Gedanken-Unfälle.
+In der Pharmaindustrie spricht man von \"Fail Fast\". Scheitere schnell, aber behalte die interessanten Unfälle (wie Viagra oder Teflon). Der Zettelkasten ist ein Labor für Gedanken-Unfälle.
 
----
-
-[^1]: Originalzitat: "Serendipity is looking in a haystack for a needle and discovering a farmer's daughter." [@merton_2004]
+[^1]: Originalzitat: \"Serendipity is looking in a haystack for a needle and discovering a farmer's daughter.\" [@merton_2004]
 
 [^2]: Originalzitat: "Chance favors the prepared mind." (Louis Pasteur)
 

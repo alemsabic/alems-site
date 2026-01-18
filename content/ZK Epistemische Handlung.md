@@ -24,9 +24,7 @@ Ein Mathematiker, der eine Gleichung umformt, tut dies epistemisch. Er schreibt 
 [[Strukturelle Kopplung]] - Durch physische Manipulation tritt das Bewusstsein in direkten Austausch mit dem System.
 [[ZK Serendipität]] - Wer physisch mit dem Material spielt, stolpert eher über Zufälle.
 
----
-
-## Rückseite
+Des Zettels Rückseite
 
 ### Bestätigung
 Das Konzept stützt die *Extended Mind* These. Kognition findet nicht allein im Kopf statt. Die Manipulation der Umwelt ist kognitiv, nicht nur motorisch. Wenn wir Scrabble-Steine ordnen, um ein Wort zu finden, ist dieses Ordnen Teil des Denkprozesses. [@clark_chalmers_1998]
@@ -45,8 +43,6 @@ Evan Risko fasst epistemische Handlungen unter *Cognitive Offloading*. Du manipu
 
 ### Blick über den Rand
 Im **UX-Design**: Gute Interfaces erlauben epistemische Handlungen. Drag-and-Drop, Zooming, Filtering. Benutzer wollen Daten manipulieren, um sie zu verstehen ("Exploratory Data Analysis"). Ein statisches Dashboard verhindert epistemisches Handeln.
-
----
 
 [^1]: **Epistemische Handlung** (griech. *episteme* = Wissen): Eine physische Veränderung der Umwelt, die den Denkprozess erleichtert (z.B. Stein drehen). Gegensatz: Pragmatische Handlung (Stein legen).
 

@@ -23,9 +23,7 @@ Andy Clark und David Chalmers beschreiben mit dem *Extended Mind* ein ähnliches
 [[Strukturelle Kopplung]] - Interpenetration steigert Kopplung zur wechselseitigen Konstitution.
 [[Kognitive Externalisierung]] - Externe Werkzeuge werden durch Interpenetration Teil des Geistes.
 
----
-
-## Rückseite
+Des Zettels Rückseite
 
 ### Bestätigung
 Luhmann bestätigt: Interpenetration ist – entgegen gängigem Missverständnis – keine Vermischung. Nur so werden Systeme autonomer. Du nutzt Sprache (sozial), um individuell (psychisch) zu denken. Menschen können nicht ohne soziale Systeme denken; soziale Systeme können nicht ohne Menschen kommunizieren. Die wechselseitige Abhängigkeit steigert die Autonomie beider Systeme. [@luhmann_1984, p. 290]
@@ -44,8 +42,6 @@ Luhmann unterscheidet strikt zwischen *psychischem System* (Bewusstsein) und *so
 
 ### Blick über den Rand
 In der Biologie: *Endosymbiose*. Mitochondrien waren einst eigenständige Bakterien, die in eine Wirtszelle eindrangen. Heute sind sie Teil der Zelle, haben aber noch eigene DNA. Sie interpenetrieren mit der Zelle: Getrennt (eigene DNA), aber konstitutiv abhängig (kein Leben ohne einander).
-
----
 
 [^1]: **Interpenetration** (lat. *inter* = zwischen, *penetrare* = eindringen): Ein Begriff von Talcott Parsons, den Luhmann umdefinierte. Er bezeichnet eine Beziehung zwischen Systemen, bei der sie sich wechselseitig ermöglichen, indem sie die Komplexität des anderen nutzen. Wichtig: Keine Verschmelzung! [@luhmann_1984]
 

@@ -24,9 +24,7 @@ Ein Objekt verbirgt seinen internen Zustand und erlaubt Interaktion nur über de
 [[Strukturelle Kopplung]] - Der Mechanismus, der trotz Geschlossenheit koordiniert.
 [[ZK Emergenz]] - Zettel vernetzen sich intern und ordnen sich ohne externen Plan.
 
----
-
-## Rückseite
+Des Zettels Rückseite
 
 ### Bestätigung
 Humberto Maturana betont: Kognition ist kein "Abbilden" einer objektiven Welt, sondern ein "Hervorbringen" – *Enactment* – einer Welt durch das geschlossene Operieren.[^4] Das Nervensystem repräsentiert nicht die Außenwelt; es erzeugt eine Welt durch rekursive interne Operationen. [@maturana_1980, p. 13]
@@ -45,8 +43,6 @@ Francisco Varela definierte den Begriff 1979 in "Principles of Biological Autono
 
 ### Vertiefung
 Luhmann radikalisiert den Begriff: "Kommunikation kann nur an Kommunikation anschließen, nicht an Bewusstsein oder chemische Prozesse." [@luhmann_1984] Soziale Systeme sind operational geschlossen. Bewusstsein ist Umwelt für Kommunikation. Du denkst einen Gedanken; aber dieser Gedanke ist nicht die Kommunikation. Kommunikation entsteht erst, wenn jemand etwas mitteilt und diese Differenz verstanden wird.
-
----
 
 [^1]: **Operationale Geschlossenheit**: Ein System operiert ausschließlich mit eigenen Elementen. Paradoxerweise ermöglicht diese Geschlossenheit Offenheit: Nur weil das System stabil ist, kann es überhaupt zwischen innen und außen unterscheiden.
 

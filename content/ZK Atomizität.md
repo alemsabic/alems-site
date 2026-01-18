@@ -24,9 +24,7 @@ Paul Otlet formulierte dies schon 1934 als *Monographisches Prinzip* (siehe Gene
 [[SWE Single Responsibility]] - Das gleiche Prinzip im Software-Design: Eine Klasse, eine Aufgabe.
 [[ZK Kontextualisierung]] - Weil der Zettel atomar (kontextlos) ist, musst du Kontext künstlich durch Links erzeugen.
 
----
-
-## Rückseite
+Des Zettels Rückseite
 
 ### Bestätigung
 Niklas Luhmann betonte: Zettel müssen "kombinationsfähig" sein. Die Ordnung entsteht durch die mobile Anordnung der Atome, niemals durch feste Kapitel. "Der Zettelkasten ist ein Partner, der uns überrascht."[^3] [@luhmann_1981] Diese Überraschung gelingt nur, wenn die Teile frei beweglich sind.
@@ -51,8 +49,6 @@ In der *Chemie*: Komplexe Moleküle (Wasser) entstehen aus einfachen Atomen (H, 
 
 ### Transfer
 **Container-Schifffahrt:** Vor 1950 wurden Säcke, Fässer und Kisten einzeln verladen (Break Bulk). Das war langsam. Der **Standard-Container** (TEU) atomisierte die Fracht. Egal ob Bananen oder Autos – alles passt in die gleiche Box. Das senkte die Frachtkosten um 90% und ermöglichte die Globalisierung. Der Zettel ist der Container für Gedanken.
-
----
 
 [^1]: **Atomizität** (griech. *atomos* = unteilbar): Das Prinzip, Information in die kleinstmögliche sinnvolle Einheit zu zerlegen.
 

@@ -24,9 +24,7 @@ Das Gegenteil – *Tight Coupling* (enge Kopplung) – macht Systeme fragil.[^3]
 [[ZK Atomizität]] - Nur lose gekoppelte Gedanken lassen sich flexibel neu kombinieren.
 [[SWE Single Responsibility]] - Microservices stürzen nicht komplett ab, wenn ein Teil versagt.
 
----
-
-## Rückseite
+Des Zettels Rückseite
 
 ### Bestätigung
 Orton und Weick formulierten 1990: Lose Kopplung erlaubt Organisationen, gleichzeitig stabil und flexibel zu sein. Schulen sind widerstandsfähig, weil Lehrer experimentieren können, ohne auf Genehmigung zu warten. Reformen von oben verpuffen oft; Innovation von unten bleibt lokal. Das System opfert Effizienz für Resilienz. [@orton_1990]
@@ -45,8 +43,6 @@ Robert Glassman führte den Begriff 1973 für biologische Systeme ein. Karl Weic
 
 ### Vertiefung
 Niklas Luhmann nutzt lose Kopplung für seine Medientheorie. Ein *Medium* (Sprache) besteht aus losen Elementen (Wörtern). Eine *Form* (Satz) entsteht, wenn diese Elemente strikt gekoppelt werden. Ohne die Lockerheit der Wörter gäbe es keine neuen Sätze. Ohne die Strenge der Grammatik gäbe es keine Bedeutung. Lose Kopplung ist die Bedingung für Kreativität. [@luhmann_1997]
-
----
 
 [^1]: **Lose Kopplung** (engl. *loose coupling*): Elemente sind verbunden, bewahren aber ihre Eigenständigkeit. Ereignisse in einem Teil beeinflussen andere Teile, aber nicht zwangsläufig oder sofort.
 

@@ -24,9 +24,7 @@ David Kirsh nennt das *epistemische Handlung* – eine Handlung, die das Problem
 [[ZK Atomizität]] - Exogramme müssen atomar sein, damit wir sie physisch neu kombinieren können.
 [[ZK Epistemische Handlung]] - Das Externalisieren selbst ist die eigentliche kognitive Arbeit.
 
----
-
-## Rückseite
+Des Zettels Rückseite
 
 ### Bestätigung
 Clark und Chalmers bestätigen dies mit der "Extended Mind Thesis": Der kognitive Prozess endet nicht an der Schädelgrenze. Wenn ein externes Werkzeug – Stift, Papier, Notizbuch – dieselbe funktionale Rolle spielt wie ein interner Prozess, ist es Teil des Geistes. [@clark_chalmers_1998, p. 8]
@@ -45,8 +43,6 @@ Edwin Hutchins erweitert dies zu *Distributed Cognition* – der Idee, dass Denk
 
 ### Blick über den Rand
 In der Informatik: **Cache vs. Disk**. Das Arbeitsgedächtnis (RAM) ist schnell, aber klein und flüchtig (wie das Gehirn). Die Festplatte (Disk) ist langsam, aber riesig und persistent (wie Papier). Du nutzt Caching-Strategien, um relevante Daten im RAM zu halten und den Rest auf Disk auszulagern. Externalisierung ist Speichermanagement für das Gehirn.
-
----
 
 [^1]: Originalzitat: "The work was done in your head, but the record of it is still here." – "No, it's not a record, not really. It's working. You have to work on paper, and this is the paper." [@gleick_1992]
 

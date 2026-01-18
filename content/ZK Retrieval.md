@@ -24,9 +24,7 @@ Luhmann formulierte: "Das Problem liegt darin, Wissen so wiederzufinden, dass es
 [[ZK Konnektivität]] - Links bilden Pfade; Pfade ermöglichen Browsing.
 [[ZK Serendipität]] - Navigation ermöglicht Zufallsfunde; Suche verengt den Blick.
 
----
-
-## Rückseite
+Des Zettels Rückseite
 
 ### Bestätigung
 Johannes Schmidt analysierte Luhmanns Arbeitsweise: Luhmann nutzte das Schlagwortregister als Einstieg ("Türen ins Labyrinth"). [@schmidt_2013] Die Recherche fand im Kasten statt, indem er internen Verweisungsketten folgte. Das Register war der Türgriff; die Karte kam später.
@@ -45,8 +43,6 @@ Marcia Bates prägte den Begriff *Berrypicking*.[^1] Du suchst Information dynam
 
 ### Blick über den Rand
 In der Stadtplanung spricht Kevin Lynch von *Legibility* (Lesbarkeit).[^2] Eine gut lesbare Stadt erlaubt intuitive Orientierung durch Landmarken und Pfade. [@lynch_1960] Dasselbe gilt für den Zettelkasten: Ein gut strukturierter Kasten erlaubt intuitive Navigation. Du spürst, wo du bist.
-
----
 
 [^1]: **Berrypicking**: Informationssuche als dynamischer Prozess. Du sammelst Information Stück für Stück entlang eines sich verändernden Pfades.
 

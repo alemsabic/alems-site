@@ -24,9 +24,7 @@ Die Netzwerktheorie zeigt, dass der Zettelkasten zu einem skalenfreien Netzwerk 
 [[ZK Serendipität]] - Unerwartete Pfade entstehen nur, wenn wir Links folgen.
 [[ZK Emergenz]] - Das Netzwerk wird klüger als die Summe seiner Teile.
 
----
-
-## Rückseite
+Des Zettels Rückseite
 
 ### Bestätigung
 Das Gehirn arbeitet assoziativ (Links), nicht hierarchisch (Ordner). *Spreading Activation* bedeutet, dass die Aktivierung eines Gedankens benachbarte Gedanken mitaktiviert. Der Zettelkasten externalisiert diese Struktur. Das Netzwerk bildet nach, wie du wirklich denkst: in Assoziationen.
@@ -45,8 +43,6 @@ Mark Granovetter zeigte in der Netzwerktheorie die "Stärke schwacher Bindungen"
 
 ### Blick über den Rand
 Tim Berners-Lee erfand das World Wide Web nach demselben Prinzip: Dezentrale Dokumente, verbunden durch Hyperlinks. Ein Dateisystem ist ein Baum (Ordner); das Web ist ein Netz. Der Zettelkasten ist das Web auf Papier.
-
----
 
 [^1]: **Skalenfreies Netzwerk**: Ein Netzwerk, in dem wenige Knoten (Hubs) extrem viele Verbindungen haben (wie Google im Web).
 

@@ -24,9 +24,7 @@ Denk an Trampelpfade. Niemand plant sie. Sie entstehen dort, wo viele Menschen g
 [[ZK Konnektivität]] - Verbindungen sind der Motor der Emergenz.
 [[ZK Atomizität]] - Nur bewegliche Einheiten können emergente Strukturen bilden.
 
----
-
-## Rückseite
+Des Zettels Rückseite
 
 ### Bestätigung
 Adam Ferguson prägte 1767 die Formulierung: Gesellschaft sei das Ergebnis menschlichen Handelns, aber nicht menschlicher Planung.[^5] [@ferguson_1767] Niklas Luhmann wandte dies auf Wissensproduktion an. Sein Zettelkasten war eine "spontane Ordnung" – eine Kombination von Unordnung und Ordnung, von Clustern und unvorhersehbaren Verbindungen.[^6] [@luhmann_2000, p. 26]
@@ -45,8 +43,6 @@ Steven Johnson beschreibt Ameisenintelligenz: Verbinde genug dumme Elemente rich
 
 ### Blick über den Rand
 In der *Stadtplanung*: Jane Jacobs zeigte, dass am Reißbrett geplante Städte (Brasilia) leblos sind. Gewachsene Städte (Greenwich Village) entwickeln durch chaotische Interaktion lebendige Ordnung. Der Zettelkasten ist eine Stadt, kein Denkmal. [@jacobs_1961]
-
----
 
 [^1]: **Emergenz** (lat. *emergere* = auftauchen): Eigenschaften, die erst aus der Verbindung von Elementen entstehen. Das Ganze ist mehr als die Summe seiner Teile.
 

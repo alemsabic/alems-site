@@ -25,9 +25,7 @@ Die Entwicklung deines Zettelkastens ist reine strukturelle Drift. Du planst nic
 [[Strukturelle Kopplung]] - Kanalisiert die Drift – wie Ufer den Fluss.
 [[Unterschied Autopoiesis Allopoiesis]] - Die Drift dient nur dem Erhalt der Autopoiesis, keinem externen Zweck.
 
----
-
-## Rückseite
+Des Zettels Rückseite
 
 ### Bestätigung
 Stephen Jay Gould bestätigt dies mit dem Konzept der *Exaptation*.[^4] Federn entwickelten sich ursprünglich für Thermoregulation, nicht fürs Fliegen. Vögel "entdeckten" das Fliegen später als Nebenprodukt. Evolution ist offen und kontingent, nicht deterministisch. [@gould_1982, p. 384]
@@ -46,8 +44,6 @@ Drift führt zu *Pfadabhängigkeit*: Einmal eingeschlagene Wege verfestigen sich
 
 ### Blick über den Rand
 In der *Linguistik*: Sprachen wandeln sich nicht, um "besser" zu werden. Sie driften durch kleine Variationen der Sprecher auseinander. Die germanischen Sprachen trennten sich nicht planvoll; sie drifteten geografisch auseinander – durch Lautverschiebungen und grammatische Innovationen.
-
----
 
 [^1]: **Strukturelle Drift**: Veränderung geschieht nicht durch zielgerichtete Anpassung, sondern durch blindes "Driften" in einem erlaubten Raum. Es gibt kein Ziel "da draußen", nur eine Bedingung: Das System darf nicht sterben.
 

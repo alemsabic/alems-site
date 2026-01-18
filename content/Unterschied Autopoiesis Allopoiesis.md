@@ -24,9 +24,7 @@ Für die Wissensarbeit ist der Unterschied entscheidend. Behandelst du deinen Ze
 [[ZK Atomizität]] - Nur atomare Zettel können sich frei verbinden (Voraussetzung für Autopoiesis).
 [[Operationale Geschlossenheit]] - Autopoietische Systeme sind operational geschlossen.
 
----
-
-## Rückseite
+Des Zettels Rückseite
 
 ### Bestätigung
 Niklas Luhmann beschreibt seine Arbeitsweise explizit als Kommunikation mit einem autopoietischen System. "Man muss den Zettelkasten so anlegen, dass er fähig ist, Informationen zu kombinieren [...] und dadurch Überraschungseffekte zu erzielen."[^4] [@luhmann_1981] Er betrachtet den Zettelkasten als Partner, der Eigenleben entwickelt.
@@ -42,8 +40,6 @@ Der Begriff stammt aus der biologischen Kybernetik (Maturana/Varela 1980). Nikla
 
 ### Blick über den Rand
 In der **KI-Forschung**: Ist ChatGPT ein allopoietisches Werkzeug (Text-Generator) oder zeigt es autopoietische Züge (Emergenz)? Aktuell ist es allopoietisch (es dient dir). Autonome Agenten ("AutoGPT"), die sich selbst Ziele setzen und ihren Code verbessern, könnten die Grenze zur Autopoiesis überschreiten.
-
----
 
 [^1]: **Allopoiesis** (griech. *allos* = fremd, *poiein* = machen): Das System produziert etwas, das es selbst nicht ist. Der Zweck liegt außerhalb des Systems.
 

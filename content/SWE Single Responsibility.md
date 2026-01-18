@@ -24,9 +24,7 @@ Die Lösung ist radikale Trennung. Ein Zettel für die Biografie, einer für die
 [[ZK Konnektivität]] - Wer trennt, muss verbinden.
 [[Lose Kopplung]] - SRP trennt Verantwortungen; lose Kopplung trennt Abhängigkeiten.
 
----
-
-## Rückseite
+Des Zettels Rückseite
 
 ### Bestätigung
 Die *Unixphilosophie* demonstriert SRP in Reinform: Jedes Programm soll eine Sache gut machen.[^5] `grep` sucht nur Text, `sort` sortiert nur. Wenn du suchen und sortieren willst, baust du kein riesiges Programm. Du verbindest beide mit einer Pipe (`|`).
@@ -45,8 +43,6 @@ Ein noch allgemeineres Konzept ist *Separation of Concerns* (SoC), geprägt von 
 
 ### Blick über den Rand
 Im *Journalismus*: Ein Artikel behandelt ein Thema. Ein Kommentar behandelt die Meinung dazu. Eine Reportage behandelt das Erlebnis. Vermischt man Nachricht und Meinung, leidet die Glaubwürdigkeit. SRP schafft Klarheit in Textgattungen.
-
----
 
 [^2]: Originalzitat: "A class should have one, and only one, reason to change." [@martin_2003]
 
