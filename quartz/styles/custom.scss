@@ -622,22 +622,20 @@ article.dictionary-entry-columns .data-footnote-backref {
 
 // References/Bibliography section - clean, book-like layout
 #refs.references.csl-bib-body {
-  margin-top: 3rem !important;
-  padding-top: 0 !important;
+  margin-top: .75rem !important;
+  padding-top: .75rem;
   border-top: none !important;
   position: relative;
 
-  // Add "References" heading using ::before
+  // Remove "References" heading using ::before and
   &::before {
-    content: "Quellen";
-    display: block;
-    font-size: 1.2rem !important;
-    font-weight: 700 !important;
-    margin-bottom: 1rem !important;
-    margin-top: 0 !important;
-    margin-right: 25px;
-    color: var(--bodyText) !important;
-    text-align: right;
+    content: "";
+    background-color: #b8860b;
+    width: 40%;
+    height: 1px;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 }
 
@@ -661,7 +659,7 @@ article.zettelkasten .footnotes h2 {
 
 // Footnotes styling for zettelkasten - compact, consistent with dictionary-entry
 article.zettelkasten .footnotes {
-  margin-top: 0.75rem !important;
+  margin-top: 2rem !important;
   padding-top: 0.75rem !important;
   border-top: none !important;
   text-align: left !important;
