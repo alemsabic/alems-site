@@ -23,8 +23,6 @@ Andy Clark und David Chalmers beschreiben mit dem *Extended Mind* ein ähnliches
 [[Strukturelle Kopplung]] - Interpenetration steigert Kopplung zur wechselseitigen Konstitution.
 [[Kognitive Externalisierung]] - Externe Werkzeuge werden durch Interpenetration Teil des Geistes.
 
-## Des Zettels Rückseite
-
 ### Bestätigung
 Luhmann bestätigt: Interpenetration ist – entgegen gängigem Missverständnis – keine Vermischung. Nur so werden Systeme autonomer. Du nutzt Sprache, ein soziales System, um individuell zu denken – ein psychischer Prozess. Menschen können nicht ohne soziale Systeme denken; soziale Systeme können nicht ohne Menschen kommunizieren. Die wechselseitige Abhängigkeit steigert die Autonomie beider Systeme [@luhmann_1984, p. 290].
 

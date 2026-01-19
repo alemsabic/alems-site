@@ -24,8 +24,6 @@ Die Netzwerktheorie zeigt, dass der Zettelkasten zu einem skalenfreien Netzwerk 
 [[ZK Serendipität]] - Unerwartete Pfade entstehen nur, wenn wir Links folgen.
 [[ZK Emergenz]] - Das Netzwerk wird klüger als die Summe seiner Teile.
 
-## Des Zettels Rückseite
-
 ### Bestätigung
 Das Gehirn arbeitet assoziativ, Links, nicht hierarchisch, Ordner. *Spreading Activation* bedeutet, dass die Aktivierung eines Gedankens benachbarte Gedanken mitaktiviert. Der Zettelkasten externalisiert diese Struktur. Das Netzwerk bildet nach, wie du wirklich denkst: in Assoziationen.
 

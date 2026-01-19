@@ -24,8 +24,6 @@ Paul Otlet formulierte dies schon 1934 als Monographisches Prinzip, siehe Geneal
 [[SWE Single Responsibility]] - Das gleiche Prinzip im Software-Design: Eine Klasse, eine Aufgabe.
 [[ZK Kontextualisierung]] - Weil der Zettel atomar, kontextlos, ist, musst du Kontext künstlich durch Links erzeugen.
 
-## Des Zettels Rückseite
-
 ### Bestätigung
 Niklas Luhmann betonte: Zettel müssen ›kombinationsfähig‹ sein. Die Ordnung entsteht durch die mobile Anordnung der Atome, niemals durch feste Kapitel. »Der Zettelkasten ist ein Partner, der uns überrascht.« [@luhmann_1981][^3] Diese Überraschung gelingt nur, wenn die Teile frei beweglich sind.
 

@@ -24,8 +24,6 @@ David Kirsh nennt das *epistemische Handlung* – eine Handlung, die das Problem
 [[ZK Atomizität]] - Exogramme müssen atomar sein, damit wir sie physisch neu kombinieren können.
 [[ZK Epistemische Handlung]] - Das Externalisieren selbst ist die eigentliche kognitive Arbeit.
 
-## Des Zettels Rückseite
-
 ### Bestätigung
 Clark und Chalmers bestätigen dies mit der ›Extended Mind Thesis‹: Der kognitive Prozess endet nicht an der Schädelgrenze. Wenn ein externes Werkzeug, Stift, Papier oder Notizbuch, dieselbe funktionale Rolle spielt wie ein interner Prozess, ist es Teil des Geistes [@clark_chalmers_1998, p. 8].
 

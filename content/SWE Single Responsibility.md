@@ -24,8 +24,6 @@ Die Lösung ist radikale Trennung. Ein Zettel für die Biografie, einer für die
 [[ZK Konnektivität]] - Wer trennt, muss verbinden.
 [[Lose Kopplung]] - SRP trennt Verantwortungen; lose Kopplung trennt Abhängigkeiten.
 
-## Des Zettels Rückseite
-
 ### Bestätigung
 Die ›Unixphilosophie‹ demonstriert SRP in Reinform: Jedes Programm soll eine Sache gut machen.[^5] `grep` sucht nur Text, `sort` sortiert nur. Wenn du suchen und sortieren willst, baust du kein riesiges Programm. Du verbindest beide mit einer Pipe (`|`).
 

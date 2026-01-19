@@ -24,8 +24,6 @@ Ein Mathematiker, der eine Gleichung umformt, tut dies epistemisch. Er schreibt 
 [[Strukturelle Kopplung]] - Durch physische Manipulation tritt das Bewusstsein in direkten Austausch mit dem System.
 [[ZK Serendipität]] - Wer physisch mit dem Material spielt, stolpert eher über Zufälle.
 
-## Des Zettels Rückseite
-
 ### Bestätigung
 Das Konzept stützt die *Extended Mind* These. Kognition findet nicht allein im Kopf statt. Die Manipulation der Umwelt ist kognitiv, nicht nur motorisch. Wenn wir Scrabble-Steine ordnen, um ein Wort zu finden, ist dieses Ordnen Teil des Denkprozesses [@clark_chalmers_1998].
 
