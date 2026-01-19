@@ -52,11 +52,12 @@
 // Page title font size - responsive
 .page-title {
   font-size: 1.95rem !important; // Mobile
+  font-family: var(--titleFont) !important; // Use Jost for page title
 }
 
 @media (min-width: 800px) {
   .page-title {
-    font-size: 3rem !important; // Desktop
+    font-size: 3.5rem !important; // Desktop
     line-height: 1 !important; // Same level as other elements
   }
 }
@@ -90,7 +91,20 @@
 // }
 
 // Headers font-weight and color
-h1,
+h1 {
+  font-weight: 700 !important;
+  color: var(--bodyText) !important;
+  font-family: var(--titleFont) !important; // Use Jost for H1 only (same as .page-title)
+}
+
+// Desktop: H1 in articles larger font size
+@media (min-width: 800px) {
+  .page article > h1 {
+    font-size: 3rem;
+    line-height: 0.9;
+  }
+}
+
 h2,
 h3,
 h4,
@@ -98,6 +112,7 @@ h5,
 h6 {
   font-weight: 700 !important;
   color: var(--bodyText) !important;
+  font-family: var(--bodyFont) !important; // Use body font (JetBrains Mono) for H2-H6
 }
 
 // Page title and breadcrumb links same color as body text
@@ -300,7 +315,12 @@ button.toc-header {
 }
 
 button.mobile-explorer h2,
-button.desktop-explorer h2,
+button.desktop-explorer h2 {
+  font-weight: 700 !important;
+  font-family: var(--bodyFont) !important;
+  text-shadow: 0 1px 1px #ffffff80 !important; // Letterpress effect for explorer headers
+}
+
 button.toc-header h3 {
   font-weight: 700 !important;
   font-family: var(--bodyFont) !important;
@@ -605,7 +625,6 @@ article.dictionary-entry-columns .data-footnote-backref {
   margin-top: 3rem !important;
   padding-top: 0 !important;
   border-top: none !important;
-  font-size: 0.9rem !important;
   position: relative;
 
   // Add "References" heading using ::before
@@ -616,14 +635,14 @@ article.dictionary-entry-columns .data-footnote-backref {
     font-weight: 700 !important;
     margin-bottom: 1rem !important;
     margin-top: 0 !important;
+    margin-right: 25px;
     color: var(--bodyText) !important;
-    font-family: var(--headerFont);
+    text-align: right;
   }
 }
 
 // Individual bibliography entries
 .csl-entry {
-  margin-bottom: 0.5rem !important;
   text-align: left !important;
 
   // Hanging indent for citations (classic bibliography style)
@@ -645,7 +664,6 @@ article.zettelkasten .footnotes {
   margin-top: 0.75rem !important;
   padding-top: 0.75rem !important;
   border-top: none !important;
-  font-size: 0.85rem !important;
   text-align: left !important;
   position: relative;
 
@@ -737,6 +755,10 @@ article.zettelkasten .data-footnote-backref {
   border-bottom: 1px dashed var(--darkgray);
 }
 
+.recent-notes li.recent-li {
+  margin-bottom: 0;
+}
+
 // ============================================
 // ZETTELKASTEN ENTRY - CARD AESTHETIC
 // ============================================
@@ -798,15 +820,18 @@ article.zettelkasten {
     // Eckige Klammern
     &::before {
       content: "[ ";
+      font-size: 1.5rem;
     }
     &::after {
       content: " ]";
+      font-size: 1.5rem;
     }
   }
 
   // Kein Kursiv in der Ein-Satz-Zusammenfassung (überschreibt em-Element)
   > p:first-of-type em {
     font-style: normal !important;
+    font-size: 1.5rem;
   }
 
   // Paragraphen nach H3 bleiben inline, bekommen auch Pilcrow
