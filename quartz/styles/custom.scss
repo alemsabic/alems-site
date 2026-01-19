@@ -157,6 +157,11 @@ strong {
   -moz-osx-font-smoothing: grayscale;
 }
 
+// Dark theme: custom body background color
+[saved-theme="dark"] body {
+  background-color: #09002b !important;
+}
+
 // Noise texture overlay - light theme
 body::before {
   content: "";
