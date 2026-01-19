@@ -334,7 +334,7 @@ button.toc-header h3 {
 }
 
 // Rückseite heading alignment
-h2#rückseite {
+h2#des-zettels-rückseite {
   text-align: right !important;
 }
 
@@ -675,7 +675,7 @@ article.zettelkasten .footnotes {
     left: 0;
     width: 20%;
     height: 1px;
-    background-color: var(--lightgray);
+    background-color: #b8860b;
   }
 
   ol {
@@ -861,7 +861,7 @@ article.zettelkasten {
       border: 1px solid var(--gray);
       box-shadow: inset 1px 1px 3px #0003;
       margin-right: 0.5rem;
-      vertical-align: middle;
+      vertical-align: top;
     }
   }
 
