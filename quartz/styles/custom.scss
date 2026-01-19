@@ -180,11 +180,8 @@ body::before {
 // GLOBAL LIGHT THEME - BOOK AESTHETIC
 // ============================================
 
-// Light Theme: Paper vignette effect + Letterpress text (entire viewport)
+// Light Theme: Letterpress text (entire viewport)
 [saved-theme="light"] body {
-  box-shadow:
-    inset 0 0 300px #00000044,
-    inset 0 0 180px #00000030 !important;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5) !important;
 }
 
@@ -622,8 +619,8 @@ article.dictionary-entry-columns .data-footnote-backref {
 
 // References/Bibliography section - clean, book-like layout
 #refs.references.csl-bib-body {
-  margin-top: .75rem !important;
-  padding-top: .75rem;
+  margin-top: 0.75rem !important;
+  padding-top: 0.75rem;
   border-top: none !important;
   position: relative;
 
