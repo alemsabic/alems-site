@@ -5,7 +5,7 @@ aliases: []
 erstellt: 2026-01-16
 bearbeitet: 2026-01-17
 ---
-
+![[ZK-Atomizitaet--metaphor-lego.png]]
 # ZK Atomizität
 
 *Ein Gedanke, ein Zettel.*

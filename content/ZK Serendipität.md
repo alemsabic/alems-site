@@ -5,7 +5,7 @@ aliases: []
 erstellt: 2026-01-16
 bearbeitet: 2026-01-17
 ---
-
+![[ZK-Serendipitaet--diagram-arc.png]]
 # ZK Serendipität
 
 *Plane für den glücklichen Unfall.*
