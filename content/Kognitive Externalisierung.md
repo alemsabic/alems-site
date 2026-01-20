@@ -5,7 +5,7 @@ aliases: []
 erstellt: 2026-01-16
 bearbeitet: 2026-01-17
 ---
-[[Kognitive-Externalisierung--metaphor-tetris.png|400x400]]
+
 
 
 # Kognitive Externalisierung
