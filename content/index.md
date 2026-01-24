@@ -7,8 +7,8 @@ comments: false
 
 Willkommen auf **ale.ms.**
 
-> [!NOTE]
-> Das Schwesterprojekt - "Reizwörter: Der Duden für die dunklen Ecken der Sprache" - findet Ihr auf https://gpunkt.org 
+> [!Info]
+> Das Schwesterprojekt - **"Reizwörter: Der Duden für die dunklen Ecken der Sprache."** - findet Ihr auf https://gpunkt.org 
 > 
 
 
