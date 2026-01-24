@@ -3,6 +3,13 @@ showContentHeader: false
 comments: false
 ---
 
-# At vero eos et accusam
+# Goldberg, Otlet & Bush - ein Selbstversuch in Intelligence Amplification
 
-**Lorem ipsum dolor sit** amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+Willkommen auf **ale.ms.**
+
+> [!NOTE]
+> Das Schwesterprojekt - "Reizwörter: Der Duden für die dunklen Ecken der Sprache" - findet Ihr auf https://gpunkt.org 
+> 
+
+
+Die Seite ist im Aufbau. 

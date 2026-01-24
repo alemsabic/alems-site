@@ -1,6 +1,6 @@
 ---
 cssclasses: zettelkasten
-tags: [ZK-Theorie, prinzipien]
+tags: [ZK-Theorie]
 aliases: []
 erstellt: 2026-01-16
 bearbeitet: 2026-01-17
@@ -8,15 +8,13 @@ bearbeitet: 2026-01-17
 
 # ZK Atomizität
 
-*Ein Gedanke, ein Zettel.*
+*Ein Gedanke pro Zettel.*
 
-Wer zwei Gedanken auf einen Zettel schreibt (›A und B‹), verklebt sie untrennbar. Wenn ich später über A schreiben will, muss ich B mitschleppen, auch wenn B überhaupt nicht passt. Atomizität ist die Währung des Zettelkastens. Ohne sie gibt es kein Wechselgeld.[^1]
+Wenn du zwei Gedanken auf einen Zettel schreibt (A + B), verknotest du sie. Wenn du später über A schreibst, ist  B mit dabei, auch wenn B nicht passt.  Denk an Lego. Ein fertig geklebtes Modellschiff kannst du nur als Schiff verwenden. Einen einzelnen Legostein kannst du für ein Schiff, eine Burg oder ein Raumschiff nutzen. Die Magie des Zettelkastens funktioniert nur, wenn die Bausteine klein und frei kombinierbar sind. Das ist **Atomizität**[^1]. [[ZK Emergenz | Emergenz]] entsteht nur aus atomaren Elementen.
 
-Das Ziel ist Unteilbarkeit, nicht Kürze. Ein atomarer Zettel kann lang sein, solange er genau ein Thema behandelt. Er muss ›selbst-enthalten‹ sein – verständlich auch ohne den Kontext, aus dem er kam [@ahrens_2017]. Du isolierst den Gedanken, um ihn frei flottierend zu machen.
+Das Ziel ist Unteilbarkeit, nicht Kürze. Ein atomarer Zettel kann lang sein, solange er genau ein Thema behandelt. Er muss ›selbst-enthalten‹ sein – verständlich auch ohne den Kontext, aus dem er kam [@ahrens_2017]. Du isolierst Gedanken, um sie frei flottierend zu machen.
 
-Denk an Lego. Ein fertig geklebtes Modellschiff kannst du nur als Schiff verwenden. Einen einzelnen Legostein kannst du für ein Schiff, eine Burg oder ein Raumschiff nutzen. Die Magie des Zettelkastens funktioniert nur, wenn die Bausteine klein und frei kombinierbar sind. Emergenz entsteht nur aus atomaren Elementen.
-
-Paul Otlet formulierte dies schon 1934 als Monographisches Prinzip, siehe Genealogie.[^2] Um Wissen neu zu ordnen, musst du Bücher in ihre Fakten zerlegen.
+Paul Otlet formulierte dies schon 1934 als **Monographisches Prinzip**[^2] , siehe Genealogie. Um Wissen neu zu ordnen, musst du Bücher in ihre Fakten zerlegen.
 
 ### Anknüpfungspunkte
 
@@ -25,9 +23,9 @@ Paul Otlet formulierte dies schon 1934 als Monographisches Prinzip, siehe Geneal
 [[ZK Kontextualisierung]] - Weil der Zettel atomar, kontextlos, ist, musst du Kontext künstlich durch Links erzeugen.
 
 ### Bestätigung
-Niklas Luhmann betonte: Zettel müssen ›kombinationsfähig‹ sein. Die Ordnung entsteht durch die mobile Anordnung der Atome, niemals durch feste Kapitel. »Der Zettelkasten ist ein Partner, der uns überrascht.« [@luhmann_1981][^3] Diese Überraschung gelingt nur, wenn die Teile frei beweglich sind.
+Niklas Luhmann betonte: Zettel müssen ›kombinationsfähig‹ sein. Die Ordnung entsteht durch die mobile Anordnung der Atome, niemals durch feste Kapitel. »Der Zettelkasten ist ein Partner, der uns überrascht.« [@luhmann_1981][^3]  Diese Überraschung gelingt nur, wenn  Teile frei beweglich sind.
 
-### Widerspruch
+## Widerspruch
 Kritiker wenden ein: Atomisierung zerstört den narrativen Fluss. Man hat am Ende nur Schnipsel, kein Buch. Die Antwort lautet: Der Zettelkasten ist der Steinbruch, nicht das Buch. Das Buch entsteht, indem du die Steine in eine neue Reihenfolge bringst, Manuskript. Du zerstörst den ursprünglichen Kontext, um neue Kontexte zu ermöglichen.
 
 ### Beispiel
