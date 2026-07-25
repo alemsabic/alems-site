@@ -3,7 +3,7 @@ cssclasses: zettelkasten
 tags: [kognition, extended-mind]
 aliases: []
 erstellt: 2026-01-16
-bearbeitet: 2026-01-17
+bearbeitet: 2026-07-25
 ---
 
 
@@ -22,14 +22,18 @@ David Kirsh nennt das *epistemische Handlung* – eine Handlung, die das Problem
 
 ### Anknüpfungspunkte
 
-[[ZK Emergenz]] - Muster erkennen wir erst, wenn die Teile externalisiert vor uns liegen.
-[[ZK Atomizität]] - Exogramme müssen atomar sein, damit wir sie physisch neu kombinieren können.
-[[ZK Epistemische Handlung]] - Das Externalisieren selbst ist die eigentliche kognitive Arbeit.
+[[Emergenz im ZK]] - Muster erkennen wir erst, wenn die Teile externalisiert vor uns liegen.
+[[Atomizität im ZK]] - Exogramme müssen atomar sein, damit wir sie physisch neu kombinieren können.
+[[Epistemische Handlung im ZK]] - Das Externalisieren selbst ist die eigentliche kognitive Arbeit.
+
+---
+
+## Rückseite/Diskurs
 
 ### Bestätigung
 Clark und Chalmers bestätigen dies mit der ›Extended Mind Thesis‹: Der kognitive Prozess endet nicht an der Schädelgrenze. Wenn ein externes Werkzeug, Stift, Papier oder Notizbuch, dieselbe funktionale Rolle spielt wie ein interner Prozess, ist es Teil des Geistes [@clark_chalmers_1998, p. 8].
 
-### Widerspruch
+### Widerspruch/Kritik
 Betsy Sparrow wies den ›Google Effect‹ nach: Wenn wir wissen, dass Information gespeichert ist, merken wir sie uns schlechter. Externalisierung führt zu interner Atrophie [@sparrow_2011]. Schon Platon warnte im *Phaidros*,[^5] dass die Schrift »Vergesslichkeit in die Seelen der Lernenden« bringe. Die Kritik ist berechtigt, übersieht aber den Trade-off: Du tauschst Merkfähigkeit gegen Denkfähigkeit.
 
 ### Beispiel

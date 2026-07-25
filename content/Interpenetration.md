@@ -3,7 +3,7 @@ cssclasses: zettelkasten
 tags: [systemtheorie, luhmann, kognition]
 aliases: []
 erstellt: 2026-01-16
-bearbeitet: 2026-01-17
+bearbeitet: 2026-07-25
 ---
 
 # Interpenetration
@@ -23,10 +23,14 @@ Andy Clark und David Chalmers beschreiben mit dem *Extended Mind* ein ähnliches
 [[Strukturelle Kopplung]] - Interpenetration steigert Kopplung zur wechselseitigen Konstitution.
 [[Kognitive Externalisierung]] - Externe Werkzeuge werden durch Interpenetration Teil des Geistes.
 
+---
+
+## Rückseite/Diskurs
+
 ### Bestätigung
 Luhmann bestätigt: Interpenetration ist – entgegen gängigem Missverständnis – keine Vermischung. Nur so werden Systeme autonomer. Du nutzt Sprache, ein soziales System, um individuell zu denken – ein psychischer Prozess. Menschen können nicht ohne soziale Systeme denken; soziale Systeme können nicht ohne Menschen kommunizieren. Die wechselseitige Abhängigkeit steigert die Autonomie beider Systeme [@luhmann_1984, p. 290].
 
-### Widerspruch
+### Widerspruch/Kritik
 Jürgen Habermas kritisiert: Luhmann ersetzt ›Intersubjektivität‹ durch eine subjektlose Beziehung zwischen System und Umwelt.[^3] Wo Subjekte Konsens erreichen sollten, sieht Luhmann nur Systeme, die sich gegenseitig als Rauschen nutzen. Die Theorie kann nicht erklären, wie Menschen sich rational verständigen. Sie reduziert Kommunikation auf Irritation, statt sie als intentionalen Akt zwischen Menschen zu verstehen [@habermas_1985, p. 360].
 
 ### Beispiel

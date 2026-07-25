@@ -3,10 +3,10 @@ cssclasses: zettelkasten
 tags: [systemtheorie, autopoiesis, zettelkasten]
 aliases: []
 erstellt: 2026-01-16
-bearbeitet: 2026-01-17
+bearbeitet: 2026-07-25
 ---
 
-# Unterschied Autopoiesis Allopoiesis
+# Autopoiesis vs. Allopoiesis
 
 *Ein Werkzeug wird benutzt. Ein Partner antwortet.*
 
@@ -20,14 +20,18 @@ Für die Wissensarbeit ist der Unterschied entscheidend. Behandelst du deinen Ze
 
 ### Anknüpfungspunkte
 
-[[ZK Emergenz]] - Autopoiesis ist der Motor der Emergenz; ohne sie bleibt das System starr.
-[[ZK Atomizität]] - Nur atomare Zettel können sich frei verbinden – Voraussetzung für Autopoiesis.
+[[Emergenz im ZK]] - Autopoiesis ist der Motor der Emergenz; ohne sie bleibt das System starr.
+[[Atomizität im ZK]] - Nur atomare Zettel können sich frei verbinden – Voraussetzung für Autopoiesis.
 [[Operationale Geschlossenheit]] - Autopoietische Systeme sind operational geschlossen.
+
+---
+
+## Rückseite/Diskurs
 
 ### Bestätigung
 Niklas Luhmann beschreibt seine Arbeitsweise explizit als Kommunikation mit einem autopoietischen System. »Man muss den Zettelkasten so anlegen, dass er fähig ist, Informationen zu kombinieren [...] und dadurch Überraschungseffekte zu erzielen.« [@luhmann_1981][^4] Er betrachtet den Zettelkasten als Partner, der Eigenleben entwickelt.
 
-### Widerspruch
+### Widerspruch/Kritik
 Kritiker wenden ein: Ein Zettelkasten lebt biologisch nicht, kein Stoffwechsel. Die Anwendung des Begriffs ist eine Analogie. Systemtheoretisch ist sie jedoch zulässig, sofern wir ›Leben‹ durch operative Geschlossenheit ersetzen.[^5] Ein Zettelkasten ist biologisch allopoietisch, aus Holz und Papier, aber funktional autopoietisch, erzeugt Kommunikation.
 
 ### Beispiel

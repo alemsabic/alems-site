@@ -3,10 +3,10 @@ cssclasses: zettelkasten
 tags: [zettelkasten/prinzipien, emergenz, bottom-up]
 aliases: []
 erstellt: 2026-01-16
-bearbeitet: 2026-01-17
+bearbeitet: 2026-07-25
 ---
 
-# ZK Emergenz
+# Emergenz im ZK
 
 *Baue Brücken, ohne zu wissen, wohin sie führen.*
 
@@ -20,14 +20,18 @@ Denk an Trampelpfade. Niemand plant sie. Sie entstehen dort, wo viele Menschen g
 
 ### Anknüpfungspunkte
 
-[[ZK Serendipität]] - Emergenz produziert Überraschung; Planung produziert nur das Erwartete.
-[[ZK Konnektivität]] - Verbindungen sind der Motor der Emergenz.
-[[ZK Atomizität]] - Nur bewegliche Einheiten können emergente Strukturen bilden.
+[[Serendipität im ZK]] - Emergenz produziert Überraschung; Planung produziert nur das Erwartete.
+[[Konnektivität im ZK]] - Verbindungen sind der Motor der Emergenz.
+[[Atomizität im ZK]] - Nur bewegliche Einheiten können emergente Strukturen bilden.
+
+---
+
+## Rückseite/Diskurs
 
 ### Bestätigung
 Adam Ferguson prägte 1767 die Formulierung: Gesellschaft sei das Ergebnis menschlichen Handelns, aber nicht menschlicher Planung [@ferguson_1767][^5]. Niklas Luhmann wandte dies auf Wissensproduktion an. Sein Zettelkasten war eine ›spontane Ordnung‹ – eine Kombination von Unordnung und Ordnung, von Clustern und unvorhersehbaren Verbindungen [@luhmann_2000, p. 26][^6].
 
-### Widerspruch
+### Widerspruch/Kritik
 Nutzer berichten von der ›Messy Middle‹. Bevor Emergenz sichtbar wird, herrscht Chaos. Ein Forumsbeitrag formuliert es drastisch: Mit einem externen System zu arbeiten sei kognitiv sehr schwer – ein Chaos, als stünde man im Wald.[^10] Das Vertrauen darauf, dass sich Ordnung von selbst einstellt, erfordert Disziplin. Aber irgendwann entsteht eine Hütte.
 
 ### Beispiel

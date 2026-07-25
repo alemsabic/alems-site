@@ -3,7 +3,7 @@ cssclasses: zettelkasten
 tags: [systemtheorie, maturana, luhmann]
 aliases: []
 erstellt: 2026-01-16
-bearbeitet: 2026-01-17
+bearbeitet: 2026-07-25
 ---
 
 # Strukturelle Kopplung
@@ -12,7 +12,7 @@ bearbeitet: 2026-01-17
 
 Operativ geschlossene Systeme bleiben füreinander Umwelt. Sie bleiben stumm. Wie sie operieren, bleibt strikt getrennt. Dennoch reagieren sie aufeinander, aber nur durch Resonanz, niemals durch Übertragung[^1].
 
-Humberto Maturana und Francisco Varela nennen dies strukturelle Kopplung. Zwei Systeme koppeln sich, wenn ihre Strukturen so aufeinander abgestimmt sind, dass der Zustand des einen das andere irritiert. Die Kopplung entsteht durch wiederholte Interaktionen. Sie passen sich einander an, verschmelzen aber niemals [@maturana_varela_1987].
+Humberto Maturana und Francisco Varela nennen dies strukturelle Kopplung. Zwei Systeme koppeln sich, wenn ihre Strukturen so aufeinander abgestimmt sind, dass der Zustand des einen das andere irritiert. Die Kopplung entsteht durch wiederholte Interaktionen. Sie passen sich einander an, verschmelzen aber niemals [@maturana_varela_1987]. 
 
 Das Gehirn ist strukturell gekoppelt mit seinem Körper. Es registriert Irritationen und verarbeitet sie nach eigener Logik. Was draußen ein roter Apfel ist, ist drinnen ein neuronales Muster. Das System interpretiert die Irritation; es übernimmt sie nicht.
 
@@ -24,13 +24,17 @@ Niklas Luhmann macht diesen Gedanken zur Grundlage seiner Gesellschaftstheorie. 
 
 [[Operationale Geschlossenheit]] - Kopplung setzt Geschlossenheit voraus.
 [[Interpenetration]] - Luhmanns Erweiterung für soziale Systeme: Konstitution statt nur Irritation.
-[[Unterschied Irritation Information]] - Kopplung produziert Irritationen, überträgt aber keine Information.
+[[Irritation vs. Information]] - Kopplung produziert Irritationen, überträgt aber keine Information.
 [[Kognitive Externalisierung]] - Extended Mind ist strukturelle Kopplung zwischen Gehirn und Werkzeug.
+
+---
+
+## Rückseite/Diskurs
 
 ### Bestätigung
 Luhmann definiert strukturelle Kopplungen als Einrichtungen, die trotz operativer Geschlossenheit die Strukturentwicklung beeinflussen.[^3] Systeme bleiben geschlossen, aber sie entwickeln sich ko-evolutionär [@luhmann_1997, p. 100].
 
-### Widerspruch
+### Widerspruch/Kritik
 Jürgen Habermas kritisiert: Luhmann blendet kommunikative Rationalität aus.[^5] Wenn Systeme nur irritiert werden, wo bleibt der Raum für Verständigung? Die Theorie versagt bei der Erklärung, wie Konsens entsteht oder wie rationale Argumente wirken [@leydesdorff_2000].
 
 ### Beispiel

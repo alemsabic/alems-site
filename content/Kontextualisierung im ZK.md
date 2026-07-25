@@ -3,10 +3,10 @@ cssclasses: zettelkasten
 tags: [ZK-Theorie, kontext]
 aliases: []
 erstellt: 2026-01-16
-bearbeitet: 2026-01-17
+bearbeitet: 2026-07-25
 ---
 
-# ZK Kontextualisierung
+# Kontextualisierung im ZK
 
 *Schreibe auf, wofür du es brauchst, statt woher du es hast.*
 
@@ -25,14 +25,18 @@ Sönke Ahrens schreibt: Du speicherst Informationen in dem Kontext, in dem du si
 
 ### Anknüpfungspunkte
 
-[[ZK Retrieval]] - Wir finden Informationen in dem Kontext wieder, in dem wir sie verlinkt haben.
+[[Retrieval im ZK]] - Wir finden Informationen in dem Kontext wieder, in dem wir sie verlinkt haben.
 [[Kognitive Externalisierung]] - Wir lagern Verknüpfungs-Muster aus; Daten allein genügen nicht.
-[[ZK Atomizität]] - Atomare Zettel lassen sich leichter in neue Kontexte verschieben.
+[[Atomizität im ZK]] - Atomare Zettel lassen sich leichter in neue Kontexte verschieben.
+
+---
+
+## Rückseite/Diskurs
 
 ### Bestätigung
 Das Prinzip wurzelt in der philosophischen Hermeneutik.[^1] Gadamer argumentiert, dass ein Text seinen Sinn erst im ›Horizont‹ des Lesers erhält, Horizontverschmelzung [@gadamer_1960][^2]. Der Zettelkasten materialisiert dies. Die Bedeutung eines Zettels entsteht beim Verlinken.
 
-### Widerspruch
+### Widerspruch/Kritik
 Traditionelle Archive folgen dem Provenienzprinzip.[^3] Die Herkunft bestimmt die Ordnung. Der Zettelkasten bricht damit radikal. Die Quelle wird notiert, spielt aber für die Struktur keine Rolle. Relevant ist allein die Anschlussfähigkeit. Kritiker warnen vor Informationsverlust durch Kontext-Entriss. Aber: Du löst die Info aus dem Ursprungstext, um sie in deinem Denknetz neu zu verankern.
 
 ### Beispiel

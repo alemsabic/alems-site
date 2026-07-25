@@ -3,7 +3,7 @@ cssclasses: zettelkasten
 tags: [systemtheorie, organisation, weick]
 aliases: []
 erstellt: 2026-01-16
-bearbeitet: 2026-01-17
+bearbeitet: 2026-07-25
 ---
 
 # Lose Kopplung
@@ -21,19 +21,23 @@ Das Gegenteil – *Tight Coupling*, enge Kopplung – macht Systeme fragil.[^3] 
 ### Anknüpfungspunkte
 
 [[Strukturelle Kopplung]] - Systeme irritieren sich, ohne einander zu determinieren.
-[[ZK Atomizität]] - Nur lose gekoppelte Gedanken lassen sich flexibel neu kombinieren.
+[[Atomizität im ZK]] - Nur lose gekoppelte Gedanken lassen sich flexibel neu kombinieren.
 [[SWE Single Responsibility]] - Microservices stürzen nicht komplett ab, wenn ein Teil versagt.
+
+---
+
+## Rückseite/Diskurs
 
 ### Bestätigung
 Orton und Weick formulierten 1990: Lose Kopplung erlaubt Organisationen, gleichzeitig stabil und flexibel zu sein. Schulen sind widerstandsfähig, weil Lehrer experimentieren können, ohne auf Genehmigung zu warten. Reformen von oben verpuffen oft; Innovation von unten bleibt lokal. Das System opfert Effizienz für Resilienz [@orton_1990].
 
-### Widerspruch
+### Widerspruch/Kritik
 Frederick Taylor und das Scientific Management sahen das Gegenteil als Ideal: maximale Standardisierung und zentrale Steuerung.[^5] Aus dieser Perspektive ist lose Kopplung Verschwendung. Wenn Teile nicht synchronisiert sind, wie kann das System kohärent handeln? Tayloristen argumentieren: Ohne enge Kopplung entsteht Chaos. Lose Kopplung verhindert Kontrolle.
 
 ### Beispiel
 **Rettungsinseln:** Weick nutzt die Metapher einer Flotte von Rettungsinseln, die locker zusammengebunden sind. Wenn eine Insel durch eine Welle schwankt, bringt sie nicht die gesamte Flotte zum Kentern. Die Verbindung ist elastisch genug, um Erschütterungen zu absorbieren, aber fest genug, um die Gruppe zusammenzuhalten. Wären sie starr verbunden, wie ein großes Schiff, würde die Welle das ganze Schiff brechen.
 
-### Transfer
+### Blick über den Rand
 **Software Microservices:** Netflix baut Services so, dass sie über APIs kommunizieren – Kopplung –, aber unabhängig abstürzen können – Lose. Ein Fehler im Empfehlungsalgorithmus reißt nicht den gesamten Streaming-Service mit. Der Nutzer kann weiterhin Videos abspielen; Empfehlungen werden später nachgeladen. Die Architektur akzeptiert partielle Ausfälle, statt auf perfekte Synchronisation zu setzen.
 
 ### Genealogie

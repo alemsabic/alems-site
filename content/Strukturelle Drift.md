@@ -3,7 +3,7 @@ cssclasses: zettelkasten
 tags: [systemtheorie, evolution]
 aliases: []
 erstellt: 2026-01-16
-bearbeitet: 2026-01-17
+bearbeitet: 2026-07-25
 ---
 
 # Strukturelle Drift
@@ -23,12 +23,16 @@ Die Entwicklung deines Zettelkastens ist reine strukturelle Drift. Du planst nic
 ### Anknüpfungspunkte
 
 [[Strukturelle Kopplung]] - Kanalisiert die Drift – wie Ufer den Fluss.
-[[Unterschied Autopoiesis Allopoiesis]] - Die Drift dient nur dem Erhalt der Autopoiesis, keinem externen Zweck.
+[[Autopoiesis vs. Allopoiesis]] - Die Drift dient nur dem Erhalt der Autopoiesis, keinem externen Zweck.
+
+---
+
+## Rückseite/Diskurs
 
 ### Bestätigung
 Stephen Jay Gould bestätigt dies mit dem Konzept der *Exaptation*.[^4] Federn entwickelten sich ursprünglich für Thermoregulation, nicht fürs Fliegen. Vögel ›entdeckten‹ das Fliegen später als Nebenprodukt. Evolution ist offen und kontingent, nicht deterministisch [@gould_1982, p. 384].
 
-### Widerspruch
+### Widerspruch/Kritik
 Der klassische Neo-Darwinismus (Richard Dawkins) sieht Evolution stärker als Optimierungsprozess. Organismen konkurrieren um Ressourcen; natürliche Selektion optimiert. Dawkins nennt die natürliche Selektion den ›blinden Uhrmacher‹.[^6] Hier gilt Drift als ›Rauschen‹. Für Maturana ist die Drift der eigentliche Modus; Selektion eliminiert nur, was nicht mehr passt.
 
 ### Beispiel

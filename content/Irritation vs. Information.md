@@ -3,10 +3,10 @@ cssclasses: zettelkasten
 tags: [systemtheorie, epistemologie, informationstheorie]
 aliases: []
 erstellt: 2026-01-16
-bearbeitet: 2026-01-17
+bearbeitet: 2026-07-25
 ---
 
-# Unterschied Irritation Information
+# Irritation vs. Information
 
 *Information ist interne Resonanz, kein externer Input.*
 
@@ -22,12 +22,16 @@ Denk an ein Radio. Draußen sind nur elektromagnetische Wellen, Irritation. Erst
 
 [[Operationale Geschlossenheit]] - Weil das System geschlossen ist, entsteht Information nur intern.
 [[Strukturelle Kopplung]] - Irritation ist der einzige Weg, wie gekoppelte Systeme interagieren.
-[[ZK Emergenz]] - Im Zettelkasten entsteht Information erst, wenn du eine Verbindung ziehst.
+[[Emergenz im ZK]] - Im Zettelkasten entsteht Information erst, wenn du eine Verbindung ziehst.
+
+---
+
+## Rückseite/Diskurs
 
 ### Bestätigung
 Maturana und Varela betonen: Lebende Systeme sind strukturdeterminiert.[^4] Die Umwelt kann Reaktionen nur triggern, niemals bestimmen. Ein Tritt gegen einen Stein bewirkt Bewegung; ein Tritt gegen einen Hund bewirkt Beißen oder Flucht. Die Struktur des Hundes bestimmt die Reaktion, der Tritt löst sie nur aus [@maturana_varela_1987].
 
-### Widerspruch
+### Widerspruch/Kritik
 Die klassische Informationstheorie (Claude Shannon) definiert Information technisch als Reduktion von Unsicherheit bei der Signalübertragung [@shannon_1948][^6]. Für Shannon existiert Information unabhängig vom Empfänger. Die Systemtheorie widerspricht: Ohne beobachtendes System gibt es nur Daten, keine Information. Shannon misst Übertragung; Luhmann misst interne Selektion.
 
 ### Beispiel

@@ -3,7 +3,7 @@ cssclasses: zettelkasten
 tags: [SWE, prinzipien, zettelkasten]
 aliases: []
 erstellt: 2026-01-16
-bearbeitet: 2026-01-17
+bearbeitet: 2026-07-25
 ---
 
 # SWE Single Responsibility
@@ -20,14 +20,18 @@ Die Lösung ist radikale Trennung. Ein Zettel für die Biografie, einer für die
 
 ### Anknüpfungspunkte
 
-[[ZK Atomizität]] - SRP ist die technische Begründung für Atomizität.
-[[ZK Konnektivität]] - Wer trennt, muss verbinden.
+[[Atomizität im ZK]] - SRP ist die technische Begründung für Atomizität.
+[[Konnektivität im ZK]] - Wer trennt, muss verbinden.
 [[Lose Kopplung]] - SRP trennt Verantwortungen; lose Kopplung trennt Abhängigkeiten.
+
+---
+
+## Rückseite/Diskurs
 
 ### Bestätigung
 Die ›Unixphilosophie‹ demonstriert SRP in Reinform: Jedes Programm soll eine Sache gut machen.[^5] `grep` sucht nur Text, `sort` sortiert nur. Wenn du suchen und sortieren willst, baust du kein riesiges Programm. Du verbindest beide mit einer Pipe (`|`).
 
-### Widerspruch
+### Widerspruch/Kritik
 Kritiker warnen vor ›Ravioli Code‹. Wenn du alles in winzige Schnipsel zerlegst, verlierst du den Überblick. Zu viele kleine Klassen führen zu Fragmentierung; der Kontrollfluss wird schwer nachvollziehbar.[^6] Im Zettelkasten löst du das durch Strukturzettel (Hubs), die die Teile wieder zusammenführen.
 
 ### Beispiel

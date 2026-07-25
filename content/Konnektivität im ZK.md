@@ -3,10 +3,10 @@ cssclasses: zettelkasten
 tags: [zettelkasten/prinzipien, netzwerktheorie]
 aliases: []
 erstellt: 2026-01-16
-bearbeitet: 2026-01-17
+bearbeitet: 2026-07-25
 ---
 
-# ZK Konnektivität
+# Konnektivität im ZK
 
 *Isolierte Zettel sind tote Zettel.*
 
@@ -20,14 +20,18 @@ Die Netzwerktheorie zeigt, dass der Zettelkasten zu einem skalenfreien Netzwerk 
 
 ### Anknüpfungspunkte
 
-[[ZK Atomizität]] - Kleine Einheiten lassen sich präziser verknüpfen als große Blöcke.
-[[ZK Serendipität]] - Unerwartete Pfade entstehen nur, wenn wir Links folgen.
-[[ZK Emergenz]] - Das Netzwerk wird klüger als die Summe seiner Teile.
+[[Atomizität im ZK]] - Kleine Einheiten lassen sich präziser verknüpfen als große Blöcke.
+[[Serendipität im ZK]] - Unerwartete Pfade entstehen nur, wenn wir Links folgen.
+[[Emergenz im ZK]] - Das Netzwerk wird klüger als die Summe seiner Teile.
+
+---
+
+## Rückseite/Diskurs
 
 ### Bestätigung
 Das Gehirn arbeitet assoziativ, Links, nicht hierarchisch, Ordner. *Spreading Activation* bedeutet, dass die Aktivierung eines Gedankens benachbarte Gedanken mitaktiviert. Der Zettelkasten externalisiert diese Struktur. Das Netzwerk bildet nach, wie du wirklich denkst: in Assoziationen.
 
-### Widerspruch
+### Widerspruch/Kritik
 Zu viele Links desorientieren, *Lost in Hyperspace*.[^5] Wenn alles mit allem verknüpft ist, büßt ein Link seinen Wert ein. Kritiker wie Nick Milo fordern deshalb Hierarchien oder Strukturnotizen, *Maps of Content*, um Navigationspunkte zu schaffen.[^6] Die Lösung ist nicht weniger Links, sondern begründete Links. Ein Link, der erklärt (»Widerspricht, weil...«), ist wertvoll.
 
 ### Beispiel

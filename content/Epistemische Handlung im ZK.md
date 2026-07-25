@@ -3,10 +3,9 @@ cssclasses: zettelkasten
 tags: [kognition, epistemologie, zettelkasten]
 aliases: []
 erstellt: 2026-01-16
-bearbeitet: 2026-01-17
+bearbeitet: 2026-07-25
 ---
-
-# ZK Epistemische Handlung
+# Epistemische Handlung im ZK
 
 *Handeln, um zu denken.*
 
@@ -22,12 +21,16 @@ Ein Mathematiker, der eine Gleichung umformt, tut dies epistemisch. Er schreibt 
 
 [[Kognitive Externalisierung]] - Epistemische Handlungen sind die Methode der Externalisierung.
 [[Strukturelle Kopplung]] - Durch physische Manipulation tritt das Bewusstsein in direkten Austausch mit dem System.
-[[ZK Serendipität]] - Wer physisch mit dem Material spielt, stolpert eher über Zufälle.
+[[Serendipität im ZK]] - Wer physisch mit dem Material spielt, stolpert eher über Zufälle.
+
+---
+
+## Rückseite/Diskurs
 
 ### Bestätigung
 Das Konzept stützt die *Extended Mind* These. Kognition findet nicht allein im Kopf statt. Die Manipulation der Umwelt ist kognitiv, nicht nur motorisch. Wenn wir Scrabble-Steine ordnen, um ein Wort zu finden, ist dieses Ordnen Teil des Denkprozesses [@clark_chalmers_1998].
 
-### Widerspruch
+### Widerspruch/Kritik
 Die Kognitionspsychologie warnt vor zu viel *Cognitive Offloading*.[^3] Wenn du alles auslagerst, trainierst du interne Fähigkeiten nicht mehr, *Google Effect* [@sparrow_2011][^4]. Epistemische Handlungen sollten das Denken unterstützen, nicht ersetzen. Der Zettelkasten ist ein Werkzeug zum Denken, kein Ersatz dafür.
 
 ### Beispiel

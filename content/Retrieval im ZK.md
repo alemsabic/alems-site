@@ -3,10 +3,10 @@ cssclasses: zettelkasten
 tags: [ZK-Theorie, retrieval]
 aliases: []
 erstellt: 2026-01-16
-bearbeitet: 2026-01-17
+bearbeitet: 2026-07-25
 ---
 
-# ZK Retrieval
+# Retrieval im ZK
 
 *Folge dem Pfad, such den Zettel später.*
 
@@ -20,14 +20,18 @@ Luhmann formulierte: »Das Problem liegt darin, Wissen so wiederzufinden, dass e
 
 ### Anknüpfungspunkte
 
-[[ZK Kontextualisierung]] - Damit Retrieval funktioniert, müssen wir Kontext als Pfad anlegen.
-[[ZK Konnektivität]] - Links bilden Pfade; Pfade ermöglichen Browsing.
-[[ZK Serendipität]] - Navigation ermöglicht Zufallsfunde; Suche verengt den Blick.
+[[Kontextualisierung im ZK]] - Damit Retrieval funktioniert, müssen wir Kontext als Pfad anlegen.
+[[Konnektivität im ZK]] - Links bilden Pfade; Pfade ermöglichen Browsing.
+[[Serendipität im ZK]] - Navigation ermöglicht Zufallsfunde; Suche verengt den Blick.
+
+---
+
+## Rückseite/Diskurs
 
 ### Bestätigung
 Johannes Schmidt analysierte Luhmanns Arbeitsweise: Luhmann nutzte das Schlagwortregister als Einstieg, ›Türen ins Labyrinth‹ [@schmidt_2013]. Die Recherche fand im Kasten statt, indem er internen Verweisungsketten folgte. Das Register war der Türgriff; die Karte kam später.
 
-### Widerspruch
+### Widerspruch/Kritik
 Digitale Tools, Obsidian oder Roam, verführen zur Volltextsuche: »Ich finde es ja wieder«. Das ist gefährlich. Die Suche liefert Erwähnungen, Zusammenhänge entgehen ihr. Sie reißt den Zettel aus seinem Kontext. Du findest den Zettel, aber der Gedanke, der durch ihn fließt, bleibt verborgen.
 
 ### Beispiel

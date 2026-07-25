@@ -3,7 +3,7 @@ cssclasses: zettelkasten
 tags: [systemtheorie, kybernetik, epistemologie]
 aliases: []
 erstellt: 2026-07-24
-bearbeitet: 2026-07-24
+bearbeitet: 2026-07-25
 ---
 
 # Beobachtung zweiter Ordnung
@@ -20,19 +20,19 @@ Dein eigener Zettelkasten betreibt dieselbe Verschiebung. Du exzerpierst nicht n
 
 ### Anknüpfungspunkte
 
-[[Unterschied Irritation Information]] - Beobachtung zweiter Ordnung setzt voraus, dass Systeme nur ihre eigenen Unterscheidungen sehen, nie die Irritation selbst.
+[[Irritation vs. Information]] - Beobachtung zweiter Ordnung setzt voraus, dass Systeme nur ihre eigenen Unterscheidungen sehen, nie die Irritation selbst.
 [[Operationale Geschlossenheit]] - Der blinde Fleck ist die Kehrseite operationaler Geschlossenheit: Das System sieht nie über die eigene Grenze hinaus.
 [[Strukturelle Drift]] - Auch der blinde Fleck driftet nur, statt sich je aufzulösen, keine Optimierung, nur Verschiebung.
 
 ---
 
-## Rückseite
+## Rückseite/Diskurs
 
 ### Bestätigung
 
 Raf Vanderstraeten bestätigt Luhmanns Ausgangspunkt und radikalisiert ihn zugleich. Er übernimmt von Foersters Grundgedanken, dass alles Wissen von Beobachtungen abhängt, und trägt ihn direkt in Luhmanns System-Umwelt-Rahmen hinein. Beobachtung zweiter Ordnung wird bei ihm zum Programm der gesamten Systemtheorie. Man beobachtet nie die Welt direkt, immer nur, wie ein System sie beobachtet [@vanderstraeten_2001, p. 304].
 
-### Widerspruch
+### Widerspruch/Kritik
 
 Loet Leydesdorff hält die biologische Metapher des Beobachters für eine Fehlübersetzung. In der Soziologie bezeichnet eine Unterscheidung nur eine Kategorie, kein Sehen, Gesellschaften haben keine Augen und können nicht schauen. Leydesdorff schlägt deshalb vor, den Begriff Beobachtung im soziologischen Kontext konsequent durch Erwartung zu ersetzen. Ein System erwartet, es beobachtet nicht [@leydesdorff_2006]. Seine Kritik erschien peer-reviewed in der Fachzeitschrift *Kybernetes* und ursprünglich als Preprint auf arXiv.
 
