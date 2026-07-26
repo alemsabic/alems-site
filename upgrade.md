@@ -34,8 +34,8 @@ execution log below.**
   neither in scope.
 - **Ongoing (2026-07-26, current session): a manual visual-diff pass, page by page, comparing the
   locally-running `v5` build against the live `v4` site.** This is how bugs 4 through 8 above were
-  found — automated Phase G checks confirmed things *rendered*, not that they rendered
-  *identically* to v4. Not yet exhaustive (checked in depth: one zettelkasten note,
+  found — automated Phase G checks confirmed things _rendered_, not that they rendered
+  _identically_ to v4. Not yet exhaustive (checked in depth: one zettelkasten note,
   `Atomizität im ZK`; not yet checked: dictionary-entry/literature-note note types, folder/tag
   listing pages beyond a spot check, the index page). Continue this comparison before treating
   Phase G as fully closed. No new section further down tracks this separately — findings get
@@ -671,7 +671,7 @@ tags/aliases → Search+Darkmode at the bottom, right above the H1).
 unmodified carryover from the scaffold default (`quartz.config.default.yaml` has the identical
 value). An explicit group priority overrides every member's own `layout.priority` for sort
 purposes (`config-loader.ts`'s `resolveGroups` — group priority wins over the first-member
-fallback), so the Search+Darkmode toolbar (members at priority 1/2) was sorting *after*
+fallback), so the Search+Darkmode toolbar (members at priority 1/2) was sorting _after_
 Breadcrumbs (5) and `content-header` (10) instead of before them — silently contradicting the
 "moved here to match v4" comment already sitting on the Search entry from Phase E. **Fix**:
 changed `groups.toolbar.priority` from `35` to `0` (below Breadcrumbs' 5) in
@@ -683,7 +683,7 @@ aliases) directly duplicating what `content-header` already shows. v4 never had 
 all.
 
 **First fix attempt for root cause 2 was wrong and broke the whole site**: setting
-`enabled: false` on `note-properties` seemed like the obvious fix, but this plugin is v5's *only*
+`enabled: false` on `note-properties` seemed like the obvious fix, but this plugin is v5's _only_
 frontmatter-parsing transformer — it registers `remarkFrontmatter` and sets `file.data.frontmatter`
 (title fallback, tags/aliases coercion, cssclasses, dates), i.e. it's the direct v5 equivalent of
 v4's dedicated `FrontMatter` transformer, just bundled together with an optional properties-display
@@ -721,6 +721,7 @@ DOM parent chain (`H1 → DIV.markdown-preview-view → ARTICLE.zettelkasten →
 level, rather than dropping to a bare descendant selector — a bare descendant would also
 incidentally match e.g. the first paragraph inside a nested blockquote/callout elsewhere in the
 note, which a direct-child chain correctly excludes. Four rules fixed in `custom.scss`:
+
 - `.page article > h1` (desktop 3rem H1 font-size)
 - `article.zettelkasten > p:first-of-type` and `> p:first-of-type em` (bracket summary paragraph)
 - `[saved-theme="light"/"dark"] article.zettelkasten > p:first-of-type` (theme-specific summary
@@ -751,19 +752,19 @@ look "broken"/invisible. Follow-up round also found the placeholder text almost 
 both themes, and the text sitting flush against the box edge with no padding.
 
 **Root cause**: `@quartz-community/search` ships different default CSS for `.search-button` than
-v4's own bundled search component. Diagnosed by diffing the *exact* compiled rule from
+v4's own bundled search component. Diagnosed by diffing the _exact_ compiled rule from
 `https://ale.ms/index.css` against the v5 plugin's bundled CSS
 (`node_modules/@quartz-community/search/dist/components/*.js`), rule-by-rule rather than
 guessing:
 
-| | v4 | v5 default |
-|---|---|---|
-| background | `color-mix(in srgb, var(--lightgray) 60%, var(--light))` | `transparent` |
-| border | `none` | `1px solid var(--lightgray)` |
-| layout | `justify-content: space-between` | *(missing)* |
-| padding | `0` on button, `0 1rem` on the `<p>` | `0 1rem 0 0` on button, none on `<p>` |
-| `.search-button > p` color | *(unset — inherits `body`'s `color: var(--darkgray)`)* | explicit `color: var(--gray)` |
-| DOM order | `<p>Suche</p><svg>...</svg>` (text first) | `<svg>...</svg><p>Suche</p>` (icon first) |
+|                            | v4                                                       | v5 default                                |
+| -------------------------- | -------------------------------------------------------- | ----------------------------------------- |
+| background                 | `color-mix(in srgb, var(--lightgray) 60%, var(--light))` | `transparent`                             |
+| border                     | `none`                                                   | `1px solid var(--lightgray)`              |
+| layout                     | `justify-content: space-between`                         | _(missing)_                               |
+| padding                    | `0` on button, `0 1rem` on the `<p>`                     | `0 1rem 0 0` on button, none on `<p>`     |
+| `.search-button > p` color | _(unset — inherits `body`'s `color: var(--darkgray)`)_   | explicit `color: var(--gray)`             |
+| DOM order                  | `<p>Suche</p><svg>...</svg>` (text first)                | `<svg>...</svg><p>Suche</p>` (icon first) |
 
 The DOM-order difference matters specifically because of `justify-content: space-between`:
 whichever element is first in the DOM lands on the left. v5's icon-first markup therefore put the
@@ -771,6 +772,7 @@ icon on the left and the text on the right — the reverse of v4 — even after 
 was corrected.
 
 **Fix**, all in `custom.scss` (none of it touches the plugin's own bundled component):
+
 ```scss
 .search > .search-button {
   background-color: color-mix(in srgb, var(--lightgray) 60%, var(--light));
@@ -789,6 +791,7 @@ was corrected.
   padding: 0 1rem;
 }
 ```
+
 The `order` properties are the key trick for the DOM-order mismatch — pure CSS, no component fork
 needed, since `order` only affects visual/layout order, not the underlying DOM.
 
@@ -809,6 +812,7 @@ Notizen & Quellen." While doing this, also noticed `Tagline.tsx` embedded its ow
 the rest of the site's styling is centralized.
 
 **Changes**:
+
 - `local-plugins/site-components/src/components/Tagline.tsx`: converted from a bare
   `QuartzComponent` to the standard options-factory pattern (matching `ContentHeader.tsx`'s
   existing shape) — new `TaglineOptions` (`linkText`, `linkUrl`, `text`), defaults matching the old
@@ -816,12 +820,12 @@ the rest of the site's styling is centralized.
 - `quartz.config.yaml`: the `tagline` entry's `options:` now sets
   `linkText: "Alem Šabićs"`, `linkUrl: "https://alemsabic.com"`, `text: " Notizen & Quellen."`.
 - `quartz/styles/custom.scss`: added the `.tagline { font-size: 1rem; margin-top: 0.5rem;
-  margin-bottom: 2.5rem; line-height: 1.1rem; font-family: var(--titleFont); }` block that used to
+margin-bottom: 2.5rem; line-height: 1.1rem; font-family: var(--titleFont); }` block that used to
   live in `Tagline.css`.
 
 **Gotcha that cost real time**: `local-plugins/site-components` is pre-built via `tsup` into its
 own `dist/`, which is what the Quartz build actually loads — not `src/`. The very first rebuild
-after editing `Tagline.tsx` still showed the *old* hardcoded text, with no error anywhere, because
+after editing `Tagline.tsx` still showed the _old_ hardcoded text, with no error anywhere, because
 `dist/components/index.js` hadn't been regenerated. Fix: `cd local-plugins/site-components && npm
 run build` before rebuilding Quartz, every time a `local-plugins/*` source file changes. **This
 applies to every package under `local-plugins/`, not just this one** — worth a standing reminder
@@ -833,8 +837,9 @@ for the gpunkt.org replay.
 file, confirmed identical in `upstream/v5` — not something we introduced) changed `.desktop-only`
 from v4's `display: initial` to `display: contents`. `display: contents` makes an element
 generate no box of its own — its children render as if promoted to the parent's direct children,
-but the element's *own* margin/padding/border/background stop applying, since there's no box left
+but the element's _own_ margin/padding/border/background stop applying, since there's no box left
 for them to apply to. Fixed in `custom.scss` rather than patching the core scaffold file:
+
 ```scss
 .tagline.desktop-only {
   display: block;
@@ -844,6 +849,7 @@ for them to apply to. Fixed in `custom.scss` rather than patching the core scaff
   }
 }
 ```
+
 The higher specificity (`.tagline.desktop-only` vs. base.scss's bare `.desktop-only`) wins
 regardless of source order, and the nested media query repeats base.scss's own mobile-hide
 behavior so mobile visibility is unaffected.
@@ -908,7 +914,7 @@ local `folder-page`/`tag-page` forks' shared `PageList.css`, reused here since `
 copies the same class-name convention) had stopped matching — turned out to be wrong on
 inspection: `getComputedStyle` in the browser confirmed that rule was applying correctly
 (`h3`'s margin really was `0px`). The actual cause: `local-plugins/recent-notes`'s
-`recentNotes.scss` sets `& > li { margin: 1rem 0; }` (both top *and* bottom), where v4's original
+`recentNotes.scss` sets `& > li { margin: 1rem 0; }` (both top _and_ bottom), where v4's original
 only ever set `margin-bottom: 1em` on `.recent-li` — the extra `margin-top` was new, adding an
 uncancelled ~1rem gap between every pair of entries. Confirmed by comparing computed
 `margin-top`/`margin-bottom` on `.recent-li` side by side: v4 live site had `0px`/`0px` (v4's own
@@ -918,7 +924,7 @@ in `custom.scss` canceled the bottom half but not the newly-introduced top half)
 entirely in `custom.scss` per the user's standing preference** (edits to `local-plugins/*` source
 were explicitly declined this round): extended the existing override to
 `.recent-notes li.recent-li { margin-top: 0; margin-bottom: 0; }`. Also confirms something worth
-remembering: this override, despite *lower* CSS specificity (`(0,2,1)`) than the fork's
+remembering: this override, despite _lower_ CSS specificity (`(0,2,1)`) than the fork's
 `.recent-notes > ul.recent-ul > li` rule (`(0,2,2)`), still wins — because `custom.scss`'s compiled
 output lands unlayered in `index.css` while every component's own CSS (including this fork's) is
 wrapped in `@layer quartz-base`, and per the Cascade Layers spec, **unlayered CSS always beats
