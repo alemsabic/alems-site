@@ -32,9 +32,7 @@ export class FileTrieNode<T extends FileTrieData = ContentDetails> {
     const nonIndexTitle = this.data?.title === "index" ? undefined : this.data?.title
     // Use shortTitle if available (for Zotero sources), fallback to title
     const titleToUse = this.data?.shortTitle ?? nonIndexTitle
-    return (
-      this.displayNameOverride ?? titleToUse ?? this.fileSegmentHint ?? this.slugSegment ?? ""
-    )
+    return this.displayNameOverride ?? titleToUse ?? this.fileSegmentHint ?? this.slugSegment ?? ""
   }
 
   set displayName(name: string) {

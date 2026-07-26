@@ -8,8 +8,7 @@ import { classNames } from "@quartz-community/utils/lang";
 const Tagline: QuartzComponent = ({ displayClass }: QuartzComponentProps) => {
   return (
     <div class={classNames(displayClass, "tagline", "desktop-only")}>
-      <a href="https://alemsabic.com">Alem Šabićs</a> Zettelkästchen der Notizen, Quellen und
-      Ideen.
+      <a href="https://alemsabic.com">Alem Šabićs</a> Zettelkästchen der Notizen, Quellen und Ideen.
     </div>
   );
 };

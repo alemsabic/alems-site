@@ -37,21 +37,25 @@ own extra customizations rather than blind-copying.
 ## Customization inventory → v5 fate
 
 ### Already built into v5 upstream — drop our old workaround
+
 - German CSL locale for citations: `quartz-community/citations`'s `transformer.ts` already auto-derives the locale-XML URL from `ctx.cfg.configuration.locale`. Just set `configuration.locale: de-DE`.
 - Bibliography-link popover suppression (`#bib-*`): already sets `data-no-popover` upstream.
 
 ### Needs a local-plugin fork (confirmed not covered upstream)
+
 - Footnote-ref popover suppression (`sup > a` → `data-no-popover`) — not present in `quartz-community/github-flavored-markdown`. New small local transformer.
 - `shortTitle` fallback (Explorer/Breadcrumbs short label) — spans `content-index` (was `contentIndex.tsx`), `content-meta` (was `ContentHeader.tsx`), and likely `explorer` (was `fileTrie.ts` — **confirm by reading source, first execution task**). `ctx.ts`/`BuildCtx` likely still core.
 - SPA footnote highlighting (`footnotes.inline.ts`) + tooltip entity-decoding (`tooltips.inline.ts`) — currently wired via `Body.tsx`. v5's equivalent aggregation point is **unconfirmed — likely `content-page`, first execution task**. Script logic itself is unchanged (still uses `nav`/`addCleanup`, v5 keeps this lifecycle + adds a `render` event).
 - Drop the redundant server-side entity-decode block in old `citations.ts` when porting (duplicate of the client-side fix, already flagged as rejected-but-present in old CLAUDE.md).
 
 ### Pure CSS/config — direct port
+
 - Zotero highlight/callout/book-cover CSS, giscus theme CSS, static assets → same `custom.scss` mechanism.
 - Layout positions → per-plugin YAML `layout:` blocks (mapping below).
 - i18n string tweaks (`de-DE.ts` reading-time phrasing, "Schlagwort" terminology) — verify i18n's v5 home first.
 
 ### Undocumented customizations found during inventory (port alongside documented ones)
+
 - `Date.tsx` — hardcoded `DD.MM.YYYY.` format.
 - `Head.tsx` — conditional `" - "` separator.
 - `PageList.tsx` + `RecentNotes.tsx` + 2 stylesheets — date column removed (4-file coordinated change).
@@ -59,6 +63,7 @@ own extra customizations rather than blind-copying.
 - `custom.scss` (1,355 lines) — `dictionary-entry`/`dictionary-entry-columns`/`zettelkasten`/`literature-note` design systems, CSS-only tooltip rendering, CSS-level footnote-popover suppression in `zettelkasten` block (overlaps citations.ts mechanism — reconcile, don't duplicate).
 
 ### Cleanup candidates (not blockers, skip porting)
+
 - `ProfileImage.tsx` (orphaned, unused), `kursnotizen-logo.png` (orphaned branding leftover).
 
 ## quartz.config.yaml mapping (for Phase D)
@@ -73,11 +78,13 @@ own extra customizations rather than blind-copying.
 ## Execution log
 
 ### Phase A — Prep on v4 ✅ (2026-07-26)
+
 - Committed outstanding WIP: header font Jost→Domine, Tagline font-family, custom.scss H2-H6 font cleanup — commit `37db023`.
 - Fixed CLAUDE.md drift: typography section (was stale "Victor Mono/Geist Mono"), right-sidebar order (was "Graph→TOC→Backlinks", actually `TableOfContents, Graph, Backlinks`), `literature-note` status (was marked "TODO/paused", actually fully implemented — corrected with a note about the a/b/c/d vs. §-roman-numeral discrepancy from the original spec).
 - This file created.
 
 ### Phase B — Branch to v5 ✅ (2026-07-26)
+
 ```
 git remote add upstream https://github.com/jackyzha0/quartz.git
 git fetch upstream v5
@@ -85,6 +92,7 @@ git checkout -b v5 upstream/v5
 npm i
 git push -u origin v5
 ```
+
 - `package.json` version confirms `5.0.0`. Node `v25.6.1` used (repo's own `.node-version`/engines
   requirement wasn't re-checked yet on this branch — verify in Phase C/G).
 - `npm i`: 112 added / 272 removed / 117 changed, 321 audited, 5 vulnerabilities (1 low, 4 high) —
@@ -97,11 +105,13 @@ git push -u origin v5
 - `v4` branch confirmed untouched and pushed to `origin/v4` before branching (commit `1b7e1c4`).
 
 ### Phase C — Scaffold + import content ✅ (2026-07-26)
+
 ```
 git archive v4 -- content | tar -x -C <scratch>/quartz-v4-content-backup
 npx quartz create --template default --source <scratch>/quartz-v4-content-backup/content \
   --strategy copy --baseUrl ale.ms --links shortest
 ```
+
 - Used the non-interactive CLI flags (`quartz create --help` documents them) instead of the TUI wizard.
 - **Deliberately fixed the flagged `baseUrl` bug here**: passed bare `ale.ms` (no `https://` scheme), matching v5's documented convention, instead of porting the old `https://ale.ms` value as-is. Needs verification in Phase G that this doesn't break anything that assumed the scheme was included.
 - `quartz.config.yaml` generated with defaults (`locale: en-US`, stock fonts/colors, most plugins default-enabled including `canvas-page` and `bases-page` — **both are already enabled by default in this template**, simplifying Phase F). Citations, comments, recent-notes, tag-list default to `enabled: false` as expected (matches v4 behavior where these needed manual enabling).
@@ -109,8 +119,10 @@ npx quartz create --template default --source <scratch>/quartz-v4-content-backup
 - Not yet committed — will commit together with Phase D's config rewrite so the "default scaffold" state isn't a confusing intermediate commit.
 
 ### Phase D — Rebuild config ✅ (2026-07-26, config done; layout for forked components pending Phase E)
+
 Translated `quartz.config.ts`/`quartz.layout.ts` into `quartz.config.yaml` per the mapping table.
 Concrete outcomes/decisions beyond the mapping table:
+
 - `TableOfContents`: our options ported, moved to `priority: 10` + `display: desktop-only` on `right` (TOC→Graph(20)→Backlinks(30), matching the corrected sidebar order).
 - `Citations`: enabled, our `bibliographyFile`/`csl` ported, `lang` dropped (built-in now), v4-only `showTooltips`/`tooltipAttribute` options dropped (don't exist in v5's plugin — our own tooltip script handles that separately).
 - `Search`+`Darkmode`: moved from the default `left` toolbar into `beforeBody` (priority 1/2, `group: toolbar`) to match v4's Flex-row-before-breadcrumbs arrangement.
@@ -125,12 +137,14 @@ Concrete outcomes/decisions beyond the mapping table:
 ### Phase E — Port custom plugins (in progress)
 
 **Open questions resolved by reading real plugin source (2026-07-26):**
+
 - `fileTrie.ts` and `ctx.ts` are still **core/bundled files** in the scaffolded repo (`quartz/util/`), not externalized to any community plugin — confirmed by checking the actual v5 working tree. Patched directly, exactly like v4 (no fork needed for these two).
 - `content-index`'s `ContentDetails` type IS in a separate plugin repo (`quartz-community/content-index`, resolved via a real published npm package `@quartz-community/content-index` by default) — this one genuinely needs the local-fork treatment.
 - `content-meta` does NOT render the title — confirmed by reading its actual source description and by empirical build output. **Correction to the Phase D exclude list**: `article-title` alone already renders the correct full-title H1 on content pages (verified in real build output) and should stay enabled there; only `content-meta` needs excluding (ContentHeader's fork replaces its specific job — reading time/date — with a richer line: date + German word count + edit-on-GitHub link, not the title).
-- Body.tsx's afterDOMLoaded-aggregation role isn't owned by any specific plugin — `componentResources.ts` (still core) collects `afterDOMLoaded`/`beforeDOMLoaded` from *every* component used on a page, same mechanism as v4. So footnotes.inline.ts/tooltips.inline.ts don't need to be wired into any specific plugin fork — a small local "global scripts" component (render nothing, just carry the two scripts as a static `afterDOMLoaded` property) placed anywhere in the layout is sufficient. Confirmed `nav`/`render` client events still exist (checked `docs/advanced/architecture.md`).
+- Body.tsx's afterDOMLoaded-aggregation role isn't owned by any specific plugin — `componentResources.ts` (still core) collects `afterDOMLoaded`/`beforeDOMLoaded` from _every_ component used on a page, same mechanism as v4. So footnotes.inline.ts/tooltips.inline.ts don't need to be wired into any specific plugin fork — a small local "global scripts" component (render nothing, just carry the two scripts as a static `afterDOMLoaded` property) placed anywhere in the layout is sufficient. Confirmed `nav`/`render` client events still exist (checked `docs/advanced/architecture.md`).
 
 **shortTitle support — done, verified in a real build:**
+
 - `quartz/util/fileTrie.ts`: added `shortTitle?: string` to `FileTrieData`, `displayName` getter fallback — direct edit (core file).
 - `quartz/util/ctx.ts`: added `shortTitle?: string` to `BuildTimeTrieData`, extraction in `trieFromAllFiles()` — direct edit (core file).
 - `local-plugins/content-index/`: forked from `quartz-community/content-index` @ `1342d1eacfdabbcefa2c6a26f8346945a9d9860f` (`git clone --depth 1`, stripped `.git`/`node_modules`/changeset scaffolding, added `FORK_NOTES.md` documenting the patch + upstream SHA for future re-sync). Added `shortTitle?: string` to `ContentDetails` + threaded through in the `emit()` loop.
@@ -140,17 +154,20 @@ Concrete outcomes/decisions beyond the mapping table:
 **Local plugin fork pattern established** (reusable for the remaining forks below): `git clone --depth 1 <upstream> local-plugins/<name>`, strip `.git`, patch source, add `FORK_NOTES.md`, point `quartz.config.yaml`'s `source:` at `./local-plugins/<name>`, `npx quartz plugin install --from-config`.
 
 **Footnote-popover fix — done, verified in a real build:**
+
 - `local-plugins/github-flavored-markdown/`: forked from `quartz-community/github-flavored-markdown` @ `287c709c12806dca76882ab8ab79567d57ede5b4`. Added a `sup > a` → `data-no-popover` hast-visitor to both `htmlPlugins()` return paths in `src/transformer.ts`, plus `unist-util-visit` to `devDependencies` (tsup bundles it, same pattern as the plugin's other markdown deps — checked `tsup.config.ts`'s `SINGLETON_EXTERNALS` list first to confirm it needs to be a real dep, not assumed available).
 - Correction from the plan: this fix belongs here (the GFM/footnotes plugin), not forked into `citations.ts` where v4 had it — v4's placement was really just "whichever file was already being touched," not a citations concern. Bibliography-link popover suppression is separately already built into upstream `citations` (confirmed earlier), so `citations` itself doesn't need forking at all now — just enabling with our bibliography options (already done in Phase D's YAML).
 - **Verified**: rebuilt, checked `public/autopoiesis-vs.-allopoiesis.html` — all `<sup><a ...>` footnote refs carry `data-no-popover="true"`.
 
 **Global scripts (footnotes.inline.ts + tooltips.inline.ts) — done, verified in a real build:**
+
 - `local-plugins/site-scripts/`: a genuinely NEW local plugin (not a fork — no upstream equivalent), scaffolded from the official `quartz-community/plugin-template`, stripped to a single component-only plugin (`"category": "component"` in the `quartz` manifest field, per `docs/advanced/creating components.md`). `SiteScripts` renders `null` and carries both scripts (unchanged from v4) concatenated on `.afterDOMLoaded`.
 - Wired into `quartz.config.yaml` at `afterBody` priority 90.
-- **Debugging note for future reference** (cost real time, worth recording): my first verification method was wrong, not the implementation. In v5's hashed/production build mode, `postscript.js` is NOT a monolithic bundle containing every script inline — it's a small orchestrator that `Promise.all`s dynamic `import()`s of each component's script as its own content-hashed file under `static/scripts/script-N-<hash>.js` (dev/`--serve` mode is the monolithic-bundle path instead, per `componentResources.ts`'s `useHashing` branch). So grepping a page's static `<script src>` tags for a specific script's hash will *never* find component scripts — only `postscript-<hash>.js` itself is referenced there, and its own JS content must be inspected for the `import("./script-N-...")` calls. Traced this by temporarily instrumenting `componentLoader.ts`, `config-loader.ts`, and `componentResources.ts` with debug prints (all reverted, no residual diff) to rule out an actual registration bug before finding the real explanation.
+- **Debugging note for future reference** (cost real time, worth recording): my first verification method was wrong, not the implementation. In v5's hashed/production build mode, `postscript.js` is NOT a monolithic bundle containing every script inline — it's a small orchestrator that `Promise.all`s dynamic `import()`s of each component's script as its own content-hashed file under `static/scripts/script-N-<hash>.js` (dev/`--serve` mode is the monolithic-bundle path instead, per `componentResources.ts`'s `useHashing` branch). So grepping a page's static `<script src>` tags for a specific script's hash will _never_ find component scripts — only `postscript-<hash>.js` itself is referenced there, and its own JS content must be inspected for the `import("./script-N-...")` calls. Traced this by temporarily instrumenting `componentLoader.ts`, `config-loader.ts`, and `componentResources.ts` with debug prints (all reverted, no residual diff) to rule out an actual registration bug before finding the real explanation.
 - **Verified correctly**: `public/postscript-95d6a964.js` contains a dynamic import of `script-4-56ff712b.js`, which contains both our scripts' minified logic.
 
 **Date/Head core edits + RecentNotes/tag-page/folder-page forks — done, verified in a real build:**
+
 - `quartz/util`-sibling core files confirmed still core in v5 (same pattern as fileTrie/ctx): `quartz/components/Date.tsx` (hardcoded `DD.MM.YYYY.` format, ignoring `locale`), `quartz/components/Head.tsx` (conditional `" - "` separator only when `pageTitleSuffix` non-empty) — both direct-edited.
 - `quartz/components/PageList.tsx` is ALSO still core, edited the same way (removed the per-item `<p class="meta"><Date/></p>` block) — **but this turned out to be dead code**: nothing in `quartz/` imports it. `folder-page` and `tag-page` community plugins each bundle their own private, near-identical `PageList.tsx` copy (confirmed via their real source) that actually renders list pages. Caught via a real build still showing `class="meta"` on a tag page after the "fix." Left the harmless core edit in place (matches intent, costs nothing) but the real fix is the two forks below.
 - `local-plugins/tag-page/`, `local-plugins/folder-page/`: forked from `quartz-community/tag-page` @ `a651839686ed2bd7e58beb01709b9a682dc9add8` and `quartz-community/folder-page` @ `213a8e98c4347aca9013c0dd5a15bc80a1dca604`. Both got the identical patch (remove the date block + now-unused `DateDisplay` helper) since both bundle the same duplicated file.
@@ -159,26 +176,30 @@ Concrete outcomes/decisions beyond the mapping table:
 - **Not yet ported**: `EditOnGitHub.tsx` — investigated and found to be **dead code even in v4**: it's never referenced in `quartz.layout.ts`'s actual layout arrays. `ContentHeader.tsx` implements its own inline "Verbesser die Seite auf GitHub." edit link directly (same default text), making `EditOnGitHub` fully redundant. Not porting it; flag as a CLAUDE.md correction alongside the other stale-doc items already found (CLAUDE.md documents it as if active).
 
 **Tagline/ContentHeader/Footer — done, verified in a real build:**
+
 - `local-plugins/site-components/`: a genuinely NEW local plugin (not a fork), scaffolded from `quartz-community/plugin-template`, holding two named components (`Tagline`, `ContentHeader`) in one package. Both ported near-unchanged from v4, with one deliberate change: `ContentHeader`'s date formatting is implemented inline (own `formatDate` function) rather than importing `@quartz-community/utils/date`'s stock formatter — see below.
-- **Multi-component-per-plugin layout trick**: `quartz.config.yaml` references this one physical directory via *two* plugin entries, using the object-form `source: {repo, name}` override — `name: tagline` and `name: content-header` — so `buildLayoutForEntries`'s PascalCase-fallback lookup (`"content-header"` → `"ContentHeader"`) resolves each to its own component independently, letting them sit at different layout positions (`left`/`beforeBody`) from one plugin package.
+- **Multi-component-per-plugin layout trick**: `quartz.config.yaml` references this one physical directory via _two_ plugin entries, using the object-form `source: {repo, name}` override — `name: tagline` and `name: content-header` — so `buildLayoutForEntries`'s PascalCase-fallback lookup (`"content-header"` → `"ContentHeader"`) resolves each to its own component independently, letting them sit at different layout positions (`left`/`beforeBody`) from one plugin package.
 - **Real bug hit and fixed**: initial `package.json` copied the plugin-template's own `"@quartz-community/types": "github:quartz-community/types"` / `.../utils` git-ref dependency style. That resolves via git clone with no build step run (the packages only define `prepublishOnly`, which npm doesn't run for git installs) — so the installed copies had no `dist/` at all, and the build failed with `Could not resolve "@quartz-community/utils/lang"` etc. Real community plugins (recent-notes, tag-page, ...) all use proper npm semver ranges (`^0.2.1`/`^0.1.0`) instead, which resolve from the registry's pre-built tarball. Fixed in both `site-components` and (preventatively) `site-scripts`, which had the same latent issue despite happening to build successfully earlier.
 - `local-plugins/footer/`: forked from `quartz-community/footer` @ `329ed399aca778251f604ffb8fdd3eb1c7f45f51`. Replaced the stock "Created with Quartz vX" line with v4's hardcoded personal links.
 - **Verified**: index page shows the Tagline text under the page title; footer shows "Alem Šabić © 2026 | x.com/sarajevo"; a Literatur content page's `.content-header` shows `Datum: 26.07.2026.` (correct DD.MM.YYYY. format), `Textlänge: 17 Wörter.`, the tag link, and a correctly-constructed GitHub edit URL.
 
 **custom.scss — ported wholesale, verified in a real build + one real bug found and fixed:**
+
 - Full 1,355-line v4 `quartz/styles/custom.scss` body copied onto v5's scaffold header (`@use "./variables.scss" as *;` instead of v4's `@use "./base.scss";` — checked first that v4's file uses zero SCSS variables/mixins from `base.scss`, pure plain CSS, so this is a safe swap matching the new scaffold's own convention).
 - Spot-checked (build succeeds, no SCSS errors; then grepped real rendered HTML) that the most distinctive selectors still match real v5 DOM output: `.explorer`/`button.mobile-explorer`/`button.desktop-explorer`, `.toc`/`.toc-content`/`.toc-header`, `.backlinks`, `.callout`, `.article-title`, `.page-title`, `.search`, `.folder-container`, `.recent-notes`. Two that initially looked "missing" (`.toc`, `.backlinks`) turned out to be correctly absent on the specific test page (< 4 headings, so under `minEntries: 4`; no incoming links) — confirmed present with the right classes on a page that actually has 8 headings and backlinks, so not a v5 mismatch.
 - Confirmed the `cssclasses` frontmatter mechanism (needed for the `dictionary-entry`/`zettelkasten`/`literature-note` design systems) still flows through correctly in v5: `ContentBody`'s `classString = ["popover-hint", ...frontmatter.cssclasses].join(" ")` — verified `cssclasses: zettelkasten` in a real content file renders as `class="popover-hint zettelkasten"` on the `<article>`.
-- **Real bug found and fixed**: `tag-page`/`folder-page`'s bundled `listPage.scss` still had the *original pre-v4-customization* 3-column grid (`fit-content(8em) 3fr 1fr`, sized for a date column) even though their `PageList.tsx` fork already removed the date element — with only 2 grid items (desc, tags) landing in a 3-column track, the title would render squeezed into the narrow first column. Fixed both files to `grid-template-columns: 1fr auto` (matching v4's actual post-customization CSS) and dropped the now-pointless `.popover .section` 3-column override. Verified in the real built CSS output (`grid-template-columns:1fr auto` present in `component-*.css`). `recentNotes.scss`'s leftover `.meta` rule has no such grid dependency (plain block layout) — confirmed harmless, left as-is.
+- **Real bug found and fixed**: `tag-page`/`folder-page`'s bundled `listPage.scss` still had the _original pre-v4-customization_ 3-column grid (`fit-content(8em) 3fr 1fr`, sized for a date column) even though their `PageList.tsx` fork already removed the date element — with only 2 grid items (desc, tags) landing in a 3-column track, the title would render squeezed into the narrow first column. Fixed both files to `grid-template-columns: 1fr auto` (matching v4's actual post-customization CSS) and dropped the now-pointless `.popover .section` 3-column override. Verified in the real built CSS output (`grid-template-columns:1fr auto` present in `component-*.css`). `recentNotes.scss`'s leftover `.meta` rule has no such grid dependency (plain block layout) — confirmed harmless, left as-is.
 - **Gotcha for local-plugin edits that aren't `.tsx`/`.ts` source**: rebuilding a linked local plugin after an SCSS-only change needs `cd local-plugins/<name> && npm install && npm run build` — `npx quartz plugin install --from-config` (even with `--latest`) does **not** detect that an already-linked local plugin's files changed and silently no-ops ("All configured plugins are already installed"). Also hit a transient "tsup: command not found" on the first `npm install` attempt for two plugins that resolved on a plain retry (worth knowing about, not investigated further — didn't recur).
 
 **Static assets — done:**
+
 - Copied `icon.png`, `og-image.png` (fallback OG image, used when `CustomOgImages` is off), and `giscus/{dark,light}.css` (custom theme, v5's scaffold ships stock placeholders of the same filenames — overwritten) from v4.
 - Also copied `noise.png` — found it's actually load-bearing (`custom.scss` line 175: `background-image: url("/static/noise.png")` for the light/dark "book aesthetic" texture overlay), not just a leftover; would have been a broken-image bug if skipped.
 - Deliberately did **not** port `kursnotizen-logo.png` (orphaned branding leftover, per the earlier cleanup-candidate finding) — `.DS_Store` also removed.
 
 **i18n string tweaks — scoped down, done for the two confirmed customizations:**
-- Confirmed i18n is now fully decentralized: each plugin ships its own per-locale files (`src/i18n/locales/de-DE.ts` etc.), no central `quartz/i18n/locales/de-DE.ts` anymore. Checked v5's stock German strings against v4's `de-DE.ts` diff and found most of what v4 had (callout labels, backlinks, theme-toggle, explorer, graph, search, TOC titles) are just the *standard* German translations Quartz ships by default anyway — not deliberate customizations, confirmed by spot-checking stock plugin locale files. Only two real, deliberate customizations existed:
+
+- Confirmed i18n is now fully decentralized: each plugin ships its own per-locale files (`src/i18n/locales/de-DE.ts` etc.), no central `quartz/i18n/locales/de-DE.ts` anymore. Checked v5's stock German strings against v4's `de-DE.ts` diff and found most of what v4 had (callout labels, backlinks, theme-toggle, explorer, graph, search, TOC titles) are just the _standard_ German translations Quartz ships by default anyway — not deliberate customizations, confirmed by spot-checking stock plugin locale files. Only two real, deliberate customizations existed:
   1. `content-meta`'s `readingTime` phrasing (stock `"X Min. Lesezeit"` → v4's `"X Minuten Lesezeit."` with singular handling) — new fork `local-plugins/content-meta/` (upstream `quartz-community/content-meta` @ `3066ef3eaf88c08c7e123d07cc3be8e07b2f4e10`).
   2. `tag-page`'s tag terminology (stock literal `"Tag"` → v4's proper German `"Schlagwort"`/`"Schlagwörter"`) — patched directly in the already-forked `local-plugins/tag-page/src/i18n/locales/de-DE.ts` (no new fork needed).
 - Not porting the matching `en-US.ts` readingTime tweak from v4 — site's `configuration.locale` is `de-DE`, English strings are never served; v4's own inventory flagged this as low-value even at the time.
@@ -187,13 +208,17 @@ Concrete outcomes/decisions beyond the mapping table:
 Phase E is now functionally complete — every documented (and several undocumented) v4 customization has been ported and verified in real builds. Remaining before Phase F: none blocking; `npm run check` (TypeScript) has not been run yet against the whole tree — worth doing once before Phase G's full walkthrough.
 
 ### Phase F — Bases + Canvas
+
 _(not started)_
 
 ### Phase G — Local verification
+
 _(not started)_
 
 ### Phase H — CI/CD + deploy cutover
+
 _(not started)_
 
 ### Phase I — Replay on gpunkt.org
+
 _(not started — see plan file for gpunkt.org-specific deltas to preserve: heading-badge/im-Fokus transformer plugins, TableOfContents badge rendering, footnote-heading relabeling, its more-diverged ContentHeader)_

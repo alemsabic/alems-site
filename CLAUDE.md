@@ -37,7 +37,7 @@ This is a manual convention, not an enforced hook — no PreToolUse/PostToolUse 
 
 ## Code Exploration Policy (jCodeMunch)
 
-This project also registers the `jcodemunch` MCP server (project-scoped, `.mcp.json`) alongside jDocMunch. Where jDocMunch indexes *documentation* (prose, by section), jCodeMunch indexes *source code* (TypeScript/JS, by symbol — functions, classes, components, byte-accurate) via tree-sitter. Don't confuse the two: a Quartz upstream `.md` doc goes through jDocMunch; a Quartz upstream or local `.ts`/`.tsx` file goes through jCodeMunch.
+This project also registers the `jcodemunch` MCP server (project-scoped, `.mcp.json`) alongside jDocMunch. Where jDocMunch indexes _documentation_ (prose, by section), jCodeMunch indexes _source code_ (TypeScript/JS, by symbol — functions, classes, components, byte-accurate) via tree-sitter. Don't confuse the two: a Quartz upstream `.md` doc goes through jDocMunch; a Quartz upstream or local `.ts`/`.tsx` file goes through jCodeMunch.
 
 **You MUST reach for jCodeMunch (not raw `Read`/grep) in these situations:**
 
@@ -999,7 +999,7 @@ article.literature-note {
 
 - **Typografie**: JetBrains Mono (body), Victor Mono (headings)
 - **Stil**: Formell, trocken, akademisch (wie alte Akten)
-- **§-Zeichen**: Römische Ziffern (§ I, § II, § III) — *geplant, tatsächlich: Kleinbuchstaben a/b/c/d*
+- **§-Zeichen**: Römische Ziffern (§ I, § II, § III) — _geplant, tatsächlich: Kleinbuchstaben a/b/c/d_
 - **Abb.-Label**: Arabische Ziffern (Abb. 1, Abb. 2)
 - **Spacing**: Genug Luft zwischen Elementen
 - **Farben**: Dezent, nicht zu grell (evtl. leicht entsättigt)

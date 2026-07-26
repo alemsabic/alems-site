@@ -55,7 +55,7 @@ export function trieFromAllFiles(allFiles: QuartzPluginData[]): FileTrieNode<Bui
         ...file,
         slug: file.slug!,
         title: file.frontmatter.title,
-        shortTitle: file.frontmatter.shortTitle, // Extract shortTitle from frontmatter
+        shortTitle: file.frontmatter.shortTitle as string | undefined, // Extract shortTitle from frontmatter
         filePath: file.filePath!,
       })
     }

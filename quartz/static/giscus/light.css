@@ -131,7 +131,8 @@ main .gsc-loading-image {
 }
 
 /* Custom PATHOLOGIE Typography Overrides */
-main code, main pre {
+main code,
+main pre {
   font-family: "Geist Mono", monospace;
 }
 

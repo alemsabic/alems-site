@@ -7,7 +7,7 @@ Forked from https://github.com/quartz-community/recent-notes at commit
 
 1. **Index-only rendering**: added an early `if (fileData.slug !== "index") return null;` guard.
    v4 achieved the same thing with `Component.ConditionalRender({component: RecentNotes(...),
-   condition: (page) => page.fileData.slug === "index"})` in `quartz.layout.ts`. Baking the check
+condition: (page) => page.fileData.slug === "index"})` in `quartz.layout.ts`. Baking the check
    into the component itself avoids needing a `quartz.ts` TS override or a custom
    `registerCondition()` call — `loadQuartzLayout()`'s per-pageType override merge is shallow
    (`{...mergedByPageType[pageType], ...overrideLayout}`), so a TS override of `afterBody` would
