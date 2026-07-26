@@ -1,6 +1,8 @@
 # Quartz v4 → v5 Migration Runbook
 
-Status: **in progress** — Phase A. Update this file as each phase actually executes (commands
+Status: **Phases A–G done and pushed to the `v5` branch. `v4` (production, live on Cloudflare
+Pages) is untouched.** One open item is under investigation before Phase H — see "Current status
+and how to continue" immediately below. Update this file as each phase actually executes (commands
 run, gotchas hit, final config). This is the artifact that makes replaying the same migration on
 the sister project (`/Users/alemsabic/Desktop/gpunkt.org`) mechanical instead of exploratory —
 gpunkt.org has no CLAUDE.md of its own to lean on, so this doc carries the institutional memory.
@@ -8,6 +10,96 @@ gpunkt.org has no CLAUDE.md of its own to lean on, so this doc carries the insti
 Full research/design context lives in the plan this runbook was seeded from:
 `/Users/alemsabic/.claude/plans/ja-recherchier-das-mal-compressed-sutherland.md` (until that path
 is cleaned up by the harness — treat this file as the durable copy).
+
+## Current status and how to continue (read this first if picking this up fresh)
+
+**If you are a new Claude session opening this repo cold: start here, not at the top of the
+execution log below.**
+
+### What's done
+
+- Phases A through G are complete, verified in real builds and in an actual browser (not just
+  build success), and pushed to the `v5` branch. `git log v5` has the full commit-by-commit trail;
+  each phase section further down in this file has the detailed narrative, including three real
+  bugs found and fixed purely by looking at rendered output (Explorer `shortTitle`, citation
+  tooltips, `CustomOgImages` title concatenation — see the "Phase G" section below for all three).
+- The `v5` branch is currently checked out locally. `v4` (the live, deployed branch) has not been
+  touched since Phase A and is not affected by anything on `v5` until Phase H actually happens.
+- `npm run check` (TypeScript + prettier) is clean except for `content/` and harness config files,
+  neither in scope.
+
+### Open item: a 4th real bug, found by the user, not yet fixed (deliberately paused)
+
+While spot-checking the running `v5` site locally against memory of the old `v4` site, the user
+(not automated testing) noticed the body text was rendering in the wrong font — `Source Sans Pro`
+instead of the configured `JetBrains Mono`. Investigated together on 2026-07-26; **root cause is
+understood, but the fix has deliberately not been applied yet** — the user asked to slow down,
+think it through fully, and revisit calmly rather than patch reactively. Full technical writeup is
+in the "Phase G addendum" section further down (search for "quartz-fonts plugin conflict"). One
+paragraph summary:
+
+Quartz v5 has **two independent, non-communicating font-configuration systems**: the core
+`configuration.theme.typography` block in `quartz.config.yaml` (which we set correctly — Domine /
+JetBrains Mono / Inconsolata) and a separate community plugin, `@quartz-community/quartz-fonts`,
+which generates its _own_ `:root` CSS block (including Obsidian-style variables like `--font-text`,
+`--h1-font` etc.) and falls back to _its own_ hardcoded defaults (Schibsted Grotesk / Source Sans
+Pro / IBM Plex Mono) whenever it isn't given explicit `title`/`header`/`body`/`code` options —
+which our `quartz.config.yaml` never does, since Phase D only touched `configuration.theme`. Both
+blocks live inside a CSS `@layer` (`quartz-base` vs `quartz-fonts` respectively), and per CSS
+`@layer` cascade rules, whichever layer name is _referenced first_ in the page gets the _lowest_
+priority — `quartz-fonts` is referenced later in document order, so it wins, overriding our correct
+fonts even though `index.css` itself is completely correct (verified via direct `curl`, bypassing
+any browser cache — this is not a caching artifact, it's a real CSS-layer precedence conflict).
+Confirmed via `grep` that nothing in our own `custom.scss` or any of our forks references the
+Obsidian-style variables this plugin uniquely provides, so it isn't serving any purpose for us
+currently.
+
+**Two options were identified, neither applied yet:**
+
+1. **Disable `@quartz-community/quartz-fonts` entirely.** Removes the redundancy at its root
+   instead of duplicating config across two places. Recommended, provisionally — nothing we own
+   depends on what this plugin uniquely provides (Obsidian-theme font bridging via
+   `@quartz-themes/core`, which we also have disabled).
+2. **Keep it enabled, but pass matching `options: {title: Domine, header: Domine, body: JetBrains
+Mono, code: Inconsolata}`** to its `quartz.config.yaml` entry. Keeps the plugin available for
+   possible future Obsidian-theme compatibility, at the cost of two places that must be kept in
+   sync by hand forever (a drift risk the two-systems-in-one-repo problem already caused once).
+
+**Next action, next session**: revisit this calmly with the user, decide between the two options
+(or a third one neither of us has thought of yet), apply it, rebuild, and re-verify the correct
+font renders — ideally with a real side-by-side against a screenshot of the live `v4` site, since
+that's how the user caught this in the first place and a fresh screenshot comparison is the most
+reliable way to confirm it's actually fixed, not just "build succeeds."
+
+### After that: Phase H and Phase I, in order
+
+Both remain explicitly gated on the user being present and giving an explicit go-ahead at the time
+— agreed with the user mid-session, independent of anything else in this file:
+
+- **Phase H (CI/CD + deploy cutover)**: this is the point where the live site is actually affected
+  (Cloudflare Pages production branch, GitHub default branch). Do not do this unattended. A
+  Cloudflare Pages **preview** deployment (pushing the `v5` branch without changing the production
+  branch setting) is lower-risk and was discussed as a good intermediate step, but even that should
+  be confirmed with the user first, not assumed.
+- **Phase I (replay on gpunkt.org)**: a second production site. Do not start this unattended either.
+  See the gpunkt.org-specific notes near the bottom of the "Customization inventory" section above
+  and the diff findings referenced there (heading-badge/im-Fokus transformer plugins, TableOfContents
+  badge rendering, footnote-heading relabeling, its more-diverged `ContentHeader`) — these need
+  reconciling, not blind-copying, when that phase starts.
+
+### A honest note on why this specific bug wasn't caught during Phase G
+
+Phase G's browser-based verification (screenshots, live JS inspection) caught three real bugs this
+session already — but not this one, even though the dev server was open and screenshotted multiple
+times. The likely reason: recognizing "this is Source Sans Pro, not JetBrains Mono" from a
+screenshot requires either already knowing the old site's exact typography by eye, or a genuine
+side-by-side comparison — neither of which the automated Phase G pass did (it checked _that_
+fonts loaded and rendered without error, not _which_ specific font family rendered per pixel). The
+user's own inspection, with the old site's look in mind, caught what an automated screenshot check
+missed. Worth remembering for Phase G-equivalent verification on the gpunkt.org replay: build
+success and "a font rendered" are not the same claim as "the correct font rendered" — for anything
+where the specific visual identity matters, a real side-by-side against the live reference is more
+reliable than describing a screenshot in isolation.
 
 ## Why
 
@@ -330,6 +422,105 @@ build success or grep alone**:
 This validates the "don't fully trust build-success + grep, actually look at the site" approach for
 the rest of this migration and for the gpunkt.org replay — static verification alone would have
 shipped all three of these to production.
+
+### Phase G addendum — 4th bug found by the user (2026-07-26, session end): quartz-fonts plugin conflict
+
+**Status: diagnosed in full, deliberately NOT fixed yet.** The user asked to pause and think it
+through calmly rather than patch reactively — this section is that write-up, so the decision can
+be picked up fresh next time without re-deriving any of it.
+
+**Symptom**: body text on the locally running `v5` site rendered in `Source Sans Pro` instead of
+the configured `JetBrains Mono`. Found by the user directly (opened dev tools, saw
+`--bodyFont: Source Sans Pro` in a `:root` rule, and confirmed that manually striking that
+declaration in the inspector revealed the correct font underneath) — not caught by this session's
+own Phase G browser testing (see the honest note above on why).
+
+**First hypothesis (wrong, ruled out)**: browser cache. Ruled out conclusively by fetching
+`http://localhost:8080/index.css` directly via `curl` (bypasses any browser cache entirely) and
+confirming it already contained the correct declaration:
+
+```
+--bodyFont:"JetBrains Mono", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, ...
+```
+
+So the core theme system was never wrong. Something else was overriding it downstream, in the
+actual browser rendering.
+
+**Second hypothesis (also initially imprecise)**: "a later `<link>` tag wins in the cascade."
+Partially right in spirit but technically wrong about the mechanism — see below.
+
+**Actual root cause, fully traced**:
+
+1. Fetched every CSS file referenced on the index page (`curl` each `<link href>` from the page
+   HTML) and grepped all of them for `Source Sans Pro` / `:root`. Found the competing declaration
+   in `static/resource-style-9857b007.css`:
+   ```
+   :root{--titleFont:Schibsted Grotesk;--bodyFont:Source Sans Pro;--headerFont:Schibsted Grotesk;
+   --codeFont:IBM Plex Mono;--font-text:Source Sans Pro;--font-interface:ui-sans-serif, ...;
+   --font-monospace:IBM Plex Mono;--h1-font:Schibsted Grotesk;--h2-font:Schibsted Grotesk; ...}
+   ```
+   Note the extra `--font-text`, `--font-interface`, `--font-monospace`, `--h1-font`...`--h6-font`
+   variables — these are **Obsidian's own CSS variable naming convention**, not Quartz's. That was
+   the clue to what generates this file.
+2. Traced it to the `@quartz-community/quartz-fonts` plugin (repo: `quartz-community/fonts`,
+   `src/transformer.ts`). Read the actual source (`gh api repos/quartz-community/fonts/...`):
+   - It has its own hardcoded constants: `QUARTZ_DEFAULT_HEADER = "Schibsted Grotesk"`,
+     `QUARTZ_DEFAULT_BODY = "Source Sans Pro"`, `QUARTZ_DEFAULT_CODE = "IBM Plex Mono"`
+     (`src/transformer.ts` lines 9–11).
+   - Its `resolveFonts(options)` function (lines 37–113) resolves each font role by checking, in
+     order: (a) an explicit `options.body`/`options.header`/etc. passed to _this specific plugin
+     entry_ in `quartz.config.yaml`, (b) a shared "font registry" populated by the
+     `@quartz-themes/core` plugin if that's enabled (`readFontRegistry()` — we have
+     `@quartz-themes/core: enabled: false`, so this is always empty for us), (c) its own
+     `QUARTZ_DEFAULT_*` constants, (d) Obsidian's own font stacks as a final fallback.
+   - Since our `quartz.config.yaml` entry for `quartz-fonts` has **no `options:` block at all** (it
+     was left exactly as `npx quartz create` generated it in Phase C, and Phase D only edited
+     `configuration.theme`, never this plugin's own options), step (a) and (b) both fail and it
+     falls through to (c) — its own stock defaults, completely independent of and unaware of our
+     `configuration.theme.typography`.
+   - Its `externalResources()` hook (lines 207–223) then emits this as an **inline CSS resource**,
+     wrapped in `@layer quartz-fonts { :root { ... } }` (`buildLayeredCSS()`, lines 141–161), which
+     Quartz's core `componentResources.ts` extracts to its own hashed static file (the
+     `static/resource-style-*.css` mechanism — the same "extract each resource to its own
+     content-hashed file" pattern already documented for scripts in the Phase E `site-scripts`
+     section above).
+3. Confirmed the _actual_ precedence mechanism (correcting the "later link wins" hypothesis): both
+   competing blocks are inside CSS `@layer` declarations — the core theme CSS is inside
+   `@layer quartz-base` (`componentResources.ts`: `` `@layer quartz-base {\n${quartzBase}\n}\n...` ``),
+   and the Fonts plugin's block is inside `@layer quartz-fonts`. Per the CSS Cascade Layers spec,
+   **layers are prioritized by the order in which their names are first referenced in the document,
+   not by normal selector-specificity or "last rule wins" rules** — and unlike plain unlayered CSS,
+   a layer declared later always beats one declared earlier, regardless of selector specificity.
+   Since `index.css` (containing `@layer quartz-base`) loads before the extracted
+   `static/resource-style-*.css` (containing `@layer quartz-fonts`) in the page's `<head>`,
+   `quartz-fonts` is the layer referenced _later_ — so it wins, and its Schibsted Grotesk/Source
+   Sans Pro/IBM Plex Mono values override our correct ones for the exact same custom properties.
+4. Checked whether anything we actually own depends on the Obsidian-style variables this plugin
+   uniquely provides (`--font-text`, `--font-interface`, `--font-monospace`, `--h1-font` through
+   `--h6-font`):
+   ```
+   grep -rn "font-text\|font-interface\|font-monospace\|h1-font\|...\|h6-font" \
+     quartz/styles/custom.scss local-plugins/*/src/**/*.tsx local-plugins/*/src/**/*.scss
+   ```
+   Zero matches. Nothing we own reads these variables at all.
+
+**The two options on the table (neither applied)**:
+
+1. **Disable `@quartz-community/quartz-fonts`** (`enabled: false` in `quartz.config.yaml`).
+   Removes the second font system entirely rather than keeping two in sync. Leaning towards this
+   one, provisionally — but not decided, and there may be a reason to keep it (e.g. if some other
+   currently-enabled plugin we haven't examined for this _does_ read the Obsidian-style variables,
+   which the `grep` above only checked for our own code, not every enabled community plugin's
+   internals) that's worth checking before committing to this option.
+2. **Pass explicit `options: {title: Domine, header: Domine, body: JetBrains Mono, code:
+Inconsolata}`** to the `quartz-fonts` entry, keeping it enabled but pointed at our real fonts.
+
+**Also still unverified**: whether this same conflict is masking or interacting with anything else
+theme-related (e.g., do any of our custom.scss color rules also collide with a similarly
+independent color system from another plugin? Not checked — this was scoped specifically to the
+font symptom the user reported, not a full audit of every `:root`-setting plugin. Worth a quick
+`grep -rl ":root" public/*.css public/static/*.css` sweep before considering the theme system
+fully verified.)
 
 ### Phase H — CI/CD + deploy cutover
 

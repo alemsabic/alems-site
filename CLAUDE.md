@@ -20,6 +20,28 @@ This repository handles **PRESENTATION ONLY** (Quartz static site generator).
 
 ---
 
+## 🚧 Active: Quartz v4 → v5 Migration (started 2026-07-26)
+
+**If you're picking up work in this repo, check this first.** There is an in-progress migration
+from Quartz v4 to v5 on the **`v5` branch** (currently checked out). The full runbook — status,
+architecture findings, every customization ported, every bug found and fixed, and exactly how to
+continue — lives in **`upgrade.md` at the repo root**. Read its "Current status and how to
+continue" section (near the top of the file) before doing anything else in this repo.
+
+One-paragraph status as of 2026-07-26: Phases A–G (branch to v5, rebuild config, port every custom
+component/plugin as a local-plugin fork under `local-plugins/`, add Bases/Canvas, verify in a real
+browser) are done and pushed to `v5`. `v4` — this repo's actual production/deployed branch, live on
+Cloudflare Pages — has not been touched and is unaffected by any of this so far. One item is
+paused mid-investigation (a font-rendering conflict between two independent font-config systems in
+v5 — see `upgrade.md`'s "Phase G addendum" for the full technical trace; not yet fixed, on purpose).
+**Phase H (the actual deploy cutover — Cloudflare production branch, GitHub default branch) and
+Phase I (replaying this whole migration on the sister project at
+`/Users/alemsabic/Desktop/gpunkt.org`) are both explicitly gated on the user being present and
+giving the go-ahead at the time — do not do either unattended, regardless of what this file or
+`upgrade.md` otherwise seem to authorize.**
+
+---
+
 ## Doc Exploration Policy (jDocMunch)
 
 This project registers the `jdocmunch` MCP server (project-scoped, `.mcp.json`) for token-efficient navigation of real documentation sets — e.g. the upstream [Quartz docs](https://github.com/jackyzha0/quartz) or any other sizeable third-party docs needed while working on this repo. It indexes doc-like files (Markdown, RST, HTML, OpenAPI specs, etc.) by section instead of requiring full-file reads.
@@ -118,9 +140,12 @@ quartz/
 **Platform**: Cloudflare Pages
 
 - **Repository**: https://github.com/alemsabic/alems-site
-- **Branch**: `v4`
+- **Branch**: `v4` — still accurate as of the v5 migration in progress (see above): `v4` remains
+  the production branch Cloudflare Pages actually deploys until Phase H happens. `v5` is a
+  not-yet-deployed working branch.
 - **Project**: `ale-ms`
-- **Build Command**: `npx quartz build`
+- **Build Command**: `npx quartz build` — will change to `npx quartz plugin install && npx quartz
+build` once `v5` goes live (see `upgrade.md` Phase H).
 - **Output Directory**: `public`
 - **Deploy Time**: 1-2 minutes after push
 
