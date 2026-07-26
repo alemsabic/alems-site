@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "plugins": {
+    "content-index": {
+      "source": "./local-plugins/content-index",
+      "resolved": "/Users/alemsabic/Desktop/ale.ms/local-plugins/content-index",
+      "commit": "local",
+      "installedAt": "2026-07-26T07:49:54.218Z"
+    }
+  }
+}

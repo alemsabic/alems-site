@@ -148,7 +148,8 @@ plugins:
       display: all
   - source: "@quartz-community/alias-redirects"
     enabled: true
-  - source: "@quartz-community/content-index"
+  # Local fork (adds `shortTitle` passthrough) — see local-plugins/content-index/FORK_NOTES.md
+  - source: "./local-plugins/content-index"
     enabled: true
     options:
       enableSiteMap: true
@@ -303,10 +304,12 @@ layout:
         left: []
         right: []
     content:
-      # v4's ContentHeader (Phase E local-plugin fork) replaces both of these on regular notes;
-      # they still render on folder/tag list pages (matches v4's defaultListPageLayout).
+      # Verified via real build (2026-07-26): article-title alone already renders the correct
+      # full-title H1 exactly where v4's ArticleTitle used to (v4's layout.ts never referenced
+      # ArticleTitle explicitly, but the same job happens here) — keep it enabled on content pages.
+      # content-meta (reading time + date) is excluded because our ContentHeader fork replaces it
+      # with a richer metadata line (date, German word count, edit-on-GitHub link).
       exclude:
-        - article-title
         - content-meta
     folder:
       exclude:

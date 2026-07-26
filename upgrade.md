@@ -122,8 +122,24 @@ Concrete outcomes/decisions beyond the mapping table:
 - **Verified**: `npx quartz build` succeeds end-to-end against this config + our real content (25 files → 177 emitted files, no errors). Bibliography path `./content/bibliography.bib` resolved without error. Full visual/behavioral verification is Phase G, not yet done.
 - Committed together with Phase C's content import.
 
-### Phase E — Port custom plugins
-_(not started)_
+### Phase E — Port custom plugins (in progress)
+
+**Open questions resolved by reading real plugin source (2026-07-26):**
+- `fileTrie.ts` and `ctx.ts` are still **core/bundled files** in the scaffolded repo (`quartz/util/`), not externalized to any community plugin — confirmed by checking the actual v5 working tree. Patched directly, exactly like v4 (no fork needed for these two).
+- `content-index`'s `ContentDetails` type IS in a separate plugin repo (`quartz-community/content-index`, resolved via a real published npm package `@quartz-community/content-index` by default) — this one genuinely needs the local-fork treatment.
+- `content-meta` does NOT render the title — confirmed by reading its actual source description and by empirical build output. **Correction to the Phase D exclude list**: `article-title` alone already renders the correct full-title H1 on content pages (verified in real build output) and should stay enabled there; only `content-meta` needs excluding (ContentHeader's fork replaces its specific job — reading time/date — with a richer line: date + German word count + edit-on-GitHub link, not the title).
+- Body.tsx's afterDOMLoaded-aggregation role isn't owned by any specific plugin — `componentResources.ts` (still core) collects `afterDOMLoaded`/`beforeDOMLoaded` from *every* component used on a page, same mechanism as v4. So footnotes.inline.ts/tooltips.inline.ts don't need to be wired into any specific plugin fork — a small local "global scripts" component (render nothing, just carry the two scripts as a static `afterDOMLoaded` property) placed anywhere in the layout is sufficient. Confirmed `nav`/`render` client events still exist (checked `docs/advanced/architecture.md`).
+
+**shortTitle support — done, verified in a real build:**
+- `quartz/util/fileTrie.ts`: added `shortTitle?: string` to `FileTrieData`, `displayName` getter fallback — direct edit (core file).
+- `quartz/util/ctx.ts`: added `shortTitle?: string` to `BuildTimeTrieData`, extraction in `trieFromAllFiles()` — direct edit (core file).
+- `local-plugins/content-index/`: forked from `quartz-community/content-index` @ `1342d1eacfdabbcefa2c6a26f8346945a9d9860f` (`git clone --depth 1`, stripped `.git`/`node_modules`/changeset scaffolding, added `FORK_NOTES.md` documenting the patch + upstream SHA for future re-sync). Added `shortTitle?: string` to `ContentDetails` + threaded through in the `emit()` loop.
+- `quartz.config.yaml`: `content-index`'s `source` changed from `@quartz-community/content-index` to `./local-plugins/content-index`. Installed via `npx quartz plugin install --from-config` (auto-detects local sources, symlinks + builds with tsup, updates `quartz.lock.json`).
+- **Verified**: `public/static/contentIndex.json` contains `"shortTitle":"Ahrens (2017)"` etc. for all 7 `Literatur/@*.md` files; `public/literatur/@ahrens_2017.html` shows the breadcrumb leaf as "Ahrens (2017)" and the H1 as the full real title "How to take smart notes" — exactly the v4 behavior.
+
+**Local plugin fork pattern established** (reusable for the remaining forks below): `git clone --depth 1 <upstream> local-plugins/<name>`, strip `.git`, patch source, add `FORK_NOTES.md`, point `quartz.config.yaml`'s `source:` at `./local-plugins/<name>`, `npx quartz plugin install --from-config`.
+
+**Still to do**: footnote-popover-fix (small new local transformer), global-scripts component (footnotes.inline.ts + tooltips.inline.ts), Tagline/EditOnGitHub/ContentHeader/Footer components, Date/Head/PageList/RecentNotes tweaks, custom.scss port + reconciliation, static assets, i18n string tweaks.
 
 ### Phase F — Bases + Canvas
 _(not started)_

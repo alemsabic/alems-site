@@ -18,6 +18,7 @@ export interface Argv {
 export type BuildTimeTrieData = QuartzPluginData & {
   slug: string
   title: string
+  shortTitle?: string // Optional short title for navigation (Zotero sources)
   filePath: string
 }
 
@@ -54,6 +55,7 @@ export function trieFromAllFiles(allFiles: QuartzPluginData[]): FileTrieNode<Bui
         ...file,
         slug: file.slug!,
         title: file.frontmatter.title,
+        shortTitle: file.frontmatter.shortTitle, // Extract shortTitle from frontmatter
         filePath: file.filePath!,
       })
     }
