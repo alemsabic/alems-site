@@ -1,6 +1,12 @@
 {
   "version": "1.0.0",
   "plugins": {
+    "citations": {
+      "source": "./local-plugins/citations",
+      "resolved": "/Users/alemsabic/Desktop/ale.ms/local-plugins/citations",
+      "commit": "local",
+      "installedAt": "2026-07-26T09:07:56.677Z"
+    },
     "content-header": {
       "source": {
         "repo": "./local-plugins/site-components",

@@ -254,9 +254,34 @@ the core getter. Verified: Explorer now shows "Ahrens (2017)", "Christis (2001)"
   originally scoped — `fileTrie.ts` + `ctx.ts` (core) + `content-index` fork + this `explorer`
   fork. Don't skip the explorer fork there just because it wasn't in the original plan.
 
-Still to check: zettelkasten/dictionary-entry/literature-note design systems, tag/folder listing
-pages, search, RSS/sitemap, SPA client-side navigation (footnote highlighting + tooltip decoding
-scripts specifically, since those depend on the SPA `nav` event), `CustomOgImages` retest.
+**Zettelkasten page walkthrough** (`/atomizität-im-zk`): TOC, Backlinks, Graph all correct in the
+right sidebar. Clicked a footnote reference (`#user-content-fn-1`) — **highlight applied correctly**
+(visible background on the target `<li>`, confirming `footnotes.inline.ts` fires on real client-side
+nav, not just page load) and **no popover appeared** (confirms the `github-flavored-markdown` fork's
+`data-no-popover` fix works in the live browser, not just in the HTML source). Citations render
+correctly inline (`(Ahrens, 2017)` etc.), full bibliography list at the bottom, Giscus comment box
+rendered in the correct dark theme.
+
+**Real bug #2 found and fixed — citation tooltips silently broken**: checked for `data-tooltip`
+attributes site-wide (the thing `local-plugins/site-scripts`' `tooltips.inline.ts` is supposed to
+decode) and found **zero** anywhere in the built output. Traced it to Phase D: `showTooltips`/
+`tooltipAttribute` were dropped as "not part of v5's Citations plugin options," reasoning from the
+wrapper's narrow `CitationsOptions` TypeScript interface — but these are **real upstream
+`rehype-citation` options** (confirmed via the library's own README), just not exposed by the v5
+wrapper, which hand-picks 5 fields into the underlying call instead of spreading `opts`. New fork
+`local-plugins/citations/` (upstream `quartz-community/citations` @
+`5db598448105ee791665ff3b5e4c35b285a85296`), two-line addition threading both options through.
+**Verified in the live browser via `javascript_tool`**, not just build output: `data-tooltip`
+attributes are present and — critically — already **decoded** (`&amp;#38;` → plain `&`) after page
+load, confirming the full round-trip (server generates HTML-encoded tooltip text → client script
+decodes it on `nav`) works exactly like v4.
+- **Pattern that keeps paying off**: don't trust a plugin wrapper's typed options interface as the
+  full set of what the underlying library supports — check the library's own docs when a v4 option
+  goes missing, the same way the citations `lang` discovery worked in the opposite direction (v5
+  already having something built-in that v4 needed a hack for).
+
+Still to check: dictionary-entry/literature-note design systems (zettelkasten already confirmed
+above), tag/folder listing pages, search, RSS/sitemap, `CustomOgImages` retest.
 
 ### Phase H — CI/CD + deploy cutover
 

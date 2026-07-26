@@ -95,11 +95,11 @@ plugins:
     options:
       renderEngine: katex
     order: 80
-  - source: "@quartz-community/citations"
+  # Local fork (restores showTooltips/tooltipAttribute passthrough) — see local-plugins/citations/FORK_NOTES.md
+  - source: "./local-plugins/citations"
     enabled: true
     options:
-      # NOTE: relative-path semantics may differ from v4 ("relative to git source of your vault"
-      # per the plugin's own docs vs. v4's "relative to repo root") — verify path resolves in Phase G.
+      # Verified in Phase G: this path resolves correctly (citations + bibliography list render).
       bibliographyFile: "./content/bibliography.bib"
       suppressBibliography: false
       linkCitations: false
@@ -107,8 +107,8 @@ plugins:
       # No `lang` override: v5's Citations plugin auto-derives the CSL locale URL from
       # `configuration.locale` (already de-DE above) — this is what our old citations.ts hack
       # used to do manually. Confirmed by reading the plugin's actual transformer.ts source.
-      # showTooltips/tooltipAttribute (v4-only options) dropped: not part of v5's Citations
-      # plugin options at all — tooltip rendering/decoding is handled by our own local scripts.
+      showTooltips: true
+      tooltipAttribute: "data-tooltip"
     order: 85
   - source: "@quartz-community/hard-line-breaks"
     enabled: false
