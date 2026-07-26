@@ -144,7 +144,13 @@ Concrete outcomes/decisions beyond the mapping table:
 - Correction from the plan: this fix belongs here (the GFM/footnotes plugin), not forked into `citations.ts` where v4 had it — v4's placement was really just "whichever file was already being touched," not a citations concern. Bibliography-link popover suppression is separately already built into upstream `citations` (confirmed earlier), so `citations` itself doesn't need forking at all now — just enabling with our bibliography options (already done in Phase D's YAML).
 - **Verified**: rebuilt, checked `public/autopoiesis-vs.-allopoiesis.html` — all `<sup><a ...>` footnote refs carry `data-no-popover="true"`.
 
-**Still to do**: global-scripts component (footnotes.inline.ts + tooltips.inline.ts), Tagline/EditOnGitHub/ContentHeader/Footer components, Date/Head/PageList/RecentNotes tweaks, custom.scss port + reconciliation, static assets, i18n string tweaks.
+**Global scripts (footnotes.inline.ts + tooltips.inline.ts) — done, verified in a real build:**
+- `local-plugins/site-scripts/`: a genuinely NEW local plugin (not a fork — no upstream equivalent), scaffolded from the official `quartz-community/plugin-template`, stripped to a single component-only plugin (`"category": "component"` in the `quartz` manifest field, per `docs/advanced/creating components.md`). `SiteScripts` renders `null` and carries both scripts (unchanged from v4) concatenated on `.afterDOMLoaded`.
+- Wired into `quartz.config.yaml` at `afterBody` priority 90.
+- **Debugging note for future reference** (cost real time, worth recording): my first verification method was wrong, not the implementation. In v5's hashed/production build mode, `postscript.js` is NOT a monolithic bundle containing every script inline — it's a small orchestrator that `Promise.all`s dynamic `import()`s of each component's script as its own content-hashed file under `static/scripts/script-N-<hash>.js` (dev/`--serve` mode is the monolithic-bundle path instead, per `componentResources.ts`'s `useHashing` branch). So grepping a page's static `<script src>` tags for a specific script's hash will *never* find component scripts — only `postscript-<hash>.js` itself is referenced there, and its own JS content must be inspected for the `import("./script-N-...")` calls. Traced this by temporarily instrumenting `componentLoader.ts`, `config-loader.ts`, and `componentResources.ts` with debug prints (all reverted, no residual diff) to rule out an actual registration bug before finding the real explanation.
+- **Verified correctly**: `public/postscript-95d6a964.js` contains a dynamic import of `script-4-56ff712b.js`, which contains both our scripts' minified logic.
+
+**Still to do**: Tagline/EditOnGitHub/ContentHeader/Footer components, Date/Head/PageList/RecentNotes tweaks, custom.scss port + reconciliation, static assets, i18n string tweaks.
 
 ### Phase F — Bases + Canvas
 _(not started)_

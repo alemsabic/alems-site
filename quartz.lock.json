@@ -12,6 +12,12 @@
       "resolved": "/Users/alemsabic/Desktop/ale.ms/local-plugins/github-flavored-markdown",
       "commit": "local",
       "installedAt": "2026-07-26T07:53:40.913Z"
+    },
+    "site-scripts": {
+      "source": "./local-plugins/site-scripts",
+      "resolved": "/Users/alemsabic/Desktop/ale.ms/local-plugins/site-scripts",
+      "commit": "local",
+      "installedAt": "2026-07-26T07:58:29.863Z"
     }
   }
 }

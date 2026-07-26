@@ -254,6 +254,13 @@ plugins:
     layout:
       position: afterBody
       priority: 10
+  # New local plugin (not a fork): carries footnotes.inline.ts + tooltips.inline.ts, v4's
+  # Body.tsx afterDOMLoaded scripts — see local-plugins/site-scripts/README.md
+  - source: "./local-plugins/site-scripts"
+    enabled: true
+    layout:
+      position: afterBody
+      priority: 90
   - source: "@quartz-community/footer"
     # PLACEHOLDER — v4's Footer.tsx hardcodes personal links (Alem Šabić link, X/Twitter) directly
     # in the component source rather than taking them from config options, so `options.links` here
