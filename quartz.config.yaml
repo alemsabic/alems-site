@@ -165,9 +165,10 @@ plugins:
     enabled: true
   - source: "@quartz-community/content-page"
     enabled: true
-  - source: "@quartz-community/folder-page"
+  # Local forks (no per-item date on list pages) — see local-plugins/{folder,tag}-page/FORK_NOTES.md
+  - source: "./local-plugins/folder-page"
     enabled: true
-  - source: "@quartz-community/tag-page"
+  - source: "./local-plugins/tag-page"
     enabled: true
   - source: "@quartz-community/explorer"
     enabled: true
@@ -268,8 +269,16 @@ plugins:
     enabled: true
     options:
       links: {}
-  - source: "@quartz-community/recent-notes"
-    enabled: false
+  # Local fork (index-only rendering baked in, no per-item date) — see local-plugins/recent-notes/FORK_NOTES.md
+  - source: "./local-plugins/recent-notes"
+    enabled: true
+    options:
+      limit: 5
+      showTags: false
+      linkToMore: false
+    layout:
+      position: afterBody
+      priority: 5
   - source: "@quartz-community/spacer"
     enabled: true
     options: {}

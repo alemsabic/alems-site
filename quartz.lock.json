@@ -7,17 +7,35 @@
       "commit": "local",
       "installedAt": "2026-07-26T07:49:54.218Z"
     },
+    "folder-page": {
+      "source": "./local-plugins/folder-page",
+      "resolved": "/Users/alemsabic/Desktop/ale.ms/local-plugins/folder-page",
+      "commit": "local",
+      "installedAt": "2026-07-26T08:17:59.394Z"
+    },
     "github-flavored-markdown": {
       "source": "./local-plugins/github-flavored-markdown",
       "resolved": "/Users/alemsabic/Desktop/ale.ms/local-plugins/github-flavored-markdown",
       "commit": "local",
       "installedAt": "2026-07-26T07:53:40.913Z"
     },
+    "recent-notes": {
+      "source": "./local-plugins/recent-notes",
+      "resolved": "/Users/alemsabic/Desktop/ale.ms/local-plugins/recent-notes",
+      "commit": "local",
+      "installedAt": "2026-07-26T08:14:32.554Z"
+    },
     "site-scripts": {
       "source": "./local-plugins/site-scripts",
       "resolved": "/Users/alemsabic/Desktop/ale.ms/local-plugins/site-scripts",
       "commit": "local",
       "installedAt": "2026-07-26T07:58:29.863Z"
+    },
+    "tag-page": {
+      "source": "./local-plugins/tag-page",
+      "resolved": "/Users/alemsabic/Desktop/ale.ms/local-plugins/tag-page",
+      "commit": "local",
+      "installedAt": "2026-07-26T08:17:59.395Z"
     }
   }
 }
