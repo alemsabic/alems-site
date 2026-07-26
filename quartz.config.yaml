@@ -157,7 +157,8 @@ plugins:
       enableRSS: true
   - source: "@quartz-community/favicon"
     enabled: true
-  - source: "@quartz-community/og-image"
+  # Local fork (fixes title+suffix concatenation bug) — see local-plugins/og-image/FORK_NOTES.md
+  - source: "./local-plugins/og-image"
     enabled: true
   - source: "@quartz-community/cname"
     enabled: true

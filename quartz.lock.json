@@ -52,6 +52,12 @@
       "commit": "local",
       "installedAt": "2026-07-26T07:53:40.913Z"
     },
+    "og-image": {
+      "source": "./local-plugins/og-image",
+      "resolved": "/Users/alemsabic/Desktop/ale.ms/local-plugins/og-image",
+      "commit": "local",
+      "installedAt": "2026-07-26T09:13:42.182Z"
+    },
     "recent-notes": {
       "source": "./local-plugins/recent-notes",
       "resolved": "/Users/alemsabic/Desktop/ale.ms/local-plugins/recent-notes",

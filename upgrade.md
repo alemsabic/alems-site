@@ -280,12 +280,60 @@ decodes it on `nav`) works exactly like v4.
   goes missing, the same way the citations `lang` discovery worked in the opposite direction (v5
   already having something built-in that v4 needed a hack for).
 
-Still to check: dictionary-entry/literature-note design systems (zettelkasten already confirmed
-above), tag/folder listing pages, search, RSS/sitemap, `CustomOgImages` retest.
+**Tag/folder listing page** (`/literatur/`): title/tags render in a clean 2-column layout with no
+squeezing — direct visual confirmation the `listPage.scss` grid fix (found earlier in the
+custom.scss step) actually renders correctly, not just "no CSS error."
+
+**`cssclasses` design systems**: `zettelkasten` confirmed visually (round bullet markers, compact
+styling, all rendering as expected) on `/atomizität-im-zk`. `literature-note`'s article class
+applies correctly (`class="popover-hint literature-note"` on `@ahrens_2017.md`), but the specific
+decorative rules (§/lowercase-letter markers, `Abb. N` figure captions) need `.annotation-highlight`/
+`.annotation-figure-caption` HTML that this content backup doesn't contain — mechanism proven via
+the same cssclasses pathway as zettelkasten, specific rules untestable without matching content
+(a content-authoring gap, not a migration bug). `dictionary-entry` not separately tested — same
+mechanism, no reason to expect a different result.
+
+**Search**: FlexSearch full-text search works correctly in the real browser — typed "Zettelkasten",
+got ranked results with tag matches and highlighting.
+
+**RSS (`/index.xml`) + sitemap (`/sitemap.xml`)**: both correctly resolve `baseUrl: ale.ms` (bare,
+no scheme) to `https://ale.ms/...` — confirms the deliberate Phase D `baseUrl` scheme fix didn't
+break anything (no double-scheme, no missing-scheme).
+
+**Real bug #3 found and fixed — `CustomOgImages` re-enable test**: per the user's decision, left
+`og-image` enabled to retest the Sept-2025 Satori font-rendering bug. **Font rendering is fixed** in
+v5 (opened a generated `*-og-image.webp` directly — clean text, no corruption). But found a new,
+stock v5 bug while looking: title and `pageTitleSuffix` concatenate with **no separator**
+(`"indexAlem Šabić's Notizen und Quellen"`) — the exact same bug already fixed in core `Head.tsx`,
+just never caught upstream because this plugin's own preview/test suite apparently doesn't render
+a real site title+suffix combo. New fork `local-plugins/og-image/` (upstream
+`quartz-community/og-image` @ `73dae18d4df526126d65288339f583394959b836`), same conditional
+`" - "` fix. Verified visually — title now reads correctly. Not fixing the OG image's English
+"X min read" text (locale-independent, cosmetic, and this feature was never in a "working" v4
+state to match since `CustomOgImages` was off there — noted in FORK_NOTES.md as optional future
+polish, not blocking).
+
+**`npm run check`**: clean (see the earlier TypeScript-fix commit) — re-confirmed still clean after
+all Phase G forks.
+
+**Phase G summary — 3 real bugs found, all via actually looking at rendered output (browser
+screenshots, live JS inspection, opening generated images directly), not one of them caught by
+build success or grep alone**:
+1. Explorer sidebar not using `shortTitle` (client-side duplicate trie logic).
+2. Citation tooltips completely absent (`showTooltips`/`tooltipAttribute` silently dropped).
+3. `CustomOgImages` title/suffix concatenation bug (stock v5 bug, unrelated to the migration but
+   caught while retesting this specific feature).
+
+This validates the "don't fully trust build-success + grep, actually look at the site" approach for
+the rest of this migration and for the gpunkt.org replay — static verification alone would have
+shipped all three of these to production.
 
 ### Phase H — CI/CD + deploy cutover
 
-_(not started)_
+_(not started — this is the point where changes start affecting the live/production site; per
+earlier discussion with the user, this phase requires their explicit go-ahead before any actual
+cutover action, even though everything up to and including a Cloudflare Pages **preview**
+deployment can proceed without it.)_
 
 ### Phase I — Replay on gpunkt.org
 
