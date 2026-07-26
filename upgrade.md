@@ -228,9 +228,35 @@ default-template config from Phase C — nothing to add, just verify.
   left as-is rather than actively investigating further; harmless bonus features, not actively
   adopted/configured for anything specific.
 
-### Phase G — Local verification
+### Phase G — Local verification (in progress)
 
-_(not started)_
+Using `npx quartz build --serve` + actual browser inspection (screenshots, console, accessibility
+tree), not just build-success/grep checks — this caught a real bug static analysis missed.
+
+**Index page**: Tagline, Explorer, Search, Graph, footer, "Zuletzt bearbeitete Seiten" all render
+correctly in the real browser (light mode, background `#e0cca6` correctly applied). Zero console
+errors on load.
+
+**Dark mode toggle**: works, deep-purple custom dark palette (`#0a0200`) renders correctly,
+German "Dunkler Modus"/moon icon label correct.
+
+**Real bug found and fixed — Explorer sidebar not using shortTitle**: on `/literatur/@ahrens_2017`,
+the breadcrumb correctly showed "Ahrens (2017)" but the Explorer sidebar still showed the full
+title. This is exactly the kind of divergence static/build-only checks can't catch — Breadcrumbs is
+server-rendered from core `fileTrie.ts` (already patched), but **Explorer fetches
+`contentIndex.json` client-side and rebuilds its own trie in the browser with a duplicate
+`FileTrieNode` class** (`src/components/scripts/explorer.inline.ts`) whose `displayName` getter
+never checked `shortTitle`. New fork `local-plugins/explorer/` (upstream
+`quartz-community/explorer` @ `06ea3d8e206f0edaab08556191adc75b2403e832`), one-line fix mirroring
+the core getter. Verified: Explorer now shows "Ahrens (2017)", "Christis (2001)", "von Foerster
+(1981)", etc. for every `Literatur/@*.md` entry.
+- **Note for gpunkt.org replay**: this means `shortTitle` support needs **4** pieces, not 3 as
+  originally scoped — `fileTrie.ts` + `ctx.ts` (core) + `content-index` fork + this `explorer`
+  fork. Don't skip the explorer fork there just because it wasn't in the original plan.
+
+Still to check: zettelkasten/dictionary-entry/literature-note design systems, tag/folder listing
+pages, search, RSS/sitemap, SPA client-side navigation (footnote highlighting + tooltip decoding
+scripts specifically, since those depend on the SPA `nav` event), `CustomOgImages` retest.
 
 ### Phase H — CI/CD + deploy cutover
 

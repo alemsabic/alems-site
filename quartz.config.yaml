@@ -170,7 +170,8 @@ plugins:
     enabled: true
   - source: "./local-plugins/tag-page"
     enabled: true
-  - source: "@quartz-community/explorer"
+  # Local fork (shortTitle fallback in the client-side tree) — see local-plugins/explorer/FORK_NOTES.md
+  - source: "./local-plugins/explorer"
     enabled: true
     layout:
       position: left
