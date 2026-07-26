@@ -20,6 +20,38 @@ This repository handles **PRESENTATION ONLY** (Quartz static site generator).
 
 ---
 
+## Doc Exploration Policy (jDocMunch)
+
+This project registers the `jdocmunch` MCP server (project-scoped, `.mcp.json`) for token-efficient navigation of real documentation sets — e.g. the upstream [Quartz docs](https://github.com/jackyzha0/quartz) or any other sizeable third-party docs needed while working on this repo. It indexes doc-like files (Markdown, RST, HTML, OpenAPI specs, etc.) by section instead of requiring full-file reads.
+
+**When to use it**:
+
+- Before exploring an external documentation set (Quartz's own docs, a plugin's docs, a new dependency) — `index_repo` (GitHub) or `index_local` (on disk) first, then `search_sections` / `get_toc` to find the relevant part.
+- To pull specific content once located — use `get_section` (or `get_sections` for several) with the section ID, rather than opening the whole file.
+
+**Not for**: this repo's own CLAUDE.md, README.md, or other project files — those are kept small deliberately and should just be `Read` directly.
+
+This is a manual convention, not an enforced hook — no PreToolUse/PostToolUse hooks are installed for this repo, so nothing blocks a direct `Read`. Use judgment: reach for jDocMunch specifically when indexing genuine external documentation, not this repo's own short files.
+
+---
+
+## Code Exploration Policy (jCodeMunch)
+
+This project also registers the `jcodemunch` MCP server (project-scoped, `.mcp.json`) alongside jDocMunch. Where jDocMunch indexes *documentation* (prose, by section), jCodeMunch indexes *source code* (TypeScript/JS, by symbol — functions, classes, components, byte-accurate) via tree-sitter. Don't confuse the two: a Quartz upstream `.md` doc goes through jDocMunch; a Quartz upstream or local `.ts`/`.tsx` file goes through jCodeMunch.
+
+**You MUST reach for jCodeMunch (not raw `Read`/grep) in these situations:**
+
+- **Before editing any file this CLAUDE.md calls out as shared/fragile infrastructure** — `citations.ts`, `Body.tsx`, `fileTrie.ts`, `ctx.ts`, `contentIndex.tsx`, `ContentHeader.tsx`, and the `.inline.ts` scripts under `quartz/components/scripts/`. This repo has a documented history of custom modifications threaded across multiple files that must stay in sync (footnote highlighting, tooltip decoding, `shortTitle` fallback, German locale citations — see the "Custom Modifications" section below). Run `find_references` / `get_blast_radius` on the symbol you're about to touch before editing it, so a change doesn't silently break one of these previously-hard-won fixes elsewhere.
+- **When locating where a symbol, component, or type is defined or used anywhere under `quartz/`**, instead of grepping across dozens of files by hand. Use `search_symbols` / `find_references`.
+- **Before deleting or renaming any exported symbol in `quartz/`** — run `check_delete_safe` first rather than assuming it's unused.
+- **When exploring an unfamiliar part of the Quartz internals for the first time** (e.g. chasing a `npm run check` type error into upstream Quartz plugin code, or understanding a component's call chain before extending it) — `index_local` the relevant directory, then query it rather than opening whole files cold.
+
+**Not for**: this repo's own CLAUDE.md/README (small, just `Read` them); the `content/` folder (Markdown content, not code, and out of scope per the two-repo architecture above — if you ever need to inspect it, `Read`/grep is fine); trivial edits where the exact file and line are already known and no ripple-effect risk exists.
+
+This is a manual convention like the jDocMunch policy above — no enforcement hooks are installed, nothing blocks a direct `Read`. But given this repo's track record of cross-file regressions on Quartz updates, defaulting to jCodeMunch's reference/blast-radius checks before touching shared files is the safer habit, not an optional nicety.
+
+---
+
 ## Project Overview
 
 - **Name**: alems-site

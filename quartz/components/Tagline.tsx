@@ -15,6 +15,7 @@ Tagline.css = `
   margin-top: 0.5rem;
   margin-bottom: 2.5rem;
   line-height: 1.1rem;
+  font-family: var(--titleFont);
 }
 `
 
