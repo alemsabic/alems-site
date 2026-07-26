@@ -95,14 +95,14 @@ quartz/
 
 **Typography**:
 
-- Headers: Victor Mono
-- Body: Geist Mono
+- Headers: Domine
+- Body: JetBrains Mono
 - Code: Inconsolata
 
 **Layout** (Session 16):
 
 - Left sidebar: PageTitle, Tagline, Search, Darkmode, Explorer
-- Right sidebar: Graph, TableOfContents, Backlinks (gap: 1.2rem)
+- Right sidebar: TableOfContents, Graph, Backlinks (gap: 1.2rem)
 - After body: RecentNotes (index only), Comments (Giscus)
 
 **Giscus Comments**:
@@ -168,7 +168,7 @@ quartz/
 **Changes Made**:
 
 - Moved Graph & Backlinks from `afterBody` → `right` sidebar
-- Right sidebar order: Graph → TableOfContents → Backlinks
+- Right sidebar order (current, corrected 2026-07-26): TableOfContents → Graph → Backlinks
 - Added `gap: 1.2rem` to `.sidebar.right`
 - Commit: `cfe18a7` - "feat: move Graph and Backlinks to right sidebar"
 
@@ -907,13 +907,25 @@ git push
 
 ---
 
-### 🔜 TODO (PAUSED): Academic Styling - Weitere Elemente
+### ✅ Academic Styling: `literature-note` — IMPLEMENTED (corrected 2026-07-26)
+
+**Status**: This was previously logged here as "🔜 TODO (PAUSED) — CSS styling needed." That was stale:
+the full `article.literature-note` styling system is implemented in `quartz/styles/custom.scss`
+(search for `article.literature-note`, ~1253–1400+). Verified during the Quartz v5 migration
+inventory pass.
 
 **Goal**: Trockenes, akademisches Design für Zotero-importierte Quellen (wie alte Akten)
 
 **CSS-Klasse**: `literature-note` (im Frontmatter: `cssclasses: literature-note`)
 
-**Elemente zum Stylen** (alle in `quartz/styles/custom.scss`):
+**Note — implementation differs from the original spec below**: the shipped CSS numbers
+`.annotation-highlight` entries with **lowercase letters** (`a.`, `b.`, `c.`, …, via
+`counter(section, lower-alpha)`), not the roman-numeral `§ I / § II / § III` scheme originally
+planned. Figure captions do use the originally-planned `Abb. 1 / Abb. 2` numbering
+(`counter(figure)`). If re-styling this system, treat the actual CSS in `custom.scss` as the
+source of truth, not the historical mockup below.
+
+**Elemente (historische Planungs-Skizze, siehe oben für Abweichungen)**:
 
 ```scss
 article.literature-note {
@@ -987,7 +999,7 @@ article.literature-note {
 
 - **Typografie**: JetBrains Mono (body), Victor Mono (headings)
 - **Stil**: Formell, trocken, akademisch (wie alte Akten)
-- **§-Zeichen**: Römische Ziffern (§ I, § II, § III)
+- **§-Zeichen**: Römische Ziffern (§ I, § II, § III) — *geplant, tatsächlich: Kleinbuchstaben a/b/c/d*
 - **Abb.-Label**: Arabische Ziffern (Abb. 1, Abb. 2)
 - **Spacing**: Genug Luft zwischen Elementen
 - **Farben**: Dezent, nicht zu grell (evtl. leicht entsättigt)
@@ -1015,7 +1027,5 @@ article.literature-note {
   <span class="figure-source">Seite 42</span>
 </div>
 ```
-
-**Status**: Template ready (with `cssclasses: literature-note`), CSS styling needed
 
 ---
