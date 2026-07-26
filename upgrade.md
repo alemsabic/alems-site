@@ -207,9 +207,26 @@ Concrete outcomes/decisions beyond the mapping table:
 
 Phase E is now functionally complete — every documented (and several undocumented) v4 customization has been ported and verified in real builds. Remaining before Phase F: none blocking; `npm run check` (TypeScript) has not been run yet against the whole tree — worth doing once before Phase G's full walkthrough.
 
-### Phase F — Bases + Canvas
+### Phase F — Bases + Canvas ✅ (2026-07-26)
 
-_(not started)_
+Both `bases-page` and `canvas-page` were already `enabled: true` in the `npx quartz create`
+default-template config from Phase C — nothing to add, just verify.
+
+- **Bases**: our real content already has `content/Quellendatenbank.base` (pre-existing, not
+  something I created). Built successfully → `public/quellendatenbank.base.html` (16KB, real
+  `bases-page`/`bases-view`/`bases-table` markup). Renders `class="bases-empty"` because its filter
+  (`file.folder == "NOTIZEN"`) doesn't match this content backup's flat folder structure — that's a
+  content-authoring detail (content/ is out of scope for us to fix), not a plugin bug; the important
+  thing is the page rendered without error.
+- **Canvas**: content had no `.canvas` file to test with, so created a temporary
+  `content/_v5-canvas-test.canvas` (two text nodes + one edge), built, confirmed
+  `public/_v5-canvas-test.canvas.html` contains both node texts and the full `canvas-*` DOM
+  structure (stage/viewport/nodes/edges/sidebar/zoom controls), then **deleted the test file**
+  before finishing (`content/` stays untouched — verified via `git status` showing nothing there).
+- Other ecosystem plugins the plan flagged as "worth a look, not blocking" (`note-properties`,
+  `unlisted-pages`, `encrypted-pages`) are already `enabled: true` by default from the scaffold —
+  left as-is rather than actively investigating further; harmless bonus features, not actively
+  adopted/configured for anything specific.
 
 ### Phase G — Local verification
 
