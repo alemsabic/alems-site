@@ -1,0 +1,322 @@
+# yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
+configuration:
+  pageTitle: ale.ms
+  pageTitleSuffix: "Alem Šabić's Notizen und Quellen"
+  enableSPA: true
+  enablePopovers: true
+  analytics:
+    provider: plausible
+  locale: de-DE
+  # NOTE: v4 had "https://ale.ms" (included scheme, non-standard). Deliberately fixed to the
+  # documented bare-domain convention here — verify in Phase G nothing assumed the old scheme.
+  baseUrl: ale.ms
+  ignorePatterns:
+    - private
+    - templates
+    - .obsidian
+  theme:
+    fontOrigin: googleFonts
+    cdnCaching: true
+    typography:
+      header: Domine
+      body: JetBrains Mono
+      code: Inconsolata
+    colors:
+      lightMode:
+        light: "#e0cca6" # background-color
+        lightgray: "rgb(0 0 0 / 20%)"
+        gray: "#b8b8b8"
+        darkgray: "#4e4e4e"
+        dark: "#2b2b2b"
+        secondary: "#8b4840" # link-color
+        tertiary: "#9c5e56" # link-color (hover)
+        highlight: rgba(143, 159, 169, 0.15)
+        textHighlight: "#8fa59933"
+      darkMode:
+        light: "#0a0200" # background-color
+        lightgray: "rgb(255 255 255 / 20%)"
+        gray: "#646464"
+        darkgray: "#d4d4d4"
+        dark: "#ebebec"
+        secondary: "#8b4840" # link-color
+        tertiary: "#9c5e56" # link-color (hover)
+        highlight: rgba(143, 159, 169, 0.15)
+        textHighlight: "#8fa59933"
+plugins:
+  - source: "@quartz-community/created-modified-date"
+    enabled: true
+    options:
+      defaultDateType: modified
+      priority:
+        - frontmatter
+        - git
+        - filesystem
+    order: 10
+  - source: "@quartz-community/syntax-highlighting"
+    enabled: true
+    options:
+      theme:
+        light: github-light
+        dark: github-dark
+      keepBackground: false
+    order: 20
+  - source: "@quartz-community/obsidian-flavored-markdown"
+    enabled: true
+    options:
+      enableInHtmlEmbed: false
+      enableCheckbox: true
+    order: 30
+  - source: "@quartz-community/github-flavored-markdown"
+    enabled: true
+    order: 40
+  - source: "@quartz-community/table-of-contents"
+    enabled: true
+    options:
+      minEntries: 4 # Only show TOC if 4+ headings (rare in atomic notes)
+      maxDepth: 3
+      showByDefault: true
+      collapseByDefault: false
+    order: 50
+    layout:
+      position: right
+      priority: 10 # right sidebar order: TOC, Graph, Backlinks (corrected per CLAUDE.md fix)
+      display: desktop-only
+  - source: "@quartz-community/crawl-links"
+    enabled: true
+    options:
+      markdownLinkResolution: shortest
+    order: 60
+  - source: "@quartz-community/description"
+    enabled: true
+    order: 70
+  - source: "@quartz-community/latex"
+    enabled: true
+    options:
+      renderEngine: katex
+    order: 80
+  - source: "@quartz-community/citations"
+    enabled: true
+    options:
+      # NOTE: relative-path semantics may differ from v4 ("relative to git source of your vault"
+      # per the plugin's own docs vs. v4's "relative to repo root") — verify path resolves in Phase G.
+      bibliographyFile: "./content/bibliography.bib"
+      suppressBibliography: false
+      linkCitations: false
+      csl: apa
+      # No `lang` override: v5's Citations plugin auto-derives the CSL locale URL from
+      # `configuration.locale` (already de-DE above) — this is what our old citations.ts hack
+      # used to do manually. Confirmed by reading the plugin's actual transformer.ts source.
+      # showTooltips/tooltipAttribute (v4-only options) dropped: not part of v5's Citations
+      # plugin options at all — tooltip rendering/decoding is handled by our own local scripts.
+    order: 85
+  - source: "@quartz-community/hard-line-breaks"
+    enabled: false
+    order: 90
+  - source: "@quartz-community/ox-hugo"
+    enabled: false
+    order: 91
+  - source: "@quartz-community/roam"
+    enabled: false
+    order: 92
+  - source: "@quartz-community/quartz-fonts"
+    enabled: true
+  - source: "@quartz-themes/core"
+    enabled: false
+    options:
+      theme: tokyo-night
+      mode: both
+  - source: "@quartz-community/remove-draft"
+    enabled: true
+  - source: "@quartz-community/explicit-publish"
+    enabled: false
+  - source: "@quartz-community/unlisted-pages"
+    enabled: true
+    options: {}
+    order: 45
+  - source: "@quartz-community/encrypted-pages"
+    enabled: true
+    options:
+      iterations: 600000
+      passwordField: password
+      unlistWhenEncrypted: false
+      outputPath: static/encryptedContentIndex.json
+  - source: "@quartz-community/stacked-pages"
+    enabled: false
+    layout:
+      position: afterBody
+      priority: 50
+      display: all
+  - source: "@quartz-community/alias-redirects"
+    enabled: true
+  - source: "@quartz-community/content-index"
+    enabled: true
+    options:
+      enableSiteMap: true
+      enableRSS: true
+  - source: "@quartz-community/favicon"
+    enabled: true
+  - source: "@quartz-community/og-image"
+    enabled: true
+  - source: "@quartz-community/cname"
+    enabled: true
+  - source: "@quartz-community/canvas-page"
+    enabled: true
+  - source: "@quartz-community/content-page"
+    enabled: true
+  - source: "@quartz-community/folder-page"
+    enabled: true
+  - source: "@quartz-community/tag-page"
+    enabled: true
+  - source: "@quartz-community/explorer"
+    enabled: true
+    layout:
+      position: left
+      priority: 50
+  - source: "@quartz-community/graph"
+    enabled: true
+    layout:
+      position: right
+      priority: 20 # right sidebar order: TOC(10), Graph(20), Backlinks(30)
+  - source: "@quartz-community/search"
+    enabled: true
+    layout:
+      # v4 had Search+Darkmode as a Flex row in beforeBody (before Breadcrumbs), not in the
+      # left sidebar toolbar — moved here to match.
+      position: beforeBody
+      priority: 1
+      group: toolbar
+      groupOptions:
+        grow: true
+  - source: "@quartz-community/backlinks"
+    enabled: true
+    layout:
+      position: right
+      priority: 30
+  - source: "@quartz-community/article-title"
+    enabled: true
+    layout:
+      # v4: used on list pages (folder/tag), but replaced by our custom ContentHeader on regular
+      # content pages (see layout.byPageType.content.exclude below + Phase E ContentHeader fork).
+      position: beforeBody
+      priority: 10
+  - source: "@quartz-community/content-meta"
+    enabled: true
+    layout:
+      # Same as article-title: list pages only, excluded on content pages (ContentHeader covers it).
+      position: beforeBody
+      priority: 20
+  - source: "@quartz-community/tag-list"
+    enabled: false
+    layout:
+      position: beforeBody
+      priority: 30
+  - source: "@quartz-community/page-title"
+    enabled: true
+    layout:
+      position: left
+      priority: 10
+  - source: "@quartz-community/darkmode"
+    enabled: true
+    layout:
+      position: beforeBody
+      priority: 2
+      group: toolbar
+  - source: "@quartz-community/reader-mode"
+    # v4 never placed ReaderMode anywhere in the layout tree, so the site has no reader-mode
+    # toggle today. Disabled here to match faithfully; trivial to flip to `true` later as an
+    # actual v5 bonus feature if wanted (not part of this migration's scope).
+    enabled: false
+  - source: "@quartz-community/breadcrumbs"
+    enabled: true
+    layout:
+      position: beforeBody
+      priority: 5
+      condition: not-index
+  - source: "@quartz-community/comments"
+    enabled: true
+    options:
+      provider: giscus
+      options:
+        repo: alemsabic/alems-site
+        repoId: R_kgDOQg3eGw
+        category: General
+        categoryId: DIC_kwDOQg3eG84CzVVP
+        mapping: pathname
+        strict: false
+        reactionsEnabled: true
+        inputPosition: bottom
+        lang: de
+        lightTheme: light
+        darkTheme: dark
+        themeUrl: https://ale.ms/static/giscus
+    layout:
+      position: afterBody
+      priority: 10
+  - source: "@quartz-community/footer"
+    # PLACEHOLDER — v4's Footer.tsx hardcodes personal links (Alem Šabić link, X/Twitter) directly
+    # in the component source rather than taking them from config options, so `options.links` here
+    # is meaningless until Phase E forks Footer as a local-plugin. Left at stock defaults for now.
+    enabled: true
+    options:
+      links: {}
+  - source: "@quartz-community/recent-notes"
+    enabled: false
+  - source: "@quartz-community/spacer"
+    enabled: true
+    options: {}
+    order: 25
+    layout:
+      position: left
+      priority: 25
+      display: mobile-only
+  - source: "@quartz-community/bases-page"
+    enabled: true
+    options: {}
+    order: 50
+  - source: "@quartz-community/note-properties"
+    enabled: true
+    options:
+      includeAll: false
+      includedProperties:
+        - description
+        - tags
+        - aliases
+      excludedProperties: []
+      hidePropertiesView: false
+      delimiters: ---
+      language: yaml
+    order: 5
+    layout:
+      position: beforeBody
+      priority: 15
+      display: all
+layout:
+  groups:
+    toolbar:
+      priority: 35
+      direction: row
+      gap: 0.5rem
+  byPageType:
+    "404":
+      positions:
+        beforeBody: []
+        left: []
+        right: []
+    content:
+      # v4's ContentHeader (Phase E local-plugin fork) replaces both of these on regular notes;
+      # they still render on folder/tag list pages (matches v4's defaultListPageLayout).
+      exclude:
+        - article-title
+        - content-meta
+    folder:
+      exclude:
+        - reader-mode
+      positions:
+        right: []
+    tag:
+      exclude:
+        - reader-mode
+      positions:
+        right: []
+    canvas: {}
+    bases: {}

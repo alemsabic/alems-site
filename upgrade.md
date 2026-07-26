@@ -96,11 +96,31 @@ git push -u origin v5
   automatically. **Remember this same gotcha will apply on gpunkt.org's replay.**
 - `v4` branch confirmed untouched and pushed to `origin/v4` before branching (commit `1b7e1c4`).
 
-### Phase C — Scaffold + import content
-_(not started)_
+### Phase C — Scaffold + import content ✅ (2026-07-26)
+```
+git archive v4 -- content | tar -x -C <scratch>/quartz-v4-content-backup
+npx quartz create --template default --source <scratch>/quartz-v4-content-backup/content \
+  --strategy copy --baseUrl ale.ms --links shortest
+```
+- Used the non-interactive CLI flags (`quartz create --help` documents them) instead of the TUI wizard.
+- **Deliberately fixed the flagged `baseUrl` bug here**: passed bare `ale.ms` (no `https://` scheme), matching v5's documented convention, instead of porting the old `https://ale.ms` value as-is. Needs verification in Phase G that this doesn't break anything that assumed the scheme was included.
+- `quartz.config.yaml` generated with defaults (`locale: en-US`, stock fonts/colors, most plugins default-enabled including `canvas-page` and `bases-page` — **both are already enabled by default in this template**, simplifying Phase F). Citations, comments, recent-notes, tag-list default to `enabled: false` as expected (matches v4 behavior where these needed manual enabling).
+- Content restored: 25 items incl. `bibliography.bib`, `CSL/`, `Literatur/` — and a pre-existing `Quellendatenbank.base` file was already present in content (useful real test case for Phase F/Bases, not something I created).
+- Not yet committed — will commit together with Phase D's config rewrite so the "default scaffold" state isn't a confusing intermediate commit.
 
-### Phase D — Rebuild config
-_(not started)_
+### Phase D — Rebuild config ✅ (2026-07-26, config done; layout for forked components pending Phase E)
+Translated `quartz.config.ts`/`quartz.layout.ts` into `quartz.config.yaml` per the mapping table.
+Concrete outcomes/decisions beyond the mapping table:
+- `TableOfContents`: our options ported, moved to `priority: 10` + `display: desktop-only` on `right` (TOC→Graph(20)→Backlinks(30), matching the corrected sidebar order).
+- `Citations`: enabled, our `bibliographyFile`/`csl` ported, `lang` dropped (built-in now), v4-only `showTooltips`/`tooltipAttribute` options dropped (don't exist in v5's plugin — our own tooltip script handles that separately).
+- `Search`+`Darkmode`: moved from the default `left` toolbar into `beforeBody` (priority 1/2, `group: toolbar`) to match v4's Flex-row-before-breadcrumbs arrangement.
+- `reader-mode`: disabled entirely — v4 never placed it in any layout, so the site currently has no reader-mode toggle. Trivial to enable later as a v5 bonus (out of migration scope).
+- `article-title`/`content-meta`: kept enabled (needed on folder/tag list pages, matching v4's `defaultListPageLayout`) but excluded via `layout.byPageType.content.exclude` on regular content pages, since v4's custom `ContentHeader` component covers both jobs there (Phase E will confirm this once ContentHeader is ported).
+- `Comments`: enabled with our exact giscus config (repo/category IDs, German lang, custom theme URLs) — this was pure config in v4, no fork needed.
+- `Footer`: left at stock options — v4's actual personal links are hardcoded in `Footer.tsx` source, not config-driven, so this needs the Phase E fork before it's real; YAML options are a no-op placeholder until then.
+- **Still open, deferred to Phase E**: Tagline/EditOnGitHub/ContentHeader components (no plugin entry yet), footnote-popover-fix, `shortTitle` support, footnotes/tooltips inline scripts, Date/Head/PageList/RecentNotes tweaks, i18n string edits, RecentNotes' "index-only" condition (not a built-in condition preset — needs either a custom `registerCondition()` call or a `quartz.ts` override).
+- **Verified**: `npx quartz build` succeeds end-to-end against this config + our real content (25 files → 177 emitted files, no errors). Bibliography path `./content/bibliography.bib` resolved without error. Full visual/behavioral verification is Phase G, not yet done.
+- Committed together with Phase C's content import.
 
 ### Phase E — Port custom plugins
 _(not started)_
