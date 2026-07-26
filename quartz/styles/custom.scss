@@ -1,3 +1,1356 @@
 @use "./variables.scss" as *;
 
 // put your custom CSS here!
+
+
+// Search bar styling - make search take full width
+.search {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+// Burger button - remove left padding
+.explorer .mobile-explorer {
+  padding-left: 0px !important;
+}
+
+// Graph component bottom margin (gap to Backlinks)
+.graph {
+  margin-bottom: 2rem !important;
+}
+
+// Backlinks component bottom margin
+.backlinks {
+  margin-bottom: 2rem !important;
+}
+
+// Giscus comments bottom margin
+.giscus {
+  margin-bottom: 2rem !important;
+}
+
+// Page max width
+.page {
+  max-width: 1280px !important;
+}
+
+// Breadcrumb container margin
+.breadcrumb-container {
+  margin-top: 1.5rem !important;
+}
+
+// Article title additional margin
+.article-title {
+  margin-top: 4rem !important;
+}
+
+// Content meta font size and color
+.content-meta {
+  font-size: 0.9rem !important;
+  color: var(--gray) !important;
+}
+
+// Page title font size - responsive
+.page-title {
+  font-size: 1.95rem !important; // Mobile
+  font-family: var(--titleFont) !important; // Use Jost for page title
+}
+
+@media (min-width: 800px) {
+  .page-title {
+    font-size: 3.5rem !important; // Desktop
+    line-height: 1 !important; // Same level as other elements
+  }
+}
+
+// Remove gap from sidebars by default
+.page > #quartz-body .sidebar {
+  gap: 0 !important;
+}
+
+// Right sidebar: add gap between Graph, TOC, Backlinks
+.page > #quartz-body .sidebar.right {
+  gap: 1.2rem !important;
+}
+
+// Profile image styling - SIMPLE ROUND (COMMENTED OUT - removed from layout)
+// .profile-image {
+//   text-shadow: none !important;
+//   width: 240px !important;
+//   height: 240px !important;
+//   border-radius: 50% !important; // Make it round
+//   overflow: hidden !important;
+//   margin: 0 auto 1.5rem auto !important;
+// }
+
+// .profile-image img {
+//   text-shadow: none !important;
+//   width: 100% !important;
+//   height: 100% !important;
+//   object-fit: cover !important; // Crop to fill circle
+//   object-position: center !important;
+// }
+
+// Headers font-weight and color
+h1 {
+  font-weight: 700 !important;
+  color: var(--bodyText) !important;
+  font-family: var(--titleFont) !important; // Use Jost for H1 only (same as .page-title)
+  line-height: 1;
+}
+
+// Desktop: H1 in articles larger font size
+@media (min-width: 800px) {
+  .page article > h1 {
+    font-size: 3rem;
+    line-height: 0.9;
+  }
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700 !important;
+  color: var(--bodyText) !important;
+
+}
+
+// Page title and breadcrumb links same color as body text
+.page-title a,
+.breadcrumb-container a {
+  color: var(--bodyText) !important;
+}
+
+// Page title link font weight to match headings
+.page-title a {
+  font-weight: 700 !important;
+}
+
+// Additional margin for h2 and h3 within content
+article h2 {
+  margin-top: 3.9rem !important;
+}
+
+article h3 {
+  margin-top: 3.9rem !important;
+}
+
+// Footer links uppercase and font size
+footer a {
+  text-transform: uppercase !important;
+  font-size: 0.9rem !important;
+}
+
+// Normalize all links to font-weight 400
+a {
+  font-weight: 400 !important;
+}
+
+// Strong elements to font-weight 700 (bold)
+strong {
+  font-weight: 700 !important;
+}
+
+// Font smoothing for dark theme
+[saved-theme="dark"] {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Dark theme: custom body background color
+[saved-theme="dark"] body {
+  background-color: #09002b !important;
+}
+
+// Noise texture overlay - light theme
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/static/noise.png");
+  background-repeat: repeat;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+// Noise texture overlay - dark theme
+[saved-theme="dark"] body::before {
+  opacity: 0.5;
+}
+
+// ============================================
+// GLOBAL LIGHT THEME - BOOK AESTHETIC
+// ============================================
+
+// Light Theme: Letterpress text (entire viewport)
+[saved-theme="light"] body {
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5) !important;
+}
+
+// Light theme body background - lined paper effect (COMMENTED OUT - uncomment to restore)
+// [saved-theme="light"] body {
+//   background-image: linear-gradient(90deg, transparent 79px, #abced4 79px, #a8a8a8 79px, transparent 81px), linear-gradient(#ddd .05em, transparent .05em);
+//   background-size: 100% 1.2em;
+// }
+
+// List markers color
+ul ::marker,
+ol ::marker {
+  color: var(--darkgray) !important;
+}
+
+// HR element dashed line styling
+hr {
+  border: none !important;
+  border-top: 1px dashed var(--darkgray) !important;
+  margin: 2.5rem 0 !important;
+  background: none !important;
+}
+
+// Mobile sticky header with transparent background
+@media (max-width: 800px) {
+  .page #quartz-body .sidebar.left:has(.explorer) {
+    opacity: 80%;
+  }
+
+  // Light mode: remove background completely
+  [saved-theme="light"] .page #quartz-body .sidebar.left:has(.explorer) {
+    background-color: transparent !important;
+  }
+}
+
+// Add margin to flex-component in popover previews for better spacing
+.popover .popover-inner .flex-component {
+  margin-top: 1rem !important;
+}
+
+// Tag link font size and padding
+a.internal.tag-link {
+  font-size: 0.85rem !important;
+  padding: 0.2rem 0.3rem !important;
+}
+
+// Light theme: schwarzer Hintergrund mit 10% opacity
+[saved-theme="light"] a.internal.tag-link {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+// Dark theme: weißer Hintergrund mit 10% opacity
+[saved-theme="dark"] a.internal.tag-link {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+// Explorer folder left border with darker styling
+.explorer-content .folder-outer > ul {
+  border-left: none !important;
+}
+
+// Folder container font size and styling
+.folder-container div > a {
+  font-size: 1rem !important;
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
+  color: var(--dark) !important;
+}
+
+.folder-container div > a:hover {
+  opacity: 1 !important;
+}
+
+// Folder icon styling
+.folder-icon {
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
+  color: var(--dark) !important;
+}
+
+.folder-container div > a:hover .folder-icon {
+  opacity: 1 !important;
+}
+
+// Explorer content links font size and hover effect
+.explorer-content ul li > a {
+  font-size: 1rem !important;
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
+  color: var(--dark) !important;
+}
+
+.explorer-content ul li > a:hover {
+  opacity: 1 !important;
+}
+
+// Explorer spacing between lists and items
+.explorer-content ul {
+  margin-top: 0.15rem !important;
+  margin-bottom: 0.15rem !important;
+}
+
+.explorer-content ul li {
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.25rem !important;
+  line-height: 1.1rem;
+}
+
+// Table of Contents links font size and line-height
+.toc ul li a {
+  font-size: 0.85rem !important;
+}
+
+.toc-content li {
+  line-height: 1.1rem !important;
+}
+
+// Tagline styling
+.tagline a {
+  text-decoration: none !important;
+}
+
+// Explorer and Table of Contents heading styling
+button.mobile-explorer,
+button.desktop-explorer,
+button.toc-header {
+  color: var(--darkgray) !important;
+}
+
+button.mobile-explorer h2,
+button.desktop-explorer h2 {
+  font-weight: 700 !important;
+  text-shadow: 0 1px 1px #ffffff80 !important; // Letterpress effect for explorer headers
+}
+
+button.toc-header h3 {
+  font-weight: 700 !important;
+}
+
+// Graph and Backlinks heading styling
+.graph > h3,
+.backlinks > h3 {
+  font-weight: 700 !important;
+}
+
+// Rückseite heading alignment
+h2#des-zettels-rückseite {
+  text-align: right !important;
+}
+
+// Increase gap between center and sidebars
+
+@media (min-width: 1200px) {
+  .page > #quartz-body {
+    grid-template: "grid-sidebar-left grid-header grid-sidebar-right" "grid-sidebar-left grid-center grid-sidebar-right" "grid-sidebar-left grid-footer grid-sidebar-right"/320px auto 320px;
+    gap: 20px;
+    display: grid;
+  }
+}
+
+// ScrollBar
+::-webkit-scrollbar {
+  width: 9px;
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: #d65d0e;
+}
+
+// Override strong color - bold weight is sufficient emphasis (no color change needed)
+.page article p > strong {
+  color: inherit !important;
+}
+
+// Override explorer font - folder names and buttons should use body font, not header font
+.folder-container div > a,
+.folder-container div > button {
+  font-family: var(--bodyFont) !important;
+}
+
+// Remove background color and fixed line-height from internal links
+a.internal {
+  background-color: transparent;
+  padding: 0;
+  line-height: inherit;
+}
+
+// ============================================
+// CONTENT TYPE STYLING - DICTIONARY ENTRIES
+// ============================================
+
+// Dictionary Entry: Old dictionary aesthetic (Baskerville/Garamond serif style)
+// Everything inline, dense block layout like printed dictionaries - no paragraph breaks
+article.dictionary-entry {
+  font-family:
+    "Baskerville", "Baskerville Old Face", "Garamond", "Hoefler Text", "Palatino Linotype",
+    "Book Antiqua", "Times New Roman", serif !important;
+  line-height: 1.12 !important;
+  text-align: justify !important;
+  font-size: 1.1rem !important; // Mobile
+  letter-spacing: 0.01em !important;
+
+  // Remove ALL paragraph spacing - everything flows inline
+  p {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  // Override any default article styling
+  * {
+    font-family: inherit !important;
+    line-height: inherit !important;
+  }
+
+  // Headword (main entry word) - bold uppercase with increased letter spacing
+  .headword {
+    font-size: 1.35em;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    @media (min-width: 800px) {
+      margin-left: -15px;
+    }
+  }
+
+  // Cyrillic variant in brackets [БАКЛАВА]
+  .cyrillic {
+    font-size: 1.15em;
+    letter-spacing: 0.05em;
+  }
+}
+
+// Dictionary Entry styling cleaned up (letterpress now global)
+
+// ============================================
+// DICTIONARY ENTRY - TWO COLUMNS (Desktop)
+// ============================================
+
+// Two-column dictionary layout (desktop only, same font-size as mobile)
+article.dictionary-entry-columns {
+  font-family:
+    "Baskerville", "Baskerville Old Face", "Garamond", "Hoefler Text", "Palatino Linotype",
+    "Book Antiqua", "Times New Roman", serif !important;
+  line-height: 1.12 !important;
+  text-align: justify !important;
+  font-size: 1.1rem !important; // Same size on mobile AND desktop
+  letter-spacing: 0.01em !important;
+
+  // Remove ALL paragraph spacing - everything flows inline
+  p {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  // Override any default article styling
+  * {
+    font-family: inherit !important;
+    line-height: inherit !important;
+  }
+
+  // Headword (main entry word) - bold uppercase with increased letter spacing
+  .headword {
+    font-size: 1.35em;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    @media (min-width: 800px) {
+      margin-left: -15px;
+    }
+  }
+
+  // Cyrillic variant in brackets [БАКЛАВА]
+  .cyrillic {
+    font-size: 1.15em;
+    letter-spacing: 0.05em;
+  }
+
+  // Desktop: 2 columns
+  @media (min-width: 800px) {
+    column-count: 2;
+    column-gap: 2rem;
+    column-fill: balance;
+  }
+}
+
+// Dictionary Entry (Two Columns) styling cleaned up (letterpress now global)
+
+// ============================================
+// DICTIONARY ENTRY - EPIGRAPH/BLOCKQUOTE STYLING
+// ============================================
+
+// Epigraph/quote styling for dictionary entries - elegant old book aesthetic
+article.dictionary-entry blockquote,
+article.dictionary-entry-columns blockquote {
+  margin: 2rem auto 2.5rem !important;
+  padding: 1.5rem 0rem 1rem 2rem !important;
+  max-width: 90% !important;
+  border: none !important;
+  background-color: transparent !important;
+  font-family: "Baskerville", "Baskerville Old Face", "Garamond", "Hoefler Text", serif !important;
+  text-align: left !important;
+  font-style: italic !important;
+  color: inherit !important;
+  position: relative !important;
+
+  // Break out of column layout (for dictionary-entry-columns)
+  column-span: all !important;
+
+  // Quote text
+  p {
+    margin: 0 0 0.75rem 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+    font-style: italic !important;
+    color: inherit !important;
+    line-height: 1.1 !important;
+  }
+
+  // Author/attribution (em dash format: —Author Name, "Title")
+  cite,
+  footer {
+    display: block !important;
+    margin-top: 0.75rem !important;
+    font-size: 0.9em !important;
+    font-style: normal !important;
+    text-align: right !important;
+    color: inherit !important;
+
+    // Em dash before author
+    &::before {
+      content: "—";
+      margin-right: 0.25em;
+    }
+  }
+}
+
+// ============================================
+// DICTIONARY ENTRY - FOOTNOTES STYLING
+// ============================================
+
+// Hide "Footnotes" heading for dictionary entries
+article.dictionary-entry .footnotes h2,
+article.dictionary-entry-columns .footnotes h2 {
+  display: none !important;
+}
+
+// Footnotes styling for dictionary entries - compact, book-like layout
+article.dictionary-entry .footnotes,
+article.dictionary-entry-columns .footnotes {
+  margin-top: 0.75rem !important; // Halved from 1.5rem
+  padding-top: 0.75rem !important; // Add padding for border spacing
+  font-size: 0.85rem !important; // Smaller than main text
+  text-align: left !important; // Left-aligned, not justified
+  border-top: none !important; // Remove default border
+  position: relative;
+
+  // Shorter border-top (1/5 width) using ::before
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 1px;
+    background-color: var(--lightgray);
+  }
+
+  ol {
+    padding-left: 1rem !important; // Reduced padding for compact layout
+    margin: 0 !important;
+
+    // Footnote markers color
+    ::marker {
+      color: darkgoldenrod !important;
+    }
+  }
+
+  li {
+    margin-bottom: 0.5rem !important;
+
+    p {
+      margin: 0 !important;
+      text-align: left !important; // Override justify for footnotes
+    }
+  }
+}
+
+// Superscript footnote links in dictionary entries
+article.dictionary-entry sup a,
+article.dictionary-entry-columns sup a {
+  font-size: 0.75rem !important;
+  text-decoration: none !important;
+  color: darkgoldenrod !important;
+}
+
+// Highlight footnote when clicked (using :target pseudo-class AND .footnote-highlighted class for SPA)
+article.dictionary-entry .footnotes li:target,
+article.dictionary-entry-columns .footnotes li:target,
+article.dictionary-entry .footnotes li.footnote-highlighted,
+article.dictionary-entry-columns .footnotes li.footnote-highlighted {
+  background-color: var(--highlight);
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-left: -0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+// Hide footnote backlinks in dictionary entries (book-like appearance, no back navigation needed)
+article.dictionary-entry .data-footnote-backref,
+article.dictionary-entry-columns .data-footnote-backref {
+  display: none !important;
+}
+
+// ============================================
+// REFERENCES / BIBLIOGRAPHY STYLING (GLOBAL)
+// ============================================
+
+// References/Bibliography section - clean, book-like layout
+#refs.references.csl-bib-body {
+  margin-top: 0.75rem !important;
+  padding-top: 0.75rem;
+  border-top: none !important;
+  position: relative;
+
+  // Remove "References" heading using ::before and
+  &::before {
+    content: "";
+    background-color: #b8860b;
+    width: 40%;
+    height: 1px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+// Individual bibliography entries
+.csl-entry {
+  text-align: left !important;
+
+  // Hanging indent for citations (classic bibliography style)
+  padding-left: 2rem !important;
+  text-indent: -2rem !important;
+}
+
+// ============================================
+// ZETTELKASTEN - FOOTNOTES STYLING
+// ============================================
+
+// Hide "Footnotes" heading for zettelkasten entries
+article.zettelkasten .footnotes h2 {
+  display: none !important;
+}
+
+// Footnotes styling for zettelkasten - compact, consistent with dictionary-entry
+article.zettelkasten .footnotes {
+  margin-top: 2rem !important;
+  padding-top: 0.75rem !important;
+  border-top: none !important;
+  text-align: left !important;
+  position: relative;
+
+  // Shorter border-top (1/5 width) using ::before
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 1px;
+    background-color: #b8860b;
+  }
+
+  ol {
+    padding-left: 1.75rem !important;
+    margin: 0 !important;
+
+    // Footnote markers color
+    ::marker {
+      color: darkgoldenrod !important;
+    }
+  }
+
+  li {
+    margin-bottom: 0 !important;
+
+    p {
+      margin: 0 !important;
+      text-align: left !important;
+      line-height: 1.1 !important; // Readable line-height for footnotes
+      display: block !important;
+    }
+  }
+}
+
+// Superscript footnote links in zettelkasten
+article.zettelkasten sup a {
+  font-size: 0.75rem !important;
+  text-decoration: none !important;
+  color: darkgoldenrod !important;
+}
+
+// Highlight footnote when clicked (using :target pseudo-class AND .footnote-highlighted class for SPA)
+article.zettelkasten .footnotes li:target,
+article.zettelkasten .footnotes li.footnote-highlighted {
+  background-color: var(--highlight);
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-left: -0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+// Disable popovers for all footnote links (sup a)
+sup a {
+  pointer-events: auto !important;
+
+  &::after {
+    pointer-events: none !important;
+  }
+}
+
+// Hide popover when hovering over footnote links
+sup:hover + .popover,
+sup a:hover ~ .popover {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+// Hide footnote backlinks in zettelkasten (book-like appearance)
+article.zettelkasten .data-footnote-backref {
+  display: none !important;
+}
+
+// ============================================
+// BILINGUAL DICTIONARY STYLING (RESERVED)
+// ============================================
+
+// ============================================
+// RECENT NOTES COMPONENT (Index Page)
+// ============================================
+
+/* Recent Notes: use same styling as folder pages (listPage.scss) */
+.recent-notes {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px dashed var(--darkgray);
+}
+
+.recent-notes li.recent-li {
+  margin-bottom: 0;
+}
+
+// ============================================
+// ZETTELKASTEN ENTRY - CARD AESTHETIC
+// ============================================
+
+// Zettelkasten Entry: Compact monospace note-card
+article.zettelkasten {
+  line-height: 1.12 !important;
+
+  // H1 Titel: Fett mit gestanztem Loch (VORSCHLAG 1 - angepasst)
+  h1 {
+    font-weight: 700 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    position: relative;
+    margin-left: 20px !important;
+
+    // Gestanztes Loch links vom Titel
+    &::before {
+      content: "";
+      position: absolute;
+      left: -30px;
+      top: 0.2em;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid var(--gray);
+      box-shadow: inset 1px 1px 3px #0003;
+    }
+  }
+
+  // Alle Paragraphen standardmäßig inline (wie dictionary-entry)
+  p {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline !important;
+    line-height: 1.12 !important;
+  }
+
+  // Pilcrow (¶) zwischen Absätzen als Lesehilfe - außer beim ersten Paragraph
+  p:not(:first-of-type)::before {
+    content: "¶ ";
+    font-weight: 400 !important;
+    color: var(--secondary) !important;
+    opacity: 0.5 !important;
+  }
+
+  // Kein Pilcrow für ersten Paragraph nach Überschrift oder nach Ein-Satz-Zusammenfassung
+  h2 + p::before,
+  h3 + p::before,
+  p:first-of-type + p::before {
+    content: "" !important;
+  }
+
+  // Erstes Paragraph: Zusammenfassung mit eckigen Klammern
+  > p:first-of-type {
+    letter-spacing: 1px !important;
+
+    // Eckige Klammern
+    &::before {
+      content: "[ ";
+      font-size: 1.5rem;
+    }
+    &::after {
+      content: " ]";
+      font-size: 1.5rem;
+    }
+  }
+
+  // Kein Kursiv in der Ein-Satz-Zusammenfassung (überschreibt em-Element)
+  > p:first-of-type em {
+    font-style: normal !important;
+    font-size: 1.5rem;
+  }
+
+  // Paragraphen nach H3 bleiben inline, bekommen auch Pilcrow
+  // (entfernt - jetzt fließt alles inline)
+
+  // H2 Überschriften (falls vorhanden)
+  h2 {
+    margin-top: 2.5rem !important;
+    margin-bottom: 1rem !important;
+    font-weight: 700 !important;
+  }
+
+  // H3 Überschriften: Kleiner, mit Trennlinie - mit gestanztem Loch
+  h3 {
+    margin-top: 2.5rem !important;
+    margin-bottom: 1rem !important;
+    font-weight: 700 !important;
+
+    // Gestanztes Loch vor allen H3
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #efefef;
+      border: 1px solid var(--gray);
+      box-shadow: inset 1px 1px 3px #0003;
+      margin-right: 0.5rem;
+      vertical-align: top;
+    }
+  }
+
+  // Listen: Kompakteres Spacing
+  ul,
+  ol {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+
+    li {
+      margin-bottom: 0rem !important;
+      line-height: 1.1rem;
+
+      // Verschachtelte Listen unter Anknüpfungspunkte
+      ul {
+        margin-top: 0.25rem !important;
+        font-size: 0.9em !important;
+        color: var(--darkgray) !important;
+      }
+    }
+  }
+
+  // Strong/Bold: Betonung
+  strong {
+    font-weight: 700 !important;
+  }
+
+  // Links: Normales Gewicht
+  a {
+    font-weight: 400 !important;
+  }
+
+  // HR: Dashed line (falls vorhanden)
+  hr {
+    margin: 2rem 0 !important;
+  }
+
+  // Blockquotes (falls vorhanden): Kompakter
+  blockquote {
+    margin: 1.5rem 0 !important;
+    padding: 0.5rem 1rem !important;
+    border-left: 2px solid var(--gray) !important;
+    font-style: italic !important;
+  }
+}
+
+// Zettelkasten Ein-Satz-Zusammenfassung: Theme-spezifische Farben
+[saved-theme="light"] article.zettelkasten > p:first-of-type {
+  color: #5a6b7a !important; // Dunkles Blaugrau (wie Bleistift)
+}
+
+[saved-theme="dark"] article.zettelkasten > p:first-of-type {
+  color: #88a5c1 !important; // Helles Blaugrau (wie verblasste Tinte)
+}
+
+// ============================================
+// TAG PAGES - REMOVE LIST BULLETS
+// ============================================
+
+// Tags list on tag pages (e.g., /tags/ZK-Theorie) - remove circles
+ul.tags {
+  list-style: none !important;
+}
+
+// ============================================
+// LINK UNDERLINE - CONTENT HEADER & ARTICLES
+// ============================================
+
+// Links underlined by default, no underline on hover with transition
+.content-header a,
+article.zettelkasten a,
+article.dictionary-entry-columns a,
+article.dictionary-entry a {
+  text-decoration: underline !important;
+  transition: text-decoration 0.2s ease;
+}
+
+.content-header a:hover,
+article.zettelkasten a:hover,
+article.dictionary-entry-columns a:hover,
+article.dictionary-entry a:hover {
+  text-decoration: none !important;
+}
+
+// Exception: Tag links should never be underlined
+a.internal.tag-link {
+  text-decoration: none !important;
+}
+
+a.internal.tag-link:hover {
+  text-decoration: none !important;
+}
+
+// ============================================
+// CITATION TOOLTIPS - CSS-ONLY
+// ============================================
+
+// Beautiful tooltips for citations using data-tooltip attribute
+// Based on rehype-citation demo: https://rehype-citation.netlify.app/tooltips
+[data-tooltip] {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+// Tooltip content (appears above the element)
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  visibility: hidden;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  z-index: 50;
+  margin-bottom: 0.5rem;
+  width: max-content;
+  max-width: 20rem;
+  transform: translateX(-50%);
+  overflow-wrap: break-word;
+  border-radius: 0.375rem;
+  background-color: var(--darkgray);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  color: var(--light);
+  opacity: 0;
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.2s;
+  pointer-events: none;
+  text-shadow: none !important; // Remove letterpress effect for tooltips
+}
+
+// Tooltip arrow (small triangle pointing down)
+[data-tooltip]::before {
+  content: "";
+  visibility: hidden;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  z-index: 50;
+  height: 0;
+  width: 0;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-top-color: var(--darkgray);
+  opacity: 0;
+  transition: opacity 0.2s;
+  margin-bottom: -6px;
+  pointer-events: none;
+}
+
+// Show tooltip on hover (no delay!)
+[data-tooltip]:hover::after,
+[data-tooltip]:hover::before {
+  visibility: visible;
+  opacity: 1;
+}
+
+// ============================================
+// CALLOUT STYLING - DEZENTER (QUELLENVERZEICHNIS)
+// ============================================
+
+// Callout titles: remove bold and make colors more muted (add gray)
+.callout-title {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+
+  .callout-title-inner {
+    font-weight: 400 !important; // Remove bold
+  }
+}
+
+// Callout content: smaller font size and line-height
+.callout-content-inner p {
+  font-size: 0.85rem;
+  line-height: 1.25rem;
+}
+
+// Override callout colors - add more gray for subtler appearance
+.callout[data-callout] {
+  --color: #6b8aa8 !important; // Muted blue-gray (instead of bright #448aff)
+}
+
+.callout[data-callout="abstract"] {
+  --color: #6b9fb5 !important; // Muted cyan-gray (instead of bright #00b0ff)
+}
+
+.callout[data-callout="info"],
+.callout[data-callout="todo"] {
+  --color: #6ba5b0 !important; // Muted teal-gray (instead of bright #00b8d4)
+}
+
+// ============================================
+// ZOTERO HIGHLIGHTS - COLOR CODING
+// ============================================
+
+// Zotero highlight colors matching Obsidian/Zotero annotations
+// Format: <mark class="hltr-{color}">highlighted text</mark>
+
+// Common styling for all mark elements
+mark[class^="hltr-"],
+mark[class*=" hltr-"] {
+  display: block;
+  padding: 0;
+  border-radius: 0;
+  line-height: 1.15rem;
+  color: inherit;
+}
+
+// Remove text-shadow from all highlights in light theme (letterpress effect interferes with colors)
+[saved-theme="light"] mark[class^="hltr-"],
+[saved-theme="light"] mark[class*=" hltr-"] {
+  text-shadow: none !important;
+}
+
+// Yellow highlight (default Zotero color)
+mark.hltr-yellow {
+  background-color: rgba(255, 212, 0, 0.5);
+}
+
+// Orange highlight
+mark.hltr-orange {
+  background-color: rgba(241, 152, 55, 0.5);
+}
+
+// Red/Pink highlight
+mark.hltr-red,
+mark.hltr-pink {
+  background-color: rgba(255, 102, 102, 0.5);
+}
+
+// Green highlight
+mark.hltr-green {
+  background-color: rgba(95, 178, 54, 0.5);
+}
+
+// Blue highlight
+mark.hltr-blue,
+mark.hltr-cyan {
+  background-color: rgba(46, 168, 229, 0.5);
+}
+
+// Purple/Violet highlight
+mark.hltr-purple,
+mark.hltr-violet {
+  background-color: rgba(162, 138, 229, 0.5);
+}
+
+// Magenta highlight - dimmed, inherit text color
+mark.hltr-magenta {
+  background-color: rgba(229, 110, 238, 0.4);
+}
+
+// Gray highlight
+mark.hltr-gray,
+mark.hltr-grey {
+  background-color: rgba(170, 170, 170, 0.5);
+}
+
+// Dark theme adjustments - reduce opacity for highlights to avoid eye strain
+[saved-theme="dark"] {
+  mark.hltr-yellow {
+    background-color: rgba(255, 212, 0, 0.4);
+    color: var(--light);
+  }
+
+  mark.hltr-orange {
+    background-color: rgba(241, 152, 55, 0.4);
+    color: var(--light);
+  }
+
+  mark.hltr-red,
+  mark.hltr-pink {
+    background-color: rgba(255, 102, 102, 0.4);
+    color: var(--light);
+  }
+
+  mark.hltr-green {
+    background-color: rgba(95, 178, 54, 0.4);
+    color: var(--light);
+  }
+
+  mark.hltr-blue,
+  mark.hltr-cyan {
+    background-color: rgba(46, 168, 229, 0.4);
+    color: var(--light);
+  }
+
+  mark.hltr-purple,
+  mark.hltr-violet {
+    background-color: rgba(162, 138, 229, 0.4);
+    color: var(--light);
+  }
+
+  mark.hltr-magenta {
+    background-color: rgba(229, 110, 238, 0.4);
+    color: var(--light);
+  }
+
+  mark.hltr-gray,
+  mark.hltr-grey {
+    background-color: rgba(170, 170, 170, 0.4);
+    color: var(--light);
+  }
+}
+
+// ============================================
+// BOOK COVER STYLING - SKEUOMORPHIC 3D EFFECT
+// ============================================
+
+// Container: centered layout with spacing + gradient overlay
+.book-cover-container {
+  margin: 2rem auto;
+  display: block;
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: top;
+  border-radius: 3px;
+  overflow: hidden; // Critical: clips the ::after to exact container size
+
+  // Enhanced shadow (book lifted off surface) - no hover effect
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.15),
+    0 8px 16px rgba(0, 0, 0, 0.2),
+    0 16px 48px rgba(0, 0, 0, 0.3);
+
+  // Gradient overlay for skeuomorphic hardcover effect
+  // Simulates light hitting the book from the left with spine "dent"
+  // Based on: https://varundhawan.com/blog/2022/01/18/skeuomorphic-book-cover-css
+  // IMPORTANT: Must be on container, not img (img doesn't support pseudo-elements)
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; // Use width/height instead of right/bottom
+    height: 100%;
+    border-radius: 3px;
+    pointer-events: none;
+    z-index: 1;
+
+    // Realistic hardcover emboss with spine dent
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.02) 0%,
+      rgba(255, 255, 255, 0.5) 1%,
+      rgba(255, 255, 255, 0.6) 1.3%,
+      rgba(255, 255, 255, 0.5) 1.4%,
+      rgba(255, 255, 255, 0.3) 1.5%,
+      rgba(255, 255, 255, 0.3) 2.4%,
+      rgba(0, 0, 0, 0.05) 2.7%,
+      rgba(0, 0, 0, 0.05) 3.5%,
+      rgba(255, 255, 255, 0.3) 4%,
+      rgba(255, 255, 255, 0.3) 4.5%,
+      rgba(244, 244, 244, 0.1) 5.4%,
+      rgba(244, 244, 244, 0.1) 99%,
+      rgba(144, 144, 144, 0.2) 100%
+    );
+    box-shadow: inset 0 -1px 4px rgba(0, 0, 0, 0.12); // Inner shadow like original
+  }
+}
+
+// Book cover image: no shadow (container has it)
+.book-cover {
+  max-width: 320px;
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 3px;
+  margin: 0; // Remove default img margin to prevent overlay overflow
+}
+
+// Dark theme: enhanced shadow (no hover effect)
+[saved-theme="dark"] .book-cover-container {
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.4),
+    0 8px 16px rgba(0, 0, 0, 0.5),
+    0 16px 48px rgba(0, 0, 0, 0.7);
+}
+
+// ============================================
+// LITERATURE NOTE STYLING (ZOTERO SOURCES)
+// ============================================
+
+// Academic, formal styling for Zotero-imported sources
+article.literature-note {
+  // CSS Counters for automatic numbering
+  counter-reset: section figure;
+
+  // Annotation Highlights - numbered with lowercase letters (a, b, c, d)
+  .annotation-highlight {
+    counter-increment: section;
+    margin-bottom: 1rem;
+
+    // Lowercase letters - block, left-aligned: a. b. c. d.
+    .section-marker::before {
+      content: counter(section, lower-alpha) ".";
+      display: block;
+      color: inherit;
+      font-weight: bold;
+    }
+
+    // Page number - block, right-aligned: (S. 42)
+    .annotation-page {
+      display: block;
+      text-align: right;
+    }
+  }
+
+  // Spacing between highlight groups (only when they follow each other)
+  // Case 1: highlight after comment (comment was the end of previous group)
+  .annotation-comment + .annotation-highlight {
+    margin-top: 2.5rem;
+  }
+
+  // Case 2: highlight after highlight (no comment in between)
+  .annotation-highlight + .annotation-highlight {
+    margin-top: 2.5rem;
+  }
+
+  // Exception: No extra spacing after headings (they already have margin)
+  h2 + .annotation-highlight,
+  h3 + .annotation-highlight {
+    margin-top: 0;
+  }
+
+  // Spacing for images (same logic as highlights)
+  .annotation-comment + p:has(> img),
+  .annotation-highlight + p:has(> img) {
+    margin-top: 2.5rem;
+  }
+
+  // No extra spacing after headings
+  h2 + p:has(> img),
+  h3 + p:has(> img) {
+    margin-top: 0;
+  }
+
+  // Spacing when highlight follows figure caption (no comment in between)
+  .annotation-figure-caption + .annotation-highlight {
+    margin-top: 2.5rem;
+  }
+
+  // Annotation Comments - block layout
+  .annotation-comment {
+    display: block;
+    line-height: 1.15rem;
+
+    // Comment label "Anm.:" - bold
+    .comment-label {
+      font-weight: bold;
+    }
+  }
+
+  // Paragraphs containing images - remove spacing for tight caption placement
+  p:has(> img) {
+    margin: 0;
+    padding: 0;
+  }
+
+  // Images - no margin for tight caption placement
+  img {
+    margin: 0;
+  }
+
+  // Figure captions - numbered with "Abb." (Arabic numerals)
+  .annotation-figure-caption {
+    counter-increment: figure;
+    text-align: right;
+    margin-bottom: 1rem;
+
+    // Opening parenthesis before figure label
+    &::before {
+      content: "(";
+    }
+
+    // Figure label: "Abb. 1 - " "Abb. 2 - " etc.
+    .figure-label::before {
+      content: "Abb. " counter(figure) " - ";
+      font-weight: bold;
+    }
+
+    // Closing parenthesis after figure source
+    &::after {
+      content: ")";
+    }
+  }
+}

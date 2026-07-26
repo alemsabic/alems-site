@@ -8,8 +8,10 @@ li.section-li {
   margin-bottom: 1em;
 
   & > .section {
+    // ale.ms/gpunkt.org customization: 2-column grid (no date column), matching v4's
+    // listPage.scss -- the .meta/date element was removed from PageList.tsx.
     display: grid;
-    grid-template-columns: fit-content(8em) 3fr 1fr;
+    grid-template-columns: 1fr auto;
 
     @media all and (max-width: 600px) {
       & > .tags {
@@ -20,17 +22,10 @@ li.section-li {
     & > .desc > h3 > a {
       background-color: transparent;
     }
-
-    & .meta {
-      margin: 0 1em 0 0;
-      opacity: 0.6;
-    }
   }
 }
 
 .popover .section {
-  grid-template-columns: fit-content(8em) 1fr !important;
-
   & > .tags {
     display: none;
   }
