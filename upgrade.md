@@ -139,7 +139,12 @@ Concrete outcomes/decisions beyond the mapping table:
 
 **Local plugin fork pattern established** (reusable for the remaining forks below): `git clone --depth 1 <upstream> local-plugins/<name>`, strip `.git`, patch source, add `FORK_NOTES.md`, point `quartz.config.yaml`'s `source:` at `./local-plugins/<name>`, `npx quartz plugin install --from-config`.
 
-**Still to do**: footnote-popover-fix (small new local transformer), global-scripts component (footnotes.inline.ts + tooltips.inline.ts), Tagline/EditOnGitHub/ContentHeader/Footer components, Date/Head/PageList/RecentNotes tweaks, custom.scss port + reconciliation, static assets, i18n string tweaks.
+**Footnote-popover fix — done, verified in a real build:**
+- `local-plugins/github-flavored-markdown/`: forked from `quartz-community/github-flavored-markdown` @ `287c709c12806dca76882ab8ab79567d57ede5b4`. Added a `sup > a` → `data-no-popover` hast-visitor to both `htmlPlugins()` return paths in `src/transformer.ts`, plus `unist-util-visit` to `devDependencies` (tsup bundles it, same pattern as the plugin's other markdown deps — checked `tsup.config.ts`'s `SINGLETON_EXTERNALS` list first to confirm it needs to be a real dep, not assumed available).
+- Correction from the plan: this fix belongs here (the GFM/footnotes plugin), not forked into `citations.ts` where v4 had it — v4's placement was really just "whichever file was already being touched," not a citations concern. Bibliography-link popover suppression is separately already built into upstream `citations` (confirmed earlier), so `citations` itself doesn't need forking at all now — just enabling with our bibliography options (already done in Phase D's YAML).
+- **Verified**: rebuilt, checked `public/autopoiesis-vs.-allopoiesis.html` — all `<sup><a ...>` footnote refs carry `data-no-popover="true"`.
+
+**Still to do**: global-scripts component (footnotes.inline.ts + tooltips.inline.ts), Tagline/EditOnGitHub/ContentHeader/Footer components, Date/Head/PageList/RecentNotes tweaks, custom.scss port + reconciliation, static assets, i18n string tweaks.
 
 ### Phase F — Bases + Canvas
 _(not started)_
