@@ -218,6 +218,16 @@ plugins:
     layout:
       position: left
       priority: 10
+  # New local plugin (not a fork): Tagline + ContentHeader — see local-plugins/site-components/README.md
+  # Object-form source with a `name` override so buildLayoutForEntries's PascalCase fallback
+  # lookup resolves each of this plugin's two named components independently.
+  - source:
+      repo: "./local-plugins/site-components"
+      name: tagline
+    enabled: true
+    layout:
+      position: left
+      priority: 20
   - source: "@quartz-community/darkmode"
     enabled: true
     layout:
@@ -235,6 +245,17 @@ plugins:
       position: beforeBody
       priority: 5
       condition: not-index
+  - source:
+      repo: "./local-plugins/site-components"
+      name: content-header
+    enabled: true
+    options:
+      baseUrl: "https://github.com/alemsabic/alems-notizen/blob/main"
+      editButtonText: "Verbesser die Seite auf GitHub."
+      showTags: true
+    layout:
+      position: beforeBody
+      priority: 10
   - source: "@quartz-community/comments"
     enabled: true
     options:
@@ -262,10 +283,8 @@ plugins:
     layout:
       position: afterBody
       priority: 90
-  - source: "@quartz-community/footer"
-    # PLACEHOLDER — v4's Footer.tsx hardcodes personal links (Alem Šabić link, X/Twitter) directly
-    # in the component source rather than taking them from config options, so `options.links` here
-    # is meaningless until Phase E forks Footer as a local-plugin. Left at stock defaults for now.
+  # Local fork (hardcoded personal links) — see local-plugins/footer/FORK_NOTES.md
+  - source: "./local-plugins/footer"
     enabled: true
     options:
       links: {}

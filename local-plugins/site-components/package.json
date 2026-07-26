@@ -1,7 +1,7 @@
 {
-  "name": "site-scripts",
+  "name": "site-components",
   "version": "0.1.0",
-  "description": "ale.ms/gpunkt.org global page-behavior scripts (footnote highlighting, tooltip decoding) — private, not published.",
+  "description": "ale.ms/gpunkt.org custom components (Tagline, ContentHeader) — private, not published.",
   "type": "module",
   "license": "MIT",
   "private": true,
@@ -38,7 +38,9 @@
     }
   },
   "dependencies": {
-    "@quartz-community/types": "^0.2.1"
+    "@quartz-community/types": "^0.2.1",
+    "@quartz-community/utils": "^0.1.0",
+    "reading-time": "^1.5.0"
   },
   "devDependencies": {
     "@types/node": "^24.10.0",
@@ -47,8 +49,8 @@
     "typescript": "^5.9.3"
   },
   "quartz": {
-    "name": "site-scripts",
-    "displayName": "Site Scripts (ale.ms)",
+    "name": "site-components",
+    "displayName": "Site Components (ale.ms)",
     "category": "component",
     "version": "1.0.0",
     "quartzVersion": ">=5.0.0",
@@ -57,10 +59,15 @@
     "defaultEnabled": true,
     "defaultOptions": {},
     "components": {
-      "SiteScripts": {
-        "displayName": "Site Scripts",
-        "defaultPosition": "afterBody",
-        "defaultPriority": 90
+      "Tagline": {
+        "displayName": "Tagline",
+        "defaultPosition": "left",
+        "defaultPriority": 20
+      },
+      "ContentHeader": {
+        "displayName": "Content Header",
+        "defaultPosition": "beforeBody",
+        "defaultPriority": 10
       }
     }
   },

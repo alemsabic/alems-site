@@ -1,6 +1,15 @@
 {
   "version": "1.0.0",
   "plugins": {
+    "content-header": {
+      "source": {
+        "repo": "./local-plugins/site-components",
+        "name": "content-header"
+      },
+      "resolved": "/Users/alemsabic/Desktop/ale.ms/local-plugins/site-components",
+      "commit": "local",
+      "installedAt": "2026-07-26T08:23:30.337Z"
+    },
     "content-index": {
       "source": "./local-plugins/content-index",
       "resolved": "/Users/alemsabic/Desktop/ale.ms/local-plugins/content-index",
@@ -12,6 +21,12 @@
       "resolved": "/Users/alemsabic/Desktop/ale.ms/local-plugins/folder-page",
       "commit": "local",
       "installedAt": "2026-07-26T08:17:59.394Z"
+    },
+    "footer": {
+      "source": "./local-plugins/footer",
+      "resolved": "/Users/alemsabic/Desktop/ale.ms/local-plugins/footer",
+      "commit": "local",
+      "installedAt": "2026-07-26T08:23:30.338Z"
     },
     "github-flavored-markdown": {
       "source": "./local-plugins/github-flavored-markdown",
@@ -36,6 +51,15 @@
       "resolved": "/Users/alemsabic/Desktop/ale.ms/local-plugins/tag-page",
       "commit": "local",
       "installedAt": "2026-07-26T08:17:59.395Z"
+    },
+    "tagline": {
+      "source": {
+        "repo": "./local-plugins/site-components",
+        "name": "tagline"
+      },
+      "resolved": "/Users/alemsabic/Desktop/ale.ms/local-plugins/site-components",
+      "commit": "local",
+      "installedAt": "2026-07-26T08:23:30.337Z"
     }
   }
 }
