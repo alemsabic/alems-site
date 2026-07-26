@@ -473,7 +473,8 @@ async function processOgImage(
   // ale.ms/gpunkt.org fix: upstream concatenates title+suffix with no separator (e.g.
   // "indexAlem Šabić's Notizen und Quellen"), same bug already fixed in core Head.tsx.
   const title =
-    (frontmatter?.title ?? fullOptions.defaultTitle ?? "") + (titleSuffix ? ` - ${titleSuffix}` : "");
+    (frontmatter?.title ?? fullOptions.defaultTitle ?? "") +
+    (titleSuffix ? ` - ${titleSuffix}` : "");
   const description =
     frontmatter?.socialDescription ??
     frontmatter?.description ??

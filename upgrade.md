@@ -250,6 +250,7 @@ never checked `shortTitle`. New fork `local-plugins/explorer/` (upstream
 `quartz-community/explorer` @ `06ea3d8e206f0edaab08556191adc75b2403e832`), one-line fix mirroring
 the core getter. Verified: Explorer now shows "Ahrens (2017)", "Christis (2001)", "von Foerster
 (1981)", etc. for every `Literatur/@*.md` entry.
+
 - **Note for gpunkt.org replay**: this means `shortTitle` support needs **4** pieces, not 3 as
   originally scoped — `fileTrie.ts` + `ctx.ts` (core) + `content-index` fork + this `explorer`
   fork. Don't skip the explorer fork there just because it wasn't in the original plan.
@@ -275,6 +276,7 @@ wrapper, which hand-picks 5 fields into the underlying call instead of spreading
 attributes are present and — critically — already **decoded** (`&amp;#38;` → plain `&`) after page
 load, confirming the full round-trip (server generates HTML-encoded tooltip text → client script
 decodes it on `nav`) works exactly like v4.
+
 - **Pattern that keeps paying off**: don't trust a plugin wrapper's typed options interface as the
   full set of what the underlying library supports — check the library's own docs when a v4 option
   goes missing, the same way the citations `lang` discovery worked in the opposite direction (v5
@@ -319,6 +321,7 @@ all Phase G forks.
 **Phase G summary — 3 real bugs found, all via actually looking at rendered output (browser
 screenshots, live JS inspection, opening generated images directly), not one of them caught by
 build success or grep alone**:
+
 1. Explorer sidebar not using `shortTitle` (client-side duplicate trie logic).
 2. Citation tooltips completely absent (`showTooltips`/`tooltipAttribute` silently dropped).
 3. `CustomOgImages` title/suffix concatenation bug (stock v5 bug, unrelated to the migration but
