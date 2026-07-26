@@ -2,10 +2,72 @@
 
 // put your custom CSS here!
 
+// Tagline (below page title, left sidebar) - moved out of Tagline.tsx's Component.css
+// (local-plugins/site-components) 2026-07-26 so all site-wide styling lives in one place.
+.tagline {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 2.5rem;
+  line-height: 1.1rem;
+  font-family: var(--titleFont);
+}
+
+// v5's own quartz/styles/base.scss changed `.desktop-only` from v4's `display: initial` to
+// `display: contents` (confirmed against upstream/v5 — not something we introduced). `contents`
+// makes the element generate no box of its own, so its own margin/padding/etc. stop applying —
+// which silently ate .tagline's margin-top/margin-bottom above, since Tagline.tsx puts both
+// classes on the same <div>. Restoring a real box here (higher specificity than base.scss's
+// `.desktop-only` alone) rather than patching the core scaffold file. Repeats the same
+// max-width:800px hide-on-mobile behavior from base.scss so mobile visibility is unaffected.
+.tagline.desktop-only {
+  display: block;
+
+  @media (max-width: 800px) {
+    display: none;
+  }
+}
+
 // Search bar styling - make search take full width
 .search {
   max-width: none !important;
   width: 100% !important;
+}
+
+// Search button: v5's @quartz-community/search ships different CSS than v4's bundled search
+// component (found via v4/v5 visual diff, 2026-07-26 — full rule-by-rule comparison against
+// https://ale.ms/index.css). Three real differences, all restored to v4's values here rather than
+// patching the plugin's own bundled CSS:
+//   - background: v5 uses transparent + a 1px border; v4 used a tinted fill with no border. The
+//     border-only look nearly disappears in dark theme (var(--lightgray) is barely-there
+//     translucent white against a near-black page).
+//   - layout: v5 drops `justify-content: space-between` and moves the horizontal padding from
+//     `.search-button > p` (v4) onto `.search-button` itself with different values, which shifted
+//     both the icon's position and left the text sitting flush against the box edge.
+//   - text contrast: v5 additionally sets `.search-button > p { color: var(--gray) }`, which v4
+//     never did — v4's placeholder text just inherits body's `color: var(--darkgray)`, notably
+//     higher contrast. This alone was the "text is barely readable" regression, independent of
+//     the background/border change above.
+//   - DOM order: v4's markup was `<p>Suche</p><svg>...</svg>` (text first); v5's component
+//     renders `<svg>...</svg><p>Suche</p>` (icon first) — not a CSS property, an actual JSX order
+//     difference in the plugin's own component. With justify-content:space-between, whichever
+//     comes first in the DOM lands on the left, so v5 as shipped puts the icon on the left and
+//     "Suche" on the right instead of v4's text-left/icon-right. Fixed visually via flexbox
+//     `order` instead of patching the plugin's component source.
+.search > .search-button {
+  background-color: color-mix(in srgb, var(--lightgray) 60%, var(--light));
+  border: none;
+  justify-content: space-between;
+  padding: 0;
+
+  svg {
+    order: 2;
+  }
+}
+
+.search > .search-button > p {
+  order: 1;
+  color: var(--darkgray);
+  padding: 0 1rem;
 }
 
 // Burger button - remove left padding
@@ -99,8 +161,13 @@ h1 {
 }
 
 // Desktop: H1 in articles larger font size
+// NOTE: v5's content-page/folder-page/tag-page plugins hardcode an extra
+// `div.markdown-preview-view.markdown-rendered` wrapper between <article> and its content (not
+// present on v4), so plain `article > h1` no longer matches — updated to skip exactly that one
+// level rather than dropping to a bare descendant selector, which would also incidentally match
+// any h1 nested deeper in the document (e.g. inside a transcluded embed).
 @media (min-width: 800px) {
-  .page article > h1 {
+  .page article > div.markdown-preview-view > h1 {
     font-size: 3rem;
     line-height: 0.9;
   }
@@ -753,6 +820,7 @@ article.zettelkasten .data-footnote-backref {
 }
 
 .recent-notes li.recent-li {
+  margin-top: 0;
   margin-bottom: 0;
 }
 
@@ -811,7 +879,11 @@ article.zettelkasten {
   }
 
   // Erstes Paragraph: Zusammenfassung mit eckigen Klammern
-  > p:first-of-type {
+  // NOTE: skips exactly one level (content-page's markdown-preview-view wrapper div) instead of
+  // dropping to a bare descendant selector — see the h1 font-size comment above for why. Staying
+  // direct-child-precise here matters: a bare descendant `p:first-of-type` would also match the
+  // first paragraph inside any nested blockquote/callout elsewhere in the note.
+  > div.markdown-preview-view > p:first-of-type {
     letter-spacing: 1px !important;
 
     // Eckige Klammern
@@ -826,7 +898,7 @@ article.zettelkasten {
   }
 
   // Kein Kursiv in der Ein-Satz-Zusammenfassung (überschreibt em-Element)
-  > p:first-of-type em {
+  > div.markdown-preview-view > p:first-of-type em {
     font-style: normal !important;
     font-size: 1.5rem;
   }
@@ -906,11 +978,15 @@ article.zettelkasten {
 }
 
 // Zettelkasten Ein-Satz-Zusammenfassung: Theme-spezifische Farben
-[saved-theme="light"] article.zettelkasten > p:first-of-type {
+// NOTE: skips the markdown-preview-view wrapper div, same as the h1/p:first-of-type rules above
+// (see the h1 font-size comment further up for why) — without this, the selector never matches
+// in v5, this color rule never applies, and `article.zettelkasten p:first-of-type em`'s font-size
+// override further up loses its color (inherited from this rule on the parent p) as a side effect.
+[saved-theme="light"] article.zettelkasten > div.markdown-preview-view > p:first-of-type {
   color: #5a6b7a !important; // Dunkles Blaugrau (wie Bleistift)
 }
 
-[saved-theme="dark"] article.zettelkasten > p:first-of-type {
+[saved-theme="dark"] article.zettelkasten > div.markdown-preview-view > p:first-of-type {
   color: #88a5c1 !important; // Helles Blaugrau (wie verblasste Tinte)
 }
 
@@ -1034,7 +1110,10 @@ a.internal.tag-link:hover {
 }
 
 // Callout content: smaller font size and line-height
-.callout-content-inner p {
+// Class renamed 2026-07-26: v4 wrapped callout content in .callout-content > .callout-content-inner;
+// v5's obsidian-flavored-markdown only emits .callout-content directly (confirmed in its bundled
+// source, dist/index.js), no "-inner" wrapper. Selector updated accordingly.
+.callout-content p {
   font-size: 0.85rem;
   line-height: 1.25rem;
 }

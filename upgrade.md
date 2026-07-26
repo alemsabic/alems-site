@@ -1,8 +1,9 @@
 # Quartz v4 → v5 Migration Runbook
 
-Status: **Phases A–G done and pushed to the `v5` branch. `v4` (production, live on Cloudflare
-Pages) is untouched.** One open item is under investigation before Phase H — see "Current status
-and how to continue" immediately below. Update this file as each phase actually executes (commands
+Status: **Phases A–G done and pushed to the `v5` branch, including the font-conflict bug fix
+below. `v4` (production, live on Cloudflare Pages) is untouched.** Phase H (deploy cutover) and
+Phase I (gpunkt.org replay) remain, both gated on the user being present — see "Current status and
+how to continue" immediately below. Update this file as each phase actually executes (commands
 run, gotchas hit, final config). This is the artifact that makes replaying the same migration on
 the sister project (`/Users/alemsabic/Desktop/gpunkt.org`) mechanical instead of exploratory —
 gpunkt.org has no CLAUDE.md of its own to lean on, so this doc carries the institutional memory.
@@ -20,22 +21,49 @@ execution log below.**
 
 - Phases A through G are complete, verified in real builds and in an actual browser (not just
   build success), and pushed to the `v5` branch. `git log v5` has the full commit-by-commit trail;
-  each phase section further down in this file has the detailed narrative, including three real
+  each phase section further down in this file has the detailed narrative, including eight real
   bugs found and fixed purely by looking at rendered output (Explorer `shortTitle`, citation
-  tooltips, `CustomOgImages` title concatenation — see the "Phase G" section below for all three).
+  tooltips, `CustomOgImages` title concatenation, the `quartz-fonts` cascade-layer conflict, a
+  duplicate-H1 regression on content pages, a beforeBody reorder + duplicate Properties panel, a
+  hardcoded `markdown-preview-view` wrapper div breaking several direct-child CSS selectors, and a
+  multi-part search-button styling regression — see the "Phase G" section and its addenda below
+  for all eight).
 - The `v5` branch is currently checked out locally. `v4` (the live, deployed branch) has not been
   touched since Phase A and is not affected by anything on `v5` until Phase H actually happens.
 - `npm run check` (TypeScript + prettier) is clean except for `content/` and harness config files,
   neither in scope.
+- **Ongoing (2026-07-26, current session): a manual visual-diff pass, page by page, comparing the
+  locally-running `v5` build against the live `v4` site.** This is how bugs 4 through 8 above were
+  found — automated Phase G checks confirmed things *rendered*, not that they rendered
+  *identically* to v4. Not yet exhaustive (checked in depth: one zettelkasten note,
+  `Atomizität im ZK`; not yet checked: dictionary-entry/literature-note note types, folder/tag
+  listing pages beyond a spot check, the index page). Continue this comparison before treating
+  Phase G as fully closed. No new section further down tracks this separately — findings get
+  folded into the "Phase G addendum" numbering as they're found and fixed.
+- **Also done this session, not bugs but user-requested feature/design changes** (see the two
+  dedicated subsections after the numbered bug addenda below): Tagline text made configurable via
+  `quartz.config.yaml` options instead of hardcoded JSX, its CSS centralized into `custom.scss`;
+  `content-header`'s Textlänge (word count) field removed (Datum, tags, GitHub edit link all
+  remain — Datum was removed then put back the same session, see below). A same-session detour
+  moved `content-header` into `afterBody` with a redesigned divider and removed the site-wide
+  `<hr>` — fully reverted at the user's own follow-up request, back to the original beforeBody
+  position with the site-wide `<hr>` restored. Net effect on that front: only the Textlänge
+  removal persists.
+- **Gotcha worth remembering, hit twice this session**: `local-plugins/*` packages are pre-built via
+  `tsup` into their own `dist/`, which is what the Quartz build actually loads — editing
+  `src/**/*.tsx` alone does nothing until you run `npm run build` inside that specific
+  `local-plugins/<name>` directory. Forgetting this step silently serves the old compiled output
+  with no error, which looks exactly like the edit "didn't take" — see the Tagline addendum below
+  for the concrete case where this cost real time to diagnose.
 
-### Open item: a 4th real bug, found by the user, not yet fixed (deliberately paused)
+### Resolved: a 4th real bug, found by the user, fixed 2026-07-26
 
 While spot-checking the running `v5` site locally against memory of the old `v4` site, the user
 (not automated testing) noticed the body text was rendering in the wrong font — `Source Sans Pro`
-instead of the configured `JetBrains Mono`. Investigated together on 2026-07-26; **root cause is
-understood, but the fix has deliberately not been applied yet** — the user asked to slow down,
-think it through fully, and revisit calmly rather than patch reactively. Full technical writeup is
-in the "Phase G addendum" section further down (search for "quartz-fonts plugin conflict"). One
+instead of the configured `JetBrains Mono`. Investigated together on 2026-07-26; paused
+mid-investigation on purpose (user asked to think it through calmly rather than patch reactively),
+then resumed and fixed same day. Full technical writeup, including the fix and its verification,
+is in the "Phase G addendum" section further down (search for "quartz-fonts plugin conflict"). One
 paragraph summary:
 
 Quartz v5 has **two independent, non-communicating font-configuration systems**: the core
@@ -65,11 +93,53 @@ Mono, code: Inconsolata}`** to its `quartz.config.yaml` entry. Keeps the plugin 
    possible future Obsidian-theme compatibility, at the cost of two places that must be kept in
    sync by hand forever (a drift risk the two-systems-in-one-repo problem already caused once).
 
-**Next action, next session**: revisit this calmly with the user, decide between the two options
-(or a third one neither of us has thought of yet), apply it, rebuild, and re-verify the correct
-font renders — ideally with a real side-by-side against a screenshot of the live `v4` site, since
-that's how the user caught this in the first place and a fresh screenshot comparison is the most
-reliable way to confirm it's actually fixed, not just "build succeeds."
+**Resolution (2026-07-26, same day, after the pause above)**:
+
+Before deciding, checked how the upstream reference site (`quartz.jzhao.xyz`, built via `npm run
+docs` → `npx quartz build --serve -d docs`, straight off `quartz.config.default.yaml` in
+`jackyzha0/quartz` — no separate docs-site config) avoids ever hitting this. It doesn't avoid it
+architecturally — it just never triggers it: `quartz.config.default.yaml` and every scaffold
+template (`default.yaml`, `blog.yaml`, `obsidian.yaml`, `ttrpg.yaml`) set
+`theme.typography` to `header: Schibsted Grotesk / body: Source Sans Pro / code: IBM Plex Mono` —
+identical to `quartz-fonts`'s own hardcoded `QUARTZ_DEFAULT_*` constants — while leaving
+`quartz-fonts` with no `options:` block, same as our Phase D/C setup. Both competing `@layer`
+blocks render the same values by coincidence, so the cascade-layer precedence bug is real there
+too, just invisible. We only surfaced it because we changed `theme.typography` away from stock
+without also touching `quartz-fonts`'s own options. This confirmed the diagnosis and ruled out "our
+setup is unusually broken" as an explanation.
+
+Chose **option 1** (disable the plugin) — user's call, `quartz.config.yaml:122-127`:
+
+```yaml
+# Disabled: ships its own hardcoded font defaults (Schibsted Grotesk/Source Sans Pro/IBM Plex
+# Mono) in a CSS @layer that wins over configuration.theme.typography's @layer by cascade-layer
+# ordering, unless given matching `options:`. Nothing we own reads the Obsidian-style variables
+# (--font-text etc.) it exists to bridge, and @quartz-themes/core (its only consumer) is also
+# disabled below. See upgrade.md "Phase G addendum" for the full trace.
+- source: "@quartz-community/quartz-fonts"
+  enabled: false
+```
+
+**Verification**:
+
+- `curl localhost:8080/index.css` → `--bodyFont` correctly `"JetBrains Mono", ...`.
+- Swept every CSS file the built index page actually links (`index.css`, all `component-*.css`,
+  both remaining `static/resource-style-*.css`, the KaTeX CDN stylesheet) via `curl` + `grep` for
+  `Source Sans Pro` / `Schibsted Grotesk` / `IBM Plex Mono` — zero matches anywhere. The
+  `quartz-fonts`-generated `@layer quartz-fonts` block is gone entirely, not just losing the
+  cascade.
+- Bonus finding while verifying: disabling the plugin does **not** orphan the Obsidian-style
+  bridge variables. `index.css` (core `quartz-base` layer, generated straight from
+  `configuration.theme.typography`) already defines its own aliases —
+  `--font-text: var(--bodyFont)` and siblings — independent of `quartz-fonts`. Confirmed live via
+  `getComputedStyle(document.documentElement).getPropertyValue('--font-text')` in the browser:
+  resolves to `"JetBrains Mono", ...`, matching `--bodyFont` exactly. So nothing depending on the
+  Obsidian naming convention (were anything ever added later) would break — it was dead weight
+  exactly as suspected, not a load-bearing bridge.
+- Real browser check (not just curl): rebuilt (`npx quartz build --serve`), opened
+  `localhost:8080` in Chrome, user confirmed visually — correct fonts render, matches the old `v4`
+  site's look. This is the side-by-side-with-real-eyes check the "honest note" below says the
+  original Phase G pass skipped.
 
 ### After that: Phase H and Phase I, in order
 
@@ -423,11 +493,11 @@ This validates the "don't fully trust build-success + grep, actually look at the
 the rest of this migration and for the gpunkt.org replay — static verification alone would have
 shipped all three of these to production.
 
-### Phase G addendum — 4th bug found by the user (2026-07-26, session end): quartz-fonts plugin conflict
+### Phase G addendum — 4th bug found by the user (2026-07-26): quartz-fonts plugin conflict
 
-**Status: diagnosed in full, deliberately NOT fixed yet.** The user asked to pause and think it
-through calmly rather than patch reactively — this section is that write-up, so the decision can
-be picked up fresh next time without re-deriving any of it.
+**Status: diagnosed AND fixed (2026-07-26).** Diagnosis happened first; the user then asked to
+pause and think it through calmly rather than patch reactively. This section is that write-up,
+followed by the fix and its verification once the session resumed.
 
 **Symptom**: body text on the locally running `v5` site rendered in `Source Sans Pro` instead of
 the configured `JetBrains Mono`. Found by the user directly (opened dev tools, saw
@@ -521,6 +591,350 @@ independent color system from another plugin? Not checked — this was scoped sp
 font symptom the user reported, not a full audit of every `:root`-setting plugin. Worth a quick
 `grep -rl ":root" public/*.css public/static/*.css` sweep before considering the theme system
 fully verified.)
+
+### Phase G addendum — 5th bug found by the user (2026-07-26): duplicate H1 on content pages
+
+**Status: diagnosed and fixed.** User compared `localhost:8080/atomizität-im-zk` (v5) against the
+live `https://ale.ms/Atomizität-im-ZK` (v4) — v4 shows exactly one H1 (the article's own leading
+`# Heading` from the markdown body), immediately followed by the italic dek sentence. v5 showed
+that same H1 twice: once from a component, once from content.
+
+**Root cause, part 1 — why v4 only ever had one H1**: v4's frontmatter transformer
+(`quartz/plugins/transformers/frontmatter.ts`) falls back to `file.stem` (the filename) for
+`data.title` when frontmatter has no explicit `title:` — it does **not** promote the markdown
+body's first H1 into the title or strip it from the body. v4 also never rendered a
+component-level title on content pages at all (its `layout.ts` never included `ArticleTitle`), and
+the `shortTitle` work (see CLAUDE.md) deliberately commented out the redundant title `<dt>/<dd>` in
+`ContentHeader`. So on v4 the only H1 a content page ever shows is whatever the note itself starts
+with — which for this vault's convention is always `# <filename>`, i.e. visually identical to what
+a title component would show, but there's only ever one render path, not two.
+
+**Root cause, part 2 — why v5 regressed**: `content.exclude` in `quartz.config.yaml`'s
+`layout.byPageType` originally excluded only `content-meta`, not `article-title` — a Phase-G
+comment claimed "article-title alone already renders the correct H1 exactly where v4's
+ArticleTitle used to," which was factually wrong (v4 never had that component at all, per above).
+Result: `article-title` (component, driven by `frontmatter.title` = filename) rendered as one H1,
+and the markdown body's own leading `# Heading` rendered as a second, textually identical H1
+directly under it.
+
+**Root cause, part 3 — why the first fix attempt silently failed**: adding `- article-title` to
+`content.exclude` had no effect on rebuild. Traced through
+`quartz/plugins/loader/config-loader.ts`'s `extractPluginName()` (used by the exclude-filtering
+logic at line ~662): it strips a short name from **local** sources (`./local-plugins/x` → `x`) and
+from `github:`/`git+`/`https:` sources, but a plain npm-scoped source string like
+`"@quartz-community/article-title"` hits none of those branches and is returned completely
+unstripped. So `exclude: [article-title]` was comparing `"article-title"` against
+`"@quartz-community/article-title"` — never equal, exclude silently no-ops. This is why
+`content-meta`'s exclude worked from the start (it's `./local-plugins/content-meta`, a local
+source, so basename-stripping applies) while `article-title`'s otherwise-identical-looking exclude
+did not. Grepped every other by-name plugin lookup in `config-loader.ts` — none of them strip npm
+scope either, so this is a repo-wide gotcha, not specific to this one entry: **any `exclude:` (or
+similar by-name reference) targeting a plain npm-scoped package must use the full source string,
+not the short display name.**
+
+**Fix applied** (`quartz.config.yaml`, `layout.byPageType`):
+
+```yaml
+content:
+  exclude:
+    - "@quartz-community/article-title" # full source string required, see comment in file
+    - content-meta
+folder:
+  exclude:
+    - "@quartz-community/reader-mode" # same gotcha — was silently broken before too (harmless,
+tag: #                                   since reader-mode is disabled outright, but noting it here
+  exclude: #                            since it's the exact same class of bug, found in the same pass)
+    - "@quartz-community/reader-mode"
+```
+
+**Verification**: `curl` + `grep -o "<h1"` count on `localhost:8080/atomizität-im-zk` went from 2
+to 1; confirmed the remaining H1 is the content one (`id="atomizität-im-zk"`), not
+`class="article-title"`. Confirmed list pages (checked `localhost:8080/tags/zk-theorie`) still
+correctly render their `article-title` H1 — the exclude is content-page-scoped only, folder/tag
+pages have no markdown body of their own to supply an H1 from. Real browser screenshot taken and
+visually confirmed by the user against memory of the `v4` original.
+
+**Worth remembering for the gpunkt.org replay (Phase I)**: audit every `exclude:` entry in that
+site's `layout.byPageType` the same way — any exclude targeting a plain `@scope/name` package
+(not a `./local-plugins/...` fork) needs the full string, or it will silently no-op exactly like
+this one did.
+
+### Phase G addendum — 6th bug found by the user (2026-07-26): beforeBody reorder + duplicate Properties panel
+
+**Status: diagnosed and fixed.** User compared screenshots of `localhost:8080` (v5) against
+`https://ale.ms` (v4): v4 shows Search+Darkmode first, directly above Breadcrumbs, then
+`content-header` (Datum/Textlänge/Schlagwörter/GitHub-link). v5 showed the same components in the
+wrong order (Breadcrumbs → content-header → **a new "Properties" panel** repeating
+tags/aliases → Search+Darkmode at the bottom, right above the H1).
+
+**Root cause 1 — ordering**: `quartz.config.yaml`'s `layout.groups.toolbar.priority: 35` is an
+unmodified carryover from the scaffold default (`quartz.config.default.yaml` has the identical
+value). An explicit group priority overrides every member's own `layout.priority` for sort
+purposes (`config-loader.ts`'s `resolveGroups` — group priority wins over the first-member
+fallback), so the Search+Darkmode toolbar (members at priority 1/2) was sorting *after*
+Breadcrumbs (5) and `content-header` (10) instead of before them — silently contradicting the
+"moved here to match v4" comment already sitting on the Search entry from Phase E. **Fix**:
+changed `groups.toolbar.priority` from `35` to `0` (below Breadcrumbs' 5) in
+`quartz.config.yaml`.
+
+**Root cause 2 — duplicate panel**: `@quartz-community/note-properties` was enabled with its
+scaffold-default options, which render an additional collapsible "Properties" table (tags,
+aliases) directly duplicating what `content-header` already shows. v4 never had this component at
+all.
+
+**First fix attempt for root cause 2 was wrong and broke the whole site**: setting
+`enabled: false` on `note-properties` seemed like the obvious fix, but this plugin is v5's *only*
+frontmatter-parsing transformer — it registers `remarkFrontmatter` and sets `file.data.frontmatter`
+(title fallback, tags/aliases coercion, cssclasses, dates), i.e. it's the direct v5 equivalent of
+v4's dedicated `FrontMatter` transformer, just bundled together with an optional properties-display
+component. Disabling it entirely made every note's raw `---\n...\n---` YAML block render as literal
+paragraph text, since nothing else in the plugin list registers `remarkFrontmatter`. **Correct
+fix**: kept `enabled: true`, set `options.hidePropertiesView: true` instead — the component's own
+source (`@quartz-community/note-properties/dist/components/index.js`) checks
+`if (noteProps.showProperties !== true && noteProps.hideView) return null;`, so this renders
+nothing (not just `display:none` — no DOM node at all) while the transformer keeps working.
+
+**Verification**: `curl` + `grep` on the built HTML — correct order
+(`search` → `darkmode` → `breadcrumb-container` → `content-header` → `<h1`), no `cssclasses:`
+literal text leaking into the body, no `note-properties` node anywhere. Confirmed live in browser
+by the user (screenshot).
+
+### Phase G addendum — 7th bug found by the user (2026-07-26): `markdown-preview-view` wrapper div breaks direct-child selectors
+
+**Status: diagnosed and fixed.** User compared the same note again: v4 renders the H1 at a large
+`3rem` desktop size, and the note's first paragraph (the italic one-sentence summary) gets square
+brackets (`[ ... ]`) via `::before`/`::after`. Both were missing in v5 — H1 rendered small
+(computed `28px`/`1.75rem`, from a generic `h1 { font-size: 1.75rem }` rule instead of ours), and
+the brackets were gone entirely.
+
+**Root cause**: `@quartz-community/content-page` (confirmed also true of `folder-page`/`tag-page`)
+hardcodes its `ContentBody` component as
+`<article class={...}><div class="markdown-preview-view markdown-rendered">{content}</div></article>`
+— an extra wrapper `<div>` between `<article>` and the actual rendered markdown, unconditional,
+not exposed as an option. v4 had no such wrapper; `<article>`'s children were the real content
+directly. Every direct-child (`>`) selector in `custom.scss` that assumed `article > h1` or
+`article.zettelkasten > p:first-of-type` therefore stopped matching anything in v5 — confirmed via
+`element.matches(...)` in the browser (`false` for the old selectors) and by walking the actual
+DOM parent chain (`H1 → DIV.markdown-preview-view → ARTICLE.zettelkasten → ...`).
+
+**Fix**: for each affected rule, inserted `> div.markdown-preview-view >` to skip exactly that one
+level, rather than dropping to a bare descendant selector — a bare descendant would also
+incidentally match e.g. the first paragraph inside a nested blockquote/callout elsewhere in the
+note, which a direct-child chain correctly excludes. Four rules fixed in `custom.scss`:
+- `.page article > h1` (desktop 3rem H1 font-size)
+- `article.zettelkasten > p:first-of-type` and `> p:first-of-type em` (bracket summary paragraph)
+- `[saved-theme="light"/"dark"] article.zettelkasten > p:first-of-type` (theme-specific summary
+  color — its loss is also why the summary's `em` lost its color as a side effect, since color is
+  inherited from this rule on the parent `p`, not set directly on the `em` rule)
+
+**A mid-session scare, noted for honesty**: partway through, one of these fixes appeared to have
+reverted on disk between turns (the file matched an earlier, less-precise draft rather than the
+corrected version, despite the corrected edit having reported success). Cause not conclusively
+identified — possibly an editor/linter auto-format cycle running concurrently with the session (a
+system notice mid-session flagged `custom.scss` as "modified, either by the user or by a linter").
+Re-applied the fix and it held on rebuild. **Lesson for future sessions**: after any edit to a
+file that might be open in another tool, re-grep for the expected result after rebuilding rather
+than trusting the edit tool's success report alone, especially for anything that took more than
+one attempt to get right.
+
+**Verification**: compiled CSS (`public/index.css`) shows all four selectors with the
+`>div.markdown-preview-view>` segment; live HTML confirms the wrapper div's presence and position;
+browser screenshot (both light and dark theme) confirms the H1 size, the bracket styling, and the
+theme-specific summary color all match `v4`.
+
+### Phase G addendum — 8th bug found by the user (2026-07-26): search button styling regression
+
+**Status: diagnosed and fixed.** User sent side-by-side screenshots: v4's search bar has a subtly
+tinted fill and no border; v5's has a transparent fill with a visible 1px border, and in dark
+theme the border is barely visible against the near-black background — making the whole control
+look "broken"/invisible. Follow-up round also found the placeholder text almost unreadable in
+both themes, and the text sitting flush against the box edge with no padding.
+
+**Root cause**: `@quartz-community/search` ships different default CSS for `.search-button` than
+v4's own bundled search component. Diagnosed by diffing the *exact* compiled rule from
+`https://ale.ms/index.css` against the v5 plugin's bundled CSS
+(`node_modules/@quartz-community/search/dist/components/*.js`), rule-by-rule rather than
+guessing:
+
+| | v4 | v5 default |
+|---|---|---|
+| background | `color-mix(in srgb, var(--lightgray) 60%, var(--light))` | `transparent` |
+| border | `none` | `1px solid var(--lightgray)` |
+| layout | `justify-content: space-between` | *(missing)* |
+| padding | `0` on button, `0 1rem` on the `<p>` | `0 1rem 0 0` on button, none on `<p>` |
+| `.search-button > p` color | *(unset — inherits `body`'s `color: var(--darkgray)`)* | explicit `color: var(--gray)` |
+| DOM order | `<p>Suche</p><svg>...</svg>` (text first) | `<svg>...</svg><p>Suche</p>` (icon first) |
+
+The DOM-order difference matters specifically because of `justify-content: space-between`:
+whichever element is first in the DOM lands on the left. v5's icon-first markup therefore put the
+icon on the left and the text on the right — the reverse of v4 — even after every other property
+was corrected.
+
+**Fix**, all in `custom.scss` (none of it touches the plugin's own bundled component):
+```scss
+.search > .search-button {
+  background-color: color-mix(in srgb, var(--lightgray) 60%, var(--light));
+  border: none;
+  justify-content: space-between;
+  padding: 0;
+
+  svg {
+    order: 2;
+  }
+}
+
+.search > .search-button > p {
+  order: 1;
+  color: var(--darkgray);
+  padding: 0 1rem;
+}
+```
+The `order` properties are the key trick for the DOM-order mismatch — pure CSS, no component fork
+needed, since `order` only affects visual/layout order, not the underlying DOM.
+
+**Verification**: computed styles checked directly in the browser console for both themes —
+`.search-button`'s background, border, and child order all matched v4; `.search-button > p`'s
+color came back as `rgb(78, 78, 78)` (`#4e4e4e`, our light-theme `--darkgray`) and
+`rgb(212, 212, 212)` in dark theme, both against their respective correct backgrounds. Visually
+confirmed by the user in both themes after each incremental correction (this bug took four
+back-and-forth rounds to fully match v4 — background/border first, then padding, then DOM order,
+then the padding-on-`<p>`-not-button detail).
+
+### Tagline: made configurable, CSS centralized (2026-07-26, user-requested feature, not a bug)
+
+User asked for the Tagline text ("Alem Šabićs Zettelkästchen der Notizen, Quellen und Ideen.") to
+be settable from `quartz.config.yaml` instead of hardcoded in JSX, and changed to "Alem Šabićs
+Notizen & Quellen." While doing this, also noticed `Tagline.tsx` embedded its own CSS via
+`Component.css` and asked for that to move into `custom.scss` instead, for consistency with how
+the rest of the site's styling is centralized.
+
+**Changes**:
+- `local-plugins/site-components/src/components/Tagline.tsx`: converted from a bare
+  `QuartzComponent` to the standard options-factory pattern (matching `ContentHeader.tsx`'s
+  existing shape) — new `TaglineOptions` (`linkText`, `linkUrl`, `text`), defaults matching the old
+  hardcoded v4 text exactly. Removed the inline `Tagline.css` block entirely.
+- `quartz.config.yaml`: the `tagline` entry's `options:` now sets
+  `linkText: "Alem Šabićs"`, `linkUrl: "https://alemsabic.com"`, `text: " Notizen & Quellen."`.
+- `quartz/styles/custom.scss`: added the `.tagline { font-size: 1rem; margin-top: 0.5rem;
+  margin-bottom: 2.5rem; line-height: 1.1rem; font-family: var(--titleFont); }` block that used to
+  live in `Tagline.css`.
+
+**Gotcha that cost real time**: `local-plugins/site-components` is pre-built via `tsup` into its
+own `dist/`, which is what the Quartz build actually loads — not `src/`. The very first rebuild
+after editing `Tagline.tsx` still showed the *old* hardcoded text, with no error anywhere, because
+`dist/components/index.js` hadn't been regenerated. Fix: `cd local-plugins/site-components && npm
+run build` before rebuilding Quartz, every time a `local-plugins/*` source file changes. **This
+applies to every package under `local-plugins/`, not just this one** — worth a standing reminder
+for the gpunkt.org replay.
+
+**A second, related bug found while verifying**: after fixing the text, `.tagline`'s own
+`margin-top`/`margin-bottom` weren't rendering at all. Cause: `Tagline.tsx` puts both `tagline` and
+`desktop-only` classes on the same `<div>`, and v5's own `quartz/styles/base.scss` (core scaffold
+file, confirmed identical in `upstream/v5` — not something we introduced) changed `.desktop-only`
+from v4's `display: initial` to `display: contents`. `display: contents` makes an element
+generate no box of its own — its children render as if promoted to the parent's direct children,
+but the element's *own* margin/padding/border/background stop applying, since there's no box left
+for them to apply to. Fixed in `custom.scss` rather than patching the core scaffold file:
+```scss
+.tagline.desktop-only {
+  display: block;
+
+  @media (max-width: 800px) {
+    display: none;
+  }
+}
+```
+The higher specificity (`.tagline.desktop-only` vs. base.scss's bare `.desktop-only`) wins
+regardless of source order, and the nested media query repeats base.scss's own mobile-hide
+behavior so mobile visibility is unaffected.
+
+**Verification**: `curl` on the built homepage shows
+`<a href="https://alemsabic.com">Alem Šabićs</a> Notizen &amp; Quellen.`; compiled CSS shows
+`.tagline.desktop-only{display:block}` unconditionally and `{display:none}` inside the
+`max-width:800px` media query.
+
+### `content-header`: Textlänge removed; a same-day position experiment, reverted
+
+User asked to drop the "Datum" and "Textlänge" (word count) fields from `content-header` as
+superfluous, keeping "Schlagwörter" (tags) and the GitHub edit link. Implemented in
+`local-plugins/site-components/src/components/ContentHeader.tsx`: removed the `dateText`/
+`wordCountText` JSX blocks and their supporting code (`getDate`, `readingTime` import, the
+inlined `formatDate` helper). **Immediately regretted removing Datum too** ("ich muss gerade
+selbst über mich lachen") and asked for it back the same session — `getDate`/`formatDate` and the
+`dateText` block were restored verbatim. Net result: only **Textlänge** (word count) is actually
+gone; Datum, Schlagwörter, and the GitHub edit link all remain.
+
+**Same-day detour (fully reverted, documented for the record, not because any of it survived)**:
+the user then asked to move `content-header` from `beforeBody` (above the article) to `afterBody`
+(inside `.page-footer`, right after `DefaultFrame.tsx`'s site-wide `<hr>`), then to redesign its
+divider as a bibliography-style colored accent line (`::before`, matching
+`#refs.references.csl-bib-body`'s existing look, 60% width instead of 40%) plus its original
+dashed `border-bottom`, and removed the site-wide `<hr>` from `DefaultFrame.tsx` entirely once the
+accent line made it redundant for this component. Also added `margin-bottom` to
+`.breadcrumb-container` to compensate for `content-header` no longer sitting directly below it.
+After seeing it rendered, the user decided they didn't like `content-header` at the bottom of the
+page after all and asked to put it back exactly where it started. Reverted, in full: `content-header`
+back to `beforeBody`/priority 10, `<hr>` restored in `DefaultFrame.tsx`, `.breadcrumb-container`'s
+`margin-bottom` addition removed, `content-header`'s CSS back to its pre-detour form (no accent
+line, no `position: relative`, plain `border-bottom`-free block matching the original). **Net
+diff from this whole detour: zero** — only the Datum/Textlänge field removal from the start of this
+section persists. Left in this runbook anyway, since the bibliography-accent-line technique and
+the `display:contents`/`markdown-preview-view` gotchas surfaced along the way are genuinely useful
+if a similar redesign is revisited later (e.g. for the gpunkt.org replay, or a future session).
+
+**Follow-up same session**: user asked for Datum back after all ("ich muss gerade selbst über mich
+lachen") — `getDate`/`formatDate`/the `dateText` block were restored verbatim. Final state: only
+**Textlänge** (word count) is gone; Datum, Schlagwörter, and the GitHub edit link all remain.
+Separately, also dropped the trailing period from the date format (`26.07.2026.` → `26.07.2026`)
+at the user's request — confirmed via `curl` against the live `v4` site that the trailing period
+was already there on v4 too (not a v5 regression), just a small polish the user wanted anyway.
+
+### Small fixes: no comments on tag/bases/canvas pages; `.recent-notes` margin regression; renamed callout class (2026-07-26)
+
+Three small, unrelated fixes from the same session, grouped here rather than given full addenda:
+
+**No Giscus comments on tag/bases/canvas pages**: `@quartz-community/comments` had no
+`byPageType` exclusion, so it rendered on every page type including generated tag-index pages and
+`.base` tool pages, where a comment thread makes no sense. Added
+`exclude: ["@quartz-community/comments"]` (full source string — see the article-title/`exclude`
+gotcha from the 5th bug addendum, applies here too) to the `tag`, `canvas`, and `bases` entries in
+`quartz.config.yaml`'s `layout.byPageType`. `canvas` has no content under `content/` yet but is
+excluded proactively. Folder pages and regular content pages are unaffected (comments still show
+there, confirmed via `curl` on `/literatur` and a content page).
+
+**`.recent-notes` (index page "Zuletzt bearbeitete Seiten") had visibly larger gaps between
+entries than v4.** User's first guess — that `.section h3, .section > .tags { margin: 0 }` (in the
+local `folder-page`/`tag-page` forks' shared `PageList.css`, reused here since `RecentNotes`
+copies the same class-name convention) had stopped matching — turned out to be wrong on
+inspection: `getComputedStyle` in the browser confirmed that rule was applying correctly
+(`h3`'s margin really was `0px`). The actual cause: `local-plugins/recent-notes`'s
+`recentNotes.scss` sets `& > li { margin: 1rem 0; }` (both top *and* bottom), where v4's original
+only ever set `margin-bottom: 1em` on `.recent-li` — the extra `margin-top` was new, adding an
+uncancelled ~1rem gap between every pair of entries. Confirmed by comparing computed
+`margin-top`/`margin-bottom` on `.recent-li` side by side: v4 live site had `0px`/`0px` (v4's own
+`custom.scss`-equivalent already zeroes `margin-bottom`, and `margin-top` was never set in the
+first place); v5 had `16px`/`0px` (our existing `.recent-notes li.recent-li { margin-bottom: 0 }`
+in `custom.scss` canceled the bottom half but not the newly-introduced top half). **Fix — kept
+entirely in `custom.scss` per the user's standing preference** (edits to `local-plugins/*` source
+were explicitly declined this round): extended the existing override to
+`.recent-notes li.recent-li { margin-top: 0; margin-bottom: 0; }`. Also confirms something worth
+remembering: this override, despite *lower* CSS specificity (`(0,2,1)`) than the fork's
+`.recent-notes > ul.recent-ul > li` rule (`(0,2,2)`), still wins — because `custom.scss`'s compiled
+output lands unlayered in `index.css` while every component's own CSS (including this fork's) is
+wrapped in `@layer quartz-base`, and per the Cascade Layers spec, **unlayered CSS always beats
+layered CSS regardless of specificity**. This is a generically useful fact for any future
+`custom.scss` override against component CSS in this codebase — specificity fights that look like
+they should go the "wrong" way, by classic cascade rules, may actually be settled by this
+mechanism instead.
+
+**Callout content font-size/line-height rule stopped matching**: `.callout-content-inner p` (v4)
+no longer matched anything. `@quartz-community/obsidian-flavored-markdown`'s bundled source
+(confirmed via `grep` on `dist/index.js`) shows the callout content wrapper is emitted as a single
+`<div class="callout-content">` — the `-inner` wrapper div v4 had is gone entirely, not just
+renamed. Updated the selector in `custom.scss` to `.callout-content p`. Not yet visually verified
+in a live callout (no callout blocks in the currently-synced `content/` vault to test against) —
+compiled CSS confirmed correct (`grep` on `public/index.css`); worth a real visual check the next
+time a note with a callout is available locally.
 
 ### Phase H — CI/CD + deploy cutover
 

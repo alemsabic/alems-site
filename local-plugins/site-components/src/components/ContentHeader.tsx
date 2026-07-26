@@ -7,7 +7,6 @@ import type {
 import { classNames } from "@quartz-community/utils/lang";
 import { getDate } from "@quartz-community/utils/sort";
 import { resolveRelative } from "@quartz-community/utils/path";
-import readingTime from "reading-time";
 
 interface ContentHeaderOptions {
   /** Base URL for the GitHub repository */
@@ -24,15 +23,14 @@ const defaultOptions: ContentHeaderOptions = {
   showTags: false,
 };
 
-// ale.ms/gpunkt.org customization: date + German word count + edit-on-GitHub link below the
-// article title. Ported unchanged from v4's ContentHeader.tsx. Deliberately does NOT use
-// @quartz-community/utils/date's formatDate (stock locale-based format) -- v4's date format
-// (hardcoded DD.MM.YYYY.) is reimplemented inline here, same as v4's own quartz/components/Date.tsx
-// override. (That core-file override turned out to be dead code in v5: nothing outside the
-// also-dead-code PageList.tsx imports it -- every real date-rendering plugin, e.g. content-meta,
-// recent-notes, tag/folder-page, pulls formatDate from @quartz-community/utils/date directly. Since
-// those three list-page plugins had their date display removed entirely rather than reformatted,
-// this component is the only place that still needs to render one.)
+// ale.ms/gpunkt.org customization: date + edit-on-GitHub link below the article title (beforeBody,
+// its original v4 position — briefly moved to afterBody/.page-footer on 2026-07-26, reverted same
+// day at the user's request). Word count was dropped 2026-07-26 at the user's request (found
+// superfluous); date, tags, and edit link remain. Deliberately does NOT use
+// @quartz-community/utils/date's formatDate (stock locale-based format) -- a hardcoded DD.MM.YYYY
+// format is used instead, same spirit as v4's own quartz/components/Date.tsx override. Note: v4's
+// version had a trailing period (`26.07.2026.`) — dropped here 2026-07-26 at the user's request
+// (noticed it looked wrong, confirmed it was already present on live v4 too, not a v5 artifact).
 export default ((opts?: Partial<ContentHeaderOptions>) => {
   const options: ContentHeaderOptions = { ...defaultOptions, ...opts };
 
@@ -53,10 +51,6 @@ export default ((opts?: Partial<ContentHeaderOptions>) => {
     // Only render if there's content and showContentHeader is not false
     if (!text || !showContentHeader) return null;
 
-    // Calculate word count
-    const { words } = readingTime(text);
-    const wordCountText = `${Math.round(words)} Wörter.`;
-
     // Get date (hardcoded DD.MM.YYYY. format, matches v4's Date.tsx override)
     const date = getDate(fileData);
     const dateText = date ? formatDate(date) : null;
@@ -72,9 +66,6 @@ export default ((opts?: Partial<ContentHeaderOptions>) => {
               </dd>
             </>
           )}
-
-          <dt>Textlänge:</dt>
-          <dd>{wordCountText}</dd>
 
           {options.showTags && tags && tags.length > 0 && (
             <>
@@ -169,5 +160,5 @@ function formatDate(d: Date): string {
   const day = String(d.getDate()).padStart(2, "0");
   const month = String(d.getMonth() + 1).padStart(2, "0");
   const year = d.getFullYear();
-  return `${day}.${month}.${year}.`;
+  return `${day}.${month}.${year}`;
 }

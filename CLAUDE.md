@@ -31,9 +31,15 @@ continue" section (near the top of the file) before doing anything else in this 
 One-paragraph status as of 2026-07-26: Phases A–G (branch to v5, rebuild config, port every custom
 component/plugin as a local-plugin fork under `local-plugins/`, add Bases/Canvas, verify in a real
 browser) are done and pushed to `v5`. `v4` — this repo's actual production/deployed branch, live on
-Cloudflare Pages — has not been touched and is unaffected by any of this so far. One item is
-paused mid-investigation (a font-rendering conflict between two independent font-config systems in
-v5 — see `upgrade.md`'s "Phase G addendum" for the full technical trace; not yet fixed, on purpose).
+Cloudflare Pages — has not been touched and is unaffected by any of this so far. A manual,
+page-by-page v4-vs-v5 visual-diff pass (ongoing, not yet exhaustive) found and fixed eight real
+bugs so far, all documented in `upgrade.md`'s "Phase G" addenda: the `quartz-fonts` cascade-layer
+font conflict, a duplicate H1 on content pages, a beforeBody reorder + duplicate Properties panel,
+a hardcoded `markdown-preview-view` wrapper div that broke several `>`-combinator CSS selectors,
+and a multi-part search-button styling regression (background/border/padding/text-color/DOM-order).
+Also done: Tagline text made configurable via `quartz.config.yaml` + its CSS centralized into
+`custom.scss`, and `content-header`'s Datum/Textlänge fields dropped (a same-day detour moving
+`content-header` to the page footer was fully reverted at the user's request — see `upgrade.md`).
 **Phase H (the actual deploy cutover — Cloudflare production branch, GitHub default branch) and
 Phase I (replaying this whole migration on the sister project at
 `/Users/alemsabic/Desktop/gpunkt.org`) are both explicitly gated on the user being present and

@@ -119,8 +119,13 @@ plugins:
   - source: "@quartz-community/roam"
     enabled: false
     order: 92
+  # Disabled: ships its own hardcoded font defaults (Schibsted Grotesk/Source Sans Pro/IBM Plex
+  # Mono) in a CSS @layer that wins over configuration.theme.typography's @layer by cascade-layer
+  # ordering, unless given matching `options:`. Nothing we own reads the Obsidian-style variables
+  # (--font-text etc.) it exists to bridge, and @quartz-themes/core (its only consumer) is also
+  # disabled below. See upgrade.md "Phase G addendum" for the full trace.
   - source: "@quartz-community/quartz-fonts"
-    enabled: true
+    enabled: false
   - source: "@quartz-themes/core"
     enabled: false
     options:
@@ -228,6 +233,10 @@ plugins:
       repo: "./local-plugins/site-components"
       name: tagline
     enabled: true
+    options:
+      linkText: "Alem Šabićs"
+      linkUrl: "https://alemsabic.com"
+      text: " Notizen & Quellen."
     layout:
       position: left
       priority: 20
@@ -248,6 +257,8 @@ plugins:
       position: beforeBody
       priority: 5
       condition: not-index
+  # 2026-07-26: briefly tried afterBody (bottom of page, in .page-footer) same day, reverted at
+  # the user's request — back to its original beforeBody position, above the article.
   - source:
       repo: "./local-plugins/site-components"
       name: content-header
@@ -313,6 +324,14 @@ plugins:
     enabled: true
     options: {}
     order: 50
+  # IMPORTANT: this is v5's only frontmatter-parsing transformer (remarkFrontmatter + title/tags/
+  # aliases/cssclasses/dates extraction — v4's equivalent of the old dedicated FrontMatter
+  # transformer). Do NOT set enabled: false — that was tried 2026-07-26 and broke frontmatter
+  # parsing entirely (raw `---\n...\n---` YAML rendered as literal body text, since nothing else
+  # registers remarkFrontmatter). The only thing to disable is its own visual "Properties" panel
+  # (found via v4/v5 visual diff — scaffold default, never present on v4, duplicated tags/aliases
+  # already shown by our content-header fork) via hidePropertiesView below, which makes the
+  # component render null rather than actually removing the plugin.
   - source: "@quartz-community/note-properties"
     enabled: true
     options:
@@ -322,7 +341,7 @@ plugins:
         - tags
         - aliases
       excludedProperties: []
-      hidePropertiesView: false
+      hidePropertiesView: true
       delimiters: ---
       language: yaml
     order: 5
@@ -332,8 +351,15 @@ plugins:
       display: all
 layout:
   groups:
+    # priority corrected 2026-07-26 (was 35, an unmodified scaffold-default carryover): an
+    # explicit group priority overrides every member's own layout.priority for sort purposes
+    # (config-loader.ts's resolveGroups — group priority wins over first-member fallback), so the
+    # search+darkmode toolbar (members at priority 1/2) was sorting *after* breadcrumbs (5),
+    # content-header (10), etc. instead of before them, contradicting the "moved here to match v4"
+    # comment on the search entry above. v4 puts Search+Darkmode first, directly above
+    # breadcrumbs — set below breadcrumbs' priority (5) to guarantee that regardless of member order.
     toolbar:
-      priority: 35
+      priority: 0
       direction: row
       gap: 0.5rem
   byPageType:
@@ -343,22 +369,44 @@ layout:
         left: []
         right: []
     content:
-      # Verified via real build (2026-07-26): article-title alone already renders the correct
-      # full-title H1 exactly where v4's ArticleTitle used to (v4's layout.ts never referenced
-      # ArticleTitle explicitly, but the same job happens here) — keep it enabled on content pages.
+      # Corrected 2026-07-26 (was wrong — see upgrade.md "double H1" bugfix writeup): v4 never had
+      # a component-level title at all on content pages. Its layout.ts never referenced
+      # ArticleTitle, and the ContentHeader title <dt>/<dd> was deliberately commented out (see
+      # CLAUDE.md's shortTitle section) specifically to avoid redundancy with the markdown body's
+      # own leading `# Heading`, which IS the page's only H1 on v4 (confirmed via curl on the live
+      # site: exactly one <h1>, coming from article content, not from a template component).
+      # article-title must stay excluded here or every content page gets two identical H1s.
       # content-meta (reading time + date) is excluded because our ContentHeader fork replaces it
       # with a richer metadata line (date, German word count, edit-on-GitHub link).
+      #
+      # NOTE on exact strings below: `exclude` matches via config-loader.ts's extractPluginName(),
+      # which only strips a short name from local sources (`./local-plugins/x` -> `x`) and
+      # github:/git+/https: sources — a plain npm-scoped source string like
+      # "@quartz-community/article-title" is returned completely unstripped. So excluding a
+      # scoped-package component (unlike our local-plugin forks, e.g. content-meta) requires the
+      # *full* source string here, not the short display name, or the exclude silently no-ops
+      # (this is what broke the first attempt at this fix — see upgrade.md). Confirmed no other
+      # by-name lookup in config-loader.ts strips npm scope either, so this applies repo-wide.
       exclude:
+        - "@quartz-community/article-title"
         - content-meta
     folder:
       exclude:
-        - reader-mode
+        - "@quartz-community/reader-mode"
       positions:
         right: []
     tag:
       exclude:
-        - reader-mode
+        - "@quartz-community/reader-mode"
+        - "@quartz-community/comments"
       positions:
         right: []
-    canvas: {}
-    bases: {}
+    # No comments on tag/canvas/bases pages (user request, 2026-07-26) — Giscus doesn't make sense
+    # on generated listing/tool pages. canvas has no content under `content/` yet, but excluded
+    # proactively for when one is added.
+    canvas:
+      exclude:
+        - "@quartz-community/comments"
+    bases:
+      exclude:
+        - "@quartz-community/comments"
