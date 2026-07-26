@@ -172,7 +172,19 @@ Concrete outcomes/decisions beyond the mapping table:
 - **Real bug found and fixed**: `tag-page`/`folder-page`'s bundled `listPage.scss` still had the *original pre-v4-customization* 3-column grid (`fit-content(8em) 3fr 1fr`, sized for a date column) even though their `PageList.tsx` fork already removed the date element — with only 2 grid items (desc, tags) landing in a 3-column track, the title would render squeezed into the narrow first column. Fixed both files to `grid-template-columns: 1fr auto` (matching v4's actual post-customization CSS) and dropped the now-pointless `.popover .section` 3-column override. Verified in the real built CSS output (`grid-template-columns:1fr auto` present in `component-*.css`). `recentNotes.scss`'s leftover `.meta` rule has no such grid dependency (plain block layout) — confirmed harmless, left as-is.
 - **Gotcha for local-plugin edits that aren't `.tsx`/`.ts` source**: rebuilding a linked local plugin after an SCSS-only change needs `cd local-plugins/<name> && npm install && npm run build` — `npx quartz plugin install --from-config` (even with `--latest`) does **not** detect that an already-linked local plugin's files changed and silently no-ops ("All configured plugins are already installed"). Also hit a transient "tsup: command not found" on the first `npm install` attempt for two plugins that resolved on a plain retry (worth knowing about, not investigated further — didn't recur).
 
-**Still to do**: static assets (icon.png, giscus theme CSS), i18n string tweaks (`de-DE.ts` reading-time phrasing, "Schlagwort" terminology — now plugin-owned, not core, per the explorer/content-index/etc. locale files found during research).
+**Static assets — done:**
+- Copied `icon.png`, `og-image.png` (fallback OG image, used when `CustomOgImages` is off), and `giscus/{dark,light}.css` (custom theme, v5's scaffold ships stock placeholders of the same filenames — overwritten) from v4.
+- Also copied `noise.png` — found it's actually load-bearing (`custom.scss` line 175: `background-image: url("/static/noise.png")` for the light/dark "book aesthetic" texture overlay), not just a leftover; would have been a broken-image bug if skipped.
+- Deliberately did **not** port `kursnotizen-logo.png` (orphaned branding leftover, per the earlier cleanup-candidate finding) — `.DS_Store` also removed.
+
+**i18n string tweaks — scoped down, done for the two confirmed customizations:**
+- Confirmed i18n is now fully decentralized: each plugin ships its own per-locale files (`src/i18n/locales/de-DE.ts` etc.), no central `quartz/i18n/locales/de-DE.ts` anymore. Checked v5's stock German strings against v4's `de-DE.ts` diff and found most of what v4 had (callout labels, backlinks, theme-toggle, explorer, graph, search, TOC titles) are just the *standard* German translations Quartz ships by default anyway — not deliberate customizations, confirmed by spot-checking stock plugin locale files. Only two real, deliberate customizations existed:
+  1. `content-meta`'s `readingTime` phrasing (stock `"X Min. Lesezeit"` → v4's `"X Minuten Lesezeit."` with singular handling) — new fork `local-plugins/content-meta/` (upstream `quartz-community/content-meta` @ `3066ef3eaf88c08c7e123d07cc3be8e07b2f4e10`).
+  2. `tag-page`'s tag terminology (stock literal `"Tag"` → v4's proper German `"Schlagwort"`/`"Schlagwörter"`) — patched directly in the already-forked `local-plugins/tag-page/src/i18n/locales/de-DE.ts` (no new fork needed).
+- Not porting the matching `en-US.ts` readingTime tweak from v4 — site's `configuration.locale` is `de-DE`, English strings are never served; v4's own inventory flagged this as low-value even at the time.
+- **Verified**: rebuilt, `public/tags/evolution.html` shows "Datei mit diesem Schlagwort." (not "Tag").
+
+Phase E is now functionally complete — every documented (and several undocumented) v4 customization has been ported and verified in real builds. Remaining before Phase F: none blocking; `npm run check` (TypeScript) has not been run yet against the whole tree — worth doing once before Phase G's full walkthrough.
 
 ### Phase F — Bases + Canvas
 _(not started)_

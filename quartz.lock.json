@@ -16,6 +16,12 @@
       "commit": "local",
       "installedAt": "2026-07-26T07:49:54.218Z"
     },
+    "content-meta": {
+      "source": "./local-plugins/content-meta",
+      "resolved": "/Users/alemsabic/Desktop/ale.ms/local-plugins/content-meta",
+      "commit": "local",
+      "installedAt": "2026-07-26T08:53:21.177Z"
+    },
     "folder-page": {
       "source": "./local-plugins/folder-page",
       "resolved": "/Users/alemsabic/Desktop/ale.ms/local-plugins/folder-page",

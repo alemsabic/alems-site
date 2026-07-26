@@ -202,7 +202,8 @@ plugins:
       # content pages (see layout.byPageType.content.exclude below + Phase E ContentHeader fork).
       position: beforeBody
       priority: 10
-  - source: "@quartz-community/content-meta"
+  # Local fork (German readingTime phrasing) — see local-plugins/content-meta/FORK_NOTES.md
+  - source: "./local-plugins/content-meta"
     enabled: true
     layout:
       # Same as article-title: list pages only, excluded on content pages (ContentHeader covers it).

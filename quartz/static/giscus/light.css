@@ -4,90 +4,122 @@
  */
 
 main {
-  --color-prettylights-syntax-comment: #6e7781;
-  --color-prettylights-syntax-constant: #0550ae;
-  --color-prettylights-syntax-entity: #8250df;
-  --color-prettylights-syntax-storage-modifier-import: #24292f;
-  --color-prettylights-syntax-entity-tag: #116329;
-  --color-prettylights-syntax-keyword: #cf222e;
-  --color-prettylights-syntax-string: #0a3069;
-  --color-prettylights-syntax-variable: #953800;
-  --color-prettylights-syntax-brackethighlighter-unmatched: #82071e;
-  --color-prettylights-syntax-invalid-illegal-text: #f6f8fa;
-  --color-prettylights-syntax-invalid-illegal-bg: #82071e;
-  --color-prettylights-syntax-carriage-return-text: #f6f8fa;
-  --color-prettylights-syntax-carriage-return-bg: #cf222e;
-  --color-prettylights-syntax-string-regexp: #116329;
-  --color-prettylights-syntax-markup-list: #3b2300;
-  --color-prettylights-syntax-markup-heading: #0550ae;
-  --color-prettylights-syntax-markup-italic: #24292f;
-  --color-prettylights-syntax-markup-bold: #24292f;
-  --color-prettylights-syntax-markup-deleted-text: #82071e;
-  --color-prettylights-syntax-markup-deleted-bg: #ffebe9;
-  --color-prettylights-syntax-markup-inserted-text: #116329;
-  --color-prettylights-syntax-markup-inserted-bg: #dafbe1;
-  --color-prettylights-syntax-markup-changed-text: #953800;
-  --color-prettylights-syntax-markup-changed-bg: #ffd8b5;
-  --color-prettylights-syntax-markup-ignored-text: #eaeef2;
-  --color-prettylights-syntax-markup-ignored-bg: #0550ae;
-  --color-prettylights-syntax-meta-diff-range: #8250df;
-  --color-prettylights-syntax-brackethighlighter-angle: #57606a;
-  --color-prettylights-syntax-sublimelinter-gutter-mark: #8c959f;
-  --color-prettylights-syntax-constant-other-reference-link: #0a3069;
-  --color-btn-text: #4e4e4e; /* --darkgray */
-  --color-btn-bg: #faf8f8; /* --light */
-  --color-btn-border: rgb(43, 43, 43 / 15%); /* --dark */
-  --color-btn-shadow: 0 1px 0 rgb(31 35 40 / 4%);
-  --color-btn-inset-shadow: inset 0 1px 0 rgb(255 255 255 / 25%);
-  --color-btn-hover-bg: #f3f4f6;
-  --color-btn-hover-border: rgb(43, 43, 43 / 15%); /* --dark */
-  --color-btn-active-bg: hsl(220deg 14% 93% / 100%);
-  --color-btn-active-border: rgb(31 35 40 / 15%);
-  --color-btn-selected-bg: hsl(220deg 14% 94% / 100%);
-  --color-btn-primary-text: #fff;
-  --color-btn-primary-bg: #84a59d; /* --tertiary */
-  --color-btn-primary-border: rgb(43, 43, 43 / 15%); /* --dark */
-  --color-btn-primary-shadow: 0 1px 0 rgb(31 35 40 / 10%);
-  --color-btn-primary-inset-shadow: inset 0 1px 0 rgb(255 255 255 / 3%);
-  --color-btn-primary-hover-bg: #284b63; /* --secondary */
-  --color-btn-primary-hover-border: rgb(43, 43, 43 / 15%); /* --dark */
-  --color-btn-primary-selected-bg: #284b63; /* --secondary */
-  --color-btn-primary-selected-shadow: inset 0 1px 0 rgb(0 45 17 / 20%);
-  --color-btn-primary-disabled-text: rgb(255 255 255 / 80%);
-  --color-btn-primary-disabled-bg: #94d3a2;
-  --color-btn-primary-disabled-border: rgb(31 35 40 / 15%);
-  --color-action-list-item-default-hover-bg: rgb(208 215 222 / 32%);
-  --color-segmented-control-bg: #eaeef2;
-  --color-segmented-control-button-bg: #fff;
-  --color-segmented-control-button-selected-border: #8c959f;
-  --color-fg-default: #2b2b2b; /* --dark */
-  --color-fg-muted: #4e4e4e; /* --darkgray */
-  --color-fg-subtle: #4e4e4e; /* --darkgray */
-  --color-canvas-default: #fff;
-  --color-canvas-overlay: #fff;
-  --color-canvas-inset: #f6f8fa;
-  --color-canvas-subtle: #f6f8fa;
-  --color-border-default: #d0d7de;
-  --color-border-muted: hsl(210deg 18% 87% / 100%);
-  --color-neutral-muted: rgb(175 184 193 / 20%);
-  --color-accent-fg: #0969da;
-  --color-accent-emphasis: #0969da;
-  --color-accent-muted: rgb(84 174 255 / 40%);
-  --color-accent-subtle: #ddf4ff;
-  --color-success-fg: #1a7f37;
-  --color-attention-fg: #9a6700;
-  --color-attention-muted: rgb(212 167 44 / 40%);
-  --color-attention-subtle: #fff8c5;
-  --color-danger-fg: #d1242f;
-  --color-danger-muted: rgb(255 129 130 / 40%);
-  --color-danger-subtle: #ffebe9;
-  --color-primer-shadow-inset: inset 0 1px 0 rgb(208 215 222 / 20%);
-  --color-scale-gray-1: #eaeef2;
-  --color-scale-blue-1: #b6e3ff;
+  /* Custom PATHOLOGIE typography */
+  font-family: "Geist Mono", monospace;
+
+  /* PATHOLOGIE Light Mode Colors */
+  --bg: #e0cca6; /* light */
+  --bg-secondary: rgba(0, 0, 0, 0.05); /* lightgray subtle */
+  --text: #4e4e4e; /* darkgray */
+  --text-muted: #4e4e4e; /* gray */
+  --link: #8b4840; /* secondary */
+  --link-hover: #9c5e56; /* tertiary */
+
+  /* Syntax highlighting - using PATHOLOGIE colors */
+  --color-prettylights-syntax-comment: var(--text-muted);
+  --color-prettylights-syntax-constant: var(--link);
+  --color-prettylights-syntax-entity: var(--link-hover);
+  --color-prettylights-syntax-storage-modifier-import: var(--text);
+  --color-prettylights-syntax-entity-tag: var(--link);
+  --color-prettylights-syntax-keyword: var(--link);
+  --color-prettylights-syntax-string: var(--link);
+  --color-prettylights-syntax-variable: var(--text);
+  --color-prettylights-syntax-brackethighlighter-unmatched: var(--link);
+  --color-prettylights-syntax-invalid-illegal-text: var(--bg);
+  --color-prettylights-syntax-invalid-illegal-bg: var(--link);
+  --color-prettylights-syntax-carriage-return-text: var(--bg);
+  --color-prettylights-syntax-carriage-return-bg: var(--link);
+  --color-prettylights-syntax-string-regexp: var(--link);
+  --color-prettylights-syntax-markup-list: var(--text);
+  --color-prettylights-syntax-markup-heading: var(--link);
+  --color-prettylights-syntax-markup-italic: var(--text);
+  --color-prettylights-syntax-markup-bold: var(--text);
+  --color-prettylights-syntax-markup-deleted-text: var(--link);
+  --color-prettylights-syntax-markup-deleted-bg: var(--bg-secondary);
+  --color-prettylights-syntax-markup-inserted-text: var(--link);
+  --color-prettylights-syntax-markup-inserted-bg: var(--bg-secondary);
+  --color-prettylights-syntax-markup-changed-text: var(--text);
+  --color-prettylights-syntax-markup-changed-bg: var(--bg-secondary);
+  --color-prettylights-syntax-markup-ignored-text: var(--text-muted);
+  --color-prettylights-syntax-markup-ignored-bg: var(--link);
+  --color-prettylights-syntax-meta-diff-range: var(--link-hover);
+  --color-prettylights-syntax-brackethighlighter-angle: var(--text-muted);
+  --color-prettylights-syntax-sublimelinter-gutter-mark: var(--text-muted);
+  --color-prettylights-syntax-constant-other-reference-link: var(--link);
+
+  /* Button styles - using PATHOLOGIE colors */
+  --color-btn-text: var(--text);
+  --color-btn-bg: var(--bg);
+  --color-btn-border: rgba(0, 0, 0, 0.2); /* lightgray */
+  --color-btn-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+  --color-btn-inset-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  --color-btn-hover-bg: var(--bg-secondary);
+  --color-btn-hover-border: var(--text-muted);
+  --color-btn-active-bg: var(--bg-secondary);
+  --color-btn-active-border: var(--text-muted);
+  --color-btn-selected-bg: var(--bg-secondary);
+
+  /* Primary button - using secondary/tertiary colors */
+  --color-btn-primary-text: #e0cca6; /* light background color for text */
+  --color-btn-primary-bg: var(--link); /* secondary */
+  --color-btn-primary-border: var(--link);
+  --color-btn-primary-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  --color-btn-primary-inset-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  --color-btn-primary-hover-bg: var(--link-hover); /* tertiary */
+  --color-btn-primary-hover-border: var(--link-hover);
+  --color-btn-primary-selected-bg: var(--link-hover);
+  --color-btn-primary-selected-shadow: inset 0 1px 0 rgba(139, 72, 64, 0.2);
+
+  /* Disabled state */
+  --color-btn-primary-disabled-text: var(--text-muted);
+  --color-btn-primary-disabled-bg: var(--bg-secondary);
+  --color-btn-primary-disabled-border: var(--bg-secondary);
+
+  /* Action list and controls */
+  --color-action-list-item-default-hover-bg: rgba(143, 159, 169, 0.15);
+  --color-segmented-control-bg: var(--bg-secondary);
+  --color-segmented-control-button-bg: var(--bg);
+  --color-segmented-control-button-selected-border: var(--text-muted);
+
+  /* Foreground colors */
+  --color-fg-default: var(--text);
+  --color-fg-muted: var(--text);
+  --color-fg-subtle: var(--text-muted);
+
+  /* Canvas colors */
+  --color-canvas-default: var(--bg);
+  --color-canvas-overlay: var(--bg);
+  --color-canvas-inset: var(--bg-secondary);
+  --color-canvas-subtle: var(--bg-secondary);
+
+  /* Border colors */
+  --color-border-default: rgba(0, 0, 0, 0.2); /* lightgray */
+  --color-border-muted: rgba(0, 0, 0, 0.2);
+  --color-neutral-muted: rgba(0, 0, 0, 0.1);
+
+  /* Accent colors - using secondary */
+  --color-accent-fg: var(--link);
+  --color-accent-emphasis: var(--link);
+  --color-accent-muted: rgba(139, 72, 64, 0.4);
+  --color-accent-subtle: rgba(139, 72, 64, 0.1);
+
+  /* Success, attention, danger */
+  --color-success-fg: var(--link-hover);
+  --color-attention-fg: var(--link);
+  --color-attention-muted: rgba(139, 72, 64, 0.4);
+  --color-attention-subtle: rgba(139, 72, 64, 0.1);
+  --color-danger-fg: var(--link);
+  --color-danger-muted: rgba(139, 72, 64, 0.4);
+  --color-danger-subtle: rgba(139, 72, 64, 0.1);
+
+  /* Shadows */
+  --color-primer-shadow-inset: inset 0 1px 0 rgba(0, 0, 0, 0.1);
+  --color-scale-gray-1: var(--bg-secondary);
+  --color-scale-blue-1: rgba(139, 72, 64, 0.2);
 
   /*! Extensions from @primer/css/alerts/flash.scss */
-  --color-social-reaction-bg-hover: var(--color-scale-gray-1);
-  --color-social-reaction-bg-reacted-hover: var(--color-scale-blue-1);
+  --color-social-reaction-bg-hover: var(--bg-secondary);
+  --color-social-reaction-bg-reacted-hover: rgba(139, 72, 64, 0.2);
 }
 
 main .pagination-loader-container {
@@ -96,4 +128,40 @@ main .pagination-loader-container {
 
 main .gsc-loading-image {
   background-image: url("https://github.githubassets.com/images/mona-loading-default.gif");
+}
+
+/* Custom PATHOLOGIE Typography Overrides */
+main code, main pre {
+  font-family: "Geist Mono", monospace;
+}
+
+/* Fix text color and font-weight for comments and reactions */
+main .color-text-primary {
+  color: #4e4e4e !important; /* darkgray */
+  font-weight: normal !important;
+}
+
+main .color-text-primary.underline {
+  color: #4e4e4e !important;
+  font-weight: normal !important;
+}
+
+/* Fix reactions count styling */
+main .gsc-reactions-count {
+  color: #4e4e4e !important;
+  font-weight: normal !important;
+}
+
+/* Fix comments count styling */
+main .gsc-comments-count,
+main .gsc-comments-count-separator {
+  color: #4e4e4e !important;
+  font-weight: normal !important;
+}
+
+/* Fix placeholder text color for better readability */
+main textarea::placeholder,
+main input::placeholder {
+  color: #2b2b2b !important; /* darker text for light mode */
+  opacity: 0.7 !important;
 }
