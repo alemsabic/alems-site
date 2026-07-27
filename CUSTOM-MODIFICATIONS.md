@@ -238,6 +238,31 @@ correctly:
   goes on the `.book-cover-container` wrapper `<div>`, not the `<img>` itself, since `<img>`
   elements don't support pseudo-elements.
 
+## Stock v5 behavior we depend on (not something we built — verify after any Quartz upgrade)
+
+**URL case-sensitivity changed between v4 and v5.** v4 preserved file/folder casing fairly directly
+in URLs (this site's old, pre-migration URLs used `/Literatur/...`, capital L). **v5 forcibly
+lowercases every path segment** as part of slug generation (`@quartz-community/utils`'s
+`slugifyFilePath`, confirmed in its actual source — not just documented behavior). This is a real
+breaking change for any external link, bookmark, or search-engine-indexed URL that assumed the old
+casing.
+
+**The mitigation, already enabled and verified working**: `@quartz-community/alias-redirects`
+(`quartz.config.yaml`, `enabled: true`, default `enableCaseRedirects: true` — never explicitly
+touched, just inherited from the `npx quartz create` scaffold). It emits a real static HTML page at
+every old-cased URL, containing `<meta http-equiv="refresh">` to the canonical lowercase URL plus
+`<link rel="canonical">` and `<meta name="robots" content="noindex">` (so search engines re-index
+the new URL instead of treating the redirect page as a duplicate). Works without JavaScript.
+Verified live 2026-07-27: `curl https://ale.ms/Literatur/@ahrens_2017` returns exactly this redirect
+page, not a 404. The same plugin also handles genuine frontmatter `aliases:` redirects — same
+mechanism, different trigger.
+
+**For any future Quartz version upgrade or the gpunkt.org replay**: don't assume this "just works"
+because it worked here — it worked here because the plugin happened to already be
+`enabled: true` in the scaffold default and nobody disabled it. Explicitly verify: (1) the plugin is
+enabled in `quartz.config.yaml`, (2) `curl` an old-cased URL that existed on the pre-migration site
+and confirm it returns a redirect page, not a 404, after the real production cutover.
+
 ## Content-repo git hygiene: case-sensitivity
 
 macOS's filesystem (and local git) is case-insensitive; GitHub/Cloudflare (Linux) is

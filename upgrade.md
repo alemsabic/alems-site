@@ -1405,3 +1405,18 @@ gpunkt.org — just apply them directly)**:
    `quartz.ts` path will just work — verify with a real build + HTML inspection (check
    `data-data-fns` actually contains the custom function text) rather than trusting it compiled
    without error.
+7. **v5 forcibly lowercases every URL segment — v4 preserved casing.** Found 2026-07-27, after the
+   user asked what changed in v5 around case-sensitivity. Confirmed in `@quartz-community/utils`'s
+   actual `slugifyFilePath` source (not just docs): every path segment gets `.toLowerCase()`'d.
+   ale.ms's old v4 URLs used capital-letter folder names (e.g. `/Literatur/...`); v5 only serves
+   `/literatur/...`. **The mitigation, already present and verified working here**:
+   `@quartz-community/alias-redirects` (`enabled: true`, default `enableCaseRedirects: true`) emits
+   a real static HTML redirect page (meta-refresh + canonical link + noindex) at every old-cased
+   URL. It happened to already be `enabled: true` straight from the `npx quartz create` scaffold
+   default here — nobody explicitly turned it on or tested it during this migration, it was just
+   never disabled. **For gpunkt.org**: don't assume the same luck — explicitly confirm
+   `alias-redirects` is `enabled: true` in gpunkt.org's `quartz.config.yaml` before its own cutover,
+   and after cutover `curl` at least one URL using gpunkt.org's actual pre-migration casing to
+   confirm it returns a redirect page, not a 404 (verified here via
+   `curl https://ale.ms/Literatur/@ahrens_2017`). See `CUSTOM-MODIFICATIONS.md`'s "Stock v5 behavior
+   we depend on" section for the full writeup.
