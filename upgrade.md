@@ -1,6 +1,8 @@
 # Quartz v4 → v5 Migration Runbook
 
-Status: **Phases A–G done and pushed to the `v5` branch, including nine real bugs found and fixed
+Status: **Phase H cutover in progress (2026-07-27) — Cloudflare Pages production branch flipped
+from `v4` to `v5`, GitHub default branch not yet flipped, real production verification pending
+the next push.** Phases A–G done and pushed to the `v5` branch, including nine real bugs found and fixed
 and the full visual-diff pass now closed. `v4` (production, live on Cloudflare Pages) is
 untouched.** Phase H (deploy cutover) has the user's explicit go-ahead as of 2026-07-27 but hasn't
 actually started yet — pick it up next session (see the "Phase H" section further down for the
@@ -1183,6 +1185,53 @@ standing rule that Phase H changes need the user present. Once changed, re-trigg
 (another empty commit, same as fix #1's `d8a587e`) and check the same build log for `✓ ... linked`
 lines instead of `✗ ... local path missing`, then verify Explorer/Graph/RecentNotes/content pages
 render in the actual preview URL.
+
+#### Fix #2 confirmed working; Giscus-comments folder-page gap found and fixed (2026-07-27)
+
+After fix #2 (`--from-config`) shipped, user reported two things while reviewing the preview: (1)
+Giscus dark-mode background still looked wrong (old near-black, not the fixed purple), (2) folder
+listing pages (only one existed to check against, `/literatur/`) still showed a comment thread,
+which shouldn't be there (same reasoning as the existing tag/canvas/bases exclusion).
+
+**(1) is not a bug** — traced and confirmed via direct `curl` comparison: `https://ale.ms/static/
+giscus/dark.css` (still v4, pre-cutover) has `--bg: #0a0200`; the `v5` branch's own copy of that
+file already has the correct `--bg: #09002b`. Giscus's `themeUrl` in `quartz.config.yaml` is a
+literal absolute URL to production (`https://ale.ms/static/giscus`) — the comment iframe always
+fetches that exact URL, regardless of which build (preview, local dev, whatever) is rendering the
+surrounding page. This can only ever be checked correctly after the production domain itself is
+serving the new build — not a code problem, just an inherent property of how Giscus theming works.
+No fix needed or possible pre-cutover; flagged in the Phase I checklist below so this doesn't get
+mistaken for a regression on the gpunkt.org replay either.
+
+**(2) was real** — confirmed via `grep`: `layout.byPageType`'s Giscus exclude list had `tag`,
+`canvas`, `bases` but not `folder` (a deliberate choice at the time the exclude was first added,
+per the "Small fixes" section above — verified then via `curl` on `/literatur` showing comments
+present, which was treated as correct behavior but wasn't actually what the user wanted). Added
+`"@quartz-community/comments"` to `folder`'s exclude list. Verified locally (`grep -c giscus
+public/literatur/index.html` → `0`, was `1`; a plain content page and a content page inside
+`Literatur/` both still → `1`) and again live on the resulting preview deploy
+(`https://91d6fd90.ale-ms.pages.dev/literatur/` → `0`, `.../atomizität-im-zk` → `1`). Committed as
+`b72f2bd`, deployed as Cloudflare deployment `91d6fd90-b54c-4aa5-9a0f-f2b5020fb506`.
+
+#### Production cutover started (2026-07-27)
+
+User reviewed the preview build, confirmed it looks correct, and gave explicit go-ahead to continue
+with Phase H. Cloudflare Pages project `ale-ms`'s `source.config.production_branch` changed from
+`v4` to `v5` via the Cloudflare API (`PATCH .../pages/projects/ale-ms`, same `wrangler` OAuth
+session used throughout this phase — see the technique note in the Phase I checklist below).
+Confirmed via a follow-up `GET` that the change took (`"production_branch": "v5"`).
+
+**Important nuance, confirmed by checking the deployments list right after**: flipping
+`production_branch` does **not** retroactively promote the branch's latest existing commit to a
+real production deployment — Cloudflare Pages only deploys on the next actual push event via the
+GitHub webhook, so `https://ale.ms` was still serving the old `v4` production build immediately
+after this API call, with no production-environment deployment for `v5` yet in the deployments
+list. `CLAUDE.md`'s Deployment section and this file's top status line were updated to reflect the
+new branch/build-command reality (documentation itself doesn't trigger a deploy); the next actual
+push to `v5` is what will trigger the real first production deployment. **Not yet done as of this
+writing**: that triggering push, real-browser verification of `https://ale.ms` afterward (not just
+build success — same lesson as every other bug this migration found), and the GitHub default-branch
+flip (`v4` → `v5`), which is independent of Cloudflare's setting and hasn't been touched yet.
 
 ### Resolved: Obsidian-plugin direct publishing in Quartz v5 — not a thing (2026-07-27)
 

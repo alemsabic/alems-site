@@ -28,23 +28,24 @@ architecture findings, every customization ported, every bug found and fixed, an
 continue — lives in **`upgrade.md` at the repo root**. Read its "Current status and how to
 continue" section (near the top of the file) before doing anything else in this repo.
 
-One-paragraph status as of 2026-07-26: Phases A–G (branch to v5, rebuild config, port every custom
-component/plugin as a local-plugin fork under `local-plugins/`, add Bases/Canvas, verify in a real
-browser) are done and pushed to `v5`. `v4` — this repo's actual production/deployed branch, live on
-Cloudflare Pages — has not been touched and is unaffected by any of this so far. A manual,
-page-by-page v4-vs-v5 visual-diff pass (ongoing, not yet exhaustive) found and fixed eight real
-bugs so far, all documented in `upgrade.md`'s "Phase G" addenda: the `quartz-fonts` cascade-layer
+Status as of 2026-07-27: **Phase H (deploy cutover) is in progress and `v5` is now live** —
+Cloudflare Pages' production branch was flipped from `v4` to `v5` this session, so `https://ale.ms`
+now serves the v5 build (still needs a fresh push to actually deploy the flip, then real-browser
+verification — see `upgrade.md`'s Phase H section for exact status). `v4` is the pre-migration
+branch, kept around but no longer deployed. Phases A–G (branch to v5, rebuild config, port every
+custom component/plugin as a local-plugin fork under `local-plugins/`, add Bases/Canvas, verify in
+a real browser) are done. A manual, page-by-page v4-vs-v5 visual-diff pass found and fixed nine
+real bugs, all documented in `upgrade.md`'s "Phase G" addenda: the `quartz-fonts` cascade-layer
 font conflict, a duplicate H1 on content pages, a beforeBody reorder + duplicate Properties panel,
-a hardcoded `markdown-preview-view` wrapper div that broke several `>`-combinator CSS selectors,
-and a multi-part search-button styling regression (background/border/padding/text-color/DOM-order).
-Also done: Tagline text made configurable via `quartz.config.yaml` + its CSS centralized into
-`custom.scss`, and `content-header`'s Datum/Textlänge fields dropped (a same-day detour moving
-`content-header` to the page footer was fully reverted at the user's request — see `upgrade.md`).
-**Phase H (the actual deploy cutover — Cloudflare production branch, GitHub default branch) and
-Phase I (replaying this whole migration on the sister project at
-`/Users/alemsabic/Desktop/gpunkt.org`) are both explicitly gated on the user being present and
-giving the go-ahead at the time — do not do either unattended, regardless of what this file or
-`upgrade.md` otherwise seem to authorize.**
+a hardcoded `markdown-preview-view` wrapper div that broke several `>`-combinator CSS selectors, a
+multi-part search-button styling regression, and a dark-mode background-color drift. Also done:
+Tagline text made configurable via `quartz.config.yaml` + its CSS centralized into `custom.scss`,
+`content-header`'s Datum/Textlänge fields (Textlänge dropped, Datum kept), and folder listing pages
+excluded from Giscus comments (alongside tag/canvas/bases, already done — folder was a late catch,
+see `upgrade.md`). **Phase I (replaying this whole migration on the sister project at
+`/Users/alemsabic/Desktop/gpunkt.org`) remains explicitly gated on the user being present and
+giving the go-ahead at the time — do not do it unattended.** `upgrade.md`'s Phase I section has an
+explicit checklist of Phase H gotchas to carry over so they don't need re-deriving there.
 
 ---
 
@@ -146,12 +147,13 @@ quartz/
 **Platform**: Cloudflare Pages
 
 - **Repository**: https://github.com/alemsabic/alems-site
-- **Branch**: `v4` — still accurate as of the v5 migration in progress (see above): `v4` remains
-  the production branch Cloudflare Pages actually deploys until Phase H happens. `v5` is a
-  not-yet-deployed working branch.
+- **Branch**: `v5` — flipped to Cloudflare Pages production branch 2026-07-27 (Phase H cutover, see
+  `upgrade.md`). `v4` is the pre-migration branch, no longer deployed.
 - **Project**: `ale-ms`
-- **Build Command**: `npx quartz build` — will change to `npx quartz plugin install && npx quartz
-build` once `v5` goes live (see `upgrade.md` Phase H).
+- **Build Command**: `npx quartz plugin install --from-config && npx quartz build` — the
+  `--from-config` flag is required, not optional (see `upgrade.md` Phase H: bare `plugin install`
+  restores local plugins from a dev-machine-specific absolute path frozen in `quartz.lock.json`,
+  which doesn't exist on Cloudflare's build machine).
 - **Output Directory**: `public`
 - **Deploy Time**: 1-2 minutes after push
 
