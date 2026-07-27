@@ -1212,3 +1212,46 @@ or during Phase H on this front. Question closed — nothing further to investig
 _(not started — see plan file for gpunkt.org-specific deltas to preserve: heading-badge/im-Fokus transformer plugins, TableOfContents badge rendering, footnote-heading relabeling, its more-diverged ContentHeader. Also see the "9th bug" and "Small design tweaks" addenda above (2026-07-27): the dark-mode `var(--light)` color-drift root cause to check for, the mobile sidebar `opacity: 0.95`, the `.recent-notes` title text change to "Zuletzt bearbeitet", and the `.recent-notes > h3`
 H1-identical sizing (`1.75rem` / `3rem` at `min-width: 800px`) — all explicitly flagged by the user
 to carry over.)_
+
+**Phase H deploy-cutover gotchas to carry over verbatim (found 2026-07-27, don't re-derive these on
+gpunkt.org — just apply them directly)**:
+
+1. **Cloudflare Pages build command must be `npx quartz plugin install --from-config && npx quartz
+   build` — the `--from-config` flag is not optional.** Bare `npx quartz plugin install` restores
+   local plugins from `quartz.lock.json`'s frozen `resolved` field, which is an **absolute,
+   install-machine-specific path** (e.g. `/Users/alemsabic/Desktop/ale.ms/local-plugins/...`) baked
+   in the moment you first ran `quartz plugin install --from-config` locally. On Cloudflare's build
+   machine the repo lives at `/opt/buildhome/repo`, so that path never exists there → every local
+   plugin silently (or not-so-silently) fails to install, and pages depending on them render empty
+   or broken (Explorer, Graph, RecentNotes, and anything else backed by a `local-plugins/*` fork).
+   `--from-config` re-derives each local plugin's path fresh, relative to wherever the build
+   actually runs (`quartz/cli/plugin-git-handlers.js`'s `fromConfig` branch does
+   `path.resolve(url)` against `process.cwd()`), and — just as important — it's the code path that
+   actually runs `npm install && npm run build` for each newly-linked local plugin, which bare
+   `plugin install` never does for a plugin it can't even find. Set this build command on
+   gpunkt.org's Cloudflare Pages project from the start, don't discover it the hard way again.
+2. **`layout.byPageType`'s Giscus-comments exclude list needs `folder`, not just `tag`/`canvas`/
+   `bases`.** Easy to miss if the content backup used for verification only has one folder to
+   spot-check (exactly what happened here) — a folder listing page with only a handful of files can
+   look "fine" either way. Add `"@quartz-community/comments"` to every generated-listing page type's
+   exclude list up front, `folder` included.
+3. **Don't waste time trying to verify a Giscus theme-CSS change (e.g. dark-mode colors) against
+   any pre-cutover environment — preview deploy, `localhost`, doesn't matter.** Giscus's `themeUrl`
+   is a literal absolute URL to the *production* domain (e.g. `https://gpunkt.org/static/giscus`),
+   fetched live by the comment iframe regardless of which build is actually serving the page you're
+   looking at. A `custom.scss`/`dark.css` fix can be 100% correct in the new branch and still show
+   the *old* color everywhere until that production domain itself starts serving the new build. Only
+   check this after the real cutover, not before — checking earlier just wastes a round-trip
+   thinking it's still broken.
+4. **Useful technique, not gpunkt.org-specific but worth reusing there too**: if a Cloudflare Pages
+   build fails and dashboard access isn't handy, check for an existing `wrangler` OAuth session at
+   `~/.wrangler/config/default.toml` (or `~/Library/Preferences/.wrangler/config/default.toml`, an
+   older/duplicate location that may hold a stale token — check `~/.wrangler` first). If a valid
+   token is there, `curl -H "Authorization: Bearer $TOKEN" https://api.cloudflare.com/client/v4/accounts/<account_id>/pages/projects/<project>/deployments/<deployment_id>/history/logs`
+   returns the exact build log Cloudflare itself would show in the dashboard — no need to ask the
+   user to paste or screen-share it. `wrangler pages deployment list --project-name=<project>` (run
+   inside `script -q /dev/null ...` to fake a TTY, since it's needed for the OAuth flow to work
+   non-interactively) finds the right deployment ID first. The same token also has `pages:write`,
+   so `curl -X PATCH .../pages/projects/<project>` with a `build_config` body can change the actual
+   build command directly, instead of walking the user through the dashboard UI by hand — this is
+   how fix #2 above was applied.
