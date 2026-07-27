@@ -1345,3 +1345,63 @@ gpunkt.org — just apply them directly)**:
    so `curl -X PATCH .../pages/projects/<project>` with a `build_config` body can change the actual
    build command directly, instead of walking the user through the dashboard UI by hand — this is
    how fix #2 above was applied.
+5. **The content-repo's sync GitHub Action hardcodes the target branch — it will keep syncing into
+   the *old* branch silently forever unless someone updates it at cutover time.** Found 2026-07-27,
+   *after* Phase H's cutover was otherwise done: `alems-notizen`'s
+   `.github/workflows/sync-to-quartz.yml` has `ref: v4` hardcoded in its "Checkout Quartz
+   repository" step (a plain content-mirroring job, unrelated to Quartz's own plugin/build system —
+   easy to forget it exists at all during a Quartz-focused migration). It ran successfully, no error
+   anywhere, and quietly kept pushing every content change onto `v4` — which nothing serves anymore
+   post-cutover — while everyone assumed content was reaching the live site. **Symptom**: user makes
+   a content change, sync Action shows green, but the change never appears on the live domain — no
+   error to chase, just an absence. **Compounding side effect discovered the same time**: because
+   Cloudflare's `preview_branch_includes` is `["*"]` (all branches) and the build command is
+   project-wide (not per-branch), every one of these now-misdirected syncs to `v4` also triggered a
+   *failing* preview build, since `v4` still runs the pre-migration Quartz CLI, which has no `plugin`
+   subcommand at all (`Unknown arguments: from-config, fromConfig, plugin, install`) — a second,
+   louder symptom (a real Cloudflare failure notification) that's what actually surfaced the first,
+   quieter one. **Fix applied**: changed `ref: v4` → `ref: v5` in the workflow file, committed
+   directly to `alems-notizen`'s `main` (not `alems-site` — this file lives in the *content* repo).
+   Pushing that fix itself re-triggered the sync (workflows sync on every push to `main`), correctly
+   landing the pending content change on `v5` this time. **For gpunkt.org**: audit its own
+   content-repo sync workflow for the same hardcoded-`ref` pattern *before* Phase H's cutover there,
+   not after — grep for `ref: v4` (or whatever gpunkt.org's pre-migration branch is called) in
+   `.github/workflows/*.yml` in its content repo, and flip it in the *same commit/session* as the
+   Cloudflare production-branch flip, not as an afterthought once someone notices content going
+   missing. This is exactly the kind of cross-repo dependency that's invisible from inside
+   `alems-site`/gpunkt.org's own repo — it only lives in the content repo.
+6. **The documented `quartz.ts` + `ExternalPlugin.X({...})` "advanced customization" override
+   pattern (e.g. passing a custom `sortFn` to Explorer) does not work for every plugin, and fails
+   *silently* — no error, just no effect.** Investigated 2026-07-27 while scoping an (ultimately
+   not pursued — see below) Explorer file-pinning feature. Root cause, fully traced in
+   `quartz/cli/plugin-git-handlers.js`'s `regeneratePluginIndex()`: after installing plugins, the
+   CLI auto-generates `.quartz/plugins/index.ts`, and for each plugin decides whether to wrap its
+   exported factory function in a `componentRegistry.setOptionOverrides(...)` call (which is what
+   actually lets a later `quartz.ts` call reach the real, laid-out component instance) — but only if
+   that plugin's **own top-level `dist/index.d.ts`** contains a literal `declare const
+   <ExportName>: (...) => QuartzComponent` (or similar plugin-type signature), matched by a regex
+   (`isOverridableExport`/`PLUGIN_TYPE_PATTERN`) run against that one file's text. If a plugin's
+   `dist/index.d.ts` merely **re-exports** the factory from a submodule (`export { Explorer } from
+   "./components/index.js"` — exactly our `local-plugins/explorer` fork's shape, inherited from
+   upstream, not something we introduced), the regex never sees the actual declaration and the
+   plugin is silently left out of the override-wrapper map. Calling `ExternalPlugin.Explorer({...})`
+   in `quartz.ts` after that still "works" in the sense that it runs without error and returns a
+   real `QuartzComponent` — it's just a second, orphaned instance nothing ever renders, since the
+   actual page layout was built earlier from the YAML-configured instance, which never received the
+   override. **No fix applied for this repo** — the underlying request (pin a specific file to the
+   top of the Explorer, for `content/Literatur/Index.base`) turned out not to be worth the
+   complexity once this limitation surfaced (see the two options considered — patch the fork's
+   `defaultOptions.sortFn` directly, or fix the `.d.ts` shape so the documented override path
+   actually works — both rejected by the user as overkill for the actual need). **Second, related,
+   independently-confirmed gotcha from the same investigation, worth remembering if this is ever
+   revisited**: `sortFn`/`filterFn`/`mapFn` are round-tripped through `.toString()` into the page's
+   HTML (`data-data-fns` attribute on `.explorer`) and reconstructed client-side via `new
+   Function(...)` in a scope with **no access to anything outside the function's own body** — so any
+   working custom sort/filter/map function for Explorer (however it's wired in) must be fully
+   self-contained: no references to module-level consts, imports, or helper functions declared
+   outside the function literal itself. **For gpunkt.org**: if per-file Explorer pinning or similar
+   `sortFn`/`filterFn` customization comes up there, check whether that repo's own `explorer` source
+   is a fork with the same re-export-only `dist/index.d.ts` shape before assuming the documented
+   `quartz.ts` path will just work — verify with a real build + HTML inspection (check
+   `data-data-fns` actually contains the custom function text) rather than trusting it compiled
+   without error.
