@@ -1,7 +1,7 @@
 export default {
   components: {
     recentNotes: {
-      title: "Zuletzt bearbeitete Seiten",
+      title: "Zuletzt bearbeitet",
       seeRemainingMore: ({ remaining }: { remaining: number }) => `${remaining} weitere ansehen →`,
     },
   },

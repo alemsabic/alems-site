@@ -8,7 +8,7 @@ main {
   font-family: "Geist Mono", monospace;
 
   /* PATHOLOGIE Dark Mode Colors */
-  --bg: #0a0200; /* light (dark mode background) */
+  --bg: #09002b; /* light (dark mode background) */
   --bg-secondary: rgba(255, 255, 255, 0.05); /* lightgray subtle */
   --text: #ebebec; /* dark (dark mode text) */
   --text-muted: #646464; /* gray */

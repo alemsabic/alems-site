@@ -33,7 +33,7 @@ configuration:
         highlight: rgba(143, 159, 169, 0.15)
         textHighlight: "#8fa59933"
       darkMode:
-        light: "#0a0200" # background-color
+        light: "#09002b" # background-color (deep purple)
         lightgray: "rgb(255 255 255 / 20%)"
         gray: "#646464"
         darkgray: "#d4d4d4"

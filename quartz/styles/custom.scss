@@ -224,11 +224,6 @@ strong {
   -moz-osx-font-smoothing: grayscale;
 }
 
-// Dark theme: custom body background color
-[saved-theme="dark"] body {
-  background-color: #09002b !important;
-}
-
 // Noise texture overlay - light theme
 body::before {
   content: "";
@@ -280,7 +275,7 @@ hr {
 // Mobile sticky header with transparent background
 @media (max-width: 800px) {
   .page #quartz-body .sidebar.left:has(.explorer) {
-    opacity: 80%;
+    opacity: 0.95;
   }
 
   // Light mode: remove background completely
@@ -822,6 +817,22 @@ article.zettelkasten .data-footnote-backref {
 .recent-notes li.recent-li {
   margin-top: 0;
   margin-bottom: 0;
+}
+
+// Section title ("Zuletzt bearbeitet") sized identically to the H1 rule further up in this file —
+// same base line-height and the same min-width: 800px font-size/line-height jump. Scoped to the
+// section title only (`.recent-notes > h3`), not the per-entry titles nested in `.section > .desc
+// > h3 > a`, which stay at their own (smaller) size.
+.recent-notes > h3 {
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+@media (min-width: 800px) {
+  .recent-notes > h3 {
+    font-size: 3rem;
+    line-height: 0.9;
+  }
 }
 
 // ============================================

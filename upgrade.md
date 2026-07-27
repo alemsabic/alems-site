@@ -1,12 +1,20 @@
 # Quartz v4 → v5 Migration Runbook
 
-Status: **Phases A–G done and pushed to the `v5` branch, including the font-conflict bug fix
-below. `v4` (production, live on Cloudflare Pages) is untouched.** Phase H (deploy cutover) and
-Phase I (gpunkt.org replay) remain, both gated on the user being present — see "Current status and
-how to continue" immediately below. Update this file as each phase actually executes (commands
-run, gotchas hit, final config). This is the artifact that makes replaying the same migration on
-the sister project (`/Users/alemsabic/Desktop/gpunkt.org`) mechanical instead of exploratory —
-gpunkt.org has no CLAUDE.md of its own to lean on, so this doc carries the institutional memory.
+Status: **Phases A–G done and pushed to the `v5` branch, including nine real bugs found and fixed
+and the full visual-diff pass now closed. `v4` (production, live on Cloudflare Pages) is
+untouched.** Phase H (deploy cutover) has the user's explicit go-ahead as of 2026-07-27 but hasn't
+actually started yet — pick it up next session (see the "Phase H" section further down for the
+concrete first step). Phase I (gpunkt.org replay) still needs its own separate go-ahead when the
+time comes. The one open question that was gating Phase H's design — whether Quartz v5 supports
+publishing directly from an Obsidian plugin, bypassing this repo's manual git push — is now
+resolved (2026-07-27, see "Resolved: Obsidian-plugin direct publishing" further down): it doesn't,
+so the existing two-repository git-push-triggers-Actions workflow stands unchanged. Nothing is
+blocking Phase H from actually starting next session.
+
+Update this file as each phase actually executes (commands run, gotchas hit, final config). This is
+the artifact that makes replaying the same migration on the sister project
+(`/Users/alemsabic/Desktop/gpunkt.org`) mechanical instead of exploratory — gpunkt.org has no
+CLAUDE.md of its own to lean on, so this doc carries the institutional memory.
 
 Full research/design context lives in the plan this runbook was seeded from:
 `/Users/alemsabic/.claude/plans/ja-recherchier-das-mal-compressed-sutherland.md` (until that path
@@ -21,25 +29,26 @@ execution log below.**
 
 - Phases A through G are complete, verified in real builds and in an actual browser (not just
   build success), and pushed to the `v5` branch. `git log v5` has the full commit-by-commit trail;
-  each phase section further down in this file has the detailed narrative, including eight real
+  each phase section further down in this file has the detailed narrative, including nine real
   bugs found and fixed purely by looking at rendered output (Explorer `shortTitle`, citation
   tooltips, `CustomOgImages` title concatenation, the `quartz-fonts` cascade-layer conflict, a
   duplicate-H1 regression on content pages, a beforeBody reorder + duplicate Properties panel, a
-  hardcoded `markdown-preview-view` wrapper div breaking several direct-child CSS selectors, and a
-  multi-part search-button styling regression — see the "Phase G" section and its addenda below
-  for all eight).
+  hardcoded `markdown-preview-view` wrapper div breaking several direct-child CSS selectors, a
+  multi-part search-button styling regression, and a dark-mode background color drift affecting
+  several surfaces — see the "Phase G" section and its addenda below for all nine).
 - The `v5` branch is currently checked out locally. `v4` (the live, deployed branch) has not been
   touched since Phase A and is not affected by anything on `v5` until Phase H actually happens.
 - `npm run check` (TypeScript + prettier) is clean except for `content/` and harness config files,
   neither in scope.
-- **Ongoing (2026-07-26, current session): a manual visual-diff pass, page by page, comparing the
-  locally-running `v5` build against the live `v4` site.** This is how bugs 4 through 8 above were
-  found — automated Phase G checks confirmed things _rendered_, not that they rendered
-  _identically_ to v4. Not yet exhaustive (checked in depth: one zettelkasten note,
-  `Atomizität im ZK`; not yet checked: dictionary-entry/literature-note note types, folder/tag
-  listing pages beyond a spot check, the index page). Continue this comparison before treating
-  Phase G as fully closed. No new section further down tracks this separately — findings get
-  folded into the "Phase G addendum" numbering as they're found and fixed.
+- **Manual visual-diff pass, page by page, comparing the locally-running `v5` build against the
+  live `v4` site — now complete (2026-07-26 through 2026-07-27).** This is how bugs 4 through 9
+  above were found — automated Phase G checks confirmed things _rendered_, not that they rendered
+  _identically_ to v4. Checked in depth across sessions: one zettelkasten note (`Atomizität im
+ZK`), the index page (heavily, 2026-07-27 — this is where the RecentNotes/sidebar/dark-mode-color
+  work happened), dictionary-entry/literature-note note types, and folder/tag listing pages.
+  User confirmed literature-note and tag-listing pages render identically to v4 (2026-07-27, no
+  further findings). **Phase G is now fully closed** — no further visual-diff work outstanding
+  before Phase H.
 - **Also done this session, not bugs but user-requested feature/design changes** (see the two
   dedicated subsections after the numbered bug addenda below): Tagline text made configurable via
   `quartz.config.yaml` options instead of hardcoded JSX, its CSS centralized into `custom.scss`;
@@ -390,7 +399,7 @@ default-template config from Phase C — nothing to add, just verify.
   left as-is rather than actively investigating further; harmless bonus features, not actively
   adopted/configured for anything specific.
 
-### Phase G — Local verification (in progress)
+### Phase G — Local verification ✅ (2026-07-26 to 2026-07-27, closed — see 9th bug addendum and the visual-diff closure note at the top of this file)
 
 Using `npx quartz build --serve` + actual browser inspection (screenshots, console, accessibility
 tree), not just build-success/grep checks — this caught a real bug static analysis missed.
@@ -942,13 +951,130 @@ in a live callout (no callout blocks in the currently-synced `content/` vault to
 compiled CSS confirmed correct (`grep` on `public/index.css`); worth a real visual check the next
 time a note with a callout is available locally.
 
+### Phase G addendum — 9th bug found by the user (2026-07-27): dark-mode background color drift (var(--light) stale near-black vs. real purple body bg)
+
+**Status: diagnosed and fixed.** User noticed the mobile sticky sidebar/explorer header still
+looked black in dark mode after a first-pass fix; further reports followed for the mobile
+full-screen explorer menu, the Search modal, the Graph modal, and the Giscus comment box — all
+showing the same stale near-black instead of the site's actual deep-purple dark background.
+
+**Root cause**: `quartz.config.yaml`'s `configuration.theme.colors.darkMode.light` was `"#0a0200"`
+— functionally black, despite being mislabeled "deep-purple" in this doc's own Phase G verification
+notes (see the "Dark mode toggle" line further up — that was never actually checked closely). At
+some earlier point `custom.scss` picked up a hardcoded `[saved-theme="dark"] body { background-color:
+#09002b !important; }` override to get the _body_ specifically showing the real purple, but nothing
+else in the site was ever pointed at that same real value — every other surface that legitimately
+uses `var(--light)` as its background (mobile explorer sticky header, mobile full-screen explorer
+menu, `@quartz-community/search`'s modal, `@quartz-community/graph`'s modal, `popover.scss`'s
+link-preview card) kept resolving to the stale `#0a0200`.
+
+**Fix — changed the value at its single source instead of patching every consumer**:
+`quartz.config.yaml:36`, `darkMode.light` → `"#09002b"`. This makes `var(--light)` resolve to the
+real purple everywhere in dark mode automatically, with no per-component overrides needed. Removed
+the now-redundant hardcoded `[saved-theme="dark"] body` override in `custom.scss` (was masking the
+root config bug rather than fixing it). Giscus comments needed a second, separate fix since the
+comment iframe is themed by a static CSS file loaded via `themeUrl`, not by the page's CSS
+variables: `quartz/static/giscus/dark.css` had `--bg: #0a0200` hardcoded → changed to `#09002b`.
+Deliberately left `--color-btn-primary-text: #0a0200` in that same file untouched — that one is a
+text color chosen for contrast against a colored button, not a background, so it wasn't part of
+this bug.
+
+**Verification**: `npm run check` clean (aside from pre-existing `content/` prettier warnings, out
+of scope). Not yet re-screenshotted for Search/Graph/popover specifically — user confirmed the
+sidebar fix looked correct locally and flagged that Giscus can only be checked after the next
+deploy, since its CSS is fetched live from `https://ale.ms/static/giscus/*.css` by the comments
+widget, not served from the local dev build.
+
+**For the gpunkt.org replay (Phase I)**: check whether gpunkt.org's own dark-mode `light` color has
+the same drift (a hardcoded body-only purple patch with the root config value left black) before
+assuming it's fine — this is exactly the kind of thing that's invisible until someone actually
+opens every surface (modals, mobile menus) in dark mode, not just the main page body.
+
+### Small design tweaks (2026-07-27, user-requested, not bugs — port to gpunkt.org too)
+
+**Mobile sticky sidebar opacity**: `custom.scss`'s `.page #quartz-body .sidebar.left:has(.explorer)`
+mobile rule (`@media max-width: 800px`) changed from `opacity: 80%` to `opacity: 0.95` — user's
+preference for a more opaque sticky header.
+
+**`.recent-notes` title text**: changed from "Zuletzt bearbeitete Seiten" to "Zuletzt bearbeitet"
+(briefly landed on "Zuletzt bearbeitet/hinzugefügt" mid-session before the user shortened it —
+"bearbeitet" already covers "hinzugefügt" in spirit, and it reads cleaner) in
+`local-plugins/recent-notes/src/i18n/locales/de-DE.ts` (the `de-DE`
+locale entry for `components.recentNotes.title`, rendered as the `<h3>` in `RecentNotes.tsx` on the
+index page's footer). **Remember the local-plugin build gotcha here**: this required `npm install`
+(the package's `node_modules` had no `tsup`/`typescript` present) then `npm run build` inside
+`local-plugins/recent-notes` itself — editing the `src/` locale file alone does nothing until
+rebuilt, same gotcha as the Tagline addendum above. User explicitly asked that both of these — the
+opacity value and the title text — be carried over when gpunkt.org gets its own v5 replay.
+
+**`.recent-notes > h3` (section title only) sized identically to the H1 rule**: added to
+`custom.scss`, right after the `.recent-li` margin fix —
+
+```scss
+.recent-notes > h3 {
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+@media (min-width: 800px) {
+  .recent-notes > h3 {
+    font-size: 3rem;
+    line-height: 0.9;
+  }
+}
+```
+
+Values (`1.75rem`/`3rem`, `line-height: 1`/`0.9`) are pulled directly from `base.scss`'s own `h1`
+rule and the `h1` `min-width: 800px` override further up in `custom.scss` — this is deliberately
+the same H1 sizing, not a coincidentally-similar one. Scoped to `.recent-notes > h3` specifically
+(the section title, "Zuletzt bearbeitet") — clarified with the user mid-session, since the
+component has a second, unrelated `<h3>` per list entry (`.section > .desc > h3 > a`, each note's
+own title) that was **not** meant to change and stays at its original size. Went through two
+follow-up size corrections after the initial `3rem`-everywhere pass (`2rem`, then settled on
+`1.75rem` to match H1's base size exactly) before landing here.
+
 ### Phase H — CI/CD + deploy cutover
 
-_(not started — this is the point where changes start affecting the live/production site; per
-earlier discussion with the user, this phase requires their explicit go-ahead before any actual
-cutover action, even though everything up to and including a Cloudflare Pages **preview**
-deployment can proceed without it.)_
+**Status: user gave the explicit go-ahead to proceed with this phase (2026-07-27, end of session)
+— but no cutover action was actually taken this session.** The session ended here; picking this up
+fresh means actually starting Phase H, not just continuing to wait for a go-ahead. Concretely, per
+the plan discussed with the user (see "After that: Phase H and Phase I, in order" above): the
+lower-risk first step is a Cloudflare Pages **preview** deployment (pushing `v5` without changing
+the production branch setting) — start there rather than jumping straight to flipping the
+production branch/build command. The build command itself needs to change from `npx quartz build`
+to `npx quartz plugin install && npx quartz build` as part of this phase (see `CLAUDE.md`'s
+Deployment section).
+
+**Before touching anything Cloudflare/GitHub-side next session, also see the open question noted
+below** (Obsidian-plugin direct publishing) — worth understanding first since, if real, it could
+mean the actual publishing pipeline works differently than the git-push-triggers-Actions model this
+whole migration has assumed so far.
+
+### Resolved: Obsidian-plugin direct publishing in Quartz v5 — not a thing (2026-07-27)
+
+Researched via `jdocmunch` against the already-indexed `jackyzha0/quartz` docs
+(`docs/cli/sync.md`, `docs/features/Obsidian compatibility.md`). **No Obsidian plugin bypasses git
+push/commit for this repo's content workflow.** Two related but distinct things do exist, neither
+of which is that:
+
+1. **`npx quartz sync`** — a new v5 CLI command that bundles `git pull` + `add` + `commit` + `push`
+   into one invocation (flags: `--no-commit`, `--no-push`, `--no-pull`, `-m` for message). Still
+   fully git-based, still has to be actively run (terminal/script/hotkey) — not a background
+   process, not an Obsidian plugin.
+2. **"Quartz Syncer"** (Obsidian community plugin, referenced from `Obsidian compatibility.md`'s
+   "Obsidian Community Plugin Support" table) — per the official docs its scope is specifically
+   **exporting Dataview queries as static content during sync**, alongside sibling
+   Obsidian-plugin-bridges for Excalidraw, Leaflet Maps, and Style Settings. Not a general
+   direct-publish mechanism.
+
+**Conclusion**: this repo's two-repository content workflow (edit in
+`/Users/alemsabic/Desktop/MEMEX/_projects/alems-notizen/` → `git commit`/`push` → GitHub Actions
+syncs to `alems-site`'s `content/` → Cloudflare deploys, per `CLAUDE.md`'s "Content Workflow")
+remains architecturally correct and unaffected by anything in Quartz v5. No redesign needed before
+or during Phase H on this front. Question closed — nothing further to investigate here.
 
 ### Phase I — Replay on gpunkt.org
 
-_(not started — see plan file for gpunkt.org-specific deltas to preserve: heading-badge/im-Fokus transformer plugins, TableOfContents badge rendering, footnote-heading relabeling, its more-diverged ContentHeader)_
+_(not started — see plan file for gpunkt.org-specific deltas to preserve: heading-badge/im-Fokus transformer plugins, TableOfContents badge rendering, footnote-heading relabeling, its more-diverged ContentHeader. Also see the "9th bug" and "Small design tweaks" addenda above (2026-07-27): the dark-mode `var(--light)` color-drift root cause to check for, the mobile sidebar `opacity: 0.95`, the `.recent-notes` title text change to "Zuletzt bearbeitet", and the `.recent-notes > h3`
+H1-identical sizing (`1.75rem` / `3rem` at `min-width: 800px`) — all explicitly flagged by the user
+to carry over.)_
