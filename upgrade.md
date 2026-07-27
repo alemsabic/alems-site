@@ -1090,6 +1090,90 @@ environment variable and sometimes build-config scopes). This is fix attempt #1 
 systematic-debugging allows up to 3 before stopping to question the architecture — still well
 within budget, just needs real evidence (the build log) before the next attempt, not another guess.
 
+#### Root cause found via real build log, not another guess (2026-07-27)
+
+Got dashboard-equivalent access without asking the user to paste/screen-share: found a still-valid
+`wrangler` OAuth session already on this machine (`~/.wrangler/config/default.toml`), used it to
+run `wrangler pages deployment list --project-name=ale-ms` to find the exact deployment ID for
+commit `d8a587e` (`c2ed50c0-...`), then pulled its full build log directly from the Cloudflare API
+(`GET /accounts/{account}/pages/projects/ale-ms/deployments/{id}/history/logs`) using the same
+OAuth bearer token — no dashboard UI needed.
+
+**The log shows the real failure, in full**:
+
+```
+Executing user command: npx quartz plugin install && npx quartz build
+→ Installing plugins from lockfile...
+  ✗ citations: local path missing: /Users/alemsabic/Desktop/ale.ms/local-plugins/citations
+  ✗ content-header: local path missing: /Users/alemsabic/Desktop/ale.ms/local-plugins/site-components
+  ... (all 13 local-plugin entries, same pattern)
+⚠ Installed 0 plugin(s), 13 failed
+Plugin "explorer" declares components but failed to load them
+Plugin "content-meta" declares components but failed to load them
+... (component plugins fail soft)
+✗ Failed to instantiate plugin "github-flavored-markdown": Unknown file extension ".ts" for /opt/buildhome/repo/local-plugins/github-flavored-markdown/src/index.ts
+... (transformer/emitter plugins fail hard, but the build process itself doesn't abort)
+Emitted 110 files to `public` in 347ms
+```
+
+**Root cause, fully traced in `quartz/cli/plugin-git-handlers.js`** (this repo's own copy of the
+Quartz v5 CLI, not something we authored): bare `npx quartz plugin install` (no flags) takes the
+**lockfile-restore code path** (`handlePluginInstallUnified` without `fromConfig: true`, ~line 1004
+onward). For any lockfile entry with `commit: "local"`, this path checks
+`fs.existsSync(entry.resolved)` and symlinks from `entry.resolved` **verbatim** — and `entry.resolved`
+is an **absolute, install-machine-specific path**, frozen into `quartz.lock.json` at the moment
+`quartz plugin install --from-config` was first run locally:
+
+```jsonc
+// quartz.lock.json
+"citations": {
+  "source": "./local-plugins/citations",
+  "resolved": "/Users/alemsabic/Desktop/ale.ms/local-plugins/citations",  // ← baked in, dev machine only
+  "commit": "local",
+  ...
+}
+```
+
+On Cloudflare's build machine the repo is cloned to `/opt/buildhome/repo`, not
+`/Users/alemsabic/Desktop/ale.ms` — so `entry.resolved` points at a path that simply doesn't exist
+there, for all 13 local plugins, every single build. Fix #1 (adding `plugin install` to the build
+command at all) was necessary but not sufficient — it added the right *command*, but that command's
+default (no-flags) behavior trusts a value that is inherently non-portable across machines.
+
+**The fix that's actually correct — confirmed by reading the code, not just plausible**: the
+`--from-config` flag takes a completely different branch (same file, ~line 488 onward) that ignores
+`entry.resolved` for anything not already present under the plugin-cache dir, and instead does
+`resolvedPath = path.resolve(url)` against `process.cwd()` — i.e. re-derives the path fresh, from
+`quartz.config.yaml`'s own relative `source: ./local-plugins/<name>` string, relative to wherever
+the build is actually running. On a from-scratch checkout (Cloudflare CI has no `.quartz/plugins/`
+cache dir yet, so every local plugin registers as "missing" regardless of stale lockfile content),
+this resolves correctly to `/opt/buildhome/repo/local-plugins/<name>`. This same code path is also
+the one that runs `npm install --ignore-scripts && npm run build` for each freshly-linked local
+plugin (`buildPluginAsync`, called right after linking) — the exact `tsup`-into-`dist/` build step
+`local-plugins/*` needs, and the same step this doc's "gotcha worth remembering" note (top of this
+file) already flagged as easy to forget locally. `--from-config` is what makes that happen
+automatically in CI; bare `plugin install` never builds anything new for entries it can't even find.
+
+**Proposed fix #2, not yet applied**: change the Cloudflare Pages **Preview** build command from
+
+```
+npx quartz plugin install && npx quartz build
+```
+
+to
+
+```
+npx quartz plugin install --from-config && npx quartz build
+```
+
+This is a dashboard setting, same one edited for fix #1 — needs the user to apply it (or explicit
+go-ahead to do it via the Cloudflare API using the `wrangler` OAuth session found above, which has
+`pages:write` scope). Not applied automatically without that go-ahead, consistent with this file's
+standing rule that Phase H changes need the user present. Once changed, re-trigger a preview build
+(another empty commit, same as fix #1's `d8a587e`) and check the same build log for `✓ ... linked`
+lines instead of `✗ ... local path missing`, then verify Explorer/Graph/RecentNotes/content pages
+render in the actual preview URL.
+
 ### Resolved: Obsidian-plugin direct publishing in Quartz v5 — not a thing (2026-07-27)
 
 Researched via `jdocmunch` against the already-indexed `jackyzha0/quartz` docs
