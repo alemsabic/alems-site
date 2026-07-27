@@ -20,32 +20,33 @@ This repository handles **PRESENTATION ONLY** (Quartz static site generator).
 
 ---
 
-## 🚧 Active: Quartz v4 → v5 Migration (started 2026-07-26)
+## ✅ Quartz v4 → v5 Migration — Phase H complete (2026-07-26 to 2026-07-27), Phase I pending
 
-**If you're picking up work in this repo, check this first.** There is an in-progress migration
-from Quartz v4 to v5 on the **`v5` branch** (currently checked out). The full runbook — status,
-architecture findings, every customization ported, every bug found and fixed, and exactly how to
-continue — lives in **`upgrade.md` at the repo root**. Read its "Current status and how to
-continue" section (near the top of the file) before doing anything else in this repo.
+**If you're picking up work in this repo, check this first.** The Quartz v4 → v5 migration's
+deploy cutover is done: **`v5` is what's live in production now**, both on Cloudflare Pages
+(`production_branch: v5`) and as this GitHub repo's default branch. The full runbook — every
+customization ported, every bug found and fixed, and the exact cutover sequence — lives in
+**`upgrade.md` at the repo root**. Its top status line always reflects current reality; read that
+before doing anything else here, especially before touching deployment/branch settings again.
 
-Status as of 2026-07-27: **Phase H (deploy cutover) is in progress and `v5` is now live** —
-Cloudflare Pages' production branch was flipped from `v4` to `v5` this session, so `https://ale.ms`
-now serves the v5 build (still needs a fresh push to actually deploy the flip, then real-browser
-verification — see `upgrade.md`'s Phase H section for exact status). `v4` is the pre-migration
-branch, kept around but no longer deployed. Phases A–G (branch to v5, rebuild config, port every
-custom component/plugin as a local-plugin fork under `local-plugins/`, add Bases/Canvas, verify in
-a real browser) are done. A manual, page-by-page v4-vs-v5 visual-diff pass found and fixed nine
-real bugs, all documented in `upgrade.md`'s "Phase G" addenda: the `quartz-fonts` cascade-layer
-font conflict, a duplicate H1 on content pages, a beforeBody reorder + duplicate Properties panel,
-a hardcoded `markdown-preview-view` wrapper div that broke several `>`-combinator CSS selectors, a
-multi-part search-button styling regression, and a dark-mode background-color drift. Also done:
-Tagline text made configurable via `quartz.config.yaml` + its CSS centralized into `custom.scss`,
-`content-header`'s Datum/Textlänge fields (Textlänge dropped, Datum kept), and folder listing pages
-excluded from Giscus comments (alongside tag/canvas/bases, already done — folder was a late catch,
-see `upgrade.md`). **Phase I (replaying this whole migration on the sister project at
-`/Users/alemsabic/Desktop/gpunkt.org`) remains explicitly gated on the user being present and
-giving the go-ahead at the time — do not do it unattended.** `upgrade.md`'s Phase I section has an
-explicit checklist of Phase H gotchas to carry over so they don't need re-deriving there.
+One-paragraph history: Phases A–G (branch to v5, rebuild config, port every custom
+component/plugin as a local-plugin fork under `local-plugins/`, add Bases/Canvas, verify in a real
+browser) found and fixed nine real bugs via manual v4-vs-v5 visual diffing — all documented in
+`upgrade.md`'s "Phase G" addenda (`quartz-fonts` cascade-layer font conflict, duplicate H1, a
+beforeBody reorder + duplicate Properties panel, a hardcoded `markdown-preview-view` wrapper div
+breaking `>`-combinator selectors, a multi-part search-button regression, a dark-mode
+background-color drift). Phase H (this session's main event) found one more real bug purely from
+trying to actually deploy: Cloudflare's build command needs `npx quartz plugin install
+--from-config`, not bare `plugin install` — the bare form trusts an install-machine-specific
+absolute path frozen in `quartz.lock.json` that doesn't exist on Cloudflare's build machine, so
+every `local-plugins/*`-sourced component silently failed to render on the first preview deploy.
+Also fixed same-session: Giscus comments excluded from folder listing pages too (previously only
+tag/canvas/bases). User did the final real-browser verification against the live site directly and
+confirmed everything renders correctly. **Phase I (replaying this whole migration on the sister
+project at `/Users/alemsabic/Desktop/gpunkt.org`) is the only remaining phase, still explicitly
+gated on the user being present and giving the go-ahead at the time — do not do it unattended.**
+`upgrade.md`'s Phase I section has an explicit checklist of every Phase H gotcha to carry over
+verbatim, so none of them need re-deriving there.
 
 ---
 

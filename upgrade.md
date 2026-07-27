@@ -1,8 +1,11 @@
 # Quartz v4 → v5 Migration Runbook
 
-Status: **Phase H cutover in progress (2026-07-27) — Cloudflare Pages production branch flipped
-from `v4` to `v5`, GitHub default branch not yet flipped, real production verification pending
-the next push.** Phases A–G done and pushed to the `v5` branch, including nine real bugs found and fixed
+Status: **Phase H (deploy cutover) is complete as of 2026-07-27.** `v5` is live in production on
+both Cloudflare Pages (`production_branch: v5`) and GitHub (default branch `v5`); the user confirmed
+the live site at `https://ale.ms` looks correct in a real browser. `v4` still exists as a branch
+(not deleted) but is no longer deployed or the GitHub default. Only Phase I (gpunkt.org replay)
+remains, still gated on the user's presence/go-ahead — see its dedicated section near the bottom of
+this file for the full carry-over checklist. Phases A–G done and pushed to the `v5` branch, including nine real bugs found and fixed
 and the full visual-diff pass now closed. `v4` (production, live on Cloudflare Pages) is
 untouched.** Phase H (deploy cutover) has the user's explicit go-ahead as of 2026-07-27 but hasn't
 actually started yet — pick it up next session (see the "Phase H" section further down for the
@@ -1232,6 +1235,44 @@ push to `v5` is what will trigger the real first production deployment. **Not ye
 writing**: that triggering push, real-browser verification of `https://ale.ms` afterward (not just
 build success — same lesson as every other bug this migration found), and the GitHub default-branch
 flip (`v4` → `v5`), which is independent of Cloudflare's setting and hasn't been touched yet.
+
+**Update — triggering push landed, first real production deploy succeeded (2026-07-27)**: the docs
+commit above (`9caee51`) triggered Cloudflare deployment `55f3152f-649f-4785-8f57-a3449c475338`,
+`environment: production`, build+deploy both `success`. Verified via `curl` against the real
+`https://ale.ms` (not just the build log): Explorer/Tagline/RecentNotes markup present on the
+homepage, `static/contentIndex.json` returns `200`, a content page (`/atomizität-im-zk`) has
+exactly one `<h1>`, `/literatur/` has zero Giscus references (both regressions this migration
+specifically fixed, now confirmed live). **Bonus confirmation of the Giscus themeUrl analysis
+above**: `https://ale.ms/static/giscus/dark.css` now returns `--bg: #09002b` (the correct purple)
+for the first time — proof the color was never wrong in `v5`, only unobservable pre-cutover exactly
+as predicted. Full real-browser check (dark-mode toggle, actual Giscus widget rendering, not just
+its CSS file) still worth doing before calling Phase H fully closed, but every `curl`-checkable
+signal is correct.
+
+#### Phase H closed out: GitHub default branch flipped, npm audit reviewed (2026-07-27)
+
+User did the real-browser check themselves against the live `https://ale.ms` and confirmed
+everything looks correct — the one item the `curl` checks above couldn't cover. Remaining loose
+ends closed out the same session:
+
+- **GitHub default branch**: `alemsabic/alems-site`'s default branch changed from `v4` to `v5` via
+  `gh repo edit alemsabic/alems-site --default-branch v5`. Confirmed via `gh repo view ... --json
+  defaultBranchRef`. `v4` still exists as a branch (not deleted) — no destructive action taken,
+  deletion would need its own explicit go-ahead if ever wanted.
+- **`npm audit` revisited** (flagged back in Phase B as "not investigated yet... revisit before
+  going live" — now that we're actually live, revisited): 5 vulnerabilities (1 low, 4 high) as of
+  this session — `brace-expansion`/`minimatch` (via `serve-handler`, Quartz's own `--serve` dev
+  command), `esbuild` (arbitrary file read on its dev server, Windows-only), `sharp` (inherited
+  `libvips` CVEs). **All three are build-time/local-dev-server tooling, not runtime code** — the
+  actual deployed artifact is a static `public/` directory Cloudflare Pages serves with no
+  server-side processing at request time, so none of these run against real traffic to
+  `https://ale.ms`. `npm audit fix --force` would resolve them but pulls in breaking-change bumps
+  (`serve-handler@1.0.0`, `sharp@0.35.3`) with no test coverage of the result, right after a
+  migration+cutover that's currently in a known-good state — not worth the regression risk for a
+  build-time-only, non-production-facing advisory. Left as-is; worth another look independent of
+  any future Quartz/dependency update, not urgent.
+
+**Phase H is fully closed.** Only Phase I (gpunkt.org replay) remains — see its checklist below.
 
 ### Resolved: Obsidian-plugin direct publishing in Quartz v5 — not a thing (2026-07-27)
 
