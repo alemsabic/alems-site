@@ -1050,6 +1050,46 @@ below** (Obsidian-plugin direct publishing) — worth understanding first since,
 mean the actual publishing pipeline works differently than the git-push-triggers-Actions model this
 whole migration has assumed so far.
 
+#### Preview deploy attempted (2026-07-27) — broken, root-cause fix #1 did not resolve it
+
+Pushed `v5` to `origin/v5` (`fdebaac`). Cloudflare Pages preview came up at
+`https://b1c9b2c1.ale-ms.pages.dev/` but is badly broken: only the index page's shell renders —
+Explorer (sidebar) is empty, Graph shows no nodes, RecentNotes is missing, and individual content
+pages don't render at all.
+
+**Root-cause investigation (Phase 1, done)**: confirmed via three independent pieces of evidence
+that `local-plugins/*/dist/` is gitignored (`.gitignore:local-plugins/*/dist/`) and every local
+plugin's `package.json` points its `main`/`exports` at that same `./dist/index.js` — so on a fresh
+Cloudflare checkout those modules don't exist until something builds them. The upstream Quartz v5
+CLI docs (`docs/cli/plugin.md`, via `jdocmunch`) confirm local/symlinked plugins use a
+build-on-install fallback (`npm install` + `npm run build`) specifically **because** `dist/` is
+normally gitignored — and that fallback runs as part of `npx quartz plugin install`, not
+`npx quartz build` alone. This matched `CLAUDE.md`'s already-documented plan to change the build
+command to `npx quartz plugin install && npx quartz build` for exactly this reason.
+
+**Fix #1 (user applied, 2026-07-27)**: updated the Cloudflare Pages project's Build Command setting
+to `npx quartz plugin install && npx quartz build`. Pushed an empty commit (`d8a587e`) to force a
+fresh preview build against the corrected setting.
+
+**Result: did not fix it.** User confirmed the rebuilt preview looks identical — same missing
+Explorer/Graph/RecentNotes/content pages. **This means the root-cause hypothesis above is either
+incomplete or wrong**, or the build-command change didn't actually take effect the way expected
+(e.g. wrong Cloudflare project/environment edited, preview-specific vs. production build command
+settings differ and only one got changed, the setting didn't save, or `quartz plugin install`
+itself is failing/erroring in the Cloudflare CI environment rather than silently no-op'ing — none
+of this has been checked yet).
+
+**Next session, before attempting a fix #2**: per systematic-debugging practice, don't guess again
+blindly — go back to gathering evidence. Concretely: check the actual Cloudflare Pages build log
+for this deployment (not accessible without dashboard access — ask the user to paste it or share
+screen) to see whether `npx quartz plugin install` ran at all, and if it did, whether it
+errored, and if it didn't error, whether `local-plugins/*/dist/` actually got created in that build
+environment. Also worth double-checking in the dashboard that the build-command edit was saved
+against the right project/branch/environment (Cloudflare Pages has separate Production/Preview
+environment variable and sometimes build-config scopes). This is fix attempt #1 of what
+systematic-debugging allows up to 3 before stopping to question the architecture — still well
+within budget, just needs real evidence (the build log) before the next attempt, not another guess.
+
 ### Resolved: Obsidian-plugin direct publishing in Quartz v5 — not a thing (2026-07-27)
 
 Researched via `jdocmunch` against the already-indexed `jackyzha0/quartz` docs
