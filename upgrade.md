@@ -3,23 +3,39 @@
 Status: **Phase H (deploy cutover) is complete as of 2026-07-27.** `v5` is live in production on
 both Cloudflare Pages (`production_branch: v5`) and GitHub (default branch `v5`); the user confirmed
 the live site at `https://ale.ms` looks correct in a real browser. `v4` still exists as a branch
-(not deleted) but is no longer deployed or the GitHub default. Only Phase I (gpunkt.org replay)
-remains, still gated on the user's presence/go-ahead — see its dedicated section near the bottom of
-this file for the full carry-over checklist. Phases A–G done and pushed to the `v5` branch, including nine real bugs found and fixed
-and the full visual-diff pass now closed. `v4` (production, live on Cloudflare Pages) is
-untouched.** Phase H (deploy cutover) has the user's explicit go-ahead as of 2026-07-27 but hasn't
-actually started yet — pick it up next session (see the "Phase H" section further down for the
-concrete first step). Phase I (gpunkt.org replay) still needs its own separate go-ahead when the
-time comes. The one open question that was gating Phase H's design — whether Quartz v5 supports
-publishing directly from an Obsidian plugin, bypassing this repo's manual git push — is now
-resolved (2026-07-27, see "Resolved: Obsidian-plugin direct publishing" further down): it doesn't,
-so the existing two-repository git-push-triggers-Actions workflow stands unchanged. Nothing is
-blocking Phase H from actually starting next session.
+(not deleted) but is no longer deployed or the GitHub default. `CLAUDE.md` was also restructured
+this session (2026-07-27) — it now holds only durably-true current-state facts plus a maintenance-
+rules section, with every custom Quartz behavior moved into a new dedicated file,
+**`CUSTOM-MODIFICATIONS.md`** (updated to real v5 paths). Read both before starting Phase I.
 
-Update this file as each phase actually executes (commands run, gotchas hit, final config). This is
-the artifact that makes replaying the same migration on the sister project
-(`/Users/alemsabic/Desktop/gpunkt.org`) mechanical instead of exploratory — gpunkt.org has no
-CLAUDE.md of its own to lean on, so this doc carries the institutional memory.
+**Only Phase I (gpunkt.org replay) remains. Next concrete steps, in order — pick up here, don't
+re-plan from scratch:**
+
+1. **Recon pass on `/Users/alemsabic/Desktop/gpunkt.org`, read-only.** Establish real current facts
+   before writing anything: what Quartz version it's actually running, its current deployment setup
+   (Cloudflare project, branch names, build command), whether it has its own `CLAUDE.md` (the
+   "Phase I" section further down assumed it doesn't — verify, don't assume), and what its own
+   unique customizations actually look like in the current source (heading-badge/im-Fokus
+   transformer plugins, TableOfContents badge rendering, footnote-heading relabeling, its
+   more-diverged `ContentHeader` — all flagged below as "reconcile, don't blind-copy"). Also check
+   whether the original research plan this runbook was seeded from
+   (`/Users/alemsabic/.claude/plans/ja-recherchier-das-mal-compressed-sutherland.md`) still exists
+   and still has useful gpunkt.org-specific detail not already captured here.
+2. **Write a detailed, phased execution plan** (mirroring this file's A→I phase structure), informed
+   by: this recon pass, this file's full history (especially the numbered gotchas in the "Phase I —
+   Replay on gpunkt.org" section below — apply them from the start, don't rediscover them),
+   `CLAUDE.md`, and `CUSTOM-MODIFICATIONS.md` — cross-referenced against whatever gpunkt.org's own
+   recon turns up needing reconciliation rather than blind-copying. Keep the same real-browser
+   verification checkpoints per phase that caught 9+ real bugs here — don't cut those in the name of
+   speed; the speed gain comes from not re-discovering *known* fixes, not from skipping
+   verification. The finished plan should live in gpunkt.org's own repo (its own runbook file,
+   mirroring this one), not here — it'll be executed there, not in `ale.ms`.
+3. Only after that plan exists and the user has reviewed it: start actual execution, still gated on
+   the user's presence/go-ahead per this file's standing rule.
+
+Update this file as each phase actually executes (commands run, gotchas hit, final config) — this is
+the artifact that makes replaying the same migration on the sister project mechanical instead of
+exploratory, exactly as it was designed to do.
 
 Full research/design context lives in the plan this runbook was seeded from:
 `/Users/alemsabic/.claude/plans/ja-recherchier-das-mal-compressed-sutherland.md` (until that path
