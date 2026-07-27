@@ -914,8 +914,18 @@ Three small, unrelated fixes from the same session, grouped here rather than giv
 `exclude: ["@quartz-community/comments"]` (full source string — see the article-title/`exclude`
 gotcha from the 5th bug addendum, applies here too) to the `tag`, `canvas`, and `bases` entries in
 `quartz.config.yaml`'s `layout.byPageType`. `canvas` has no content under `content/` yet but is
-excluded proactively. Folder pages and regular content pages are unaffected (comments still show
-there, confirmed via `curl` on `/literatur` and a content page).
+excluded proactively. Regular content pages were deliberately left unaffected (comments still show
+there, confirmed via `curl` on a content page).
+
+**Correction, 2026-07-27**: at the time this fix was written, `folder` pages were left off this
+exclude list on purpose, verified via `curl` on `/literatur` showing comments still present there —
+but that was actually wrong per the user's real intent (folder listing pages, like tag pages,
+shouldn't have a comment thread either; only caught late because the content backup only had one
+folder, Literatur, to spot-check against, and it happened to look "fine" either way at a glance).
+Added `"@quartz-community/comments"` to the `folder` entry in `layout.byPageType` too, alongside
+its existing `reader-mode` exclude. Verified: `grep -c giscus public/literatur/index.html` → `0`
+(was `1` before); a content page and `/literatur/@ahrens_2017` still show `1` (comments correctly
+still present on actual content, just not on the folder's own listing page).
 
 **`.recent-notes` (index page "Zuletzt bearbeitete Seiten") had visibly larger gaps between
 entries than v4.** User's first guess — that `.section h3, .section > .tags { margin: 0 }` (in the

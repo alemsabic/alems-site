@@ -393,6 +393,7 @@ layout:
     folder:
       exclude:
         - "@quartz-community/reader-mode"
+        - "@quartz-community/comments"
       positions:
         right: []
     tag:
@@ -401,9 +402,10 @@ layout:
         - "@quartz-community/comments"
       positions:
         right: []
-    # No comments on tag/canvas/bases pages (user request, 2026-07-26) — Giscus doesn't make sense
-    # on generated listing/tool pages. canvas has no content under `content/` yet, but excluded
-    # proactively for when one is added.
+    # No comments on folder/tag/canvas/bases pages (user request, 2026-07-26; folder added
+    # 2026-07-27 — only caught late because the content backup only has one folder, Literatur, to
+    # test against) — Giscus doesn't make sense on generated listing/tool pages. canvas has no
+    # content under `content/` yet, but excluded proactively for when one is added.
     canvas:
       exclude:
         - "@quartz-community/comments"
