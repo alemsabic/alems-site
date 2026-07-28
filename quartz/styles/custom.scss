@@ -1543,11 +1543,14 @@ body[data-slug="index"] {
   }
 
   // Comfortable reading width for everything except the breakout index section below.
+  // Centered (not left-pinned) — with the sidebars gone the page is up to 1500px wide, and a
+  // 46rem block glued to the left edge left a large dead gap on the right instead of reading
+  // as an intentional narrow column.
   .page-header,
   .page-footer > .graph,
   .page-footer > .recent-notes {
     max-width: 46rem;
-    margin-left: 0;
+    margin-left: auto;
     margin-right: auto;
   }
 
@@ -1558,7 +1561,7 @@ body[data-slug="index"] {
   // added to index.md later.
   .center > hr {
     max-width: 46rem;
-    margin-left: 0;
+    margin-left: auto;
     margin-right: auto;
   }
 
