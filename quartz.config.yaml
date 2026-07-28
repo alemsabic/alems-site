@@ -312,6 +312,13 @@ plugins:
     layout:
       position: afterBody
       priority: 5
+  # New local plugin (not a fork): alphabetical "phone book" index of every published note,
+  # index-page only. See docs/superpowers/specs/2026-07-28-index-page-redesign-design.md.
+  - source: "./local-plugins/site-index"
+    enabled: true
+    layout:
+      position: afterBody
+      priority: 6
   - source: "@quartz-community/spacer"
     enabled: true
     options: {}
