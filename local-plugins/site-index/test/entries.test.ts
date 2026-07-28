@@ -102,6 +102,37 @@ describe("buildIndexEntries", () => {
       "Beobachtung zweiter Ordnung",
     ]);
   });
+
+  it("excludes tag pages (slugs starting with 'tags/')", () => {
+    const filesWithTags = [
+      { slug: "atomizitaet-im-zk", frontmatter: { title: "Atomizität im ZK" } },
+      { slug: "tags/autopoiesis", frontmatter: { title: "autopoiesis" } },
+      { slug: "tags/zettelkasten/prinzipien", frontmatter: { title: "zettelkasten/prinzipien" } },
+    ];
+    const result = buildIndexEntries(filesWithTags as never);
+    expect(result.some((e) => e.slug.startsWith("tags/"))).toBe(false);
+    expect(result.map((e) => e.slug)).toEqual(["atomizitaet-im-zk"]);
+  });
+
+  it("excludes the 404 page (slug === '404')", () => {
+    const filesWithNotFound = [
+      { slug: "atomizitaet-im-zk", frontmatter: { title: "Atomizität im ZK" } },
+      { slug: "404", frontmatter: { title: "Nicht gefunden" } },
+    ];
+    const result = buildIndexEntries(filesWithNotFound as never);
+    expect(result.some((e) => e.slug === "404")).toBe(false);
+    expect(result.map((e) => e.slug)).toEqual(["atomizitaet-im-zk"]);
+  });
+
+  it("excludes .base view pages (slugs ending with '.base')", () => {
+    const filesWithBase = [
+      { slug: "atomizitaet-im-zk", frontmatter: { title: "Atomizität im ZK" } },
+      { slug: "literatur/index.base", frontmatter: { title: "Index" } },
+    ];
+    const result = buildIndexEntries(filesWithBase as never);
+    expect(result.some((e) => e.slug.endsWith(".base"))).toBe(false);
+    expect(result.map((e) => e.slug)).toEqual(["atomizitaet-im-zk"]);
+  });
 });
 
 describe("groupByLetter", () => {

@@ -60,6 +60,9 @@ export function buildIndexEntries(allFiles: IndexablePage[]): SiteIndexEntry[] {
     .filter((p) => p.slug !== "index")
     .filter((p) => !isFolderPath(p.slug ?? ""))
     .filter((p) => p.unlisted !== true)
+    .filter((p) => !(p.slug ?? "").startsWith("tags/"))
+    .filter((p) => p.slug !== "404")
+    .filter((p) => !(p.slug ?? "").endsWith(".base"))
     .map((p) => ({
       slug: p.slug as string,
       title: resolveDisplayTitle(p),
