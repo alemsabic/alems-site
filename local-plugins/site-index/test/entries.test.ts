@@ -28,7 +28,10 @@ describe("resolveDisplayTitle", () => {
 
   it("falls back to title when shortTitle is absent", () => {
     expect(
-      resolveDisplayTitle({ frontmatter: { title: "Atomizität im ZK" }, slug: "atomizitaet-im-zk" }),
+      resolveDisplayTitle({
+        frontmatter: { title: "Atomizität im ZK" },
+        slug: "atomizitaet-im-zk",
+      }),
     ).toBe("Atomizität im ZK");
   });
 
@@ -97,10 +100,7 @@ describe("buildIndexEntries", () => {
 
   it("sorts entries alphabetically by German sort key", () => {
     const result = buildIndexEntries(files as never);
-    expect(result.map((e) => e.title)).toEqual([
-      "Atomizität im ZK",
-      "Beobachtung zweiter Ordnung",
-    ]);
+    expect(result.map((e) => e.title)).toEqual(["Atomizität im ZK", "Beobachtung zweiter Ordnung"]);
   });
 
   it("excludes tag pages (slugs starting with 'tags/')", () => {
