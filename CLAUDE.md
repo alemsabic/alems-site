@@ -85,7 +85,7 @@ This project also registers the `jcodemunch` MCP server (project-scoped, `.mcp.j
 
 **You MUST reach for jCodeMunch (not raw `Read`/grep) in these situations:**
 
-- **Before editing any file `CUSTOM-MODIFICATIONS.md` calls out as shared/fragile infrastructure** — `quartz/util/fileTrie.ts`, `quartz/util/ctx.ts` (both core), and any file inside `local-plugins/citations/`, `local-plugins/content-index/`, `local-plugins/explorer/`, `local-plugins/github-flavored-markdown/`, or `local-plugins/site-scripts/`. This repo has a documented history of custom modifications threaded across multiple files that must stay in sync (footnote highlighting, tooltip decoding, `shortTitle` fallback across 4 locations, German locale citations — see `CUSTOM-MODIFICATIONS.md`). Run `find_references` / `get_blast_radius` on the symbol you're about to touch before editing it, so a change doesn't silently break one of these previously-hard-won fixes elsewhere.
+- **Before editing any file `CUSTOM-MODIFICATIONS.md` calls out as shared/fragile infrastructure** — `quartz/util/fileTrie.ts`, `quartz/util/ctx.ts` (both core), and any file inside `local-plugins/citations/`, `local-plugins/content-index/`, `local-plugins/explorer/`, `local-plugins/github-flavored-markdown/`, or `local-plugins/site-scripts/`. This repo has a documented history of custom modifications threaded across multiple files that must stay in sync (footnote highlighting, tooltip decoding, `shortTitle` fallback across 5 locations, German locale citations — see `CUSTOM-MODIFICATIONS.md`). Run `find_references` / `get_blast_radius` on the symbol you're about to touch before editing it, so a change doesn't silently break one of these previously-hard-won fixes elsewhere.
 - **When locating where a symbol, component, or type is defined or used anywhere under `quartz/` or `local-plugins/`**, instead of grepping across dozens of files by hand. Use `search_symbols` / `find_references`.
 - **Before deleting or renaming any exported symbol in `quartz/` or a `local-plugins/*` fork** — run `check_delete_safe` first rather than assuming it's unused.
 - **When exploring an unfamiliar part of the Quartz internals for the first time** (e.g. chasing a `npm run check` type error into upstream Quartz plugin code, or understanding a component's call chain before extending it) — `index_local` the relevant directory, then query it rather than opening whole files cold.
@@ -159,6 +159,10 @@ ale.ms/
 - `afterBody`: RecentNotes (index page only), Comments (Giscus; excluded on tag/folder/canvas/bases
   page types)
 
+**Homepage exception**: the `index` page doesn't use the layout above — it's single-column, with its
+own hero (Title + Tagline + Search), always-expanded Graph, and phone-book Site Index. See
+`CUSTOM-MODIFICATIONS.md`'s "Homepage (index page) layout" entry for the mechanism.
+
 **Giscus Comments**:
 
 - Repository: `alemsabic/alems-notizen`
@@ -173,10 +177,11 @@ ale.ms/
 
 **See `CUSTOM-MODIFICATIONS.md` at the repo root for every behavior that deviates from stock
 Quartz** — footnote-popover suppression, citation tooltips, SPA footnote highlighting, `shortTitle`
-support (spans 4 files, easy to under-port), custom components (Tagline/ContentHeader/Footer),
+support (spans 5 files, easy to under-port), custom components (Tagline/ContentHeader/Footer),
 RecentNotes/tag-page/folder-page tweaks, dark-mode color handling, search button styling, the
-disabled `quartz-fonts` plugin, and Zotero content conventions (image paths, highlight colors,
-book-cover CSS, the `literature-note` design system).
+disabled `quartz-fonts` plugin, the homepage's single-column layout and Site Index/Graph forks (see
+"Homepage (index page) layout" in `CUSTOM-MODIFICATIONS.md`), and Zotero content conventions (image
+paths, highlight colors, book-cover CSS, the `literature-note` design system).
 
 **Read it before**: editing any `local-plugins/*` fork, editing `quartz/util/fileTrie.ts` or
 `quartz/util/ctx.ts`, touching `quartz/styles/custom.scss`, or doing any future Quartz version

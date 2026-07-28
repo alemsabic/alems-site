@@ -1542,15 +1542,21 @@ body[data-slug="index"] {
     display: none !important;
   }
 
-  .center {
-    max-width: 100%;
-    min-width: 100%;
-  }
-
   // Comfortable reading width for everything except the breakout index section below.
   .page-header,
   .page-footer > .graph,
   .page-footer > .recent-notes {
+    max-width: 46rem;
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  // DefaultFrame.tsx always renders a <hr> between .center's content and .page-footer, even
+  // when the page body is empty (content/index.md is frontmatter-only). Cap it to the same
+  // width as the rest of the narrow sections above/below, instead of letting it span the full
+  // collapsed grid (up to 1500px) — capping rather than hiding, in case body content is ever
+  // added to index.md later.
+  .center > hr {
     max-width: 46rem;
     margin-left: 0;
     margin-right: auto;
@@ -1563,6 +1569,15 @@ body[data-slug="index"] {
 
   .page-header .tagline {
     font-size: 1.15rem !important;
+  }
+
+  // Tagline.tsx hardcodes "desktop-only" on its root div, and base custom.scss hides
+  // .tagline.desktop-only under 800px — correct for the sidebar instance, but the hero above
+  // needs its Tagline instance to show on mobile too ("Title + Tagline + Search"). Scoped to
+  // .page-header so the (not-index-gated, and thus absent here anyway) sidebar instance
+  // elsewhere on the site is untouched.
+  .page-header .tagline.desktop-only {
+    display: block;
   }
 
   // Prominent search: wider input, larger type, more breathing room.

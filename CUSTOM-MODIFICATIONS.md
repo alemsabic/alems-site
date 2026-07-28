@@ -83,7 +83,7 @@ ContentHeader, H1) — `shortTitle` frontmatter lets Explorer/Breadcrumbs show a
 **Rule**: add `shortTitle: "Ahrens (2017)"` to a note's frontmatter. Falls back to the full title
 automatically if omitted — safe for every non-Zotero note.
 
-**Where — 4 pieces, not 3** (a real gap found during the v5 migration; don't skip the 4th on a
+**Where — 5 pieces, not 4** (a real gap found during the v5 migration; don't skip the 5th on a
 future replay):
 
 1. `quartz/util/fileTrie.ts` (core, direct edit) — `FileTrieData.shortTitle`, `displayName` getter
@@ -98,6 +98,10 @@ future replay):
    getter needs the identical `shortTitle` fallback, or the sidebar shows the full title while
    Breadcrumbs correctly shows the short one. Found only by looking at the actual rendered sidebar,
    not by reading source — the divergence is invisible in any static check.
+5. `local-plugins/site-index/src/util/entries.ts`'s `resolveDisplayTitle` — the homepage phone-book
+   index (see the Site Index entry below) builds its own list straight from `allFiles`, independent
+   of both the server-side `fileTrie.ts` trie and Explorer's client-side rebuild, so it needs its
+   own copy of the same `shortTitle` → `title` → last slug segment precedence.
 
 **Also**: `local-plugins/content-meta`'s title display is unrelated and already excluded on content
 pages (see `quartz.config.yaml`'s `layout.byPageType.content.exclude` — `article-title` renders the
@@ -142,6 +146,31 @@ overrides the fork's own `recentNotes.scss` (which sets `margin: 1rem 0` on `& >
 uncancelled top gap v4 never had). `.recent-notes > h3` is sized identically to the site's H1
 (`1.75rem` / `3rem` at `min-width: 800px`) — scoped to the section title only, not the per-entry
 `<h3>` inside each list item.
+
+## Homepage (index page) layout
+
+**Where**: `local-plugins/site-index/`, `local-plugins/graph/`, the `is-index` condition in
+`quartz.ts`, and `quartz/styles/custom.scss`'s `body[data-slug="index"]` block.
+
+**Site Index**: `local-plugins/site-index` is a new component-only plugin (no upstream, same
+pattern as `local-plugins/site-components`) — an alphabetical "phone book" index of every published
+note, homepage-only, German-aware sorting (see the `shortTitle` entry above for its `resolveDisplayTitle`
+duplication), server-rendered directly from `allFiles` at build time, no client-side JS.
+
+**Graph fork**: `local-plugins/graph` is a fork of `@quartz-community/graph`, same fork pattern as
+`local-plugins/explorer`/`local-plugins/citations` — a single-locale-string patch ("Graphansicht" →
+"Graph"). See its own `FORK_NOTES.md` for the upstream commit and exact patch.
+
+**`is-index` layout condition**: registered in `quartz.ts` via `registerCondition("is-index", ...)`
+— the same extensibility mechanism the built-in `not-index` condition already used, just a second
+named condition rather than a one-off special case. Used in `quartz.config.yaml`'s layout to gate
+which components render on the homepage vs. everywhere else.
+
+**Homepage CSS**: `quartz/styles/custom.scss`'s `body[data-slug="index"]` block gives the homepage
+its own single-column layout — no sidebars, a hero (Title + Tagline + prominent Search), an
+always-expanded Graph, and the Site Index's wider "phone book" breakout — instead of reusing the
+three-column layout every other page gets. Search that block for the specifics rather than assuming
+any other page's CSS applies here.
 
 ## Tag/folder listing pages
 
