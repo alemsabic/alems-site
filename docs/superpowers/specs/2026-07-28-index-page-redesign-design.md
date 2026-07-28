@@ -1,7 +1,10 @@
 # Index page redesign — design
 
 **Date**: 2026-07-28
-**Status**: approved, not yet implemented
+**Status**: approved; implementation plan at
+`docs/superpowers/plans/2026-07-28-index-page-redesign.md` (see its "Design refinement made
+during planning" note for how §1's grid-collapse-plus-width-preservation is actually
+achieved — a concrete mechanism, not a change to the approved outcome)
 
 ## Purpose
 
