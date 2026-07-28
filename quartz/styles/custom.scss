@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "./variables.scss" as *;
 
 // put your custom CSS here!
@@ -1591,5 +1592,100 @@ body[data-slug="index"] {
       font-size: 3rem !important;
       line-height: 0.9;
     }
+  }
+
+  // SiteIndex: the one section that breaks out of the 46rem reading width, since a
+  // 3-column phone-book grid needs the room. Caps at the same width the whole page
+  // container uses elsewhere (.page's own max-width formula), not an arbitrary number.
+  .page-footer > .site-index {
+    max-width: calc(#{map.get($breakpoints, desktop)} + 300px);
+    width: 100%;
+  }
+
+  .site-index > h3 {
+    font-size: 1.75rem;
+    line-height: 1;
+  }
+
+  @media (min-width: 800px) {
+    .site-index > h3 {
+      font-size: 3rem;
+      line-height: 0.9;
+    }
+  }
+
+  .site-index-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: var(--light);
+    padding: 0.6rem 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--lightgray);
+  }
+
+  .site-index-nav a,
+  .site-index-nav span.empty {
+    display: inline-block;
+    min-width: 1.6rem;
+    text-align: center;
+    font-weight: 700;
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+  }
+
+  .site-index-nav a {
+    color: var(--secondary);
+    text-decoration: none;
+  }
+
+  .site-index-nav a:hover {
+    background-color: var(--lightgray);
+  }
+
+  .site-index-nav span.empty {
+    color: var(--gray);
+    opacity: 0.5;
+  }
+
+  .site-index-columns {
+    columns: 3;
+    column-gap: 2.5rem;
+
+    @media all and ($tablet) {
+      columns: 2;
+    }
+
+    @media all and ($mobile) {
+      columns: 1;
+    }
+  }
+
+  .site-index-group {
+    break-inside: avoid;
+    margin-bottom: 1.25rem;
+  }
+
+  .site-index-letter {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--secondary);
+    border-bottom: 2px solid var(--lightgray);
+    margin: 0 0 0.3rem 0;
+    padding-bottom: 0.15rem;
+  }
+
+  .site-index-group ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-index-group li {
+    font-size: 0.9rem;
+    padding: 0.1rem 0;
   }
 }
