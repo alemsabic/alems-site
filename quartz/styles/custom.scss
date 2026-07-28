@@ -876,12 +876,12 @@ article.zettelkasten .data-footnote-backref {
 // RECENT NOTES COMPONENT (Index Page)
 // ============================================
 
-/* Recent Notes: use same styling as folder pages (listPage.scss) */
+/* Recent Notes: index-only component (see local-plugins/recent-notes). No margin/border of
+   its own — on the index page it sits in a grid cell next to Graph (custom.scss's
+   body[data-slug="index"] block), and needs to start flush at the same height as Graph's
+   heading; the grid's own gap handles spacing to the Site Index section below. */
 .recent-notes {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px dashed var(--darkgray);
+  margin: 0;
 }
 
 .recent-notes li.recent-li {
@@ -896,6 +896,7 @@ article.zettelkasten .data-footnote-backref {
 .recent-notes > h3 {
   font-size: 1.75rem;
   line-height: 1;
+  margin: 0;
 }
 
 @media (min-width: 800px) {
@@ -1580,11 +1581,45 @@ body[data-slug="index"] {
     font-size: 1.2rem !important;
   }
 
+  // Shared width below the hero: Graph + Recent Notes side by side, Site Index spanning
+  // all three columns beneath them, on the exact same 3-column grid math
+  // .site-index-columns uses (repeat(3, 1fr), 2.5rem column-gap) — same total width, same
+  // gap, same column count, so both independently-laid-out rows land on identical column
+  // boundaries. Graph spans 2 of 3 (its own visual centerpiece); Recent Notes gets the
+  // remaining 1. Collapses to a single stacked column below desktop width, same breakpoint
+  // .site-index-columns below already keys off.
+  .page-footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+
+  .page-footer > .graph {
+    grid-column: span 2;
+  }
+
+  // Placed after the base rules above (not nested inside them) so this override wins on
+  // source order: an equal-specificity rule declared later in the cascade always wins,
+  // media query or not, and a mobile override nested before the base rule it's overriding
+  // would silently lose to it.
+  @media all and not ($desktop) {
+    .page-footer {
+      grid-template-columns: 1fr;
+    }
+
+    .page-footer > .graph {
+      grid-column: span 1;
+    }
+  }
+
   // Index-only Graph: bigger box (it's the page's visual centerpiece here, not a 250px
   // sidebar card), and its heading matches .recent-notes > h3's H1-equivalent size
-  // (custom.scss's "Section title... sized identically to the H1 rule" block).
+  // (custom.scss's "Section title... sized identically to the H1 rule" block). margin: 0
+  // on both the box and heading so it starts flush at the same height as Recent Notes'
+  // heading in the grid cell beside it.
   .page-footer > .graph > .graph-outer {
     height: 420px;
+    margin-top: 0;
   }
 
   .page-footer > .graph > h3 {
@@ -1599,12 +1634,10 @@ body[data-slug="index"] {
     }
   }
 
-  // SiteIndex: the one section that breaks out of the 46rem reading width, since a
-  // 3-column phone-book grid needs the room. Caps at the same width the whole page
-  // container uses elsewhere (.page's own max-width formula), not an arbitrary number.
+  // SiteIndex: spans both grid columns below Graph/Recent Notes, at the same shared width
+  // they use — via the grid now, not its own max-width.
   .page-footer > .site-index {
-    max-width: calc(#{map.get($breakpoints, desktop)} + 300px);
-    width: 100%;
+    grid-column: 1 / -1;
   }
 
   .site-index > h3 {
