@@ -62,14 +62,6 @@ found here to carry over directly, so they don't need rediscovering). Explicitly
 being present and giving the go-ahead at the time — don't start it unattended regardless of what any
 doc otherwise seems to authorize.
 
-**Next up (smaller, sooner)**: the homepage (`index`) currently has two different container widths —
-narrow (hero/search/Graph/Recent Notes) up top, full-width (the phone-book index) below — which reads
-as two pages stitched together rather than one design. Follow-up: unify to one shared width top to
-bottom, with visual variety coming from per-section internal layout (e.g. Graph + Recent Notes side
-by side) instead of from varying the outer width. Also needs the stock `hr { margin: 2.5rem 0
-!important; }` rule in `custom.scss` addressed — it currently fights any attempt to center/cap the
-`<hr>` DefaultFrame.tsx renders on the homepage.
-
 ---
 
 ## Doc Exploration Policy (jDocMunch)

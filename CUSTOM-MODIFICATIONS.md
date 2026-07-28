@@ -168,9 +168,22 @@ which components render on the homepage vs. everywhere else.
 
 **Homepage CSS**: `quartz/styles/custom.scss`'s `body[data-slug="index"]` block gives the homepage
 its own single-column layout — no sidebars, a hero (Title + Tagline + prominent Search), an
-always-expanded Graph, and the Site Index's wider "phone book" breakout — instead of reusing the
+always-expanded Graph, and the Site Index's "phone book" breakout — instead of reusing the
 three-column layout every other page gets. Search that block for the specifics rather than assuming
 any other page's CSS applies here.
+
+One shared width, not narrow-then-wide: the hero (Title/Tagline/Search) is the only section that
+stays capped at a compact 46rem, left-aligned instead of centered. Everything below it — Recent
+Notes, Graph, and the Site Index — shares one `.page-footer` CSS Grid at the page's full container
+width, with column counts mirroring the Site Index's own breakpoints exactly (3 columns desktop, 2
+tablet, 1 mobile) so Recent Notes/Graph's column split always lines up with the Site Index's columns
+beneath them. Recent Notes sits left (1 column), Graph right (2 columns at desktop, 1 — an even
+50/50 — at tablet), via CSS `order` rather than DOM order (Graph actually renders first in the DOM,
+per its lower `afterBody` priority in `quartz.config.yaml`). See
+`docs/superpowers/specs/2026-07-28-index-page-width-unification-design.md` and its accompanying plan
+for the full rationale, including a documented CSS cascade-order hazard (a responsive override nested
+inside a media query can silently lose to an unconditional rule declared later in the file) worth
+knowing before touching this block again.
 
 ## Tag/folder listing pages
 
