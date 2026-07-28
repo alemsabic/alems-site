@@ -52,6 +52,12 @@
       "commit": "local",
       "installedAt": "2026-07-28T09:26:17.257Z"
     },
+    "graph": {
+      "source": "./local-plugins/graph",
+      "resolved": "/Users/alemsabic/Desktop/ale.ms/.claude/worktrees/index-page-redesign/local-plugins/graph",
+      "commit": "local",
+      "installedAt": "2026-07-28T12:43:38.158Z"
+    },
     "og-image": {
       "source": "./local-plugins/og-image",
       "resolved": "/Users/alemsabic/Desktop/ale.ms/.claude/worktrees/index-page-redesign/local-plugins/og-image",
