@@ -1573,4 +1573,23 @@ body[data-slug="index"] {
   .search-button > p {
     font-size: 1.2rem !important;
   }
+
+  // Index-only Graph: bigger box (it's the page's visual centerpiece here, not a 250px
+  // sidebar card), and its heading matches .recent-notes > h3's H1-equivalent size
+  // (custom.scss's "Section title... sized identically to the H1 rule" block).
+  .page-footer > .graph > .graph-outer {
+    height: 420px;
+  }
+
+  .page-footer > .graph > h3 {
+    font-size: 1.75rem !important;
+    line-height: 1;
+  }
+
+  @media (min-width: 800px) {
+    .page-footer > .graph > h3 {
+      font-size: 3rem !important;
+      line-height: 0.9;
+    }
+  }
 }

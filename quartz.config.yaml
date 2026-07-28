@@ -182,12 +182,26 @@ plugins:
     layout:
       position: left
       priority: 50
+      condition: not-index
   # Local fork (German heading renamed "Graphansicht" → "Graph") — see local-plugins/graph/FORK_NOTES.md
   - source: "./local-plugins/graph"
     enabled: true
     layout:
       position: right
       priority: 20 # right sidebar order: TOC(10), Graph(20), Backlinks(30)
+      condition: not-index
+  # Index-only: same forked Graph component, always-expanded (depth: -1 = every note
+  # reachable by link from the homepage, not just 1-hop neighbors). Renders before Recent
+  # Notes (priority 5) in afterBody.
+  - source: "./local-plugins/graph"
+    enabled: true
+    options:
+      localGraph:
+        depth: -1
+    layout:
+      position: afterBody
+      priority: 2
+      condition: is-index
   - source: "@quartz-community/search"
     enabled: true
     layout:
@@ -203,6 +217,7 @@ plugins:
     layout:
       position: right
       priority: 30
+      condition: not-index
   - source: "@quartz-community/article-title"
     enabled: true
     layout:
