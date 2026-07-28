@@ -1554,4 +1554,23 @@ body[data-slug="index"] {
     margin-left: 0;
     margin-right: auto;
   }
+
+  // Hero: Title + Tagline, now living in .page-header instead of the sidebar.
+  .page-header .page-title {
+    font-size: 4rem !important;
+  }
+
+  .page-header .tagline {
+    font-size: 1.15rem !important;
+  }
+
+  // Prominent search: wider input, larger type, more breathing room.
+  .search-button {
+    max-width: 32rem;
+    padding: 0.9rem 1.3rem !important;
+  }
+
+  .search-button > p {
+    font-size: 1.2rem !important;
+  }
 }

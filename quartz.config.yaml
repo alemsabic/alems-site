@@ -226,6 +226,7 @@ plugins:
     layout:
       position: left
       priority: 10
+      condition: not-index
   # New local plugin (not a fork): Tagline + ContentHeader — see local-plugins/site-components/README.md
   # Object-form source with a `name` override so buildLayoutForEntries's PascalCase fallback
   # lookup resolves each of this plugin's two named components independently.
@@ -240,6 +241,29 @@ plugins:
     layout:
       position: left
       priority: 20
+      condition: not-index
+  # Index-only hero: same PageTitle component as the sidebar, repositioned to the top of the
+  # center column since the sidebar is hidden on index (see custom.scss's
+  # body[data-slug="index"] block). Priority is negative so it renders before the
+  # Search+Darkmode toolbar (priority 1) in the same beforeBody position.
+  - source: "@quartz-community/page-title"
+    enabled: true
+    layout:
+      position: beforeBody
+      priority: -2
+      condition: is-index
+  - source:
+      repo: "./local-plugins/site-components"
+      name: tagline
+    enabled: true
+    options:
+      linkText: "Alem Šabićs"
+      linkUrl: "https://alemsabic.com"
+      text: " Notizen & Quellen."
+    layout:
+      position: beforeBody
+      priority: -1
+      condition: is-index
   - source: "@quartz-community/darkmode"
     enabled: true
     layout:
