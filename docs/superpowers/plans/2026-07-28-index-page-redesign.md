@@ -904,9 +904,23 @@ git commit -m "style(index): collapse to single-column layout on the homepage"
 
 ## Task 5: Hero (Title + Tagline) and prominent search
 
+> **Correction made during execution (2026-07-28):** this task originally assumed an
+> unregistered `condition` name evaluates to "hidden." It doesn't —
+> `quartz/plugins/loader/config-loader.ts`'s `applyConditionWrapper` treats an unknown
+> condition as "always render, with a console warning," the opposite of what was assumed.
+> Landing Steps 1-3 below without also registering `is-index` in the same change would have
+> made Title+Tagline render *twice* on every non-index page (sidebar + duplicated hero) —
+> a real regression, caught by Task 5's implementer before committing. Fix, per the human's
+> decision when presented with the conflict: pull Task 7's `registerCondition("is-index",
+> ...)` step forward into *this* task (new Step 3b below), so `is-index` is registered in
+> the same commit that introduces entries depending on it. Task 7 (later) no longer performs
+> that registration — see its own correction note.
+
 **Files:**
 - Modify: `quartz.config.yaml` (gate existing `page-title`/`tagline` entries with
   `condition: not-index`; add index-only duplicates in `beforeBody`)
+- Modify: `quartz.ts` (register the `is-index` condition — moved forward from Task 7, see
+  correction note above)
 - Modify: `quartz/styles/custom.scss` (hero sizing on index; prominent search on index)
 
 **Interfaces:**
@@ -976,11 +990,23 @@ Add these two entries directly after the (now `not-index`-gated) `tagline` entry
       condition: is-index
 ```
 
-(`is-index` doesn't exist as a condition yet — Task 7 registers it in `quartz.ts`. Steps 1–3
-here are safe to land first; an unrecognized condition name evaluates to "hidden" via
-`getCondition` returning `undefined` — see `quartz/plugins/loader/conditions.ts` — so
-nothing will render from these two new entries until Task 7 registers `is-index`. Verify that
-in Step 5 below.)
+- [ ] **Step 3b: Register the `is-index` condition (moved forward from Task 7)**
+
+Replace the full contents of `quartz.ts` with:
+
+```ts
+import { loadQuartzConfig, loadQuartzLayout } from "./quartz/plugins/loader/config-loader"
+import { registerCondition } from "./quartz/plugins/loader/conditions"
+
+registerCondition("is-index", (props) => props.fileData.slug === "index")
+
+const config = await loadQuartzConfig()
+export default config
+export const layout = await loadQuartzLayout()
+```
+
+This must land in the same commit as Steps 1-3 — see the correction note at the top of this
+task for why leaving it inert until Task 7 doesn't work.
 
 - [ ] **Step 4: Hero and search sizing CSS**
 
@@ -1008,21 +1034,21 @@ Add to `quartz/styles/custom.scss`, inside the `body[data-slug="index"]` block f
   }
 ```
 
-- [ ] **Step 5: Verify visually (partial — hero won't render yet)**
+- [ ] **Step 5: Verify visually**
 
 Run: `npx quartz build --serve`, open `http://localhost:8080`
-Expected: the *sidebar* title/tagline are gone (correctly hidden by Task 4's sidebar
-`display:none`, and now also `not-index`-gated so they don't even mount), but the hero
-entries don't render yet either — `is-index` isn't registered until Task 7, so both new
-entries are currently inert. This is expected and will be fixed by Task 7; don't debug
-further here. Confirm on a non-index page (e.g. `/atomizitaet-im-zk`) that Title + Tagline
-still render normally in the left sidebar.
+Expected: the *sidebar* title/tagline are gone on the homepage (hidden by Task 4's CSS and
+now also `not-index`-gated so they don't even mount), and the hero (Title + Tagline) now
+renders correctly at the top of the center column — `is-index` is registered in Step 3b, so
+this works immediately, not just after a later task. Confirm on a non-index page (e.g.
+`/atomizitaet-im-zk`) that Title + Tagline render normally in the left sidebar, exactly once
+— not duplicated in the center column.
 
 - [ ] **Step 6: Commit**
 
 ```bash
-git add quartz.config.yaml quartz/styles/custom.scss
-git commit -m "feat(index): add index-only hero + hero/search sizing (activates once is-index lands)"
+git add quartz.config.yaml quartz.ts quartz/styles/custom.scss
+git commit -m "feat(index): add index-only hero, register is-index condition, hero/search sizing"
 ```
 
 ---
@@ -1147,42 +1173,30 @@ git commit -m "feat(graph): fork @quartz-community/graph to rename German headin
 
 ## Task 7: Index-only Graph (all notes, no click required)
 
+> **Correction made during execution (2026-07-28):** the original Step 1 here
+> (`registerCondition("is-index", ...)` in `quartz.ts`) moved to Task 5 — see that task's own
+> correction note for why. `is-index` is already registered by the time this task starts;
+> this task only adds entries/gates that *use* it. The old Step 2 ("verify Task 5's hero now
+> activates") is gone since Task 5 already verified that itself.
+
 **Files:**
-- Modify: `quartz.ts` (register the `is-index` condition — this also activates Task 5's
-  inert hero entries)
 - Modify: `quartz.config.yaml` (gate sidebar Graph/Explorer/Backlinks with `not-index`; add
   the index-only Graph entry)
 - Modify: `quartz/styles/custom.scss` (index Graph height + heading size-match to
   `.recent-notes > h3`)
 
 **Interfaces:**
-- Consumes: `registerCondition` from `quartz/plugins/loader/conditions.ts` (already exists,
-  core file, not modified — just imported).
+- Consumes: the `is-index` condition (registered in Task 5's `quartz.ts` change).
 - Produces: a second, always-expanded Graph instance on `index` showing every note reachable
   by link from the homepage (`localGraph.depth: -1`), positioned before Recent Notes.
 
-- [ ] **Step 1: Register the `is-index` condition in `quartz.ts`**
+- [ ] **Step 1: Confirm `is-index` is already registered**
 
-Replace the full contents of `quartz.ts` with:
+Read `quartz.ts` and confirm it already contains the `registerCondition("is-index", ...)`
+call from Task 5. If it's missing, stop and escalate — this task depends on it and should
+not re-add it itself (that would risk a duplicate `registerCondition` call).
 
-```ts
-import { loadQuartzConfig, loadQuartzLayout } from "./quartz/plugins/loader/config-loader"
-import { registerCondition } from "./quartz/plugins/loader/conditions"
-
-registerCondition("is-index", (props) => props.fileData.slug === "index")
-
-const config = await loadQuartzConfig()
-export default config
-export const layout = await loadQuartzLayout()
-```
-
-- [ ] **Step 2: Verify Task 5's hero now activates**
-
-Run: `npx quartz build --serve`, open `http://localhost:8080`
-Expected: Title + Tagline now appear at the top of the center column (Task 5's entries were
-inert until this step). Confirm sizing matches Task 5 Step 4's CSS.
-
-- [ ] **Step 3: Gate the sidebar Graph, Explorer, and Backlinks entries with `not-index`**
+- [ ] **Step 2: Gate the sidebar Graph, Explorer, and Backlinks entries with `not-index`**
 
 In `quartz.config.yaml`, change the `./local-plugins/graph` sidebar entry from Task 6:
 
@@ -1250,7 +1264,7 @@ to:
 (TOC is deliberately left untouched — it has nothing to show on `index`'s empty article body
 regardless, per the design spec's §7.)
 
-- [ ] **Step 4: Add the index-only Graph entry**
+- [ ] **Step 3: Add the index-only Graph entry**
 
 Add this directly after the (now `not-index`-gated) `./local-plugins/graph` entry in
 `quartz.config.yaml`:
@@ -1270,7 +1284,7 @@ Add this directly after the (now `not-index`-gated) `./local-plugins/graph` entr
       condition: is-index
 ```
 
-- [ ] **Step 5: Size the index Graph's heading and height**
+- [ ] **Step 4: Size the index Graph's heading and height**
 
 Add to `quartz/styles/custom.scss`'s `body[data-slug="index"]` block (from Task 4/5):
 
@@ -1295,7 +1309,7 @@ Add to `quartz/styles/custom.scss`'s `body[data-slug="index"]` block (from Task 
   }
 ```
 
-- [ ] **Step 6: Force a fresh install (options changed on a plugin already forked in Task 6)**
+- [ ] **Step 5: Force a fresh install (options changed on a plugin already forked in Task 6)**
 
 Run: `npx quartz plugin install --from-config`
 Expected: `✓ All configured plugins are already installed` is fine here — Task 6 already
@@ -1305,7 +1319,7 @@ homepage graph doesn't reflect `depth: -1` after a `--serve` restart, force it a
 `rm -rf node_modules/@quartz-community/graph node_modules/local-plugins 2>/dev/null; npx
 quartz plugin install --from-config`.
 
-- [ ] **Step 7: Verify visually**
+- [ ] **Step 6: Verify visually**
 
 Run: `npx quartz build --serve`, open `http://localhost:8080`
 Expected: a large "Graph" section appears between the hero and "Zuletzt bearbeitet",
@@ -1314,10 +1328,10 @@ anything, heading sized the same as "Zuletzt bearbeitet". Open a non-index page 
 its sidebar still shows the small 1-hop Graph, headed "Graph" (from Task 6), unaffected by
 `depth: -1` (that option only applies to the index-only entry).
 
-- [ ] **Step 8: Commit**
+- [ ] **Step 7: Commit**
 
 ```bash
-git add quartz.ts quartz.config.yaml quartz/styles/custom.scss
+git add quartz.config.yaml quartz/styles/custom.scss
 git commit -m "feat(index): add always-expanded index-only graph, gate sidebar components with not-index"
 ```
 
