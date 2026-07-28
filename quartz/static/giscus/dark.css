@@ -8,7 +8,7 @@ main {
   font-family: "Geist Mono", monospace;
 
   /* PATHOLOGIE Dark Mode Colors */
-  --bg: #09002b; /* light (dark mode background) */
+  --bg: #00192b; /* light (dark mode background) */
   --bg-secondary: rgba(255, 255, 255, 0.05); /* lightgray subtle */
   --text: #ebebec; /* dark (dark mode text) */
   --text-muted: #646464; /* gray */
@@ -163,6 +163,6 @@ main .gsc-comments-count-separator {
 /* Fix placeholder text color for better readability */
 main textarea::placeholder,
 main input::placeholder {
-  color: #d4d4d4 !important; /* lighter text for dark mode */
+  color: #dbd5cb !important; /* lighter text for dark mode */
   opacity: 0.8 !important;
 }
