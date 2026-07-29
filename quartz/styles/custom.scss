@@ -6,7 +6,7 @@
 // Tagline (below page title, left sidebar) - moved out of Tagline.tsx's Component.css
 // (local-plugins/site-components) 2026-07-26 so all site-wide styling lives in one place.
 .tagline {
-  font-size: 1rem;
+  font-size: 1.25rem;
   margin-top: 0.5rem;
   margin-bottom: 2.5rem;
   line-height: 1.1rem;
@@ -25,6 +25,38 @@
 
   @media (max-width: 800px) {
     display: none;
+  }
+}
+
+// Mobile: show sidebar Tagline inline next to PageTitle instead of hiding it (mirrors quartz
+// docs' toolbar flex pattern — flex-grow fills the row, pushed to the right of the title).
+// Higher specificity than the rule above wins regardless of source order.
+.sidebar.left .tagline.desktop-only {
+  @media (max-width: 800px) {
+    // block, not flex: Tagline.tsx renders <a>{linkText}</a>{text} as sibling nodes, and a flex
+    // container splits them into separate flex items with their own line boxes (link and text
+    // stop flowing as one run of text, breaking the space between them and how they wrap
+    // together). A block element still becomes a flex *item* of the parent .sidebar.left row —
+    // it just keeps normal inline flow for its own children.
+    display: block;
+    flex-grow: 1;
+    // baseline, not center: title (1.95rem) and tagline (1rem) have different line-heights, so
+    // centering their boxes leaves their text baselines a few px apart. Baseline-aligns both
+    // against .page-title's baseline override below instead.
+    align-self: baseline;
+    justify-self: center;
+    text-align: right;
+    // .tagline's base rule sets an asymmetric 0.5rem/2.5rem top/bottom margin for the desktop
+    // stacked layout; align-self:center centers the full margin box, so that asymmetry alone
+    // pushes the text visibly off the row's vertical center relative to the title. Reset it here.
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.sidebar.left .page-title {
+  @media (max-width: 800px) {
+    align-self: baseline;
   }
 }
 
@@ -1559,7 +1591,7 @@ body[data-slug="index"] {
   }
 
   .page-header .tagline {
-    font-size: 1.15rem !important;
+    font-size: 1.5rem !important;
   }
 
   // Tagline.tsx hardcodes "desktop-only" on its root div, and base custom.scss hides

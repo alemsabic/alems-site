@@ -251,9 +251,9 @@ plugins:
       name: tagline
     enabled: true
     options:
-      linkText: "Alem Šabićs"
+      linkText: "Alem Sabics"
       linkUrl: "https://alemsabic.com"
-      text: " Notizen & Quellen."
+      text: " Notizbuch."
     layout:
       position: left
       priority: 20
@@ -273,9 +273,9 @@ plugins:
       name: tagline
     enabled: true
     options:
-      linkText: "Alem Šabićs"
+      linkText: "Alem Sabics"
       linkUrl: "https://alemsabic.com"
-      text: " Notizen & Quellen."
+      text: " Notizbuch."
     layout:
       position: beforeBody
       priority: -1
