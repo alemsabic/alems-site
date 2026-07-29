@@ -1436,3 +1436,32 @@ gpunkt.org — just apply them directly)**:
    confirm it returns a redirect page, not a 404 (verified here via
    `curl https://ale.ms/Literatur/@ahrens_2017`). See `CUSTOM-MODIFICATIONS.md`'s "Stock v5 behavior
    we depend on" section for the full writeup.
+8. **A local plugin exposing multiple named components via object-form `source: {repo, name}`
+   overrides (two config entries, one physical directory) can silently fail to build on a fresh
+   Cloudflare checkout, even with `--from-config` set correctly (fix #1 above).** Found
+   2026-07-29: `.tagline` and `.content-header` rendered fine locally but were completely absent
+   from ale.ms's live HTML (not just unstyled — the elements didn't exist at all). Root cause:
+   `local-plugins/site-components` is referenced twice in `quartz.config.yaml` — once with
+   `name: tagline`, once with `name: content-header` — because the one plugin exports two
+   components (`Tagline`, `ContentHeader`). `quartz/cli/plugin-git-handlers.js`'s build step
+   (`runParallel` over the `installed`/`pluginsToBuild` list) treated these as two independent
+   plugins and, on a checkout with no pre-built `dist/` (local plugins' `dist/` is gitignored, so
+   *every* Cloudflare build starts from scratch), kicked off two concurrent `npm install
+   --ignore-scripts` + `npm run build` + `npm prune --omit=dev` runs **against the same physical
+   directory at the same time** — a real race that can corrupt `node_modules`/`dist` for both.
+   Component-load failures are swallowed silently (`componentLoader.ts`'s `loadComponentsFromPackage`
+   only does a `console.warn` on failure, no build error), so nothing about the deploy looked wrong.
+   Reproduced locally in a fresh clone by running the exact Cloudflare build command; the log showed
+   `tagline: installing dependencies...` / `tagline: building...` twice, once per name, running
+   concurrently. **Fix applied** (in `alems-site`, commit `1b7cf78`): added a `dedupeByRealDir()`
+   helper in `plugin-git-handlers.js` that resolves each build item's `pluginDir` via
+   `fs.realpathSync` before the `runParallel` build step, so a physical directory only builds once
+   regardless of how many config entries/name-aliases point at it — the other alias(es) just reuse
+   the now-existing `dist/`. **For gpunkt.org**: this fix lives in `quartz/cli/plugin-git-handlers.js`
+   (stock-adjacent CLI code, not a `local-plugins/*` fork), so pull it over directly when porting
+   rather than re-deriving it — check whether gpunkt.org ends up with any of its own plugins
+   registering multiple named components behind one physical source directory (its "more-diverged
+   ContentHeader," mentioned above, is one candidate), and if so, verify with the same technique
+   (fresh clone, run the real Cloudflare build command, watch for a name's install/build log lines
+   appearing twice) rather than assuming the local dev server — which has warm `dist/` from earlier
+   sessions and doesn't race — would ever have shown the bug.
