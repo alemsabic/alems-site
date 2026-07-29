@@ -346,7 +346,7 @@ plugins:
   - source: "./local-plugins/recent-notes"
     enabled: true
     options:
-      limit: 5
+      limit: 10
       showTags: false
       linkToMore: false
     layout:

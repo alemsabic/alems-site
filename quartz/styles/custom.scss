@@ -931,6 +931,7 @@ article.zettelkasten .data-footnote-backref {
   .recent-notes > h3 {
     font-size: 3rem;
     line-height: 0.9;
+    margin-bottom: 2rem;
   }
 }
 
@@ -1579,6 +1580,7 @@ body[data-slug="index"] {
   .page-header {
     max-width: 46rem;
     margin-left: 0;
+    margin-top: 3rem;
   }
 
   // Hero: Title + Tagline, now living in .page-header instead of the sidebar.
@@ -1599,9 +1601,10 @@ body[data-slug="index"] {
     display: block;
   }
 
-  // Prominent search: wider input, larger type, more breathing room.
+  // Prominent search: larger type, more breathing room. No max-width — the bar stretches
+  // all the way to the darkmode toggle instead of stopping short and leaving the toggle
+  // stranded in open space.
   .search-button {
-    max-width: 32rem;
     padding: 0.9rem 1.3rem !important;
   }
 
@@ -1609,11 +1612,35 @@ body[data-slug="index"] {
     font-size: 1.2rem !important;
   }
 
+  // Toolbar buttons (search + darkmode) get a bit more presence on desktop, homepage only;
+  // left at the plugins' own compact defaults everywhere else and on mobile where space is
+  // tight.
+  @media (min-width: 800px) {
+    .search-button {
+      height: 3rem;
+    }
+
+    // .darkmode's own bundled CSS (@quartz-community/darkmode) ships a 20x32px button with a
+    // 20px icon centered via top: calc(50% - 10px). Enlarging the icon to 32px needs the
+    // button widened to match (else the icon overflows the 20px-wide hit area) and the
+    // centering offset recalculated for the new icon height (50% - half of 32px, not half of
+    // 20px).
+    .darkmode {
+      width: 32px;
+    }
+
+    .darkmode svg {
+      width: 32px;
+      height: 32px;
+      top: calc(50% - 16px);
+    }
+  }
+
   // Shared width below the hero: Recent Notes + Graph side by side, Site Index spanning
-  // all columns beneath them, on the exact same grid math .site-index-columns uses
-  // (same column count, same 2.5rem gap, at every breakpoint) — same total width, same gap,
-  // same column count, so both independently-laid-out rows land on identical column
-  // boundaries at every width. `order` puts Recent Notes visually first (left) and Graph
+  // all columns beneath them, at the same shared 2.5rem gap as .site-index-columns (column
+  // *count* no longer has to match between the two — this grid keeps its own 3/2/1 desktop/
+  // tablet/mobile split regardless of how many text-columns .site-index-columns renders).
+  // `order` puts Recent Notes visually first (left) and Graph
   // second (right) without reordering the DOM (Graph renders first per its lower afterBody
   // priority in quartz.config.yaml — reordering there would touch a non-CSS file, out of
   // this plan's scope). Site Index needs its own explicit `order` too: otherwise its
@@ -1646,8 +1673,7 @@ body[data-slug="index"] {
     }
   }
 
-  // Column counts mirror .site-index-columns exactly (3 → 2 → 1 further down in this file),
-  // so Graph/Recent Notes and the Site Index switch column-count at the same breakpoints.
+  // Own 3 → 2 → 1 breakpoint schedule, independent of .site-index-columns further down.
   @media all and ($tablet) {
     .page-footer {
       grid-template-columns: repeat(2, 1fr);
@@ -1685,9 +1711,14 @@ body[data-slug="index"] {
   // SiteIndex: spans every grid column below Recent Notes/Graph, at the same shared width
   // they use — via the grid now, not its own max-width. Explicit order so it always sorts
   // after both (see the .page-footer comment above for why that's needed at all).
+  // Separator above the Site Index, matching the global `hr` rule further up in this file
+  // (1px dashed var(--darkgray)) exactly. The grid's own 2.5rem gap above already matches
+  // that rule's top margin; padding-top here reproduces its bottom margin the same way.
   .page-footer > .site-index {
     order: 3;
     grid-column: 1 / -1;
+    border-top: 1px dashed var(--darkgray);
+    padding-top: 2.5rem;
   }
 
   .site-index > h3 {
@@ -1735,17 +1766,23 @@ body[data-slug="index"] {
   }
 
   .site-index-nav span.empty {
-    color: var(--gray);
-    opacity: 0.5;
+    color: var(--lightgray);
+  }
+
+  @media (min-width: 800px) {
+    .site-index-nav {
+      margin-bottom: 2.5rem;
+    }
+
+    .site-index-nav a,
+    .site-index-nav span.empty {
+      font-size: 1.3rem;
+    }
   }
 
   .site-index-columns {
-    columns: 3;
+    columns: 2;
     column-gap: 2.5rem;
-
-    @media all and ($tablet) {
-      columns: 2;
-    }
 
     @media all and ($mobile) {
       columns: 1;
