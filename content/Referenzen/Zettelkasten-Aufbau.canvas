@@ -1,0 +1,245 @@
+{
+  "nodes": [
+    {
+      "id": "7afc2e6c6f02070a",
+      "type": "text",
+      "x": 460,
+      "y": -180,
+      "width": 900,
+      "height": 110,
+      "text": "# Zettelkasten: Aufbau & Workflow\n\nWelche Theorie-Notizen bestehen, wie eingehende Zettel prozessiert werden, und wie Quellen und Referenzen zusammenspielen."
+    },
+    {
+      "id": "12c61924af163845",
+      "type": "group",
+      "x": -20,
+      "y": 0,
+      "width": 420,
+      "height": 520,
+      "label": "① Quellen",
+      "color": "5"
+    },
+    {
+      "id": "ea302e9e348eb717",
+      "type": "file",
+      "x": 10,
+      "y": 50,
+      "width": 360,
+      "height": 220,
+      "file": "Quellen/Quellen-Index.base"
+    },
+    {
+      "id": "2e48e269ae9647c3",
+      "type": "text",
+      "x": 10,
+      "y": 290,
+      "width": 360,
+      "height": 200,
+      "text": "**Primärliteratur** (Zotero-Import)\n\nBibliografische Metadaten: Autor:in, Jahr, Typ, Status, Bewertung, Beitrag.\n\nCitekeys verknüpfen jeden Zettel direkt mit seiner Quelle."
+    },
+    {
+      "id": "97d488050d7c5a4e",
+      "type": "group",
+      "x": 480,
+      "y": 0,
+      "width": 460,
+      "height": 760,
+      "label": "② Eingehende Zettel — Workflow (zettel-fabrik)",
+      "color": "3"
+    },
+    {
+      "id": "a139f528e127d695",
+      "type": "text",
+      "x": 510,
+      "y": 60,
+      "width": 400,
+      "height": 130,
+      "text": "**1. Import**\n`zettel-fabrik/imports`\n\nRohtexte, Annotationen, Zotero-Exporte (.bib)"
+    },
+    {
+      "id": "46b7e7f9f6509783",
+      "type": "text",
+      "x": 510,
+      "y": 220,
+      "width": 400,
+      "height": 130,
+      "text": "**2. Warteschlange**\n`zettel-fabrik/QUEUE`\n\n`research-queue.md` — was als Nächstes bearbeitet wird"
+    },
+    {
+      "id": "893d21152bcec967",
+      "type": "text",
+      "x": 510,
+      "y": 380,
+      "width": 400,
+      "height": 150,
+      "text": "**3. Destillat**\n`zettel-fabrik/destillate`\n\nKernaussagen extrahiert, Bezug zur Theorie hergestellt (`DESTILLAT_*.md`)"
+    },
+    {
+      "id": "d78f490344998690",
+      "type": "text",
+      "x": 510,
+      "y": 560,
+      "width": 400,
+      "height": 130,
+      "text": "**4. Zettel**\nVault-Root\n\nEigenständige, atomare Notiz — verlinkt, zitiert Quelle über Citekey"
+    },
+    {
+      "id": "47325503f7ee8fb7",
+      "type": "group",
+      "x": 1020,
+      "y": 0,
+      "width": 620,
+      "height": 820,
+      "label": "③ Theorie-Notizen (Auswahl, Vault-Root)",
+      "color": "4"
+    },
+    {
+      "id": "0f597c08e0aaf67f",
+      "type": "file",
+      "x": 1050,
+      "y": 60,
+      "width": 280,
+      "height": 150,
+      "file": "Atomizität im ZK.md"
+    },
+    {
+      "id": "dbc4f3b85f0af67f",
+      "type": "file",
+      "x": 1350,
+      "y": 60,
+      "width": 280,
+      "height": 150,
+      "file": "Autopoiesis vs. Allopoiesis.md"
+    },
+    {
+      "id": "d0887179487fee9f",
+      "type": "file",
+      "x": 1050,
+      "y": 230,
+      "width": 280,
+      "height": 150,
+      "file": "Beobachtung zweiter Ordnung.md"
+    },
+    {
+      "id": "e9b4ad9f979fcf5c",
+      "type": "file",
+      "x": 1350,
+      "y": 230,
+      "width": 280,
+      "height": 150,
+      "file": "Emergenz im ZK.md"
+    },
+    {
+      "id": "26736d24c35723a4",
+      "type": "file",
+      "x": 1050,
+      "y": 400,
+      "width": 280,
+      "height": 150,
+      "file": "Irritation vs. Information.md"
+    },
+    {
+      "id": "d511e71fd6997907",
+      "type": "file",
+      "x": 1350,
+      "y": 400,
+      "width": 280,
+      "height": 150,
+      "file": "Kognitive Externalisierung.md"
+    },
+    {
+      "id": "251eb6b2b45a8fbc",
+      "type": "file",
+      "x": 1050,
+      "y": 570,
+      "width": 280,
+      "height": 150,
+      "file": "Serendipität im ZK.md"
+    },
+    {
+      "id": "ca1feec51cc9d545",
+      "type": "file",
+      "x": 1350,
+      "y": 570,
+      "width": 280,
+      "height": 150,
+      "file": "Strukturelle Kopplung.md"
+    },
+    {
+      "id": "e6785fe86792cdc1",
+      "type": "text",
+      "x": 1050,
+      "y": 750,
+      "width": 580,
+      "height": 50,
+      "text": "*+ 9 weitere Theorie-Notizen im Vault-Root* (u.a. Interpenetration, Kontextualisierung, Lose Kopplung, Operationale Geschlossenheit, Retrieval, Strukturelle Drift)"
+    },
+    {
+      "id": "9e07b5ca07c337b2",
+      "type": "group",
+      "x": 480,
+      "y": 820,
+      "width": 1160,
+      "height": 220,
+      "label": "④ Referenzen — Meta-Literatur & Werkzeuge (dieser Ordner)",
+      "color": "6"
+    },
+    {
+      "id": "d5f1a93940a3824e",
+      "type": "text",
+      "x": 510,
+      "y": 880,
+      "width": 1100,
+      "height": 140,
+      "text": "**Meta-Literatur & Werkzeuge** — nicht Teil des inhaltlichen Korpus, sondern Anleitung *für* die Methode selbst.\n\nGeplant: Theoretischer Aufbau eines Zettelkastens (Canvas, mit weiterführenden Links) · Claude-Code-Befehlsreferenz (Tabelle) · Methodenreflexion & Style-Notizen"
+    }
+  ],
+  "edges": [
+    {
+      "id": "460730fcb0e2ab27",
+      "fromNode": "12c61924af163845",
+      "fromSide": "right",
+      "toNode": "a139f528e127d695",
+      "toSide": "left",
+      "label": "Rohmaterial"
+    },
+    {
+      "id": "cc340c628bbe9fd8",
+      "fromNode": "a139f528e127d695",
+      "fromSide": "bottom",
+      "toNode": "46b7e7f9f6509783",
+      "toSide": "top"
+    },
+    {
+      "id": "ef4f6e89b450553e",
+      "fromNode": "46b7e7f9f6509783",
+      "fromSide": "bottom",
+      "toNode": "893d21152bcec967",
+      "toSide": "top"
+    },
+    {
+      "id": "fb693bc8288a78b5",
+      "fromNode": "893d21152bcec967",
+      "fromSide": "bottom",
+      "toNode": "d78f490344998690",
+      "toSide": "top"
+    },
+    {
+      "id": "f134e59f8842ab2c",
+      "fromNode": "d78f490344998690",
+      "fromSide": "right",
+      "toNode": "47325503f7ee8fb7",
+      "toSide": "left",
+      "label": "wird veröffentlicht als"
+    },
+    {
+      "id": "1d56b67f8be9cb1c",
+      "fromNode": "9e07b5ca07c337b2",
+      "fromSide": "top",
+      "toNode": "97d488050d7c5a4e",
+      "toSide": "bottom",
+      "label": "informiert Methode",
+      "color": "6"
+    }
+  ]
+}

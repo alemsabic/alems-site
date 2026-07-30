@@ -1,0 +1,67 @@
+filters:
+  and:
+    - file.ext == "md"
+    - file.hasProperty("citekey")
+formulas:
+  first_author: authors.slice(0, 1).join("")
+  type_label: if(itemType == "book", "📕 Buch", if(itemType == "journalArticle", "📄 Artikel", if(itemType == "bookSection", "📑 Kapitel", if(itemType == "thesis", "🎓 Thesis", if(itemType, itemType, "–")))))
+  status_label: if(status == "read", "✅ gelesen", if(status == "reading", "📖 in Arbeit", if(status == "unread", "◻️ ungelesen", "–")))
+  rating_stars: if(rating, "★".repeat(rating) + "☆".repeat(5 - rating), "–")
+properties:
+  file.name:
+    displayName: Datei
+  title:
+    displayName: Titel
+  year:
+    displayName: Jahr
+  citekey:
+    displayName: Citekey
+  contribution:
+    displayName: Beitrag
+  formula.first_author:
+    displayName: Erstautor:in
+  formula.type_label:
+    displayName: Typ
+  formula.status_label:
+    displayName: Status
+  formula.rating_stars:
+    displayName: Bewertung
+views:
+  - type: table
+    name: Alle Quellen
+    order:
+      - file.name
+      - title
+      - formula.first_author
+      - year
+      - formula.type_label
+      - formula.status_label
+      - formula.rating_stars
+      - contribution
+  - type: table
+    name: Zu lesen
+    filters:
+      and:
+        - status != "read"
+    order:
+      - file.name
+      - title
+      - formula.first_author
+      - year
+      - formula.type_label
+      - citekey
+  - type: table
+    name: Gelesen & bewertet
+    filters:
+      and:
+        - status == "read"
+    groupBy:
+      property: rating
+      direction: DESC
+    order:
+      - file.name
+      - title
+      - formula.first_author
+      - year
+      - formula.rating_stars
+      - contribution
