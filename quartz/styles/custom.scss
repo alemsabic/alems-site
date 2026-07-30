@@ -166,9 +166,54 @@
   margin-bottom: 2rem !important;
 }
 
-// Page max width
-.page {
+// Page max width. Canvas pages (JSON Canvas / Obsidian .canvas) get their own
+// full-bleed layout from @quartz-community/canvas-page's frame CSS — excluding
+// data-frame="canvas" here keeps that intact instead of clipping it to 1280px.
+.page:not([data-frame="canvas"]) {
   max-width: 1280px !important;
+}
+
+// @quartz-community/canvas-page's .canvas-frame ships as box-sizing: content-box
+// with width: 100%. When its own CSS adds padding-left on .canvas-sidebar-open
+// (to make room for the slide-out sidebar), that padding is added on top of the
+// 100% width instead of being carved out of it, overflowing the viewport by
+// exactly the sidebar's width and producing a second, invisible-until-you-scroll
+// horizontal scrollbar. Confirmed live via devtools (offsetWidth 1900 vs a
+// 1600px viewport, i.e. +300px = --canvas-sidebar-width) before this fix.
+.page[data-frame="canvas"] .canvas-frame {
+  box-sizing: border-box;
+}
+
+// The actual double-scrollbar culprit (found by hand in devtools): the vendor's
+// own canvas-sidebar override re-declares .explorer-content as overflow-y: auto,
+// and stock Quartz's OverflowList truncation (base.scss's `ul.overflow`, used by
+// the Explorer's file-tree <ul> once it's long enough to truncate) *also* sets
+// overflow-y: auto on that inner <ul> — two independently-scrollable nested
+// containers of almost the same height, each rendering its own scrollbar. The
+// inner ul.overflow is the one that should scroll; drop it here on the outer
+// .explorer-content. Matches the vendor's own selector specificity so it wins
+// regardless of injection order.
+.page[data-frame="canvas"] .canvas-sidebar .explorer .explorer-content {
+  overflow-y: hidden !important;
+}
+
+// Bases pages (.base tables from @quartz-community/bases-page) live from width —
+// no cap at all, infinite/edge-to-edge like the canvas pages.
+.page:has(.bases-page) {
+  max-width: none !important;
+}
+
+// Reclaim the right sidebar's grid column on desktop for bases pages (the right
+// sidebar itself is already excluded via quartz.config.yaml's layout.byPageType.bases
+// positions), so the table gets the full width instead of a wasted empty column.
+@media all and ($desktop) {
+  .page:has(.bases-page) > #quartz-body {
+    grid-template-columns: #{$sidePanelWidth} auto;
+    grid-template-areas:
+      "grid-sidebar-left grid-header"
+      "grid-sidebar-left grid-center"
+      "grid-sidebar-left grid-footer";
+  }
 }
 
 // Breadcrumb container margin
@@ -488,6 +533,21 @@ h2#des-zettels-rückseite {
     gap: 20px;
     display: grid;
   }
+}
+
+// Canvas pages are a fixed 100vh viewport that pan/zoom internally and have their
+// own sidebar scroll region (.explorer-content inside .canvas-sidebar) — the outer
+// document itself should never need to scroll. The global ::-webkit-scrollbar
+// styling below forces classic, space-reserving scrollbars everywhere (stock
+// Quartz — see quartz.jzhao.xyz/canvas.canvas, which doesn't have this rule —
+// relies on the OS's default overlay scrollbars instead, which don't visually
+// stack). With classic scrollbars forced, any stray overflow on html/body renders
+// as a second, permanent scrollbar sitting right next to the sidebar's own
+// file-list one. Pinning the document to the viewport rules that out entirely,
+// regardless of what's causing the stray overflow underneath.
+html:has(.page[data-frame="canvas"]),
+body:has(.page[data-frame="canvas"]) {
+  overflow: hidden !important;
 }
 
 // ScrollBar
@@ -1766,17 +1826,24 @@ body[data-slug="index"] {
   }
 
   .site-index-nav span.empty {
-    color: var(--lightgray);
+    // Not var(--lightgray) directly: it's a chromatically-neutral translucent
+    // black/white (rgb(0 0 0/20%) light, rgb(255 255 255/20%) dark), so as text
+    // color it desaturates toward flat gray instead of picking up either theme's
+    // warmth — on the light theme's beige background that reads as "dark-theme
+    // gray" even though the right variable is resolving correctly. Deriving the
+    // tone from each theme's own (already warm/cool-tinted) --darkgray keeps it
+    // muted but visibly of-the-theme.
+    color: color-mix(in srgb, var(--darkgray) 35%, var(--light));
   }
 
   @media (min-width: 800px) {
     .site-index-nav {
-      margin-bottom: 2.5rem;
+      margin-bottom: 4rem;
     }
 
     .site-index-nav a,
     .site-index-nav span.empty {
-      font-size: 1.3rem;
+      font-size: 2.3rem;
     }
   }
 

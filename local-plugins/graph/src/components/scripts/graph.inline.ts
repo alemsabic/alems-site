@@ -572,6 +572,15 @@ import {
           .on("zoom", zoomed);
 
         d3.select(app.canvas).call(zoom);
+
+        // Open one "double-click" step closer than d3's identity transform (d3's own
+        // dblclick.zoom default multiplies scale by 2x around the click point) so the
+        // graph reads comfortably on load instead of starting fully zoomed out.
+        var initialZoomTransform = d3.zoomIdentity
+          .translate(width / 2, height / 2)
+          .scale(2)
+          .translate(-width / 2, -height / 2);
+        zoom.transform(d3.select(app.canvas), initialZoomTransform);
       }
 
       var stopAnimation = false;

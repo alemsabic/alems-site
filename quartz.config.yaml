@@ -459,3 +459,5 @@ layout:
     bases:
       exclude:
         - "@quartz-community/comments"
+      positions:
+        right: []
