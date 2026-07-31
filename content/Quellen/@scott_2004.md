@@ -27,7 +27,7 @@ contribution:
 pdfLink: "zotero://select/library/items/5IMKUE7U"
 imported: "25-07-2026 6:32 am"
 ---
-## Second-order cybernetics: an historical introduction
+# Second-order cybernetics: an historical introduction
 
 
 

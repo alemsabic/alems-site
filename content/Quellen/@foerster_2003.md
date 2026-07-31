@@ -27,7 +27,7 @@ contribution:
 pdfLink: "zotero://select/library/items/K2ZERY29"
 imported: "25-07-2026 6:32 am"
 ---
-## Ethics and second-order cybernetics
+# Ethics and second-order cybernetics
 
 
 

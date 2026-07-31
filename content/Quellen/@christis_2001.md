@@ -27,7 +27,7 @@ contribution:
 pdfLink: "zotero://select/library/items/2B2UFJWU"
 imported: "25-07-2026 6:31 am"
 ---
-## Luhmann's theory of knowledge: beyond realism and constructivism?
+# Luhmann's theory of knowledge: beyond realism and constructivism?
 
 
 

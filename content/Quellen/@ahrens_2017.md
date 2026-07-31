@@ -28,7 +28,7 @@ contribution:
 pdfLink: ""
 imported: "24-07-2026 2:11 pm"
 ---
-## How to take smart notes
+# How to take smart notes
 
 
 <div class="book-cover-container">

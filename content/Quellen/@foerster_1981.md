@@ -27,7 +27,7 @@ contribution:
 pdfLink: ""
 imported: "25-07-2026 6:32 am"
 ---
-## Observing systems
+# Observing systems
 
 
 

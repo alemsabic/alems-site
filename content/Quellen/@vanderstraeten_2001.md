@@ -27,7 +27,7 @@ contribution:
 pdfLink: "zotero://select/library/items/YIN3EABS"
 imported: "24-07-2026 4:51 pm"
 ---
-## Observing systems: a cybernetic perspective on system/environment relations
+# Observing systems: a cybernetic perspective on system/environment relations
 
 
 
