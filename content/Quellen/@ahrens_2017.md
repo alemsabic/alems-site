@@ -40,5 +40,5 @@ imported: "24-07-2026 2:11 pm"
 > [!book] Quelle
 > Ahrens, Sönke. 2017. _How to Take Smart Notes_. CreateSpace.
 
-## Meine Notizen
+## Anmerkungen
 

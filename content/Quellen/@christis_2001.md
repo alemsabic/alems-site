@@ -34,7 +34,7 @@ imported: "25-07-2026 6:31 am"
 > [!book] Quelle
 > Christis, Jac. 2001. “Luhmann’s Theory of Knowledge: Beyond Realism and Constructivism?” _Soziale Systeme_ 7 (2). [https://doi.org/10.1515/sosys-2001-0209](https://doi.org/10.1515/sosys-2001-0209).
 
-## Meine Notizen
+## Anmerkungen
 
 <div class="annotation-highlight">
   <span class="section-marker"></span>

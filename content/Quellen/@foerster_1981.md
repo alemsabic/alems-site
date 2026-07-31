@@ -34,5 +34,5 @@ imported: "25-07-2026 6:32 am"
 > [!book] Quelle
 > Foerster, Heinz von. 1981. _Observing Systems_. Intersystems Publications.
 
-## Meine Notizen
+## Anmerkungen
 

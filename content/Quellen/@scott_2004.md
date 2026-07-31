@@ -34,7 +34,7 @@ imported: "25-07-2026 6:32 am"
 > [!book] Quelle
 > Scott, Bernard. 2004. “Second-Order Cybernetics: An Historical Introduction.” _Kybernetes. the International Journal of Cybernetics, Systems and Management Sciences_ 33 (9/10). [https://doi.org/10.1108/03684920410556007](https://doi.org/10.1108/03684920410556007).
 
-## Meine Notizen
+## Anmerkungen
 
 <div class="annotation-highlight">
   <span class="section-marker"></span>

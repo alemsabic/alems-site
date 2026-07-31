@@ -34,5 +34,5 @@ imported: "25-07-2026 6:32 am"
 > [!book] Quelle
 > Leydesdorff, Loet. 2000. “Luhmann, Habermas and the Theory of Communication.” _Systems Research and Behavioral Science_ 17 (3): 273–90. [https://doi.org/10.1002/(SICI)1099-1743(200005/06)17:3%3C273::AID-SRES329%3E3.0.CO;2-R](https://doi.org/10.1002/\(SICI\)1099-1743\(200005/06\)17:3%3C273::AID-SRES329%3E3.0.CO;2-R).
 
-## Meine Notizen
+## Anmerkungen
 

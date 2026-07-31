@@ -34,7 +34,7 @@ imported: "24-07-2026 4:51 pm"
 > [!book] Quelle
 > Vanderstraeten, Raf. 2001. “Observing Systems: A Cybernetic Perspective on System/Environment Relations.” _Journal for the Theory of Social Behaviour_ 31 (3). [https://doi.org/10.1111/1468-5914.00160](https://doi.org/10.1111/1468-5914.00160).
 
-## Meine Notizen
+## Anmerkungen
 
 <div class="annotation-highlight">
   <span class="section-marker"></span>
