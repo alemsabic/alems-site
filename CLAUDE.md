@@ -24,6 +24,18 @@ change-prone stuff actually lives.
 
 ---
 
+## Sister Project
+
+This project and **gpunkt.org** (`/Users/alemsabic/Desktop/gpunkt.org`) are both Quartz-based
+sites maintained by the same person, kept in close alignment on purpose. gpunkt.org is still on
+Quartz v4.5.1 and follows this same `CLAUDE.md` / `CUSTOM-MODIFICATIONS.md` structure (ported over
+for parity — see gpunkt.org's own `CLAUDE.md` and `CUSTOM-MODIFICATIONS.md`). When you land an
+improvement here — tooling, config conventions, a reusable component (not content) — consider
+whether it should be ported to gpunkt.org too. gpunkt.org's v4→v5 migration is planned as a
+separate effort that will draw directly on this repo's `upgrade.md`.
+
+---
+
 ## ⚠️ Important: Two-Repository Architecture
 
 This repository handles **PRESENTATION ONLY** (Quartz static site generator).
