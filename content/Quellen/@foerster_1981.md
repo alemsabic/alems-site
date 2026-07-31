@@ -27,12 +27,12 @@ contribution:
 pdfLink: ""
 imported: "25-07-2026 6:32 am"
 ---
-## Observing systems
+# Observing systems
 
 
 
 > [!book] Quelle
 > Foerster, Heinz von. 1981. _Observing Systems_. Intersystems Publications.
 
-## Meine Notizen
+## Anmerkungen
 

@@ -27,14 +27,14 @@ contribution:
 pdfLink: "zotero://select/library/items/K2ZERY29"
 imported: "25-07-2026 6:32 am"
 ---
-## Ethics and second-order cybernetics
+# Ethics and second-order cybernetics
 
 
 
 > [!book] Quelle
 > Foerster, Heinz von. 2003. “Ethics and Second-Order Cybernetics.” In _Understanding Understanding: Essays on Cybernetics and Cognition_. Springer. [https://doi.org/10.1007/0-387-21722-3_14](https://doi.org/10.1007/0-387-21722-3_14).
 
-## Meine Notizen
+## Anmerkungen
 
 <div class="annotation-highlight">
   <span class="section-marker"></span>
