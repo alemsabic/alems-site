@@ -305,7 +305,7 @@ plugins:
     enabled: true
     options:
       baseUrl: "https://github.com/alemsabic/alems-notizen/blob/main"
-      editButtonText: "Verbesser die Seite auf GitHub."
+      editButtonText: "Auf GitHub bearbeiten →"
       showTags: true
     layout:
       position: beforeBody

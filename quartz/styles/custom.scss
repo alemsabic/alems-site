@@ -203,6 +203,65 @@
   max-width: none !important;
 }
 
+// Bases view meta ("Showing X of Y") — darker than the vendor's default --gray.
+.bases-view-meta {
+  color: var(--darkgray);
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+}
+
+// Bases page — add top spacing to match other page types.
+.bases-page {
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+// Bases/Canvas file badges — mark these special page types wherever their links appear in the
+// Explorer tree, the homepage Site Index, and the homepage Recent Notes list. Their slugs keep
+// the source extension (e.g. "quellen/quellen-index.base",
+// "referenzen/zettelkasten-aufbau.canvas"), so a plain href-suffix selector is enough to target
+// them — no component fork needed.
+.explorer-content a.nav-file-title[href*=".base"]::after,
+.site-index a.internal[href*=".base"]::after,
+.recent-notes a.internal[href*=".base"]::after,
+.explorer-content a.nav-file-title[href*=".canvas"]::after,
+.site-index a.internal[href*=".canvas"]::after,
+.recent-notes a.internal[href*=".canvas"]::after {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 14px;
+  margin-left: 6px;
+  padding: 3px 3px;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  line-height: 1; // a.internal sets line-height: inherit, which is much taller in prose
+  // contexts (Site Index) than in the Explorer list — pin it so the badge stays circular in both.
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  vertical-align: middle;
+  background: rgba(139, 72, 64, 0.14); // --secondary at low opacity (same hex in both themes)
+  color: var(--secondary);
+}
+
+.explorer-content a.nav-file-title[href*=".base"]::after,
+.site-index a.internal[href*=".base"]::after,
+.recent-notes a.internal[href*=".base"]::after {
+  content: "B";
+}
+
+.explorer-content a.nav-file-title[href*=".canvas"]::after,
+.site-index a.internal[href*=".canvas"]::after,
+.recent-notes a.internal[href*=".canvas"]::after {
+  content: "C";
+}
+
 // Reclaim the right sidebar's grid column on desktop for bases pages (the right
 // sidebar itself is already excluded via quartz.config.yaml's layout.byPageType.bases
 // positions), so the table gets the full width instead of a wasted empty column.

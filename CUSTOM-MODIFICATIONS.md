@@ -83,7 +83,7 @@ ContentHeader, H1) — `shortTitle` frontmatter lets Explorer/Breadcrumbs show a
 **Rule**: add `shortTitle: "Ahrens (2017)"` to a note's frontmatter. Falls back to the full title
 automatically if omitted — safe for every non-Zotero note.
 
-**Where — 5 pieces, not 4** (a real gap found during the v5 migration; don't skip the 5th on a
+**Where — 6 pieces, not 4** (real gaps found during the v5 migration and after; don't skip any on a
 future replay):
 
 1. `quartz/util/fileTrie.ts` (core, direct edit) — `FileTrieData.shortTitle`, `displayName` getter
@@ -102,6 +102,11 @@ future replay):
    index (see the Site Index entry below) builds its own list straight from `allFiles`, independent
    of both the server-side `fileTrie.ts` trie and Explorer's client-side rebuild, so it needs its
    own copy of the same `shortTitle` → `title` → last slug segment precedence.
+6. `local-plugins/recent-notes/src/components/RecentNotes.tsx` — found 2026-07-31: also builds its
+   list straight from `allFiles`, and was reading `frontmatter.title` directly with no `shortTitle`
+   fallback at all, so a literature note with a long real title (e.g. `@foerster_1981.md`, `title:
+   "Observing systems"`, `shortTitle: "von Foerster (1981)"`) showed the full title on the homepage's
+   Recent Notes list while every other surface correctly showed the short form.
 
 **Also**: `local-plugins/content-meta`'s title display is unrelated and already excluded on content
 pages (see `quartz.config.yaml`'s `layout.byPageType.content.exclude` — `article-title` renders the
@@ -147,6 +152,12 @@ uncancelled top gap v4 never had). `.recent-notes > h3` is sized identically to 
 (`1.75rem` / `3rem` at `min-width: 800px`) — scoped to the section title only, not the per-entry
 `<h3>` inside each list item.
 
+**`shortTitle` gap (fixed 2026-07-31)**: `RecentNotes.tsx` read `page.frontmatter?.title` directly
+with no `shortTitle` fallback — the 6th location in the `shortTitle` entry above. A literature note
+with a long real `title` but a short `shortTitle` (e.g. `@foerster_1981.md`) showed the full title
+here while every other surface (Explorer, Breadcrumbs, Site Index) correctly showed the short form.
+Fixed to the same `shortTitle || title || "Untitled"` precedence used elsewhere.
+
 ## Homepage (index page) layout
 
 **Where**: `local-plugins/site-index/`, `local-plugins/graph/`, the `is-index` condition in
@@ -184,6 +195,56 @@ per its lower `afterBody` priority in `quartz.config.yaml`). See
 for the full rationale, including a documented CSS cascade-order hazard (a responsive override nested
 inside a media query can silently lose to an unconditional rule declared later in the file) worth
 knowing before touching this block again.
+
+## Bases/Canvas file badges + Site Index visibility
+
+**Added 2026-07-31.** Two related changes so `.base` (Obsidian Bases) and `.canvas` files are
+visible and visually distinguishable from regular notes wherever they're linked from a listing
+component, without forking any of those components.
+
+**Site Index visibility**: `local-plugins/site-index/src/util/entries.ts`'s `buildIndexEntries`
+used to have `.filter((p) => !(p.slug ?? "").endsWith(".base"))`, deliberately excluding bases
+files from the homepage phone-book index. No equivalent filter ever existed for `.canvas`, so
+canvas files always showed while bases files silently didn't. The filter line was removed — bases
+files now list normally, same as canvas files always did.
+
+**Badges (pure CSS, no component fork)**: both page types' slugs keep their source file's
+extension end-to-end (e.g. `quellen/quellen-index.base`, `referenzen/zettelkasten-aufbau.canvas` —
+confirmed in the built `public/` output, not just theory), so a plain `[href*=".base"]` /
+`[href*=".canvas"]` attribute selector reliably targets their links anywhere, with no risk of
+matching an unrelated slug (no real slug on this site contains a literal `.base`/`.canvas`
+substring otherwise). `custom.scss` adds a small single-letter circular badge (`::after`, content
+`"B"` / `"C"`, background/color from `--secondary` at low opacity) scoped to three link contexts:
+`.explorer-content a.nav-file-title`, `.site-index a.internal`, `.recent-notes a.internal`. Any
+future listing component that should also show these badges just needs its own link selector added
+to the same three rule blocks — the badge CSS itself doesn't need to change.
+
+**Badge shape gotcha**: `a.internal { line-height: inherit; }` is a sitewide rule, so the badge's
+own `line-height` inherits whatever line-height the surrounding prose context uses — much taller in
+the Site Index/Recent Notes (prose line-height) than in the Explorer file list (tight list
+line-height), which stretched the badge into an oval in some contexts and left it circular in
+others. Fixed by pinning `line-height: 1` directly on the badge rule rather than relying on
+inheritance.
+
+**Explorer file-pinning was considered and rejected again**: badges (not reordering) were chosen
+deliberately after re-confirming the finding in the "Stock v5 behavior" / migration history — see
+`upgrade.md` item 6. The documented `quartz.ts` override pattern for a custom Explorer `sortFn`
+silently no-ops for this Explorer fork (its `dist/index.d.ts` re-exports rather than declares the
+factory, so the CLI's override-detection regex never sees it), and hardcoding a pin into the fork's
+own `defaultOptions.sortFn` was rejected as not worth the complexity, for the same file, twice.
+Don't re-propose Explorer file-pinning without a genuinely new angle on that limitation.
+
+**Dev workflow gotcha (relevant for any local-plugin edit, not just this one)**: `local-plugins/*`
+ship from their own `dist/` (built via `tsup`; each plugin's `package.json` `main`/`types` point
+there), and the Quartz dev server (`--serve`) only loads that compiled `dist/` **once at process
+start** — it does not rebuild or hot-reload it. `custom.scss` edits *do* hot-reload live (SCSS is
+recompiled per-request by the running server), which can be misleading: a badge color tweak shows
+up instantly, but a logic change to a `local-plugins/*/src/*.ts(x)` file (like the site-index filter
+or the RecentNotes title fix above) silently keeps serving the old compiled behavior until you (1)
+run `npm install && npm run build` inside that plugin's directory (its own `node_modules`/`tsup`
+binary may not even be installed yet — check first) and (2) fully kill and restart the `quartz
+build --serve` process. Restarting only fixes it going forward; a server already running from before
+your source edit will keep serving stale plugin logic indefinitely otherwise.
 
 ## Tag/folder listing pages
 

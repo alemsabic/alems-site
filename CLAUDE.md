@@ -110,6 +110,14 @@ This is a manual convention like the jDocMunch policy above — no enforcement h
   matters — see `CLAUDE.md`'s Deployment section and `upgrade.md`'s Phase H for why)
 - **Check types**: `npm run check`
 - **Format code**: `npm run format`
+- **`local-plugins/*` source edits need a rebuild + full server restart, not just a save.** Each
+  fork ships from its own `dist/` (built via `tsup`), and a running `--serve` process loads that
+  `dist/` once at startup — it never rebuilds or hot-reloads it. `quartz/styles/custom.scss` is the
+  exception: it hot-reloads live. After editing any `local-plugins/*/src/**`, run `npm install &&
+  npm run build` inside that plugin's own directory (its `node_modules` may not be installed yet),
+  then kill and restart the dev server — otherwise it keeps serving the old compiled behavior
+  indefinitely. See `CUSTOM-MODIFICATIONS.md`'s "Bases/Canvas file badges" entry for a worked
+  example of this biting twice in one session.
 
 ---
 

@@ -1317,7 +1317,9 @@ or during Phase H on this front. Question closed — nothing further to investig
 
 _(not started — see plan file for gpunkt.org-specific deltas to preserve: heading-badge/im-Fokus transformer plugins, TableOfContents badge rendering, footnote-heading relabeling, its more-diverged ContentHeader. Also see the "9th bug" and "Small design tweaks" addenda above (2026-07-27): the dark-mode `var(--light)` color-drift root cause to check for, the mobile sidebar `opacity: 0.95`, the `.recent-notes` title text change to "Zuletzt bearbeitet", and the `.recent-notes > h3`
 H1-identical sizing (`1.75rem` / `3rem` at `min-width: 800px`) — all explicitly flagged by the user
-to carry over.)_
+to carry over. Also see item 9 and item 10 below (2026-07-31): the local-plugin
+rebuild+restart dev workflow gotcha, the Bases/Canvas Site Index visibility fix, the B/C file-type
+badges, and the RecentNotes `shortTitle` fix — also explicitly flagged by the user to carry over.)_
 
 **Phase H deploy-cutover gotchas to carry over verbatim (found 2026-07-27, don't re-derive these on
 gpunkt.org — just apply them directly)**:
@@ -1465,3 +1467,29 @@ gpunkt.org — just apply them directly)**:
    (fresh clone, run the real Cloudflare build command, watch for a name's install/build log lines
    appearing twice) rather than assuming the local dev server — which has warm `dist/` from earlier
    sessions and doesn't race — would ever have shown the bug.
+9. **Local dev-server workflow gotcha, found 2026-07-31 (bit twice in one session before being
+   traced): a running `quartz build --serve` process loads every `local-plugins/*`'s compiled
+   `dist/` once at startup and never rebuilds or hot-reloads it, even though `custom.scss` *does*
+   hot-reload live.** After editing any `local-plugins/*/src/**` file, the fix is always the same
+   two steps — `npm install && npm run build` inside that plugin's own directory (its
+   `node_modules`/`tsup` may not even be installed yet on a given machine), then fully kill and
+   restart the `quartz build --serve` process. Skipping the restart silently keeps serving the old
+   compiled logic — no error, the page just doesn't reflect the edit, which looks identical to the
+   edit having failed. **For gpunkt.org**: expect the same behavior there (it's inherent to how the
+   CLI loads local plugins, not an ale.ms-specific patch), and default to this two-step
+   rebuild+restart reflex for any local-plugin logic change from the start, rather than
+   re-discovering it mid-session again.
+10. **Two features added 2026-07-31, both explicitly flagged by the user to carry over to
+    gpunkt.org**: (a) the homepage Site Index no longer excludes `.base` (Obsidian Bases) files —
+    `local-plugins/site-index/src/util/entries.ts`'s `buildIndexEntries` had a
+    `.filter(p => !slug.endsWith(".base"))` that `.canvas` never had, removed for parity; (b) a
+    small single-letter circular badge ("B"/"C") now marks `.base`/`.canvas` file links in the
+    Explorer, Site Index, and Recent Notes — pure `custom.scss` via `[href*=".base"]` /
+    `[href*=".canvas"]` attribute selectors (these slugs keep their source extension end-to-end,
+    confirmed in built output), no component fork needed. Also fixed in the same session: 6th
+    missing `shortTitle` fallback location, in `local-plugins/recent-notes` (see the `shortTitle`
+    entry in `CUSTOM-MODIFICATIONS.md` — check that whichever component list gpunkt.org ends up
+    with doesn't have the same gap, since it's exactly the kind of thing that's invisible until you
+    look at the actual rendered list). Full writeup, including the badge-shape/`line-height`
+    inheritance gotcha and why Explorer file-pinning was rejected again in favor of badges: see
+    `CUSTOM-MODIFICATIONS.md`'s "Bases/Canvas file badges + Site Index visibility" entry.

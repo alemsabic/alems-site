@@ -116,7 +116,10 @@ export default ((userOpts?: Partial<RecentNotesOptions>) => {
         <h3>{opts.title ?? i18n(locale).components.recentNotes.title}</h3>
         <ul class="recent-ul">
           {pages.slice(0, opts.limit).map((page) => {
-            const title = page.frontmatter?.title ?? "Untitled";
+            const title =
+              (page.frontmatter?.shortTitle as string | undefined) ||
+              (page.frontmatter?.title as string | undefined) ||
+              "Untitled";
             const tags = page.frontmatter?.tags ?? [];
 
             return (

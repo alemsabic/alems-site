@@ -19,7 +19,7 @@ interface ContentHeaderOptions {
 
 const defaultOptions: ContentHeaderOptions = {
   baseUrl: "",
-  editButtonText: "Verbesser die Seite auf GitHub.",
+  editButtonText: "Auf GitHub bearbeiten →",
   showTags: false,
 };
 
@@ -90,7 +90,12 @@ export default ((opts?: Partial<ContentHeaderOptions>) => {
           )}
 
           <dd>
-            <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+            <a
+              href={githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="content-header-edit-link"
+            >
               {options.editButtonText}
             </a>
           </dd>
@@ -141,6 +146,10 @@ export default ((opts?: Partial<ContentHeaderOptions>) => {
   .content-header a:hover {
     opacity: 0.7;
     text-decoration: underline;
+  }
+
+  .content-header-edit-link {
+    opacity: 0.5;
   }
 
   .content-header .tags-inline {
