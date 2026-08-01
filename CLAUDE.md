@@ -26,13 +26,12 @@ change-prone stuff actually lives.
 
 ## Sister Project
 
-This project and **gpunkt.org** (`/Users/alemsabic/Desktop/gpunkt.org`) are both Quartz-based
-sites maintained by the same person, kept in close alignment on purpose. gpunkt.org is still on
-Quartz v4.5.1 and follows this same `CLAUDE.md` / `CUSTOM-MODIFICATIONS.md` structure (ported over
-for parity — see gpunkt.org's own `CLAUDE.md` and `CUSTOM-MODIFICATIONS.md`). When you land an
-improvement here — tooling, config conventions, a reusable component (not content) — consider
-whether it should be ported to gpunkt.org too. gpunkt.org's v4→v5 migration is planned as a
-separate effort that will draw directly on this repo's `upgrade.md`.
+This project and **gpunkt.org** (`/Users/alemsabic/Desktop/gpunkt.org`) are both Quartz v5 sites
+maintained by the same person, kept in close alignment on purpose — both follow this same
+`CLAUDE.md` / `CUSTOM-MODIFICATIONS.md` / `upgrade.md` structure. gpunkt.org's own v4→v5 migration
+(replayed from this repo's `upgrade.md`) is complete. When you land an improvement here — tooling,
+config conventions, a reusable component (not content) — consider whether it should be ported to
+gpunkt.org too, and vice versa.
 
 ---
 
@@ -68,11 +67,8 @@ or served. Full migration history, every bug found and fixed, and the exact depl
 live in **`upgrade.md`** — read it if you need archaeology on _why_ something is built the way it is,
 not for what's true today (that's this file, plus `CUSTOM-MODIFICATIONS.md`).
 
-**Next planned phase**: replaying this same v4→v5 migration on the sister project at
-`/Users/alemsabic/Desktop/gpunkt.org` (`upgrade.md`'s "Phase I" section has a checklist of gotchas
-found here to carry over directly, so they don't need rediscovering). Explicitly gated on the user
-being present and giving the go-ahead at the time — don't start it unattended regardless of what any
-doc otherwise seems to authorize.
+gpunkt.org's own v4→v5 migration (which drew on `upgrade.md`'s "Phase I" checklist of gotchas found
+here) is complete and live — see gpunkt.org's own `CLAUDE.md` for its current state.
 
 ---
 
@@ -126,7 +122,7 @@ This is a manual convention like the jDocMunch policy above — no enforcement h
   fork ships from its own `dist/` (built via `tsup`), and a running `--serve` process loads that
   `dist/` once at startup — it never rebuilds or hot-reloads it. `quartz/styles/custom.scss` is the
   exception: it hot-reloads live. After editing any `local-plugins/*/src/**`, run `npm install &&
-  npm run build` inside that plugin's own directory (its `node_modules` may not be installed yet),
+npm run build` inside that plugin's own directory (its `node_modules` may not be installed yet),
   then kill and restart the dev server — otherwise it keeps serving the old compiled behavior
   indefinitely. See `CUSTOM-MODIFICATIONS.md`'s "Bases/Canvas file badges" entry for a worked
   example of this biting twice in one session.
