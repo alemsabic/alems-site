@@ -1,14 +1,12 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
   pageTitle: ale.ms
-  pageTitleSuffix: "Alem Šabić's Notizen und Quellen"
+  pageTitleSuffix: Alem Šabić's Notizen und Quellen
   enableSPA: true
   enablePopovers: true
   analytics:
     provider: plausible
   locale: de-DE
-  # NOTE: v4 had "https://ale.ms" (included scheme, non-standard). Deliberately fixed to the
-  # documented bare-domain convention here — verify in Phase G nothing assumed the old scheme.
   baseUrl: ale.ms
   ignorePatterns:
     - private
@@ -23,23 +21,23 @@ configuration:
       code: Inconsolata
     colors:
       lightMode:
-        light: "#e0cca6" # background-color
-        lightgray: "rgb(0 0 0 / 20%)"
+        light: "#e0cca6"
+        lightgray: rgb(0 0 0 / 20%)
         gray: "#b8b8b8"
         darkgray: "#332E27"
         dark: "#2b2b2b"
-        secondary: "#8b4840" # link-color
-        tertiary: "#9c5e56" # link-color (hover)
+        secondary: "#8b4840"
+        tertiary: "#9c5e56"
         highlight: rgba(143, 159, 169, 0.15)
         textHighlight: "#8fa59933"
       darkMode:
-        light: "#00192b" # background-color (deep navy)
-        lightgray: "rgb(255 255 255 / 20%)"
+        light: "#00192b"
+        lightgray: rgb(255 255 255 / 20%)
         gray: "#646464"
         darkgray: "#DBD5CB"
         dark: "#ebebec"
-        secondary: "#8b4840" # link-color
-        tertiary: "#9c5e56" # link-color (hover)
+        secondary: "#8b4840"
+        tertiary: "#9c5e56"
         highlight: rgba(143, 159, 169, 0.15)
         textHighlight: "#8fa59933"
 plugins:
@@ -66,21 +64,20 @@ plugins:
       enableInHtmlEmbed: false
       enableCheckbox: true
     order: 30
-  # Local fork (adds sup>a footnote popover suppression) — see local-plugins/github-flavored-markdown/FORK_NOTES.md
-  - source: "./local-plugins/github-flavored-markdown"
+  - source: ./local-plugins/github-flavored-markdown
     enabled: true
     order: 40
-  - source: "@quartz-community/table-of-contents"
+  - source: ./local-plugins/table-of-contents
     enabled: true
     options:
-      minEntries: 4 # Only show TOC if 4+ headings (rare in atomic notes)
+      minEntries: 4
       maxDepth: 3
       showByDefault: true
       collapseByDefault: false
     order: 50
     layout:
       position: right
-      priority: 10 # right sidebar order: TOC, Graph, Backlinks (corrected per CLAUDE.md fix)
+      priority: 10
       display: desktop-only
   - source: "@quartz-community/crawl-links"
     enabled: true
@@ -95,20 +92,15 @@ plugins:
     options:
       renderEngine: katex
     order: 80
-  # Local fork (restores showTooltips/tooltipAttribute passthrough) — see local-plugins/citations/FORK_NOTES.md
-  - source: "./local-plugins/citations"
+  - source: ./local-plugins/citations
     enabled: true
     options:
-      # Verified in Phase G: this path resolves correctly (citations + bibliography list render).
-      bibliographyFile: "./content/bibliography.bib"
+      bibliographyFile: ./content/bibliography.bib
       suppressBibliography: false
       linkCitations: false
       csl: apa
-      # No `lang` override: v5's Citations plugin auto-derives the CSL locale URL from
-      # `configuration.locale` (already de-DE above) — this is what our old citations.ts hack
-      # used to do manually. Confirmed by reading the plugin's actual transformer.ts source.
       showTooltips: true
-      tooltipAttribute: "data-tooltip"
+      tooltipAttribute: data-tooltip
     order: 85
   - source: "@quartz-community/hard-line-breaks"
     enabled: false
@@ -119,11 +111,6 @@ plugins:
   - source: "@quartz-community/roam"
     enabled: false
     order: 92
-  # Disabled: ships its own hardcoded font defaults (Schibsted Grotesk/Source Sans Pro/IBM Plex
-  # Mono) in a CSS @layer that wins over configuration.theme.typography's @layer by cascade-layer
-  # ordering, unless given matching `options:`. Nothing we own reads the Obsidian-style variables
-  # (--font-text etc.) it exists to bridge, and @quartz-themes/core (its only consumer) is also
-  # disabled below. See upgrade.md "Phase G addendum" for the full trace.
   - source: "@quartz-community/quartz-fonts"
     enabled: false
   - source: "@quartz-themes/core"
@@ -154,16 +141,14 @@ plugins:
       display: all
   - source: "@quartz-community/alias-redirects"
     enabled: true
-  # Local fork (adds `shortTitle` passthrough) — see local-plugins/content-index/FORK_NOTES.md
-  - source: "./local-plugins/content-index"
+  - source: ./local-plugins/content-index
     enabled: true
     options:
       enableSiteMap: true
       enableRSS: true
   - source: "@quartz-community/favicon"
     enabled: true
-  # Local fork (fixes title+suffix concatenation bug) — see local-plugins/og-image/FORK_NOTES.md
-  - source: "./local-plugins/og-image"
+  - source: ./local-plugins/og-image
     enabled: true
   - source: "@quartz-community/cname"
     enabled: true
@@ -171,29 +156,23 @@ plugins:
     enabled: true
   - source: "@quartz-community/content-page"
     enabled: true
-  # Local forks (no per-item date on list pages) — see local-plugins/{folder,tag}-page/FORK_NOTES.md
-  - source: "./local-plugins/folder-page"
+  - source: ./local-plugins/folder-page
     enabled: true
-  - source: "./local-plugins/tag-page"
+  - source: ./local-plugins/tag-page
     enabled: true
-  # Local fork (shortTitle fallback in the client-side tree) — see local-plugins/explorer/FORK_NOTES.md
-  - source: "./local-plugins/explorer"
+  - source: ./local-plugins/explorer
     enabled: true
     layout:
       position: left
       priority: 50
       condition: not-index
-  # Local fork (German heading renamed "Graphansicht" → "Graph") — see local-plugins/graph/FORK_NOTES.md
-  - source: "./local-plugins/graph"
+  - source: ./local-plugins/graph
     enabled: true
     layout:
       position: right
-      priority: 20 # right sidebar order: TOC(10), Graph(20), Backlinks(30)
+      priority: 20
       condition: not-index
-  # Index-only: same forked Graph component, always-expanded (depth: -1 = every note
-  # reachable by link from the homepage, not just 1-hop neighbors). Renders before Recent
-  # Notes (priority 5) in afterBody.
-  - source: "./local-plugins/graph"
+  - source: ./local-plugins/graph
     enabled: true
     options:
       localGraph:
@@ -205,8 +184,6 @@ plugins:
   - source: "@quartz-community/search"
     enabled: true
     layout:
-      # v4 had Search+Darkmode as a Flex row in beforeBody (before Breadcrumbs), not in the
-      # left sidebar toolbar — moved here to match.
       position: beforeBody
       priority: 1
       group: toolbar
@@ -221,15 +198,11 @@ plugins:
   - source: "@quartz-community/article-title"
     enabled: true
     layout:
-      # v4: used on list pages (folder/tag), but replaced by our custom ContentHeader on regular
-      # content pages (see layout.byPageType.content.exclude below + Phase E ContentHeader fork).
       position: beforeBody
       priority: 10
-  # Local fork (German readingTime phrasing) — see local-plugins/content-meta/FORK_NOTES.md
-  - source: "./local-plugins/content-meta"
+  - source: ./local-plugins/content-meta
     enabled: true
     layout:
-      # Same as article-title: list pages only, excluded on content pages (ContentHeader covers it).
       position: beforeBody
       priority: 20
   - source: "@quartz-community/tag-list"
@@ -243,25 +216,18 @@ plugins:
       position: left
       priority: 10
       condition: not-index
-  # New local plugin (not a fork): Tagline + ContentHeader — see local-plugins/site-components/README.md
-  # Object-form source with a `name` override so buildLayoutForEntries's PascalCase fallback
-  # lookup resolves each of this plugin's two named components independently.
   - source:
-      repo: "./local-plugins/site-components"
+      repo: ./local-plugins/site-components
       name: tagline
     enabled: true
     options:
-      linkText: "Alem Sabics"
-      linkUrl: "https://alemsabic.com"
+      linkText: Alem Sabics
+      linkUrl: https://alemsabic.com
       text: " Notizbuch."
     layout:
       position: left
       priority: 20
       condition: not-index
-  # Index-only hero: same PageTitle component as the sidebar, repositioned to the top of the
-  # center column since the sidebar is hidden on index (see custom.scss's
-  # body[data-slug="index"] block). Priority is negative so it renders before the
-  # Search+Darkmode toolbar (priority 1) in the same beforeBody position.
   - source: "@quartz-community/page-title"
     enabled: true
     layout:
@@ -269,12 +235,12 @@ plugins:
       priority: -2
       condition: is-index
   - source:
-      repo: "./local-plugins/site-components"
+      repo: ./local-plugins/site-components
       name: tagline
     enabled: true
     options:
-      linkText: "Alem Sabics"
-      linkUrl: "https://alemsabic.com"
+      linkText: Alem Sabics
+      linkUrl: https://alemsabic.com
       text: " Notizbuch."
     layout:
       position: beforeBody
@@ -287,9 +253,6 @@ plugins:
       priority: 2
       group: toolbar
   - source: "@quartz-community/reader-mode"
-    # v4 never placed ReaderMode anywhere in the layout tree, so the site has no reader-mode
-    # toggle today. Disabled here to match faithfully; trivial to flip to `true` later as an
-    # actual v5 bonus feature if wanted (not part of this migration's scope).
     enabled: false
   - source: "@quartz-community/breadcrumbs"
     enabled: true
@@ -297,15 +260,13 @@ plugins:
       position: beforeBody
       priority: 5
       condition: not-index
-  # 2026-07-26: briefly tried afterBody (bottom of page, in .page-footer) same day, reverted at
-  # the user's request — back to its original beforeBody position, above the article.
   - source:
-      repo: "./local-plugins/site-components"
+      repo: ./local-plugins/site-components
       name: content-header
     enabled: true
     options:
-      baseUrl: "https://github.com/alemsabic/alems-notizen/blob/main"
-      editButtonText: "Auf GitHub bearbeiten →"
+      baseUrl: https://github.com/alemsabic/alems-notizen/blob/main
+      editButtonText: Auf GitHub bearbeiten →
       showTags: true
     layout:
       position: beforeBody
@@ -330,20 +291,16 @@ plugins:
     layout:
       position: afterBody
       priority: 10
-  # New local plugin (not a fork): carries footnotes.inline.ts + tooltips.inline.ts, v4's
-  # Body.tsx afterDOMLoaded scripts — see local-plugins/site-scripts/README.md
-  - source: "./local-plugins/site-scripts"
+  - source: ./local-plugins/site-scripts
     enabled: true
     layout:
       position: afterBody
       priority: 90
-  # Local fork (hardcoded personal links) — see local-plugins/footer/FORK_NOTES.md
-  - source: "./local-plugins/footer"
+  - source: ./local-plugins/footer
     enabled: true
     options:
       links: {}
-  # Local fork (index-only rendering baked in, no per-item date) — see local-plugins/recent-notes/FORK_NOTES.md
-  - source: "./local-plugins/recent-notes"
+  - source: ./local-plugins/recent-notes
     enabled: true
     options:
       limit: 10
@@ -352,9 +309,7 @@ plugins:
     layout:
       position: afterBody
       priority: 5
-  # New local plugin (not a fork): alphabetical "phone book" index of every published note,
-  # index-page only. See docs/superpowers/specs/2026-07-28-index-page-redesign-design.md.
-  - source: "./local-plugins/site-index"
+  - source: ./local-plugins/site-index
     enabled: true
     layout:
       position: afterBody
@@ -371,14 +326,6 @@ plugins:
     enabled: true
     options: {}
     order: 50
-  # IMPORTANT: this is v5's only frontmatter-parsing transformer (remarkFrontmatter + title/tags/
-  # aliases/cssclasses/dates extraction — v4's equivalent of the old dedicated FrontMatter
-  # transformer). Do NOT set enabled: false — that was tried 2026-07-26 and broke frontmatter
-  # parsing entirely (raw `---\n...\n---` YAML rendered as literal body text, since nothing else
-  # registers remarkFrontmatter). The only thing to disable is its own visual "Properties" panel
-  # (found via v4/v5 visual diff — scaffold default, never present on v4, duplicated tags/aliases
-  # already shown by our content-header fork) via hidePropertiesView below, which makes the
-  # component render null rather than actually removing the plugin.
   - source: "@quartz-community/note-properties"
     enabled: true
     options:
@@ -398,13 +345,6 @@ plugins:
       display: all
 layout:
   groups:
-    # priority corrected 2026-07-26 (was 35, an unmodified scaffold-default carryover): an
-    # explicit group priority overrides every member's own layout.priority for sort purposes
-    # (config-loader.ts's resolveGroups — group priority wins over first-member fallback), so the
-    # search+darkmode toolbar (members at priority 1/2) was sorting *after* breadcrumbs (5),
-    # content-header (10), etc. instead of before them, contradicting the "moved here to match v4"
-    # comment on the search entry above. v4 puts Search+Darkmode first, directly above
-    # breadcrumbs — set below breadcrumbs' priority (5) to guarantee that regardless of member order.
     toolbar:
       priority: 0
       direction: row
@@ -416,24 +356,6 @@ layout:
         left: []
         right: []
     content:
-      # Corrected 2026-07-26 (was wrong — see upgrade.md "double H1" bugfix writeup): v4 never had
-      # a component-level title at all on content pages. Its layout.ts never referenced
-      # ArticleTitle, and the ContentHeader title <dt>/<dd> was deliberately commented out (see
-      # CLAUDE.md's shortTitle section) specifically to avoid redundancy with the markdown body's
-      # own leading `# Heading`, which IS the page's only H1 on v4 (confirmed via curl on the live
-      # site: exactly one <h1>, coming from article content, not from a template component).
-      # article-title must stay excluded here or every content page gets two identical H1s.
-      # content-meta (reading time + date) is excluded because our ContentHeader fork replaces it
-      # with a richer metadata line (date, German word count, edit-on-GitHub link).
-      #
-      # NOTE on exact strings below: `exclude` matches via config-loader.ts's extractPluginName(),
-      # which only strips a short name from local sources (`./local-plugins/x` -> `x`) and
-      # github:/git+/https: sources — a plain npm-scoped source string like
-      # "@quartz-community/article-title" is returned completely unstripped. So excluding a
-      # scoped-package component (unlike our local-plugin forks, e.g. content-meta) requires the
-      # *full* source string here, not the short display name, or the exclude silently no-ops
-      # (this is what broke the first attempt at this fix — see upgrade.md). Confirmed no other
-      # by-name lookup in config-loader.ts strips npm scope either, so this applies repo-wide.
       exclude:
         - "@quartz-community/article-title"
         - content-meta
@@ -449,10 +371,6 @@ layout:
         - "@quartz-community/comments"
       positions:
         right: []
-    # No comments on folder/tag/canvas/bases pages (user request, 2026-07-26; folder added
-    # 2026-07-27 — only caught late because the content backup only has one folder, Literatur, to
-    # test against) — Giscus doesn't make sense on generated listing/tool pages. canvas has no
-    # content under `content/` yet, but excluded proactively for when one is added.
     canvas:
       exclude:
         - "@quartz-community/comments"

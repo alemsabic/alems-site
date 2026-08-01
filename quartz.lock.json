@@ -82,6 +82,12 @@
       "commit": "local",
       "installedAt": "2026-07-28T14:19:21.942Z"
     },
+    "table-of-contents": {
+      "source": "./local-plugins/table-of-contents",
+      "resolved": "/Users/alemsabic/Desktop/ale.ms/local-plugins/table-of-contents",
+      "commit": "local",
+      "installedAt": "2026-08-01T11:20:55.464Z"
+    },
     "tag-page": {
       "source": "./local-plugins/tag-page",
       "resolved": "/Users/alemsabic/Desktop/ale.ms/local-plugins/tag-page",
