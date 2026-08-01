@@ -1284,12 +1284,18 @@ a.internal.tag-link:hover {
   transform: translateX(-50%);
   overflow-wrap: break-word;
   border-radius: 0.375rem;
-  background-color: var(--darkgray);
+  // --darkgray/--light are semantic role names (body-text-color/page-bg-color) that intentionally
+  // flip value between themes — correct for body text, but it inverts a tooltip meant to read as
+  // a card floating in the *current* theme. --dark is fully opaque in both themes, so mixing a
+  // small amount into --light gives a subtle, theme-adaptive tint instead (same technique as the
+  // search bar's lightgray/light blend above, but using --dark since --lightgray is itself a
+  // low-alpha overlay color and dilutes to near-transparent once color-mixed).
+  background-color: color-mix(in srgb, var(--dark) 8%, var(--light) 92%);
   padding: 0.5rem 0.75rem;
   text-align: left;
   font-size: 0.75rem;
   line-height: 1.25rem;
-  color: var(--light);
+  color: var(--darkgray);
   opacity: 0;
   box-shadow:
     0 10px 15px -3px rgba(0, 0, 0, 0.1),
@@ -1311,7 +1317,7 @@ a.internal.tag-link:hover {
   width: 0;
   transform: translateX(-50%);
   border: 8px solid transparent;
-  border-top-color: var(--darkgray);
+  border-top-color: color-mix(in srgb, var(--dark) 8%, var(--light) 92%);
   opacity: 0;
   transition: opacity 0.2s;
   margin-bottom: -6px;
@@ -1328,6 +1334,20 @@ a.internal.tag-link:hover {
 // ============================================
 // CALLOUT STYLING - DEZENTER (QUELLENVERZEICHNIS)
 // ============================================
+
+// Vendor callouts.scss sets overflow: hidden on both .callout (clips vertically) and its
+// .callout-content wrapper (the fold/collapse grid animation container) — needed for the
+// accordion effect, but it also clips citation tooltips that pop upward out of a callout.
+// Collapse itself is enforced per-child (.is-collapsed .callout-content > * gets height: 0 +
+// overflow-y: clip), not by these container-level rules, so relaxing them here doesn't break
+// the fold animation.
+.callout {
+  overflow: visible !important;
+}
+
+.callout > .callout-content {
+  overflow: visible !important;
+}
 
 // Callout titles: remove bold and make colors more muted (add gray)
 .callout-title {

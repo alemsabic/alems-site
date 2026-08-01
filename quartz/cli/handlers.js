@@ -586,16 +586,25 @@ export async function handleBuild(argv) {
   }
 
   if (argv.watch) {
-    const paths = await globby([
-      "**/*.ts",
-      "quartz/cli/*.js",
-      "quartz/static/**/*",
-      "**/*.tsx",
-      "**/*.scss",
-      "package.json",
-      "quartz.config.yaml",
-      "quartz.config.default.yaml",
-    ])
+    const paths = await globby(
+      [
+        "**/*.ts",
+        "quartz/cli/*.js",
+        "quartz/static/**/*",
+        "**/*.tsx",
+        "**/*.scss",
+        "package.json",
+        "quartz.config.yaml",
+        "quartz.config.default.yaml",
+      ],
+      {
+        // Without this, these bare **/*.ts / **/*.tsx globs also match every .ts/.d.ts file
+        // inside every node_modules tree in the repo — including each local-plugins/*/node_modules.
+        // chokidar then opens a native fs watch on all of them below, blowing past the OS
+        // file-descriptor limit (EMFILE) before the dev server can even start.
+        ignore: ["**/node_modules/**", "**/.git/**"],
+      },
+    )
     chokidar
       .watch(paths, { ignoreInitial: true })
       .on("add", () => build(clientRefresh))

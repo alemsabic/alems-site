@@ -158,6 +158,13 @@ async function startWatching(
   }
 
   const watcher = chokidar.watch(".", {
+    // Without this, chokidar opens a native fs watch on every file it walks — including
+    // inside every local-plugins/*/node_modules — before buildData.ignored() below ever gets
+    // a chance to filter the resulting events. With enough local plugins each carrying their
+    // own node_modules tree, that easily blows past the OS file-descriptor limit (EMFILE) before
+    // the server can even start. This regex stops chokidar from walking into those directories
+    // at all, matching regardless of absolute/relative path form.
+    ignored: /(^|[/\\])(node_modules|\.git)([/\\]|$)/,
     awaitWriteFinish: { stabilityThreshold: 250 },
     persistent: true,
     cwd: argv.directory,
