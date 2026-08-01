@@ -50,6 +50,14 @@ This repository handles **PRESENTATION ONLY** (Quartz static site generator).
   sync into). If this repo's production branch ever changes again, that workflow file must be
   updated in the _same_ session — it fails silently (green checkmark, no error) if left pointing at
   a branch nothing serves anymore; the only symptom is content changes never appearing live.
+- **`QUARTZ_REPO_TOKEN` secret (lives in `alems-notizen`, not here):** authenticates that workflow's
+  checkout of this repo. Last set 2025-10-09, still working as of 2026-08-01 — but the identical
+  setup in gpunkt.org's content repo (`gpunkt-woerter`) expired silently in that window (two pushes,
+  no error but for the Actions tab, content just never arrived). Worth checking this one isn't quietly
+  approaching the same expiry, and worth doing so *before* it fails, not after. **TODO, no deadline:**
+  same fix as gpunkt.org — replace with a fine-grained PAT scoped to `alems-notizen` →
+  `alems-site`, `Contents: Read and write` only, instead of whatever broader personal token is
+  currently in that secret.
 
 ### Repository Focus
 
