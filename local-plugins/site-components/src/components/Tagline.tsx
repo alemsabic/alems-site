@@ -6,18 +6,21 @@ import type {
 import { classNames } from "@quartz-community/utils/lang";
 
 export interface TaglineOptions {
-  /** Text of the link at the start of the tagline */
+  /** Text of the link */
   linkText: string;
   /** URL the link points to */
   linkUrl: string;
-  /** Text following the link (include leading space/punctuation as needed) */
+  /** The plain-text part (include leading/trailing space/punctuation as needed) */
   text: string;
+  /** Whether the link renders before or after the plain text. Defaults to "before". */
+  linkPosition: "before" | "after";
 }
 
 const defaultOptions: TaglineOptions = {
   linkText: "Alem Šabićs",
   linkUrl: "https://alemsabic.com",
   text: " Zettelkästchen der Notizen, Quellen und Ideen.",
+  linkPosition: "before",
 };
 
 // Styling for .tagline lives in quartz/styles/custom.scss (centralized there like every other
@@ -26,12 +29,9 @@ export default ((opts?: Partial<TaglineOptions>) => {
   const options: TaglineOptions = { ...defaultOptions, ...opts };
 
   const Tagline: QuartzComponent = ({ displayClass }: QuartzComponentProps) => {
-    return (
-      <div class={classNames(displayClass, "tagline", "desktop-only")}>
-        <a href={options.linkUrl}>{options.linkText}</a>
-        {options.text}
-      </div>
-    );
+    const link = <a href={options.linkUrl}>{options.linkText}</a>;
+    const parts = options.linkPosition === "after" ? [options.text, link] : [link, options.text];
+    return <div class={classNames(displayClass, "tagline", "desktop-only")}>{parts}</div>;
   };
 
   return Tagline;
