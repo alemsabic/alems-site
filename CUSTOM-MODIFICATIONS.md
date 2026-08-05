@@ -121,9 +121,10 @@ plugin entries via the object-form `source: {repo, name}` override (`name: tagli
 `name: content-header`), so they can sit at different layout positions from one package.
 
 **Tagline**: text fully configurable via `quartz.config.yaml`'s `tagline` entry
-(`options.linkText`/`linkUrl`/`text`) — not hardcoded JSX. CSS lives in `custom.scss`'s `.tagline`
-block (not component-embedded `Component.css`, for consistency with the rest of the site's styling
-convention).
+(`options.linkText`/`linkUrl`/`text`/`linkPosition`) — not hardcoded JSX. `linkPosition` controls
+whether the link renders before or after `text` (default `before`; this site's config uses `after`).
+CSS lives in `custom.scss`'s `.tagline` block (not component-embedded `Component.css`, for
+consistency with the rest of the site's styling convention).
 
 **ContentHeader**: shows Datum (German `DD.MM.YYYY`, own inline `formatDate`, no trailing period),
 Schlagwörter (tags), and a GitHub edit-on-`alems-notizen` link. Deliberately does **not** show the

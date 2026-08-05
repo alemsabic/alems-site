@@ -33,11 +33,13 @@
 // Higher specificity than the rule above wins regardless of source order.
 .sidebar.left .tagline.desktop-only {
   @media (max-width: 800px) {
-    // block, not flex: Tagline.tsx renders <a>{linkText}</a>{text} as sibling nodes, and a flex
-    // container splits them into separate flex items with their own line boxes (link and text
-    // stop flowing as one run of text, breaking the space between them and how they wrap
-    // together). A block element still becomes a flex *item* of the parent .sidebar.left row —
-    // it just keeps normal inline flow for its own children.
+    // block, not flex: Tagline.tsx renders <a>{linkText}</a> and {text} as sibling nodes (order
+    // depends on the `linkPosition` option — link first for "before", text first for "after"),
+    // and a flex container splits them into separate flex items with their own line boxes (link
+    // and text stop flowing as one run of text, breaking the space between them and how they wrap
+    // together, regardless of which sibling comes first). A block element still becomes a flex
+    // *item* of the parent .sidebar.left row — it just keeps normal inline flow for its own
+    // children.
     display: block;
     flex-grow: 1;
     place-self: center center;
@@ -64,7 +66,8 @@
 
 // Search button: v5's @quartz-community/search ships different CSS than v4's bundled search
 // component (found via v4/v5 visual diff, 2026-07-26 — full rule-by-rule comparison against
-// https://ale.ms/index.css). Three real differences, all restored to v4's values here rather than
+// https://ale.ms/index.css, a URL that no longer resolves since the site moved to
+// schmutz.schund.org). Three real differences, all restored to v4's values here rather than
 // patching the plugin's own bundled CSS:
 //   - background: v5 uses transparent + a 1px border; v4 used a tinted fill with no border. The
 //     border-only look nearly disappears in dark theme (var(--lightgray) is barely-there
