@@ -1,4 +1,4 @@
-# Claude Code Instructions - Quartz Repository (ale.ms)
+# Claude Code Instructions - Quartz Repository (Schmutz / schmutz.schund.org)
 
 ## ⚙️ How this file is maintained
 
@@ -19,19 +19,21 @@ current, not a historical record.
   not narrated.
 
 **Does belong here**: what's true right now (config, file structure, deployment setup), policies
-that apply to every session (jDocMunch/jCodeMunch usage), and pointers to where the detailed,
+that apply to every session (jDocMunch usage), and pointers to where the detailed,
 change-prone stuff actually lives.
 
 ---
 
-## Sister Project
+## Sister Projects
 
-This project and **gpunkt.org** (`/Users/alemsabic/Desktop/gpunkt.org`) are both Quartz v5 sites
-maintained by the same person, kept in close alignment on purpose — both follow this same
-`CLAUDE.md` / `CUSTOM-MODIFICATIONS.md` / `upgrade.md` structure. gpunkt.org's own v4→v5 migration
-(replayed from this repo's `upgrade.md`) is complete. When you land an improvement here — tooling,
-config conventions, a reusable component (not content) — consider whether it should be ported to
-gpunkt.org too, and vice versa.
+This project, **gpunkt.org** (`/Users/alemsabic/Desktop/gpunkt.org`), and **stilistik.org**
+(`/Users/alemsabic/Desktop/stilistik.org`) are all Quartz v5 sites maintained by the same person,
+kept in close alignment on purpose — all three follow this same `CLAUDE.md` /
+`CUSTOM-MODIFICATIONS.md` / `upgrade.md` structure. gpunkt.org's own v4→v5 migration (replayed from
+this repo's `upgrade.md`) is complete; stilistik.org is still being bootstrapped (see its own
+CLAUDE.md for current status). When you land an improvement here — tooling, config conventions, a
+reusable component (not content) — consider whether it should be ported to the other two, and vice
+versa.
 
 ---
 
@@ -95,29 +97,12 @@ This is a manual convention, not an enforced hook — no PreToolUse/PostToolUse 
 
 ---
 
-## Code Exploration Policy (jCodeMunch)
-
-This project also registers the `jcodemunch` MCP server (project-scoped, `.mcp.json`) alongside jDocMunch. Where jDocMunch indexes _documentation_ (prose, by section), jCodeMunch indexes _source code_ (TypeScript/JS, by symbol — functions, classes, components, byte-accurate) via tree-sitter. Don't confuse the two: a Quartz upstream `.md` doc goes through jDocMunch; a Quartz upstream or local `.ts`/`.tsx` file goes through jCodeMunch.
-
-**You MUST reach for jCodeMunch (not raw `Read`/grep) in these situations:**
-
-- **Before editing any file `CUSTOM-MODIFICATIONS.md` calls out as shared/fragile infrastructure** — `quartz/util/fileTrie.ts`, `quartz/util/ctx.ts` (both core), and any file inside `local-plugins/citations/`, `local-plugins/content-index/`, `local-plugins/explorer/`, `local-plugins/github-flavored-markdown/`, or `local-plugins/site-scripts/`. This repo has a documented history of custom modifications threaded across multiple files that must stay in sync (footnote highlighting, tooltip decoding, `shortTitle` fallback across 5 locations, German locale citations — see `CUSTOM-MODIFICATIONS.md`). Run `find_references` / `get_blast_radius` on the symbol you're about to touch before editing it, so a change doesn't silently break one of these previously-hard-won fixes elsewhere.
-- **When locating where a symbol, component, or type is defined or used anywhere under `quartz/` or `local-plugins/`**, instead of grepping across dozens of files by hand. Use `search_symbols` / `find_references`.
-- **Before deleting or renaming any exported symbol in `quartz/` or a `local-plugins/*` fork** — run `check_delete_safe` first rather than assuming it's unused.
-- **When exploring an unfamiliar part of the Quartz internals for the first time** (e.g. chasing a `npm run check` type error into upstream Quartz plugin code, or understanding a component's call chain before extending it) — `index_local` the relevant directory, then query it rather than opening whole files cold.
-
-**Not for**: this repo's own CLAUDE.md/CUSTOM-MODIFICATIONS.md/README (small, just `Read` them); the `content/` folder (Markdown content, not code, and out of scope per the two-repo architecture above — if you ever need to inspect it, `Read`/grep is fine); trivial edits where the exact file and line are already known and no ripple-effect risk exists.
-
-This is a manual convention like the jDocMunch policy above — no enforcement hooks are installed, nothing blocks a direct `Read`. But given this repo's track record of cross-file regressions on Quartz updates, defaulting to jCodeMunch's reference/blast-radius checks before touching shared files is the safer habit, not an optional nicety.
-
----
-
 ## Project Overview
 
 - **Name**: alems-site
 - **Type**: Static site generator using Quartz v5.0.0
-- **Purpose**: ale.ms - Quellenangaben und Schulungsunterlagen von Alem Sabic
-- **Live Site**: https://ale.ms
+- **Purpose**: Schmutz (schmutz.schund.org) - Notizen zum Magazin, von Alem Sabic
+- **Live Site**: https://schmutz.schund.org
 
 ### Key Commands
 
@@ -163,11 +148,12 @@ ale.ms/
 
 **Site Identity**:
 
-- Page title: "ale.ms"
-- Tagline text: configurable via `quartz.config.yaml`'s `tagline` plugin entry (see
+- Page title: "Schmutz"
+- Tagline text: "Notizen zum Magazin" — "Magazin" links to https://schund.org (the Substack on
+  that domain's root). Configurable via `quartz.config.yaml`'s `tagline` plugin entry (see
   `CUSTOM-MODIFICATIONS.md`)
-- Base URL: `ale.ms` (bare, no `https://` scheme — v5 convention, verified not to cause
-  double/missing-scheme issues in RSS/sitemap output)
+- Base URL: `schmutz.schund.org` (bare, no `https://` scheme — v5 convention, verified not to
+  cause double/missing-scheme issues in RSS/sitemap output)
 
 **Typography** (`quartz.config.yaml`'s `configuration.theme.typography`):
 
@@ -220,7 +206,11 @@ upgrade. Every entry exists because it was lost or broken at least once already.
 - **Repository**: https://github.com/alemsabic/alems-site
 - **Branch**: `v5` — Cloudflare Pages production branch and this repo's GitHub default branch.
   `v4` is the pre-migration branch, kept but no longer deployed.
-- **Project**: `ale-ms`
+- **Project**: `ale-ms` (Cloudflare Pages project name — kept as-is across the rebrand; only the
+  custom domain changed). Custom domain: `schmutz.schund.org` (a subdomain of the separate
+  `schund.org` zone in the same Cloudflare account). `ale.ms` was removed as this project's custom
+  domain once the new domain was verified live — see
+  `docs/superpowers/specs/2026-08-05-schmutz-migration-design.md`.
 - **Build Command**: `npx quartz plugin install --from-config && npx quartz build` — the
   `--from-config` flag is required, not optional. Bare `npx quartz plugin install` restores local
   plugins from `quartz.lock.json`'s frozen `resolved` field, an **absolute, install-machine-specific
