@@ -1,13 +1,13 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: ale.ms
+  pageTitle: Schmutz
   pageTitleSuffix: Alem Šabić's Notizen und Quellen
   enableSPA: true
   enablePopovers: true
   analytics:
     provider: plausible
   locale: de-DE
-  baseUrl: ale.ms
+  baseUrl: schmutz.schund.org
   ignorePatterns:
     - private
     - templates
@@ -221,9 +221,10 @@ plugins:
       name: tagline
     enabled: true
     options:
-      linkText: Alem Sabics
-      linkUrl: https://alemsabic.com
-      text: " Notizbuch."
+      linkText: Magazin
+      linkUrl: https://schund.org
+      text: "Notizen zum "
+      linkPosition: after
     layout:
       position: left
       priority: 20
@@ -239,9 +240,10 @@ plugins:
       name: tagline
     enabled: true
     options:
-      linkText: Alem Sabics
-      linkUrl: https://alemsabic.com
-      text: " Notizbuch."
+      linkText: Magazin
+      linkUrl: https://schund.org
+      text: "Notizen zum "
+      linkPosition: after
     layout:
       position: beforeBody
       priority: -1
@@ -287,7 +289,7 @@ plugins:
         lang: de
         lightTheme: light
         darkTheme: dark
-        themeUrl: https://ale.ms/static/giscus
+        themeUrl: https://schmutz.schund.org/static/giscus
     layout:
       position: afterBody
       priority: 10
