@@ -294,9 +294,9 @@ instead of fixing it, and leaves every other surface still wrong.
 the iframe from `themeUrl` (`quartz/static/giscus/dark.css`), not by the page's CSS variables.
 `--bg` there must be kept in sync with the config value above by hand (currently also `#09002b`).
 **Important operational fact**: this file is fetched from the literal **production** domain
-(`https://ale.ms/static/giscus`, see `quartz.config.yaml`'s `themeUrl`), regardless of which
-build/environment is rendering the surrounding page — a change here is invisible on any preview
-deploy or `localhost`, correct or not, until it's actually live in production.
+(`https://schmutz.schund.org/static/giscus`, see `quartz.config.yaml`'s `themeUrl`), regardless of
+which build/environment is rendering the surrounding page — a change here is invisible on any
+preview deploy or `localhost`, correct or not, until it's actually live in production.
 
 ## Search button styling
 
@@ -357,8 +357,10 @@ every old-cased URL, containing `<meta http-equiv="refresh">` to the canonical l
 `<link rel="canonical">` and `<meta name="robots" content="noindex">` (so search engines re-index
 the new URL instead of treating the redirect page as a duplicate). Works without JavaScript.
 Verified live 2026-07-27: `curl https://ale.ms/Literatur/@ahrens_2017` returns exactly this redirect
-page, not a 404. The same plugin also handles genuine frontmatter `aliases:` redirects — same
-mechanism, different trigger.
+page, not a 404 (site has since moved to `schmutz.schund.org`, see
+`docs/superpowers/specs/2026-08-05-schmutz-migration-design.md` — re-verify against the new domain
+after the next case-sensitivity-relevant change). The same plugin also handles genuine frontmatter
+`aliases:` redirects — same mechanism, different trigger.
 
 **For any future Quartz version upgrade or the gpunkt.org replay**: don't assume this "just works"
 because it worked here — it worked here because the plugin happened to already be
